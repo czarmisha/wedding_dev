@@ -10,7 +10,7 @@ class User(AbstractUser):
         ('specialist', 'Специалист'),
         ('other', 'Другой'),
     )
-    type = models.CharField('Тип пользователя', max_length=10, choices=_TYPES_OF_USER, default='other')
+    type = models.CharField('Тип пользователя', max_length=10, choices=_TYPES_OF_USER, default='client')
 
 
 class Category(models.Model):

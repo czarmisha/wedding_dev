@@ -15,8 +15,8 @@ class UserAdmin(auth_admin.UserAdmin):
 class SpecialistAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         username = obj.user.username
-        #if form.cleaned_data['slug'] == "":
         obj.slug = slugify(username)
+        obj.user.type = 'specialist'
         obj.save()
 
 
