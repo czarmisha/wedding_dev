@@ -52,7 +52,7 @@ class District(models.Model):
 
 class ClientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    avatar = models.ImageField(upload_to='avatars/', verbose_name='Аватар')
+    avatar = models.ImageField(upload_to='avatars/clients', verbose_name='Аватар')
     phone = models.IntegerField('Телефон')
     telegram = models.CharField('Телеграм', max_length=50)
     create_date = models.DateTimeField('Дата создания профиля', auto_now_add=True)
@@ -70,7 +70,7 @@ class SpecialistProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name='Категория',
                                  related_name='specialists')
-    avatar = models.ImageField(upload_to='avatars/', verbose_name='Аватар')
+    avatar = models.ImageField(upload_to='avatars/specialists', verbose_name='Аватар')
     phone = models.IntegerField('Телефон')
     telegram = models.CharField('Телеграм', max_length=50)
     create_date = models.DateTimeField('Дата создания профиля', auto_now_add=True)
