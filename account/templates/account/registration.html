@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%block content%}
+<form action="" method="post" class="my_form">
+    {% csrf_token %}
+    {% for input in user_form %}
+    <div class="form-group row">
+        <label for="{{input.id_for_label}}" class="col-sm-4 col-form-label label_p">{{input.label}}</label>
+        <div class="col-sm-8">
+            {{input}}
+            {%if input.help_text%}
+            <p class="helptext">{{input.help_text}}</p>
+            {%endif%}
+            <ul class="errorlist">
+            {%for error in input.errors%}
+                <li>{{ error }}</li>
+            {%endfor%}
+            </ul>
+        </div>
+        <!--        <span class="helptext">{{ input.help_text }}</span>-->
+
+    </div>
+    {% endfor %}
+    <button class="btn ad_edit" type="submit">Зарегистрироваться</button>
+</form>
+{% endblock %}
