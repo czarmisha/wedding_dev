@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .forms import LoginForm, UserRegistrationForm
-from .models import SpecialistProfile
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -8,6 +7,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
+from services.models import Photographer
 
 
 User = get_user_model()
@@ -53,10 +53,10 @@ def user_login(request):
     return render(request, 'account/login.html', {'form': form})
 
 
-class SpecialistDetail(LoginRequiredMixin, DetailView):
-    model = SpecialistProfile
-    template_name = 'account/specialist_profile_detail.html'
-    context_object_name = 'profile'
+class PhotographerDetail(LoginRequiredMixin, DetailView):
+    model = Photographer
+    template_name = 'account/photographer_detail.html'
+    context_object_name = 'photographer'
 
 
 class CabinetView(LoginRequiredMixin, DetailView):

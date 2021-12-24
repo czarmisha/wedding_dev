@@ -8,9 +8,9 @@ class User(AbstractUser):
     _TYPES_OF_USER = (
         ('client', 'Клиент'),
         ('specialist', 'Специалист'),
-        ('other', 'Другой'),
+        ('photographer', 'Фотограф'),
     )
-    type = models.CharField('Тип пользователя', max_length=10, choices=_TYPES_OF_USER, default='client')
+    type = models.CharField('Тип пользователя', max_length=155, choices=_TYPES_OF_USER, default='client')
 
 
 class Category(models.Model):
@@ -66,26 +66,26 @@ class ClientProfile(models.Model):
         super(ClientProfile, self).save(*args, **kwargs)
 
 
-class SpecialistProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name='Категория',
-                                 related_name='specialists')
-    avatar = models.ImageField(upload_to='avatars/specialists', verbose_name='Аватар')
-    phone = models.IntegerField('Телефон')
-    telegram = models.CharField('Телеграм', max_length=50)
-    create_date = models.DateTimeField('Дата создания профиля', auto_now_add=True)
-    city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
-    district = models.ForeignKey('District', on_delete=models.CASCADE, verbose_name='Район', blank=True, null=True)
-    about = models.TextField('О себе', max_length=10000)
-
-    slug = models.SlugField(max_length=200, unique=True)
-
-    def __str__(self):
-        return self.user.username
-
-    def get_absolute_url(self):
-        return reverse('account.specialist_detail', args=[str(self.slug)])
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.user.username)
-        super(SpecialistProfile, self).save(*args, **kwargs)
+# class SpecialistProfile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
+#     category = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name='Категория',
+#                                  related_name='specialists')
+#     avatar = models.ImageField(upload_to='avatars/specialists', verbose_name='Аватар')
+#     phone = models.IntegerField('Телефон')
+#     telegram = models.CharField('Телеграм', max_length=50)
+#     create_date = models.DateTimeField('Дата создания профиля', auto_now_add=True)
+#     city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город')
+#     district = models.ForeignKey('District', on_delete=models.CASCADE, verbose_name='Район', blank=True, null=True)
+#     about = models.TextField('О себе', max_length=10000)
+#
+#     slug = models.SlugField(max_length=200, unique=True)
+#
+#     def __str__(self):
+#         return self.user.username
+#
+#     def get_absolute_url(self):
+#         return reverse('account.specialist_detail', args=[str(self.slug)])
+#
+#     def save(self, *args, **kwargs):
+#         self.slug = slugify(self.user.username)
+#         super(SpecialistProfile, self).save(*args, **kwargs)
