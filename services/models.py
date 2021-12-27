@@ -24,7 +24,7 @@ class Agency(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Agency, self).save(*args, **kwargs)
 
 
 class Dance(models.Model):
@@ -46,7 +46,7 @@ class Dance(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Dance, self).save(*args, **kwargs)
 
 
 class PhotoStudio(models.Model):
@@ -68,7 +68,7 @@ class PhotoStudio(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(PhotoStudio, self).save(*args, **kwargs)
 
 
 class Stylist(models.Model):
@@ -91,7 +91,7 @@ class Stylist(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Stylist, self).save(*args, **kwargs)
 
 
 class Accessories(models.Model):
@@ -112,7 +112,7 @@ class Accessories(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Accessories, self).save(*args, **kwargs)
 
 
 class Costume(models.Model):
@@ -134,7 +134,7 @@ class Costume(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Costume, self).save(*args, **kwargs)
 
 
 class Decor(models.Model):
@@ -153,7 +153,7 @@ class Decor(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Decor, self).save(*args, **kwargs)
 
 
 class Bouquet(models.Model):
@@ -175,7 +175,7 @@ class Bouquet(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Bouquet, self).save(*args, **kwargs)
 
 
 class Ring(models.Model):
@@ -196,7 +196,7 @@ class Ring(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Ring, self).save(*args, **kwargs)
 
 
 class Dress(models.Model):
@@ -217,7 +217,7 @@ class Dress(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Dress, self).save(*args, **kwargs)
 
 
 class Cake(models.Model):
@@ -239,7 +239,7 @@ class Cake(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Cake, self).save(*args, **kwargs)
 
 
 class Invitation(models.Model):
@@ -260,7 +260,7 @@ class Invitation(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Invitation, self).save(*args, **kwargs)
 
 
 class RegistryOffice(models.Model):
@@ -281,7 +281,7 @@ class RegistryOffice(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(RegistryOffice, self).save(*args, **kwargs)
 
 
 class Presenter(models.Model):
@@ -302,7 +302,7 @@ class Presenter(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Presenter, self).save(*args, **kwargs)
 
 
 class Music(models.Model):
@@ -323,7 +323,7 @@ class Music(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Music, self).save(*args, **kwargs)
 
 
 class Transport(models.Model):
@@ -347,7 +347,7 @@ class Transport(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Transport, self).save(*args, **kwargs)
 
 
 class Artist(models.Model):
@@ -367,7 +367,7 @@ class Artist(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Artist, self).save(*args, **kwargs)
 
 
 class Restaurant(models.Model):
@@ -390,7 +390,7 @@ class Restaurant(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Photographer, self).save(*args, **kwargs)
+        super(Restaurant, self).save(*args, **kwargs)
 
 
 class Photographer(models.Model):

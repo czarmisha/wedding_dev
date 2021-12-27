@@ -7,10 +7,9 @@ from django.utils.text import slugify
 class User(AbstractUser):
     _TYPES_OF_USER = (
         ('client', 'Клиент'),
-        ('specialist', 'Специалист'),
         ('photographer', 'Фотограф'),
     )
-    type = models.CharField('Тип пользователя', max_length=155, choices=_TYPES_OF_USER, default='client')
+    type = models.CharField('Тип пользователя', max_length=155, default='client')
 
 
 class Category(models.Model):
