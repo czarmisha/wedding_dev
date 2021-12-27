@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from .forms import LoginForm, UserRegistrationForm
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
+# from services.models import Photographer
 
 
 User = get_user_model()
@@ -42,7 +44,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated successfully')
+                    return HttpResponseRedirect(reverse('home', kwargs={}))
                 else:
                     return HttpResponse('Disabled account')
             else:
@@ -52,7 +54,20 @@ def user_login(request):
     return render(request, 'account/login.html', {'form': form})
 
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('home', kwargs={}))
+
+
 class CabinetView(LoginRequiredMixin, DetailView):
     model = User
     template_name = 'account/cabinet.html'
     context_object_name = 'user'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(CabinetView, self).get_context_data(**kwargs)
+    #     if self.object.type == 'photographer':
+    #         context['photographer'] = Photographer.objects.filter(user=self.object)
+    #     return context
+

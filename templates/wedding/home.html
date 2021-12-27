@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Log-in{% endblock %}
 {% block content %}
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'account:cabinet' request.user.pk %}">Cabinet</a>
+        <a href="{% url 'account:logout' %}">logout</a>
+    {% else %}
+      <a href="{% url 'account:login' %}">Login</a>
+    {% endif %}
     main page
     {% for i in photographers %}
     <a href="{{ i.get_absolute_url }}">{{ i }}</a>

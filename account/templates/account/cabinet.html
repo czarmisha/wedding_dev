@@ -5,7 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-{{user.type}}
-{{user.username}}
+    {% if user.type == 'photographer' %}
+        {{user.type}}
+        {{user.username}}
+        {{user.photographer.phone}}
+    {% elif user.type == 'restaurant' %}
+        {{user.type}}
+        {{user.username}}
+        {{user.restaurant.phone}}
+    {% else %}
+        {{user.type}}
+        {{user.username}}
+        {{user.clientprofile.phone}}
+    {% endif %}
 </body>
 </html>
