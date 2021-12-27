@@ -7,7 +7,6 @@ from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
-from services.models import Photographer
 
 
 User = get_user_model()
@@ -51,12 +50,6 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
-
-
-class PhotographerDetail(LoginRequiredMixin, DetailView):
-    model = Photographer
-    template_name = 'account/photographer_detail.html'
-    context_object_name = 'photographer'
 
 
 class CabinetView(LoginRequiredMixin, DetailView):

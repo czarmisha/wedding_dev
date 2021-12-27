@@ -2,4 +2,7 @@
 {% block title %}Log-in{% endblock %}
 {% block content %}
     main page
+    {% for i in photographers %}
+    <a href="{{ i.get_absolute_url }}">{{ i }}</a>
+    {% endfor %}
 {% endblock %}

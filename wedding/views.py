@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from services.models import Photographer
 
 
 def home(request):
-    return render(request, 'wedding/home.html')
+    photographers = Photographer.objects.all()
+    return render(request, 'wedding/home.html', context={'photographers': photographers})
