@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
@@ -58,6 +58,12 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home', kwargs={}))
+
+
+class ClientProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = ClientProfile
+    fields = ['avatar', 'phone', 'telegram']
+    template_name_suffix = '_update_form'
 
 
 class CabinetView(LoginRequiredMixin, DetailView):

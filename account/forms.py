@@ -1,8 +1,7 @@
-from django.conf import settings
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
-# User = settings.AUTH_USER_MODEL
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class LoginForm(forms.Form):
@@ -17,9 +16,3 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email')
-
-    # def clean_password2(self):
-    #     cd = self.cleaned_data
-    #     if cd['password'] != cd['password2']:
-    #         raise forms.ValidationError('Passwords don\'t match.')
-    #     return cd['password2']

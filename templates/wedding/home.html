@@ -11,4 +11,6 @@
     {% for i in photographers %}
     <a href="{{ i.get_absolute_url }}">{{ i }}</a>
     {% endfor %}
+    <br>
+    <a href="{% url 'tender:list' %}">Тендеры</a>
 {% endblock %}

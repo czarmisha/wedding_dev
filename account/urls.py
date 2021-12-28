@@ -8,4 +8,5 @@ urlpatterns = [
     path('logout', views.user_logout, name='logout'),
     path('registration', views.user_register, name='registration'),
     path('cabinet/<int:pk>', views.CabinetView.as_view(), name='cabinet'),
+    path('cabinet/<slug:slug>/edit', views.ClientProfileUpdateView.as_view(), name='update_client_profile')
 ]

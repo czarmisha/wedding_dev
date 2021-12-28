@@ -22,5 +22,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('account/', include('account.urls', namespace='account')),
     path('services/', include('services.urls', namespace='services')),
+    path('tender/', include('tender.urls', namespace='tender')),
     path('admin/', admin.site.urls),
 ]

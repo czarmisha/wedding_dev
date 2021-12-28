@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<a href="{% url 'home' %}">home</a>
     {% if user.type == 'photographer' %}
         {{user.type}}
         {{user.username}}
@@ -17,6 +18,8 @@
         {{user.type}}
         {{user.username}}
         {{user.clientprofile.phone}}
+        <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}">edit profile</a>
+        <a href="{% url 'tender:create' %}">create tender</a>
     {% endif %}
 </body>
 </html>

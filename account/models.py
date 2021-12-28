@@ -67,6 +67,10 @@ class ClientProfile(models.Model):
         self.slug = slugify(self.user.username)
         super(ClientProfile, self).save(*args, **kwargs)
 
+    class Meta:
+        verbose_name = 'Клиент'
+        verbose_name_plural = 'Клиенты'
+
 
 # class SpecialistProfile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)

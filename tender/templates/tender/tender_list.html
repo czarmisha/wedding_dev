@@ -1,0 +1,12 @@
+{% extends 'tender_base.html' %}
+
+
+{% block content %}
+<a href="{% url 'home' %}">home</a>
+<h1>Tenders</h1>
+<ul>
+    {% for tender in tender_list %}
+        <a href="{% url 'tender:detail' tender.slug %}">{{tender}}</a>
+    {% endfor %}
+</ul>
+{% endblock %}
