@@ -6,5 +6,12 @@
 <h1>Tender detail</h1>
 <ul>
     {{tender.get_service_display}}
+    <br>
+    <br>
+    <br>
+    {%if tender.author == request.user%}
+        <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
+        <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+    {%endif%}
 </ul>
 {% endblock %}

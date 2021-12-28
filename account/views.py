@@ -8,7 +8,7 @@ from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
-# from services.models import Photographer
+from tender.models import Tender
 
 
 User = get_user_model()
@@ -71,9 +71,9 @@ class CabinetView(LoginRequiredMixin, DetailView):
     template_name = 'account/cabinet.html'
     context_object_name = 'user'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(CabinetView, self).get_context_data(**kwargs)
-    #     if self.object.type == 'photographer':
-    #         context['photographer'] = Photographer.objects.filter(user=self.object)
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(CabinetView, self).get_context_data(**kwargs)
+        if self.object.type == 'client':
+            context['client_tenders'] = Tender.objects.filter(author=self.object)
+        return context
 

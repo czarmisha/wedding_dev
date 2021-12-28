@@ -39,8 +39,8 @@ class Tender(models.Model):
     def __str__(self):
         return '{} - {}'.format(self.service, self.on_date)
 
-    # def get_absolute_url(self):
-    #     return reverse('account:cabinet', args=[self.user.pk])
+    def get_absolute_url(self):
+        return reverse('tender:detail', args=[self.slug])
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.author.username + self.service + str(self.on_date))

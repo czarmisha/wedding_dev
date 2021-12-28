@@ -20,6 +20,13 @@
         {{user.clientprofile.phone}}
         <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}">edit profile</a>
         <a href="{% url 'tender:create' %}">create tender</a>
+        <a href="{% url 'home' %}">my tenders</a>
+        <p>my tenders:</p>
+        <ul>
+            {% for tender in client_tenders%}
+                <li><a href="{%url 'tender:detail' tender.slug%}">{{tender}}</a></li>
+            {%endfor%}
+        </ul>
     {% endif %}
 </body>
 </html>
