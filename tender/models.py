@@ -28,7 +28,7 @@ class Tender(models.Model):
     ]
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     executor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='executor', blank=True)
-    response = models.ManyToManyField(User, related_name='responses', blank=True)
+    # response = models.ManyToManyField(User, related_name='responses', blank=True)
     service = models.CharField(max_length=15, choices=_SERVICES, default=None)
     create_date = models.DateTimeField('Дата создания тендера', auto_now_add=True)
     on_date = models.DateField('Дата события')
@@ -49,3 +49,12 @@ class Tender(models.Model):
     class Meta:
         verbose_name = 'Тендер'
         verbose_name_plural = 'Тендеры'
+
+
+class Response(models.Model):
+    tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
+    from_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='responses')
+
+    class Meta:
+        verbose_name = 'Отклик'
+        verbose_name_plural = 'Отклики'

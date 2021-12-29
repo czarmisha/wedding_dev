@@ -191,3 +191,8 @@ class PhotographerAdmin(admin.ModelAdmin):
         obj.user.type = 'photographer'
         obj.user.save()
         obj.save()
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    pass

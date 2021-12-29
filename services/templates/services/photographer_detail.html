@@ -15,4 +15,10 @@
 {{photographer.user}}
 {{photographer.user.username}}
 {{photographer.user.type}}
+{%if request.user.type == 'client'%}
+<br>
+<a href="">Написать отзыв</a>
+{%endif%}
+<br><br>
+<p>Отзывы:</p>
 {% endblock %}

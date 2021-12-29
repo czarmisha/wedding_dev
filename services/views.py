@@ -2,6 +2,11 @@ from django.views.generic import DetailView
 from .models import *
 
 
+def create_review(request):
+    #TODO create view for review
+    pass
+
+
 class AgencyDetail(DetailView):
     model = Agency
     template_name = 'services/agency_detail.html'
