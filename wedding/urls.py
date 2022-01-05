@@ -26,6 +26,7 @@ urlpatterns = [
     path('services/', include('services.urls', namespace='services')),
     path('tender/', include('tender.urls', namespace='tender')),
     path('admin/', admin.site.urls),
+    path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

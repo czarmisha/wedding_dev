@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load static %}
+{% load ratings %}
+
+<p>Оценка</p>
+{%if request.user != object.user%}
+{% ratings object.user %}
+<!--{%else%}-->
+<!--sadasd-->
+<!--<div class="star-ratings-rating-average">'Average: ' <span class='star-ratings-rating-value'>{{ rating.average|floatformat:"-2" }}</span></div>-->
+<!--<div class="star-ratings-rating-count">'Rating Count: ' <span class='star-ratings-rating-value'>{{ rating.count }}</span></div>-->
+{%endif%}

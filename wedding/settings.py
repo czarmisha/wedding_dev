@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'account',
     'services',
     'tender',
+    'star_ratings',
 ]
 
 AUTH_USER_MODEL = 'account.User'
@@ -134,3 +135,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Star Rating
+STAR_RATINGS_RERATE = False
+# STAR_RATINGS_RANGE = 5
+STAR_RATINGS_STAR_HEIGHT = 16
+STAR_RATINGS_STAR_WIDTH = 16
+

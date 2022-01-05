@@ -1,9 +1,11 @@
 {% extends 'services_base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% block links %}<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">{% endblock %}
 </head>
 <body>
 
@@ -31,4 +33,7 @@
         <li>{{review.text}}</li>
     {%endfor%}
 </ul>
+<!--{%if object.user != request.user%}-->
+{%include 'services/_inc/rating.html'%}
+<!--{%endif%}-->
 {% endblock %}
