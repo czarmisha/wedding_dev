@@ -29,7 +29,8 @@ def user_register(request):
             new_user.clientprofile = new_client
             # Save the User object
             new_user.save()
-            return render(request, 'account/registration_done.html', {'new_user': new_user})
+            login(request, new_user)
+            return HttpResponseRedirect(reverse('home', kwargs={}))
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/registration.html', {'user_form': user_form})

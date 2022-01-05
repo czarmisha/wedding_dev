@@ -10,7 +10,8 @@
         {{user.type}}
         {{user.username}}
         {{user.photographer.phone}}
-        <img src="{{user.photographer.avatar.url}}" alt="" width="50" height="50">
+        {%if user.photographer.avatar%}<img src="{{user.photographer.avatar.url}}" alt="" width="50" height="50">{%endif%}
+
     {% elif user.type == 'restaurant' %}
         {{user.type}}
         {{user.username}}
@@ -19,7 +20,7 @@
         {{user.type}}
         {{user.username}}
         {{user.clientprofile.phone}}
-        <img src="{{user.clientprofile.avatar.url}}" alt="" width="50" height="50">
+        {%if user.clientprofile.avatar%}<img src="{{user.photographer.avatar.url}}" alt="" width="50" height="50">{%endif%}
         <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}">edit profile</a>
         <a href="{% url 'tender:create' %}">create tender</a>
         <p>my tenders:</p>

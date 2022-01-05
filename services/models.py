@@ -9,6 +9,7 @@ User = get_user_model()
 class Review(models.Model):
     service_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='service_reviews')
     client_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
+    text = models.TextField('Текст отзыва', default=' ')
 
     class Meta:
         verbose_name = 'Отзыв'

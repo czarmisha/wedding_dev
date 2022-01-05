@@ -22,4 +22,5 @@ urlpatterns = [
     path('photo-studio/<slug:slug>', views.PhotoStudioDetail.as_view(), name='photostudio_detail'),
     path('dance/<slug:slug>', views.DanceDetail.as_view(), name='dance_detail'),
     path('agency/<slug:slug>', views.AgencyDetail.as_view(), name='agency_detail'),
+    path('create-review/', views.create_review, name='create_review'),
 ]

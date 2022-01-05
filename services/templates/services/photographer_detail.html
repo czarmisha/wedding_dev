@@ -11,14 +11,24 @@
 </html>
 
 {% block content %}
-{{photographer.phone}}
-{{photographer.user}}
-{{photographer.user.username}}
-{{photographer.user.type}}
+{{object.phone}}
+{{object.user}}
+{{object.user.username}}
+{{object.user.type}}
 {%if request.user.type == 'client'%}
-<br>
-<a href="">Написать отзыв</a>
+    <br><br>
+    {%if not reviewed%}
+        {%include 'services/_inc/review_form.html'%}
+    {%else%}
+        <span>Вы уже писали отзыв</span>
+    {%endif%}
 {%endif%}
+<!--object.user.service_reviews-->
 <br><br>
 <p>Отзывы:</p>
+<ul>
+    {%for review in reviews%}
+        <li>{{review.text}}</li>
+    {%endfor%}
+</ul>
 {% endblock %}
