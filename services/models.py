@@ -6,6 +6,15 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class Portfolio(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
+
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='portfolio/images')
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='images')
+
+
 class Review(models.Model):
     service_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='service_reviews')
     client_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')

@@ -11,6 +11,10 @@
         {{user.username}}
         {{user.photographer.phone}}
         {%if user.photographer.avatar%}<img src="{{user.photographer.avatar.url}}" alt="" width="50" height="50">{%endif%}
+        <br><br>
+        {%if not user.portfolio%}
+        <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
+        {%endif%}
 
     {% elif user.type == 'restaurant' %}
         {{user.type}}

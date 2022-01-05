@@ -2,10 +2,36 @@ from django.views.generic import DetailView
 from .models import *
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from .forms import PortfolioForm
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.core.files.base import ContentFile
 
 User = get_user_model()
 
 
+@login_required
+def add_portfolio(request):
+    if request.method == 'GET':
+        form = PortfolioForm()
+        return render(request, 'services/add_portfolio.html', {'form': form})
+    elif request.method == 'POST':
+        form = PortfolioForm(request.POST, request.FILES)
+        if form.is_valid():
+            portfolio = Portfolio(user=request.user)
+            portfolio.save()
+            for f in request.FILES.getlist('images'):
+                data = f.read()
+                image = Image(portfolio=portfolio)
+                image.image.save(f.name, ContentFile(data))
+                image.save()
+                return reverse('account:cabinet', kwargs={'pk': request.user.pk})
+        else:
+            return render(request, 'services/add_portfolio.html', {'form': form})
+
+
+@login_required
 def create_review(request):
     if request.method == 'POST':
         service_user_pk = request.POST.get('service_user_pk')
