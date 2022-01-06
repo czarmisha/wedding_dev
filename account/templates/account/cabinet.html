@@ -14,6 +14,12 @@
         <br><br>
         {%if not user.portfolio%}
         <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
+        {%else%}
+            <br>
+            <p>Portfolio</p>
+            {%for image in user.portfolio.images.all%}
+            <a href="{{image.image.url}}"><img src="{{image.image.url}}" alt="" width="50" height="50"></a>
+            {%endfor%}
         {%endif%}
 
     {% elif user.type == 'restaurant' %}

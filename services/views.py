@@ -26,9 +26,11 @@ def add_portfolio(request):
                 image = Image(portfolio=portfolio)
                 image.image.save(f.name, ContentFile(data))
                 image.save()
-                return reverse('account:cabinet', kwargs={'pk': request.user.pk})
+            return redirect('account:cabinet', pk=request.user.pk)
         else:
             return render(request, 'services/add_portfolio.html', {'form': form})
+    else:
+        return redirect('home')
 
 
 @login_required
