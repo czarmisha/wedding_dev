@@ -9,10 +9,18 @@ User = get_user_model()
 class Portfolio(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
 
+    class Meta:
+        verbose_name = 'Портфолио'
+        verbose_name_plural = 'Портфолио'
+
 
 class Image(models.Model):
     image = models.ImageField(upload_to='portfolio/images')
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='images')
+
+    class Meta:
+        verbose_name = 'Фото'
+        verbose_name_plural = 'Фото'
 
 
 class Review(models.Model):
