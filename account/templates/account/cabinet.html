@@ -31,9 +31,11 @@
         {{user.username}}
         {{user.clientprofile.phone}}
         {%if user.clientprofile.avatar%}<img src="{{user.photographer.avatar.url}}" alt="" width="50" height="50">{%endif%}
+        <br>
         <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}">edit profile</a>
+        <br>
         <a href="{% url 'tender:create' %}">create tender</a>
-        <p>my tenders:</p>
+        <h3>Мои тендеры:</h3>
         <ul>
             {% for tender in client_tenders%}
                 <li><a href="{%url 'tender:detail' tender.slug%}">{{tender}}</a></li>

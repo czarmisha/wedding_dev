@@ -17,22 +17,28 @@
 {{object.user}}
 {{object.user.username}}
 {{object.user.type}}
+
+{%if object.user.portfolio%}
+<h3>Портфолио:</h3>
+{% for image in object.user.portfolio.images.all%}
+<a href="{{image.image.url}}"><img src="{{image.image.url}}" alt="" width="50" height="50"></a>
+{%endfor%}
+{%endif%}
+
+<br>
+<h3>Отзывы:</h3>
+<ul>
+    {%for review in reviews%}
+        <li>{{review.text}}</li>
+    {%endfor%}
+</ul>
 {%if request.user.type == 'client'%}
-    <br><br>
     {%if not reviewed%}
         {%include 'services/_inc/review_form.html'%}
     {%else%}
         <span>Вы уже писали отзыв</span>
     {%endif%}
 {%endif%}
-<!--object.user.service_reviews-->
-<br><br>
-<p>Отзывы:</p>
-<ul>
-    {%for review in reviews%}
-        <li>{{review.text}}</li>
-    {%endfor%}
-</ul>
 <!--{%if object.user != request.user%}-->
 {%include 'services/_inc/rating.html'%}
 <!--{%endif%}-->

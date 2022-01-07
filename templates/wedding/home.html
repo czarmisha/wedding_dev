@@ -8,10 +8,31 @@
       <a href="{% url 'account:login' %}">Login</a>
       <a href="{% url 'account:registration' %}">Register</a>
     {% endif %}
-    main page
-    {% for i in photographers %}
-    <a href="{{ i.get_absolute_url }}">{{ i }}</a>
-    {% endfor %}
+    <br>
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        <li><a href="{% url 'services:photographer_list' %}">Фотографы</a></li>
+        <li><a href="{% url 'services:restaurant_list' %}">Рестораны и банкетные залы</a></li>
+        <li><a href="{% url 'services:artist_list' %}">Артисты и шоу программы</a></li>
+        <li><a href="{% url 'services:transport_list' %}">Транспорт</a></li>
+        <li><a href="{% url 'services:music_list' %}">Музыканты и Dj</a></li>
+        <li><a href="{% url 'services:presenter_list' %}">Ведущие</a></li>
+        <li><a href="{% url 'services:registryoffice_list' %}">Дворцы бракосочетания и ЗАГСы</a></li>
+        <li><a href="{% url 'services:invitation_list' %}">Пригласительные</a></li>
+        <li><a href="{% url 'services:cake_list' %}">Свадебные торты</a></li>
+        <li><a href="{% url 'services:dress_list' %}">Свадебные платья</a></li>
+        <li><a href="{% url 'services:ring_list' %}">Обручальные кольца</a></li>
+        <li><a href="{% url 'services:bouquet_list' %}">Свадебные букеты</a></li>
+        <li><a href="{% url 'services:decor_list' %}">Оформление и декор</a></li>
+        <li><a href="{% url 'services:costume_list' %}">Свадебный костюм</a></li>
+        <li><a href="{% url 'services:accessories_list' %}">Свадебные аксессуары</a></li>
+        <li><a href="{% url 'services:stylist_list' %}">Стилисты и визажисты</a></li>
+        <li><a href="{% url 'services:photostudio_list' %}">Фотостудии</a></li>
+        <li><a href="{% url 'services:dance_list' %}">Танцевальные коллективы</a></li>
+        <li><a href="{% url 'services:agency_list' %}">Свадебные агенства</a></li>
+    </ul>
+
+
     <br>
     <a href="{% url 'tender:list' %}">Тендеры</a>
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 from .models import *
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
@@ -9,6 +9,121 @@ from django.urls import reverse
 from django.core.files.base import ContentFile
 
 User = get_user_model()
+
+
+class AgencyList(ListView):
+    model = Agency
+    template_name = 'services/agency_list.html'
+    context_object_name = 'agencies'
+
+
+class DanceList(ListView):
+    model = Dance
+    template_name = 'services/dance_list.html'
+    context_object_name = 'dance'
+
+
+class PhotoStudioList(ListView):
+    model = PhotoStudio
+    template_name = 'services/photostudio_list.html'
+    context_object_name = 'photostudios'
+
+
+class StylistList(ListView):
+    model = Stylist
+    template_name = 'services/stylist_list.html'
+    context_object_name = 'stylists'
+
+
+class AccessoriesList(ListView):
+    model = Accessories
+    template_name = 'services/accessories_list.html'
+    context_object_name = 'accessories'
+
+
+class CostumeList(ListView):
+    model = Costume
+    template_name = 'services/costume_list.html'
+    context_object_name = 'costumes'
+
+
+class DecorList(ListView):
+    model = Decor
+    template_name = 'services/decor_list.html'
+    context_object_name = 'decor'
+
+
+class BouquetList(ListView):
+    model = Bouquet
+    template_name = 'services/bouquet_list.html'
+    context_object_name = 'bouquets'
+
+
+class RingList(ListView):
+    model = Ring
+    template_name = 'services/ring_list.html'
+    context_object_name = 'rings'
+
+
+class DressList(ListView):
+    model = Dress
+    template_name = 'services/dress_list.html'
+    context_object_name = 'dresses'
+
+
+class CakeList(ListView):
+    model = Cake
+    template_name = 'services/cake_list.html'
+    context_object_name = 'cakes'
+
+
+class InvitationList(ListView):
+    model = Invitation
+    template_name = 'services/invitation_list.html'
+    context_object_name = 'Invitations'
+
+
+class RegistryOfficeList(ListView):
+    model = RegistryOffice
+    template_name = 'services/registryoffice_list.html'
+    context_object_name = 'registry_offices'
+
+
+class PresenterList(ListView):
+    model = Presenter
+    template_name = 'services/presenter_list.html'
+    context_object_name = 'presenters'
+
+
+class MusicList(ListView):
+    model = Music
+    template_name = 'services/music_list.html'
+    context_object_name = 'music'
+
+
+class TransportList(ListView):
+    model = Transport
+    template_name = 'services/transport_list.html'
+    context_object_name = 'trasport'
+
+
+class ArtistList(ListView):
+    model = Artist
+    template_name = 'services/artist_list.html'
+    context_object_name = 'artists'
+
+
+class RestaurantList(ListView):
+    model = Restaurant
+    template_name = 'services/restaurant_list.html'
+    context_object_name = 'Restaurants'
+
+
+class PhotographerList(ListView):
+    model = Photographer
+    template_name = 'services/photographer_list.html'
+    context_object_name = 'photographers'
+    paginate_by = 2
 
 
 @login_required

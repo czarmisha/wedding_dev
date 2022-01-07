@@ -2,7 +2,7 @@
 {% load static %}
 {% load ratings %}
 
-<p>Оценка</p>
+<h3>Рейтинг:</h3>
 {%if request.user != object.user%}
 {% ratings object.user %}
 <!--{%else%}-->
