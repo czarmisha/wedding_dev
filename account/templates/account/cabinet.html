@@ -38,9 +38,10 @@
         <h3>Мои тендеры:</h3>
         <ul>
             {% for tender in client_tenders%}
-                <li><a href="{%url 'tender:detail' tender.slug%}">{{tender}}</a></li>
+                <li><a href="{%url 'tender:detail' tender.slug%}">{{tender}}</a> <span>Откликов: {{tender.responses.count}}</span></li>
             {%endfor%}
         </ul>
+
     {% endif %}
 </body>
 </html>

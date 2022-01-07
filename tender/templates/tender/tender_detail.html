@@ -5,18 +5,36 @@
 <a href="{% url 'home' %}">home</a>
 <h1>Tender detail</h1>
 <ul>
-    {{tender.get_service_display}}
+    <p>Нужен: <b>{{tender.get_service_display}}</b></p>
+    <p>Автор: {{tender.author.username}}</p>
+    <p>Бюджет: {{tender.budget}} сум</p>
+    <p>Описание: {{tender.comment}}</p>
+    <p>На {{tender.on_date}}</p>
     <br>
-    <br>
-    <br>
+    <p>Количетсво откликов на тендер: {{tender.responses.count}}</p>
+
     {%if tender.author == request.user%}
         <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
         <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
-    {%elif responded%}
-        <span>Вы откликнулись</span>
-    {%elif tender.service == request.user.type%}
-        <a href="" class="createResponse">Откликнуться на тендер</a>
+        <h3>Отклики:</h3>
+        {% for response in tender.responses.all%}
+            {% if response.from_user.type == 'photographer' %}
+                <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a>
+            {% elif response.from_user.type == 'restaurant' %}
+                <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
+            {% endif %}
+        {%endfor%}
     {%endif%}
+    {%if tender.executor%}
+        <p>Тендер закрыт. Исполнитель найден</p>
+    {%else%}
+        {%if responded%}
+            <span>Вы откликнулись</span>
+        {%elif tender.service == request.user.type%}
+            <a href="" class="createResponse">Откликнуться на тендер</a>
+        {%endif%}
+    {%endif%}
+
 </ul>
 
 {% endblock %}

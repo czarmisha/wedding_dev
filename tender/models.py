@@ -52,7 +52,7 @@ class Tender(models.Model):
 
 
 class Response(models.Model):
-    tender = models.ForeignKey(Tender, on_delete=models.CASCADE)
+    tender = models.ForeignKey(Tender, on_delete=models.CASCADE, related_name='responses')
     from_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='responses')
 
     class Meta:

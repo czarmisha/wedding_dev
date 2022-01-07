@@ -6,7 +6,12 @@
 <h1>Tenders</h1>
 <ul>
     {% for tender in tender_list %}
-        <a href="{% url 'tender:detail' tender.slug %}">{{tender}}</a>
+        <div class="tender">
+            <p>Нужен: <a href="{% url 'tender:detail' tender.slug %}"><b>{{tender.get_service_display}}</b></a></p>
+            <p>Автор: {{tender.author.username}}</p>
+            <p>Бюджет: {{tender.budget}} сум</p>
+        </div>
+        <br><br>
     {% endfor %}
 </ul>
 {% endblock %}
