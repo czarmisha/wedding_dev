@@ -39,7 +39,7 @@ class Agency(models.Model):
     description = models.TextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/agencies', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -65,7 +65,7 @@ class Dance(models.Model):
     price = models.FloatField('Цена ')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dances', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -91,7 +91,7 @@ class PhotoStudio(models.Model):
     price_per_hour = models.FloatField('Цена за час')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/photoStudios', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -118,7 +118,7 @@ class Stylist(models.Model):
     on_departure = models.BooleanField('На выезд', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/stylists', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -143,7 +143,7 @@ class Accessories(models.Model):
     rent = models.BooleanField('На прокат', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/accessories', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -169,7 +169,7 @@ class Costume(models.Model):
     rent = models.BooleanField('На прокат', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/costumes', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -192,7 +192,7 @@ class Decor(models.Model):
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     avatar = models.ImageField(upload_to='avatars/decors', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -218,7 +218,7 @@ class Bouquet(models.Model):
     price = models.FloatField('Цена')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/bouquets', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -243,7 +243,7 @@ class Ring(models.Model):
     description = models.TextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/rings', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -268,7 +268,7 @@ class Dress(models.Model):
     description = models.TextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dresses', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -294,7 +294,7 @@ class Cake(models.Model):
     price_per_kg = models.FloatField('Цена за кг')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/cakes', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -319,7 +319,7 @@ class Invitation(models.Model):
     description = models.TextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/invitations', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -344,7 +344,7 @@ class RegistryOffice(models.Model):
     address = models.CharField('Адрес', max_length=500)
     on_departure = models.BooleanField('На выезд', default=False)
     avatar = models.ImageField(upload_to='avatars/registryOffices', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -369,7 +369,7 @@ class Presenter(models.Model):
     description = models.TextField('Описание')
     price = models.FloatField('Цена')
     avatar = models.ImageField(upload_to='avatars/presenters', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -394,7 +394,7 @@ class Music(models.Model):
     price = models.FloatField('Цена')
     price_per_hour = models.FloatField('Цена за час')
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -422,7 +422,7 @@ class Transport(models.Model):
     # car_type =
     with_driver = models.BooleanField('С водителем', default=True)
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -446,7 +446,7 @@ class Artist(models.Model):
     description = models.TextField('Описание')
     price = models.FloatField('Цена')
     avatar = models.ImageField(upload_to='avatars/artists', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -473,7 +473,7 @@ class Restaurant(models.Model):
     capacity = models.IntegerField('Вместимость')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/restaurants', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
@@ -498,7 +498,7 @@ class Photographer(models.Model):
     price = models.FloatField('Цена')
     price_per_hour = models.FloatField('Цена за час')
     avatar = models.ImageField(upload_to='avatars/photographers', verbose_name='Аватар', blank=True)
-    phone = models.IntegerField('Телефон')
+    phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
 
