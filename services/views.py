@@ -5,8 +5,10 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import PortfolioForm
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.core.files.base import ContentFile
+from django_filters.views import FilterView
+from . import filters
+
 
 User = get_user_model()
 
@@ -119,10 +121,11 @@ class RestaurantList(ListView):
     context_object_name = 'Restaurants'
 
 
-class PhotographerList(ListView):
+class PhotographerList(FilterView):
     model = Photographer
     template_name = 'services/photographer_list.html'
     context_object_name = 'photographers'
+    filterset_class = filters.PhotographerFilter
     paginate_by = 2
 
 

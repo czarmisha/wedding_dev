@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, UpdateView, CreateView, DeleteView
@@ -6,16 +5,17 @@ from .models import Tender, Response
 from .forms import TenderCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
-from django.utils.text import slugify
+from .filtres import TenderFilter
+from django_filters.views import FilterView
 
 User = get_user_model()
 
 
-class TenderList(ListView):
+class TenderList(FilterView):
     model = Tender
     context_object_name = 'tender_list'
-    # paginate_by = 20
+    template_name = 'tender/tender_list.html'
+    filterset_class = TenderFilter
 
 
 class TenderDetail(DetailView):

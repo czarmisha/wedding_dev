@@ -1,16 +1,35 @@
 {% extends 'services_base.html' %}
 {%block content%}
-{% for object in photographers %}
-    <div class="service">
+ <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+</form>
+<ul>
+    {% for object in filter.qs %}
+        <div class="service">
         {%if object.avatar%}
         <a href="{{object.avatar.url}}"><img src="{{object.avatar.url}}" alt="" width="50" height="50"></a>
         {%endif%}
         <p class="service_name"><a href="{{object.get_absolute_url}}">{{object.full_name}}</a></p>
         <p class="service_about">{{object.about}}</p>
+        <p class="service_price">Цена: <span>{{object.price}}</span></p>
         <p class="service_price">Цена в час: <span>{{object.price_per_hour}}</span></p>
         <p class="service_phone">Телефон: <span>{{object.phone}}</span></p>
         <p class="service_telegram">Телеграм: <span>{{object.telegram}}</span></p>
-        <br><br><br>
     </div>
-{% endfor %}
+        <br><br>
+    {% endfor %}
+<!--{% for object in photographers %}-->
+<!--    <div class="service">-->
+<!--        {%if object.avatar%}-->
+<!--        <a href="{{object.avatar.url}}"><img src="{{object.avatar.url}}" alt="" width="50" height="50"></a>-->
+<!--        {%endif%}-->
+<!--        <p class="service_name"><a href="{{object.get_absolute_url}}">{{object.full_name}}</a></p>-->
+<!--        <p class="service_about">{{object.about}}</p>-->
+<!--        <p class="service_price">Цена в час: <span>{{object.price_per_hour}}</span></p>-->
+<!--        <p class="service_phone">Телефон: <span>{{object.phone}}</span></p>-->
+<!--        <p class="service_telegram">Телеграм: <span>{{object.telegram}}</span></p>-->
+<!--        <br><br><br>-->
+<!--    </div>-->
+<!--{% endfor %}-->
 {%endblock content%}

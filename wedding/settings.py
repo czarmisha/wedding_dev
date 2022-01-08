@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'services',
     'tender',
     'star_ratings',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'account.User'

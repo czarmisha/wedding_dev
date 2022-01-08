@@ -4,14 +4,26 @@
 {% block content %}
 <a href="{% url 'home' %}">home</a>
 <h1>Tenders</h1>
+ <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+</form>
 <ul>
-    {% for tender in tender_list %}
-        <div class="tender">
-            <p>Нужен: <a href="{% url 'tender:detail' tender.slug %}"><b>{{tender.get_service_display}}</b></a></p>
-            <p>Автор: {{tender.author.username}}</p>
-            <p>Бюджет: {{tender.budget}} сум</p>
+    {% for obj in filter.qs %}
+        <div class="tender">-->
+            <p>Нужен: <a href="{% url 'tender:detail' obj.slug %}"><b>{{obj.get_service_display}}</b></a></p>
+            <p>Автор: {{obj.author.username}}</p>
+            <p>Бюджет: {{obj.budget}} сум</p>
         </div>
         <br><br>
     {% endfor %}
+<!--    {% for tender in tender_list %}-->
+<!--        <div class="tender">-->
+<!--            <p>Нужен: <a href="{% url 'tender:detail' tender.slug %}"><b>{{tender.get_service_display}}</b></a></p>-->
+<!--            <p>Автор: {{tender.author.username}}</p>-->
+<!--            <p>Бюджет: {{tender.budget}} сум</p>-->
+<!--        </div>-->
+<!--        <br><br>-->
+<!--    {% endfor %}-->
 </ul>
 {% endblock %}
