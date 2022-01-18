@@ -1,0 +1,151 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------- main -------------- */
+
+main{
+    padding: 10px 0 30px;
+}
+
+.tender_box{
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px #d7d7d7;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    margin: 0 0 20px;
+    padding-bottom: 1px;
+}
+
+.tender_header{
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 4px 4px 0 0;
+}
+
+.tender_need{
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_regular';
+}
+
+.tender_need>span{
+    font-size: 18px;
+    color: var(--gold-color);
+    font-family: 'Roboto_medium';
+}
+
+.tender_on_date{
+    padding: 0 8px;
+    border-right: 1px solid #d0d0d0;
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_medium';
+}
+
+.tender_budget{
+    padding: 0 8px;
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_medium';
+}
+
+.tender_budget>span{
+    color: var(--gold-color);
+}
+
+.tender_body{
+    padding: 10px 20px;
+}
+
+.tender_img{
+    max-width: 100px;
+    max-height: 100px;
+    margin: 6px 20px 0 0;
+}
+
+.tender_img>img{
+    width: 100%;
+}
+
+.tender_author{
+    color: #808285;
+    font-family: 'Roboto_medium';
+    font-size: 16px;
+    margin: 0 0 5px;
+    font-style: italic;
+}
+
+.tender_comment{
+    font-size: 14px;
+    color: #939598;
+    font-style: italic;
+    line-height: 20px;
+    font-family: 'Roboto_regular';
+}
+
+.tender_footer{
+    padding: 0 20px;
+    margin: 10px 0;
+}
+
+.tender_created{
+    font-size: 14px;
+    color: #808285;
+    display: inline-block;
+    line-height: 34px;
+    font-family: 'Roboto_regular';
+    margin-right: 30px;
+}
+
+.tender_responses{
+    font-size: 14px;
+    color: #808285;
+    display: inline-block;
+    line-height: 34px;
+    font-family: 'Roboto_regular';
+}
+
+.tender_specialists{
+    margin-top: 20px;   
+    padding: 0 20px 20px;
+}
+
+.tender_specialists .wrapper{
+    background: #f6f6f6;
+    padding: 20px 30px;
+}
+
+.tender_specialists .title{
+    font-size: 17px;
+    color: var(--gold-color);
+    font-family: 'Roboto_medium';
+    margin: 0 0 35px;
+}
+
+.tender_specialists img{
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+
+
+/* ----------------------- media -------------- */
+
+@media (max-width: 500px){
+    .tender_header{
+        flex-direction: column!important;
+    }
+}

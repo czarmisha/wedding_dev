@@ -1,49 +1,87 @@
 {% extends 'tender_base.html' %}
+{% load static %}
 
 
-{% block content %}
+{% block s %}
 <a href="{% url 'home' %}">home</a>
 <h1>Tender detail</h1>
 <ul>
-    <p>Нужен: <b>{{tender.get_service_display}}</b></p>
-    <p>Автор: {{tender.author.username}}</p>
-    <p>Бюджет: {{tender.budget}} сум</p>
-    <p>Описание: {{tender.comment}}</p>
-    <p>На {{tender.on_date}}</p>
-    <br>
-    <p>Количетсво откликов на тендер: {{tender.responses.count}}</p>
 
-    {%if tender.author == request.user%}
-        <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
-        <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
-        <h3>Отклики:</h3>
-        {% for response in tender.responses.all%}
-            {% if response.from_user.type == 'photographer' %}
-                <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a>
-            {% elif response.from_user.type == 'restaurant' %}
-                <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
-            {% endif %}
-        {%endfor%}
-    {%endif%}
-    {%if tender.executor%}
-        <p>Тендер закрыт. Исполнитель найден</p>
-    {%else%}
-        {%if responded%}
-            <span>Вы откликнулись</span>
-        {%elif tender.service == request.user.type%}
-            <a href="" class="createResponse">Откликнуться на тендер</a>
-        {%endif%}
-    {%endif%}
+
 
 </ul>
 
 {% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/tender_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="tender_box">
+            <div class="tender_header d-flex align-items-center justify-content-between">
+                <h3 class="tender_need">Нужен: <span>{{tender.get_service_display}}</span></h3>
+                <div class="tender_info">
+                    <span class="tender_on_date">на {{tender.on_date}}</span>
+                    <span class="tender_budget">Бюджет <span>{{tender.budget}} сум</span></span>
+                </div>
+            </div>
+            <div class="tender_body d-flex align-items-start">
+                <div class="tender_img"><img src="{% static 'media/images/s.jpg' %}" alt=""></div>
+                <div class="tender_preview">
+                    <p class="tender_author">{{tender.author}}</p>
+                    <p class="tender_comment">{{tender.comment}}</p>
+                </div>
+            </div>
+            <div class="tender_footer">
+                <span class="tender_created">Тендер создан: {{tender.create_date}}</span>
+                <span class="tender_responses">Отклики: {{tender.responses.count}}</span>
+            </div>
+
+            <div class="tender_specialists">
+                <div class="wrapper">
+                    <h3 class="title">Специалисты, которые откликнулись на этот тендер</h3>
+                    <div class="row">
+                        {%if tender.author == request.user%}
+                            <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
+                            <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+                            <h3>Отклики:</h3>
+                            {% for response in tender.responses.all%}
+                                {% if response.from_user.type == 'photographer' %}
+                                    <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a>
+                                {% elif response.from_user.type == 'restaurant' %}
+                                    <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
+                                {% endif %}
+                            {%endfor%}
+                        {%endif%}
+                        {%if tender.executor%}
+                            <p>Тендер закрыт. Исполнитель найден</p>
+                        {%else%}
+                            {%if responded%}
+                                <span>Вы откликнулись</span>
+                            {%elif tender.service == request.user.type%}
+                                <a href="" class="createResponse">Откликнуться на тендер</a>
+                            {%endif%}
+                        {%endif%}
+<!--                        <div class="col-12 col-md-6 d-flex align-items-center mb-4">-->
+<!--                            <img src="{% static 'media/images/s.jpg' %}" alt="">-->
+<!--                            <p class="specialist">Ведущий <br> <a href="spec_detail.html">Вера Тихая</a></p>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
 {%block script%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    // let btn = document.querySelector('.createResponse');
-    // btn.addEventListener('click', function(e){
-    //     e.preventDefault();
-    // })
     $(document).ready(function() {
       $('.createResponse').click(function(e) {
         // Stop form from sending request to server

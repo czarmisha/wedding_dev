@@ -1,38 +1,58 @@
 {% extends "base.html" %}
-{% block title %}Log-in{% endblock %}
-{% block content %}
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'account:cabinet' request.user.pk %}">Cabinet</a>
-        <a href="{% url 'account:logout' %}">logout</a>
-    {% else %}
-      <a href="{% url 'account:login' %}">Login</a>
-      <a href="{% url 'account:registration' %}">Register</a>
-    {% endif %}
-    <br>
-    <ul>
-        <li><a href="{% url 'home' %}">Главная</a></li>
-        <li><a href="{% url 'services:photographer_list' %}">Фотографы</a></li>
-        <li><a href="{% url 'services:restaurant_list' %}">Рестораны и банкетные залы</a></li>
-        <li><a href="{% url 'services:artist_list' %}">Артисты и шоу программы</a></li>
-        <li><a href="{% url 'services:transport_list' %}">Транспорт</a></li>
-        <li><a href="{% url 'services:music_list' %}">Музыканты и Dj</a></li>
-        <li><a href="{% url 'services:presenter_list' %}">Ведущие</a></li>
-        <li><a href="{% url 'services:registryoffice_list' %}">Дворцы бракосочетания и ЗАГСы</a></li>
-        <li><a href="{% url 'services:invitation_list' %}">Пригласительные</a></li>
-        <li><a href="{% url 'services:cake_list' %}">Свадебные торты</a></li>
-        <li><a href="{% url 'services:dress_list' %}">Свадебные платья</a></li>
-        <li><a href="{% url 'services:ring_list' %}">Обручальные кольца</a></li>
-        <li><a href="{% url 'services:bouquet_list' %}">Свадебные букеты</a></li>
-        <li><a href="{% url 'services:decor_list' %}">Оформление и декор</a></li>
-        <li><a href="{% url 'services:costume_list' %}">Свадебный костюм</a></li>
-        <li><a href="{% url 'services:accessories_list' %}">Свадебные аксессуары</a></li>
-        <li><a href="{% url 'services:stylist_list' %}">Стилисты и визажисты</a></li>
-        <li><a href="{% url 'services:photostudio_list' %}">Фотостудии</a></li>
-        <li><a href="{% url 'services:dance_list' %}">Танцевальные коллективы</a></li>
-        <li><a href="{% url 'services:agency_list' %}">Свадебные агенства</a></li>
-    </ul>
+{% load static %}
 
+{% block main %}
+    <section class="tender_section">
+                <div class="container">
+                    <h2 class="text-center title">Здесь молодожены ищут специалистов. Создано <span>3886</span> тендеров</h2>
+                    <ul class="d-flex text-center justify-content-center">
+                        <li><span>1.</span> Создавай объявления</li>
+                        <li><span>2.</span> Получай предложения от специалистов</li>
+                        <li><span>3.</span> Выбирай лучших</li>
+                    </ul>
+                    <p class="text">Тендеры помогают съкономить массу времени на поиски</p>
 
-    <br>
-    <a href="{% url 'tender:list' %}">Тендеры</a>
+                    <div class="tender_list row align-items-center justify-content-center">
+                        {% for tender in tenders %}
+                            <div class="col-12 col-md-6 col-lg-4">
+                               <a href="{% url 'tender:detail' tender.slug %}" class="tender_link">
+                                <div class="tender_box">
+                                    <div class="tender_info d-flex align-items-center justify-content-evenly">
+                                        {% if tender.author.clientprofile.avatar %} <!--Если есть аватар у пользователя  -->
+                                        <img src="{{ tender.author.clientprofile.avatar.url }}" alt="" class="">
+                                        {% else %} <!--Дефолтный аватар  -->
+                                        <img src="{% static 'media/images/header-background.jpg'%}" alt="" class="">
+                                        {% endif %}
+                                        <p class="tender_info-text">
+                                            Нужен <br>
+                                            <span class="tender_specialist">{{tender.get_service_display}}</span> <br>
+                                            на {{tender.on_date}} <br>
+                                            Бюджет: <span class="tender_budget">{{tender.budget}} сум</span>
+                                        </p>
+                                    </div>
+                                    <p class="tender_customer text-start">{{tender.author}}</p>
+                                    <p class="tender_description">{{tender.comment|truncatechars:50}}</p>
+                                    <p class="tender_responses">Отклики: {{tender.responses.count}}</p>
+                                </div>
+                               </a>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="tender_btns">
+                        <a href="{% url 'tender:list' %}" class="btn__white">Смотреть тендеры</a>
+                        <a href="{% url 'tender:create' %}" class="btn__gold">Создать тендер</a>
+                    </div>
+                </div>
+            </section>
+
+    <section class="welcome">
+                <div class="container text-center">
+                    <h2 class="welcome_title title">Добро пожаловать в мир T<span>O</span>YP<span>O</span>Y!</h2>
+                    <a href="" class="btn__gold welcome_client-register">Регистрация молодоженов</a>
+
+                    <h2 class="welcome_subtitle">Вы свадебный профессионал или фирма?</h2>
+                    <a href="" class="welcome_spec-register">Как вам зарегистрироваться?</a>
+                </div>
+            </section>
 {% endblock %}

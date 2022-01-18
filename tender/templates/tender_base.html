@@ -1,18 +1,100 @@
 {% load i18n %}
+{% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}
+
+    {% endblock %}
+    <title>Tedner list</title>
 </head>
 <body>
-<div id="header">
-    <span class="logo">MAIN</span>
-</div>
-<div id="content">
-    {% block content %}
+    <header>
+        {% block header %}
+        {% include 'tender/_inc/header.html' %}
+        {% endblock %}
+    </header>
+    <main>
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </main>
+    <footer>
+        {% block footer %}
+
+        {% endblock %}
+    </footer>
+
+
+
+
+
+
+
+
+
+
+    <script src="{% static 'bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <script>
+        // 100vh
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        window.addEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+
+        // burger
+        let burgerBtn = document.querySelector('.burger_btn');
+        let menu = document.querySelector('.mobile-menu');
+        let catalog_btn = document.querySelector('.catalog_btn');
+        let mobile_catalog = document.querySelector('.mobile_catalog');
+        let catalog_back = document.querySelector('.catalog_back');
+        let account_btn = document.querySelector('.account_btn');
+        let account_menu = document.querySelector('.account_menu');
+        let account_back = document.querySelector('.account_back');
+
+        burgerBtn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            if(burgerBtn.classList.contains('active') && menu.classList.contains('active')){
+                document.body.style.overflow = 'auto'
+            }
+            else{
+                document.body.style.overflow = 'hidden'
+            }
+            burgerBtn.classList.toggle('active');
+            menu.classList.toggle('active');
+            mobile_catalog.classList.remove('active');
+            account_menu.classList.remove('active');
+        })
+        catalog_btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            mobile_catalog.classList.toggle('active');
+        })
+        catalog_back.addEventListener('click', (e)=>{
+            e.preventDefault();
+            mobile_catalog.classList.toggle('active');
+        })
+        account_btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            account_menu.classList.toggle('active');
+        })
+        account_back.addEventListener('click', (e)=>{
+            e.preventDefault();
+            account_menu.classList.toggle('active');
+        })
+    </script>
+    {% block script %}
+
     {% endblock %}
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-{%block script%}{%endblock%}
 </body>
 </html>

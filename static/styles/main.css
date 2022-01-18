@@ -1,0 +1,273 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------------------- tender_section ---------------------------- */
+.tender_section{
+    background-color: #f6f6f6;
+    padding: 50px 0;
+}
+
+.tender_section .title span{
+    color: var(--gold-color);
+}
+
+.tender_section .title{
+    margin-bottom: 35px;
+}
+
+.tender_section ul>li{
+    list-style: none;
+    font-family: 'Roboto_medium';
+    font-size: 20px;
+    color: var(--dark-grey);
+    margin: 0 10px;
+}
+
+.tender_section ul>li>span{
+    color: var(--gold-color);
+}
+
+.tender_link{
+    display: block;
+    text-decoration: none;
+}
+
+.tender_box{
+    padding: 25px 20px;
+    border: 4px solid #efefef;
+    background: #fff;
+    transition: all .2s ease;
+    margin: 10px 0;
+}
+
+.tender_link:hover>.tender_box{
+    border: 4px solid #c99e6670;
+    box-shadow: 0 0 20px rgb(30 40 50 / 15%);
+}
+
+.tender_info{
+    margin-bottom: 20px;
+}
+
+.tender_info>img{
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+}
+
+.tender_info-text{
+    font-family: 'Roboto_regular';
+    font-size: 16px;
+    color: var(--light-grey);
+    line-height: 1.4;
+    margin: 5px 0;
+}
+
+.tender_specialist{
+    color: #00c4ce;
+    font-family: 'Roboto_bold';
+}
+
+.tender_budget{
+    color: var(--gold-color);
+    font-family: 'Roboto_bold';
+}
+
+.tender_customer{
+    font-family: 'Roboto_regular';
+    font-size: 16px;
+    color: var(--light-grey);
+    margin-bottom: 10px;
+}
+
+.tender_description{
+    font-size: 14px;
+    font-family: 'Roboto_regular';
+    color: #929292;
+    font-style: italic;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px dashed #d2d3d3;
+    border-bottom: 1px dashed #d2d3d3;
+    line-height: 1.8em;
+}
+
+.tender_responses{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    color: #808285;
+    font-size: 16px;
+    font-weight: 500;
+    /* padding: 0 0 0 34px; */
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    /* background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAARCAMAAADub6yxAAABAlBMVEUAxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM4AxM705267AAAAVXRSTlMAAQIDBAYICgwPGBscIScsMTY3OTo8PT5CREZISk9SU1laXF5hZmdobG1wcnqAio2SlpeYnJ6hpaqsr7O8vcHFxszP19vd3ubr7u/x8vT29/n7/P3+yPtdPQAAAL1JREFUeAFly+c6w1AAx+FfaWtoUVRQxN5qDy2Kqj1OIv/7vxWJJE9yHu/3l0hl77r39dE9X+gjUz4wSnQdUgMdZfwlEmfKM2P8qf7IcoFTANZke+b4sh82ZHvjUE2YlK1DW94I3MuyPPgurcL4p3JahX1Jm0DtSangpFT3JM0QOlLs+2qKRnR7RWDW1+PitOvWylROA0nGIXTTWilRrI7Wd9q+Qi9zZBq3gWJNLMPz69vu1qvMBP8N7d49wC8z2UjXRyJ62gAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: 0 20%; */
+}
+
+.tender_btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.btn__white{
+    font-family: 'Roboto_regular';
+    display: inline-block;
+    color: var(--dark-color);
+    background: #fff;
+    border: 2px solid var(--gold-color);
+    height: 42px;
+    line-height: 42px;
+    margin-right: 45px;
+    border-radius: 23px;
+    width: 220px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn__white:hover{
+    color: var(--dark-color);
+}
+
+.btn__gold{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 220px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 23px;
+    display: inline-block;
+    text-transform: none;
+    background: var(--gold-color);
+    transition: all .2s ease;
+}
+
+.btn__gold:hover{
+    color: white;
+}
+
+
+
+.text{
+    margin-top: 20px;
+    font-family: 'Roboto_medium';
+    font-size: 16px;
+    color: var(--dark-grey);
+    margin: 25px 10px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.title{
+    font-family: 'Roboto_bold';
+    color: var(--dark-color);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+
+
+/* -------------------------------------- welcome --------------------------------- */
+.welcome{
+    background: white;
+    padding: 50px 0;
+}
+
+.welcome_title{
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.welcome_client-register{
+    width: 280px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome_subtitle{
+    font-family: 'Roboto_medium';
+    font-size: 24px;
+}
+
+.welcome_spec-register{
+    color: var(--light-grey);
+}
+
+.welcome_spec-register:hover{
+    color: var(--light-grey);
+}
+
+
+
+/* ----------------------------------------- media ---------------------------- */
+
+@media (max-width: 991px){
+    .tender_section .title{
+        font-size: 24px;
+    }
+    .tender_section ul>li{
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px){
+    .tender_section ul{
+        flex-direction: column;
+    }
+    .tender_section ul>li{
+        margin-bottom: 10px;
+    }
+    .tender_section ul>li:last-child{
+        margin-bottom: 0;
+    }
+    .tender_customer{
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 575px){
+    .tender_btns{
+        flex-direction: column;
+        align-items: center;
+    }
+    .tender_btns .btn__white{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 400px){
+    .tender_info>img{
+        width: 70px;
+        height: 70px;
+    }
+}

@@ -1,0 +1,143 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #3096ce8c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --------------------------- main -------------------------------- */
+main{
+    padding: 10px 0 30px;
+}
+
+.title{
+    background: url(../../media/images/Handsha.svg)no-repeat center left;
+    background-size: 50px 50px;
+    padding: 18px 10px 18px 60px;
+    font-family: 'Roboto_medium';
+    color: var(--light-grey);
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.tender_filters{
+    margin-bottom: 30px;
+}
+
+.tender_box{
+    text-decoration: none;
+    box-shadow: 0 0 2px 2px #d7d7d7;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    margin: 0 0 20px;
+    padding-bottom: 1px;
+}
+
+.tender_header{
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 4px 4px 0 0;
+}
+
+.tender_need{
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_regular';
+}
+
+.tender_need>span{
+    font-size: 18px;
+    color: var(--gold-color);
+    font-family: 'Roboto_medium';
+}
+
+.tender_on_date{
+    padding: 0 8px;
+    border-right: 1px solid #d0d0d0;
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_medium';
+}
+
+.tender_budget{
+    padding: 0 8px;
+    font-size: 16px;
+    color: #808285;
+    font-family: 'Roboto_medium';
+}
+
+.tender_budget>span{
+    color: var(--gold-color);
+}
+
+.tender_body{
+    padding: 10px 20px;
+}
+
+.tender_img{
+    max-width: 70px;
+    max-height: 70px;
+    margin: 6px 20px 0 0;
+}
+
+.tender_img>img{
+    width: 100%;
+}
+
+.tender_author{
+    color: #808285;
+    font-family: 'Roboto_medium';
+    font-size: 16px;
+    margin: 0 0 5px;
+    font-style: italic;
+}
+
+.tender_comment{
+    font-size: 14px;
+    color: #939598;
+    font-style: italic;
+    line-height: 20px;
+    font-family: 'Roboto_regular';
+}
+
+.tender_footer{
+    padding: 0 20px;
+    margin: 10px 0;
+}
+
+.tender_created{
+    font-size: 14px;
+    color: #808285;
+    display: inline-block;
+    line-height: 34px;
+    font-family: 'Roboto_regular';
+    margin-right: 30px;
+}
+
+.tender_responses{
+    font-size: 14px;
+    color: #808285;
+    display: inline-block;
+    line-height: 34px;
+    font-family: 'Roboto_regular';
+}
+
+
+/* ----------------------------------------- media ---------------------------- */
+
+@media (max-width: 500px){
+    .tender_header{
+        flex-direction: column!important;
+    }
+}

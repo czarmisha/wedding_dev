@@ -1,29 +1,53 @@
 {% extends 'tender_base.html' %}
+{% load static %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/tenders.css' %}">
+{% endblock %}
 
 {% block content %}
-<a href="{% url 'home' %}">home</a>
-<h1>Tenders</h1>
- <form method="get">
+<h2 class="title">Тендеры: молодожены ищут специалистов</h2>
+<div class="tender_filters">
+    <form method="get">
         {{ filter.form.as_p }}
         <input type="submit" />
-</form>
-<ul>
-    {% for obj in filter.qs %}
-        <div class="tender">-->
-            <p>Нужен: <a href="{% url 'tender:detail' obj.slug %}"><b>{{obj.get_service_display}}</b></a></p>
-            <p>Автор: {{obj.author.username}}</p>
-            <p>Бюджет: {{obj.budget}} сум</p>
+    </form>
+</div>
+<div class="tender_list">
+    <div class="row">
+        {% for obj in filter.qs %}
+        <div class="col-12 col-md-6">
+            <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
+                <div class="tender_header d-flex align-items-center justify-content-between">
+                    <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
+                    <div class="tender_info">
+                        <span class="tender_on_date">на {{obj.on_date}}</span>
+                        <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
+                    </div>
+                </div>
+                <div class="tender_body d-flex align-items-start">
+                    <div class="tender_img">
+                        {% if obj.author.clientprofile.avatar %}
+                        <img src="{{obj.author.clientprofile.avatar.url}}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="tender_preview">
+                        <p class="tender_author">{{obj.author}}</p>
+                        <p class="tender_comment">{{obj.comment}}</p>
+                    </div>
+                </div>
+                <div class="tender_footer">
+                    <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
+                    <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
+                </div>
+            </a>
         </div>
-        <br><br>
-    {% endfor %}
-<!--    {% for tender in tender_list %}-->
-<!--        <div class="tender">-->
-<!--            <p>Нужен: <a href="{% url 'tender:detail' tender.slug %}"><b>{{tender.get_service_display}}</b></a></p>-->
-<!--            <p>Автор: {{tender.author.username}}</p>-->
-<!--            <p>Бюджет: {{tender.budget}} сум</p>-->
-<!--        </div>-->
-<!--        <br><br>-->
-<!--    {% endfor %}-->
-</ul>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
