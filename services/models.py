@@ -31,6 +31,7 @@ class Review(models.Model):
     class Meta:
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
+        # ordering = ('bar_date', 'related.name',)
 
 
 class Agency(models.Model):

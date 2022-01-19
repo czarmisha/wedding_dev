@@ -264,6 +264,14 @@ header nav{
     margin: 0;
 }
 
+.header_navigation .mobile-menu_link{
+    font-size: 16px;
+}
+
+.header_navigation .mobile-menu_link:hover{
+    color: var(--dark-color);
+}
+
 .mobile-menu_link{
     color: var(--gold-color);  
     font-size: 18px; 

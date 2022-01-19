@@ -25,9 +25,12 @@ class TenderDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(TenderDetail, self).get_context_data(**kwargs)
-        for response in self.request.user.responses.all():
-            if response.tender == self.object:
-                context['responded'] = True
+        try:
+            for response in self.request.user.responses.all():
+                if response.tender == self.object:
+                    context['responded'] = True
+        except:
+            print('anonymous user')
         return context
 
 

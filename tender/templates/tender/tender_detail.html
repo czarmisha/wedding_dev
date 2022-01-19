@@ -46,35 +46,38 @@
             <div class="tender_specialists">
                 <div class="wrapper">
                     <h3 class="title">Специалисты, которые откликнулись на этот тендер</h3>
-                    <div class="row">
-                        {%if tender.author == request.user%}
-                            <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
-                            <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
-                            <h3>Отклики:</h3>
-                            {% for response in tender.responses.all%}
-                                {% if response.from_user.type == 'photographer' %}
-                                    <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a>
-                                {% elif response.from_user.type == 'restaurant' %}
-                                    <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
-                                {% endif %}
-                            {%endfor%}
-                        {%endif%}
-                        {%if tender.executor%}
-                            <p>Тендер закрыт. Исполнитель найден</p>
-                        {%else%}
-                            {%if responded%}
-                                <span>Вы откликнулись</span>
-                            {%elif tender.service == request.user.type%}
-                                <a href="" class="createResponse">Откликнуться на тендер</a>
-                            {%endif%}
-                        {%endif%}
-<!--                        <div class="col-12 col-md-6 d-flex align-items-center mb-4">-->
-<!--                            <img src="{% static 'media/images/s.jpg' %}" alt="">-->
-<!--                            <p class="specialist">Ведущий <br> <a href="spec_detail.html">Вера Тихая</a></p>-->
-<!--                        </div>-->
-                    </div>
+
+                    {% for response in tender.responses.all%}
+                        <div class="row">
+                        {% if response.from_user.type == 'photographer' %}
+
+                            <div class="col-12 col-md-6 d-flex align-items-center mb-4">
+                                <img src="{% static 'media/images/s.jpg' %}" alt="">
+                                <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
+                            </div>
+                        {% elif response.from_user.type == 'restaurant' %}
+                            <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
+                        {% endif %}
+                        </div>
+                    {%endfor%}
+
                 </div>
             </div>
+
+            {%if tender.author == request.user%}
+                <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
+                <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+            {%endif%}
+
+            {%if tender.executor%}
+                <p>Тендер закрыт. Исполнитель найден</p>
+            {%else%}
+                {%if responded%}
+                    <span>Вы откликнулись</span>
+                {%elif tender.service == request.user.type%}
+                    <a href="" class="createResponse">Откликнуться на тендер</a>
+                {%endif%}
+            {%endif%}
         </div>
     </div>
 </div>

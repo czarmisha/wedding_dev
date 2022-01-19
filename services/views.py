@@ -291,8 +291,11 @@ class PhotographerDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PhotographerDetail, self).get_context_data(**kwargs)
-        if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
-            context['reviewed'] = True
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+        except:
+            print('anonymous user')
         context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
         return context
 
