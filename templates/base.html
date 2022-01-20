@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/header_main.css' %}">
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
     <title>Home page</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
     </main>
     <footer>
         {% block footer %}
-
+        {% include 'wedding/_inc/footer.html' %}
         {% endblock %}
     </footer>
 

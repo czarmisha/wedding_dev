@@ -1,0 +1,120 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #3096ce8c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+
+/* --------------------- main ------------------ */
+.login{
+    padding: 25px 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 28px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+
+.login_form{
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 25px 40px 25px;
+    border: 2px solid #c99e668f;
+    overflow: hidden;
+    background: #f4f3f3;
+}
+
+.login_form p{
+    display: flex;
+    align-items: center;
+}
+
+.login_form label{
+    font-size: 16px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+    margin-right: 15px;
+    width: 145px;
+}
+
+.login_form p input{
+    border: 1px solid #d3d3d3;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    width: calc(100% - 160px)
+}
+
+.login_form input[type=submit]{
+    display: block;
+    width: 190px;
+    height: 42px;
+    margin: 30px auto 0;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+.login_form input[type=submit]:hover {
+    background: #c99e668f;
+}
+
+.login_form .forgot_pass{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+.login_form .forgot_pass a{
+    font-size: 15px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+}
+
+.reg{
+    display: block;
+    font-size: 15px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+    margin-top: 25px;
+}
+
+
+/* --------------------- media ---------------------*/
+
+@media (max-width: 470px){
+    .login_form p{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .login_form label{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .login_form p input{
+        width: 90%;
+    }
+}

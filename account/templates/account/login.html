@@ -1,11 +1,34 @@
 {% extends "account_base.html" %}
-{% block title %}Log-in{% endblock %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h1>Log-in</h1>
-    <p>Please, use the following form to log-in:</p>
-    <form action="" method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
+    <div class="login">
+        <h1>Вход</h1>
+        <form action="" method="post" class="login_form">
+            {% csrf_token %}
+             <p>
+                <label for="id_username">Имя пользователя:</label>
+                <input type="text" name="username" required id="id_username">
+             </p>
+
+            <p>
+                <label for="id_password">Пароль:</label>
+                <input type="password" name="password" required id="id_password">
+            </p>
+
+            <div class="forgot_pass">
+                <a href="">Забыли пароль?</a>
+            </div>
+            <input type="submit" value="Войти">
+            <span class="reg">
+                Еще нет аккаунта? <a href="{% url 'account:registration' %}">Зарегистрируйтесь здесь</a>
+            </span>
+        </form>
+    </div>
 {% endblock %}

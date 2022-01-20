@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/header.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
     {% block styles %}
 
     {% endblock %}
@@ -48,7 +49,7 @@
     </main>
     <footer>
         {% block footer %}
-
+        {% include 'wedding/_inc/footer.html' %}
         {% endblock %}
     </footer>
 

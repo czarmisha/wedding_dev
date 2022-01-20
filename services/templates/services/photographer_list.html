@@ -1,35 +1,68 @@
 {% extends 'services_base.html' %}
-{%block content%}
- <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit" />
-</form>
-<ul>
-    {% for object in filter.qs %}
-        <div class="service">
-        {%if object.avatar%}
-        <a href="{{object.avatar.url}}"><img src="{{object.avatar.url}}" alt="" width="50" height="50"></a>
-        {%endif%}
-        <p class="service_name"><a href="{{object.get_absolute_url}}">{{object.full_name}}</a></p>
-        <p class="service_about">{{object.about}}</p>
-        <p class="service_price">Цена: <span>{{object.price}}</span></p>
-        <p class="service_price">Цена в час: <span>{{object.price_per_hour}}</span></p>
-        <p class="service_phone">Телефон: <span>{{object.phone}}</span></p>
-        <p class="service_telegram">Телеграм: <span>{{object.telegram}}</span></p>
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
+<link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+{% endblock%}
+
+{% block content %}
+    <div class="filters">
+         <form method="get">
+            {{ filter.form.as_p }}
+            <input type="submit" />
+         </form>
     </div>
-        <br><br>
-    {% endfor %}
-<!--{% for object in photographers %}-->
-<!--    <div class="service">-->
-<!--        {%if object.avatar%}-->
-<!--        <a href="{{object.avatar.url}}"><img src="{{object.avatar.url}}" alt="" width="50" height="50"></a>-->
-<!--        {%endif%}-->
-<!--        <p class="service_name"><a href="{{object.get_absolute_url}}">{{object.full_name}}</a></p>-->
-<!--        <p class="service_about">{{object.about}}</p>-->
-<!--        <p class="service_price">Цена в час: <span>{{object.price_per_hour}}</span></p>-->
-<!--        <p class="service_phone">Телефон: <span>{{object.phone}}</span></p>-->
-<!--        <p class="service_telegram">Телеграм: <span>{{object.telegram}}</span></p>-->
-<!--        <br><br><br>-->
-<!--    </div>-->
-<!--{% endfor %}-->
+    <div class="spec_list">
+        {% for object in filter.qs %}
+        <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <div class="left d-flex flex-column align-items-center">
+                        {%if object.avatar%}
+                        <img src="{{object.avatar.url}}" alt="" width="50" height="50">
+                        {% else %}
+                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        {%endif%}
+                        <p class="spec_rating">10.0</p>
+                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10">
+                    <div class="right h-100 d-flex flex-column justify-content-between">
+                        <div class="info d-flex align-items-center justify-content-between">
+                            <h3 class="spec_fullname">{{object.full_name}}</h3>
+                            <div class="info_right d-flex align-items-center">
+                                <p class="spec_price">{{object.price}} сум</p>
+                                <span> | </span>
+                                <p class="spec_price">{{object.price_per_hour}} сум/час</p>
+                            </div>
+                        </div>
+                        <div class="spec_portfolio">
+                            <div class="row">
+                                {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="col-3 mt-4">
+                                        <img class="w-100" src="{{image.image.url}}" alt="">
+                                    </div>
+                                {%endfor%}
+
+                            </div>
+                        </div>
+                        <div class="spec_portfolio_slider">
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 {%endblock content%}
