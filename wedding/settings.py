@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'services',
     'tender',
     'budget',
+    'guest_list',
     'star_ratings',
     'django_filters',
 ]

@@ -12,7 +12,7 @@ User = get_user_model()
 def budget_view(request):
     try:
         budget = Budget.objects.get(client=request.user)
-    except Budget.DoesNotExist:
+    except:
         budget = None
     return render(request, template_name='budget/budget.html', context={'json': json.loads(budget.budget_json) if budget else None,
                                                                         'budget': budget.budget_value if budget else None,

@@ -11,8 +11,7 @@
 </head>
 
 <body>
-<!--{{json}}-->
-<!--{{last_rel}}-->
+
 	<div id="Budget">
 		<div id="BudgetSum1">
 			<p>Бюджет моей свадьбы <input type="text" value="{{budget}}" id="BudgetI"></p>
@@ -25,9 +24,16 @@
 		</div>
 		<div id="BudgetH1">
 			<h1>Свадебный бюджет</h1>
+			{% if request.user.is_authenticated %}
 			<a href="javascript:window.print();" id="print">Печать</a>
 			<button class="save">Сохранить</button>
+			{% else %}
+			<a href="javascript:window.print();" id="print">Зарегистрируйтесь чтобы распечатать</a>
+			<button class="save">Зарегистрируйтесь чтобы сохранить</button>
+			{% endif %}
+
 		</div>
+		{% if request.user.is_authenticated %}
 		<div id="BudgetTables">
 			{% for table in json %}
 				<table rel="{{table.rel}}">
@@ -917,6 +923,9 @@
 <!--				</tr>-->
 <!--			</table>-->
 		</div>
+		{% else %}
+		{% include 'budget/default_budget.html' %}
+		{% endif %}
 	</div>
 	<div class="DeleteBlock deals-popup mfp-hide" id="DeleteBlock">
 		<p>Удалить строку?</p>

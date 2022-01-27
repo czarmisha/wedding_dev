@@ -26,6 +26,7 @@ urlpatterns = [
     path('services/', include('services.urls', namespace='services')),
     path('tender/', include('tender.urls', namespace='tender')),
     path('budget/', include('budget.urls', namespace='budget')),
+    path('guest-list/', include('guest_list.urls', namespace='guest_list')),
     path('admin/', admin.site.urls),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
