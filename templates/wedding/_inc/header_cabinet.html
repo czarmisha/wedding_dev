@@ -1,0 +1,140 @@
+{% load i18n %}
+{% load static %}
+
+<div class="header">
+            <div class="mobile-menu position-absolute  d-lg-none">
+                <div class="wrapper d-flex flex-column align-items-center justify-content-between w-100 h-100 position-relative">
+                    <ul class="mobile-menu_list">
+                        <li class="">
+                            <a class="mobile-menu_link catalog_btn d-flex align-items-center justify-content-between" href="#">Услуги <span><i class="fad fa-long-arrow-right"></i></span></a>
+                        </li>
+                        <li class=""><a href="" class="mobile-menu_link">Рейтинг</a></li>
+                        <li class=""><a href="{% url 'tender:list'%}" class="mobile-menu_link">Тендеры</a></li>
+                        <li class=""><a href="" class="mobile-menu_link">О нас</a></li>
+                        <li class=""><a href="" class="mobile-menu_link">Контакты</a></li>
+                        <li class=""><a href="" class="mobile-menu_link account_btn d-flex align-items-center justify-content-between">Аккаунт <span><i class="fad fa-long-arrow-right"></i></span></a></li>
+                    </ul>
+                    <ul class="mobile-menu_social d-flex align-items-center w-100 list-unstyled">
+                        <li><a href="" class="mobile-menu_sociallink">i</a></li>
+                        <li><a href="" class="mobile-menu_sociallink">i</a></li>
+                        <li><a href="" class="mobile-menu_sociallink">i</a></li>
+                    </ul>
+                    <ul class="mobile_catalog position-absolute">
+                        <li class="catalog_back"><i class="fad fa-long-arrow-left"></i><span>Назад</span></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}">Фотографы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:restaurant_list' %}">Рестораны и банкетные залы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}">Артисты и шоу программы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:transport_list' %}">Транспорт</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:music_list' %}">Музыканты и Dj</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:presenter_list' %}">Ведущие</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:registryoffice_list' %}">Дворцы бракосочетания и ЗАГСы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:invitation_list' %}">Пригласительные</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:cake_list' %}">Свадебные торты</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:dress_list' %}">Свадебные платья</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:ring_list' %}">Обручальные кольца</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:bouquet_list' %}">Свадебные букеты</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:decor_list' %}">Оформление и декор</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:costume_list' %}">Свадебный костюм</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:accessories_list' %}">Свадебные аксессуары</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:stylist_list' %}">Стилисты и визажисты</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photostudio_list' %}">Фотостудии</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:dance_list' %}">Танцевальные коллективы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:agency_list' %}">Свадебные агенства</a></li>
+                    </ul>
+                    <ul class="account_menu position-absolute">
+                        <li class="account_back"><i class="fad fa-long-arrow-left"></i><span>Назад</span></li>
+                        {% if request.user.is_authenticated %}
+                            <li class=""><a class="mobile-menu_link" href="{% url 'account:cabinet' request.user.pk %}">Кабинет</a></li>
+                            <li class=""><a class="mobile-menu_link" href="{% url 'account:logout' %}">Выйти</a></li>
+                        {% else %}
+                            <li class=""><a class="mobile-menu_link" href="{% url 'account:login' %}">Вход</a></li>
+                            <li class=""><a class="mobile-menu_link" href="{% url 'account:registration' %}">Регистрация</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <nav class="">
+                <ul class="header_navigation d-none d-lg-flex">
+                    <li class="my_dropdown">
+                        <div class="dropdown">
+                            <a class="mobile-menu_link dropdown-toggle" href="#" role="button" id="dropdownLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              Услуги
+                            </a>
+
+                            <ul class="column_menu dropdown-menu" aria-labelledby="dropdownLink">
+                              <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photographer_list' %}">Фотографы</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'home' %}">Главная</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:restaurant_list' %}">Рестораны и банкетные залы</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:artist_list' %}">Артисты и шоу программы</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:transport_list' %}">Транспорт</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:music_list' %}">Музыканты и Dj</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:presenter_list' %}">Ведущие</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:registryoffice_list' %}">Дворцы бракосочетания и ЗАГСы</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:invitation_list' %}">Пригласительные</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:cake_list' %}">Свадебные торты</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dress_list' %}">Свадебные платья</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:ring_list' %}">Обручальные кольца</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:bouquet_list' %}">Свадебные букеты</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:decor_list' %}">Оформление и декор</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:costume_list' %}">Свадебный костюм</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:accessories_list' %}">Свадебные аксессуары</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:stylist_list' %}">Стилисты и визажисты</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photostudio_list' %}">Фотостудии</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dance_list' %}">Танцевальные коллективы</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:agency_list' %}">Свадебные агенства</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="" class="nav_link">Рейтинг</a></li>
+                    <li class=""><a href="{% url 'tender:list'%}" class="nav_link">Тендеры</a></li>
+                </ul>
+                <a href="{% url 'home' %}" class="logo"><img src="{% static 'media/images/TOYPOY_logo_png.webp' %}" alt=""></a>
+                <ul class="header_navigation d-none d-lg-flex">
+                    <li class=""><a href="" class="nav_link">О нас</a></li>
+                    <li class=""><a href="" class="nav_link">Контакты</a></li>
+                    <li class="">
+                        <div class="dropdown">
+                            <a class="account_dropdown mobile-menu_link dropdown-toggle" href="#" role="button" id="dropdownLinkAccount" data-bs-toggle="dropdown" aria-expanded="false">
+                              аккаунт
+                            </a>
+
+                            <ul class="account_dropdown_menu dropdown-menu" aria-labelledby="dropdownLinkAccount">
+                                {% if request.user.is_authenticated %}
+                                    <li class=""><a class="dropdown-item nav-link" href="{% url 'account:cabinet' request.user.pk %}">Кабинет</a></li>
+                                    <li class=""><a class="dropdown-item nav-link" href="{% url 'account:logout' %}">Выйти</a></li>
+                                {% else %}
+                                    <li class=""><a class="dropdown-item nav-link" href="{% url 'account:login' %}">Вход</a></li>
+                                    <li class=""><a class="dropdown-item nav-link" href="{% url 'account:registration' %}">Регистрация</a></li>
+                                {% endif %}
+
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <a href="" class="burger_btn d-flex d-lg-none"><span></span></a>
+            </nav>
+            <div class="cabinet_nav">
+                <div class="container">
+                    <ul class="d-flex w-100 align-items-center justify-content-center">
+                       <li><a href="" class="cabinet_nav_link"><span class="cabinet_nav_icon"></span>Моя страница</a></li>
+                       <li><a href="" class="cabinet_nav_link"><span class="cabinet_nav_icon"></span>Избранные специалисты</a></li>
+                       <li><a href="" class="cabinet_nav_link"><span class="cabinet_nav_icon"></span>Мои тендеры</a></li>
+                       <li>
+                           <div class="dropdown">
+                                <a class="cabinet_nav_link cabinet_dropdown dropdown-toggle" href="#" role="button" id="dropdownLinkCabinet" data-bs-toggle="dropdown" aria-expanded="false">
+                                 <img src="" alt="" class="cabinet_avatar_mini" width="40" height="40"> <span class="cabinet_name">Имя</span>
+                                </a>
+
+                                <ul class="cabinet_dropdown_menu dropdown-menu" aria-labelledby="dropdownLinkCabinet">
+                                    <li class=""><a class="dropdown-item cabinet_nav_link" href="">Кабинет</a></li>
+                                    <li class=""><a class="dropdown-item cabinet_nav_link" href="">Выйти</a></li>
+                                    <li class=""><a class="dropdown-item cabinet_nav_link" href="">Вход</a></li>
+                                    <li class=""><a class="dropdown-item cabinet_nav_link" href="">Регистрация</a></li>
+                                </ul>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>

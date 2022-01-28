@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from star_ratings.models import Rating
 from django.contrib.contenttypes.fields import GenericRelation
+# from tender.models import Tender
 
 
 class User(AbstractUser):
@@ -98,3 +99,21 @@ class ClientProfile(models.Model):
 #     def save(self, *args, **kwargs):
 #         self.slug = slugify(self.user.username)
 #         super(SpecialistProfile, self).save(*args, **kwargs)
+
+
+# class FavoriteBase(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#
+#     class Meta:
+#         abstract = True
+#
+#     def __str__(self):
+#         return self.user.username
+#
+#
+# class FavoriteService(FavoriteBase):
+#     obj = models.ForeignKey(User, on_delete=models.CASCADE)
+#
+#
+# class FavoriteTender(FavoriteBase):
+#     obj = models.ForeignKey(Tender, on_delete=models.CASCADE)
