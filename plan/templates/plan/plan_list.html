@@ -1,0 +1,86 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/plan.css' %}">
+</head>
+<body>
+<table id="Plan">
+    <tr>
+        <th>Время</th>
+        <th>Действие</th>
+    </tr>
+    {% if not task_list%}
+<!--    <tr>-->
+<!--        <td>08:00</td>-->
+<!--        <td>Подъём, бодрящий кофе <span class="del_task default">x</span></td>-->
+<!--    </tr>-->
+    {% else %}
+    {% for task in task_list %}
+    <tr>
+        <td>{{task.time}}</td>
+        <td>{{task.action}} <span class="del_task" pk="{{task.pk}}">x</span></td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+    <tr>
+        <td><input type="time" class="time" required></td>
+        <td>><textarea name="" id="" cols="30" rows="5" class="action" required></textarea></td>
+        <td><a href="" class="add_task">Добавить</a></td>
+    </tr>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+
+        $("body").on("mouseenter", "#Plan tr", function () {
+            $("span.del_task").hide();
+            $(this).find('span.del_task').show();
+        });
+
+        $('.del_task').on('click', function (){
+            let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
+            data['obj_pk'] = $(this).attr('pk');
+            $.ajax({
+              method: "POST",
+              url: "{% url 'plan:plan_delete' %}",
+                data: data,
+                success: function(data) {
+                // console.log(data);
+                if(data['success'])window.location.reload()
+              },
+              error: function(er) {
+                console.log(er);
+                // console.log('22222');
+              }
+            });
+        });
+
+        $('.add_task').on('click', function (e){
+            e.preventDefault();
+            let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
+            data['time'] = $(".time").val();
+            data['action'] = $(".action").val();
+            $.ajax({
+              method: "POST",
+              url: "{% url 'plan:plan_save' %}",
+                // dataType: "json",
+                data: data,
+                success: function(data) {
+                // console.log(data);
+                if(data['success'])window.location.reload()
+              },
+              error: function(er) {
+                console.log(er);
+                // console.log('22222');
+              }
+            });
+        });
+    })
+</script>
+</body>
+</html>

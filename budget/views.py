@@ -16,7 +16,7 @@ def budget_view(request):
         budget = None
     return render(request, template_name='budget/budget.html', context={'json': json.loads(budget.budget_json) if budget else None,
                                                                         'budget': budget.budget_value if budget else None,
-                                                                        'last_rel': budget.last_rel if budget else None,
+                                                                        'last_rel': budget.last_rel if budget else 0,
                                                                         })
 
 

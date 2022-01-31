@@ -36,6 +36,12 @@
         <br>
         <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}">edit profile</a>
         <br>
+        <a href="{% url 'budget:budget_view' %}">Затраты/бюджет</a>
+        <br>
+        <a href="{% url 'guest_list:guest_list' %}">Список гостей</a>
+        <br>
+        <a href="{% url 'plan:plan_list' %}">План свадебного дня</a>
+        <br>
         <a href="{% url 'tender:create' %}">create tender</a>
         <h3>Мои тендеры:</h3>
         <ul>

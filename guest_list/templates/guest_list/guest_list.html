@@ -1,49 +1,91 @@
+{% load i18n %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'styles/guest_list.css' %}">
 </head>
 <body>
-<h3>Гости невесты</h3>
-{% for guest in bride_list %}
-    <p>{{guest.name}} {{guest.phone}}</p>
-{% endfor %}
-<input class="name bride" type="text" placeholder="Имя">
-<input class="phone bride" type="text" placeholder="Телефон">
-<a href="" class="add_guest bride">Добавить гостя</a>
-<br>
-<h3>Гости жениха</h3>
-{% for guest in groom_list %}
-    <p>{{guest.name}} {{guest.phone}}</p>
-{% endfor %}
-<input class="name groom" type="text" placeholder="Имя">
-<input class="phone groom" type="text" placeholder="Телефон">
-<a href="" class="add_guest groom">Добавить гостя</a>
+<div id="Guest-list">
+        <h3>Гости невесты</h3>
+        <ul>
+            {% for guest in bride_list %}
+            <li>{{guest.name}} {{guest.phone}} <span class="del_guest bride" pk="{{guest.pk}}">x</span></li>
+            {% endfor %}
+        </ul>
+
+        <input class="name bride" type="text" placeholder="Имя">
+        <input class="phone bride" type="text" placeholder="Телефон">
+        <a href="" class="add_guest bride">Добавить гостя</a>
+
+        <br>
+
+        <h3>Гости жениха</h3>
+        <ul>
+            {% for guest in groom_list %}
+            <li>{{guest.name}} {{guest.phone}} <span class="del_guest groom" pk="{{guest.pk}}">x</span></li>
+            {% endfor %}
+        </ul>
+
+        <input class="name groom" type="text" placeholder="Имя">
+        <input class="phone groom" type="text" placeholder="Телефон">
+        <a href="" class="add_guest groom">Добавить гостя</a>
+</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
-    $('.add_guest').on('click', function (e){
-        e.preventDefault();
-        let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
-        data['type'] = $(this).hasClass('bride') ? 'bride' : 'groom';
-        data['name'] = $(this).hasClass('bride') ? $(".name.bride").val() : $(".name.groom").val();
-        data['phone'] = $(this).hasClass('bride') ? $(".phone.bride").val() : $(".phone.groom").val();
-        $.ajax({
-          method: "POST",
-          url: "{% url 'guest_list:guest_save' %}",
-            // dataType: "json",
-            data: data,
-            success: function(data) {
-		  	// console.log(data);
-            if(data['success'])window.location.reload()
-          },
-          error: function(er) {
-            console.log(er);
-			// console.log('22222');
-          }
+    $(document).ready(function () {
+
+        $("body").on("mouseenter", "#Guest-list li", function () {
+            $("span.del_guest").hide();
+            $(this).find('span.del_guest').show();
+        });
+
+        $('.del_guest').on('click', function (){
+            let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
+            data['type'] = $(this).hasClass('bride') ? 'bride' : 'groom';
+            data['obj_pk'] = $(this).attr('pk');
+            $.ajax({
+              method: "POST",
+              url: "{% url 'guest_list:guest_delete' %}",
+                data: data,
+                success: function(data) {
+                // console.log(data);
+                if(data['success'])window.location.reload()
+              },
+              error: function(er) {
+                console.log(er);
+                // console.log('22222');
+              }
+            });
+        });
+
+        $('.add_guest').on('click', function (e){
+            e.preventDefault();
+            let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
+            data['type'] = $(this).hasClass('bride') ? 'bride' : 'groom';
+            data['name'] = $(this).hasClass('bride') ? $(".name.bride").val() : $(".name.groom").val();
+            data['phone'] = $(this).hasClass('bride') ? $(".phone.bride").val() : $(".phone.groom").val();
+            $.ajax({
+              method: "POST",
+              url: "{% url 'guest_list:guest_save' %}",
+                // dataType: "json",
+                data: data,
+                success: function(data) {
+                // console.log(data);
+                if(data['success'])window.location.reload()
+              },
+              error: function(er) {
+                console.log(er);
+                // console.log('22222');
+              }
+            });
         });
     })
+
 </script>
 </body>
 </html>
