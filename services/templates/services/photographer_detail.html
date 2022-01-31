@@ -30,6 +30,11 @@
                 <div class="rating">
                     {%include 'services/_inc/rating.html'%}
                 </div>
+                {% if favorite %}
+                <span>FAVORITE!!!!</span>
+                {% else %}
+                <a href="" class="favorite">add to favorite</a>
+                {% endif %}
             </div>
         </div>
         <div class="col-12 col-md-8 col-lg-9">
@@ -119,7 +124,26 @@
         });
         }
         else alert('Напишите текст отзыва перед отправкой')
-      })
+      });
+      $('.favorite').on('click', function (e){
+            e.preventDefault();
+            let data = {'csrfmiddlewaretoken': "{{ csrf_token }}",}
+            data['service_pk'] = {{object.user.pk}};
+            $.ajax({
+              method: "POST",
+              url: "{% url 'favorite:add_to_favorite' %}",
+                // dataType: "json",
+                data: data,
+                success: function(data) {
+                // console.log(data);
+                if(data['success'])window.location.reload()
+              },
+              error: function(er) {
+                console.log(er);
+                // console.log('22222');
+              }
+            });
+        });
     });
 </script>
 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>

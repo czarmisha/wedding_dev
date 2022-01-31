@@ -28,6 +28,7 @@ urlpatterns = [
     path('budget/', include('budget.urls', namespace='budget')),
     path('guest-list/', include('guest_list.urls', namespace='guest_list')),
     path('plan/', include('plan.urls', namespace='plan')),
+    path('favorite/', include('favorite.urls', namespace='favorite')),
     path('admin/', admin.site.urls),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]

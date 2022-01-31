@@ -8,6 +8,7 @@ from django.shortcuts import render, redirect
 from django.core.files.base import ContentFile
 from django_filters.views import FilterView
 from . import filters
+from favorite.models import Favorite
 
 
 User = get_user_model()
@@ -294,6 +295,8 @@ class PhotographerDetail(DetailView):
         try:
             if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
                 context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
         except:
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
