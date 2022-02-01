@@ -63,7 +63,7 @@ def user_logout(request):
 
 class ClientProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = ClientProfile
-    fields = ['avatar', 'phone', 'telegram']
+    fields = ['avatar', 'phone', 'telegram',]
     template_name_suffix = '_update_form'
 
 
@@ -74,7 +74,15 @@ class CabinetView(LoginRequiredMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CabinetView, self).get_context_data(**kwargs)
-        if self.object.type == 'client':
-            context['client_tenders'] = Tender.objects.filter(author=self.object)
+        # if self.object.type == 'client':
+        #     context['client_tenders'] = Tender.objects.filter(author=self.object)
         return context
 
+
+@login_required
+def my_tenders(request):
+    if request.user.type == 'client':
+        tenders = Tender.objects.filter(author=request.user).all()
+        return render(request, 'account/my_tenders.html', {'tenders': tenders})
+    else:
+        return render(request, 'wedding/home.html')

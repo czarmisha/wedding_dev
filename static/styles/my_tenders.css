@@ -12,12 +12,26 @@
     padding: 0;
 }
 
-/* ----------------------- main -------------- */
+ul{
+    margin: 0;
+    padding: 0;
+}
 
+
+/* --------------------------- main -------------------------------- */
 main{
     padding: 10px 0 30px;
 }
-
+.title{
+    background: url(../media/images/Handsha.svg)no-repeat center left;
+    background-size: 50px 50px;
+    padding: 18px 10px 18px 60px;
+    font-family: 'Roboto_medium';
+    color: var(--light-grey);
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
 .tender_box{
     text-decoration: none;
     box-shadow: 0 0 2px 2px #d7d7d7;
@@ -70,8 +84,8 @@ main{
 }
 
 .tender_img{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 70px;
+    max-height: 70px;
     margin: 6px 20px 0 0;
 }
 
@@ -116,55 +130,30 @@ main{
     line-height: 34px;
     font-family: 'Roboto_regular';
 }
-
-.tender_specialists{
-    margin-top: 20px;   
-    padding: 0 20px 20px;
-}
-
-.tender_specialists .wrapper{
-    background: #f6f6f6;
-    padding: 20px 30px;
-}
-
-.tender_specialists .title{
-    font-size: 17px;
-    color: var(--gold-color);
-    font-family: 'Roboto_medium';
-    margin: 0 0 35px;
-}
-
-.tender_specialists img{
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-}
-.tender_func{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 15px;
-}
-.tender_edit{
-    margin: 0 7px;
+.create_tender{
     font-family: 'Roboto_regular';
+    display: inline-block;
     font-size: 16px;
-    border-radius: 4px;
-    background: #5b80b2;
-    color: white;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    padding: 0 20px;
+    background: var(--gold-color);
+    border-radius: 20px;
+    margin: 0 20px 0 0;
     text-decoration: none;
-    padding: 7px 15px;
+    -webkit-transition: background .2s;
+    transition: background .2s;
 }
-.tender_edit:hover{
+.create_tender:hover{
     color: white;
 }
 
-
-/* ----------------------- media -------------- */
+/* ----------------------------------------- media ---------------------------- */
 
 @media (max-width: 500px){
     .tender_header{
         flex-direction: column!important;
     }
 }
+

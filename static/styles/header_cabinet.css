@@ -401,7 +401,18 @@ header nav{
     color: white;
     background: rgba(255, 255, 255, 0.13);
 }
-
+.cabinet_avatar_mini{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.dark_color{
+    color: var(--dark-grey);
+    height: auto;
+}
+.dark_color:hover{
+    color: var(--dark-grey);
+}
 /* ----------------------------------------- media ---------------------------- */
 
 @media (max-width: 1050px){

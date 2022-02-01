@@ -1,0 +1,32 @@
+{% load static %}
+<div class="client_box d-flex align-items-center justify-content-start">
+    <div class="client_img">
+        {% if user.clientprofile.avatar %}
+        <img class="cabinet_avatar" src="{{user.clientprofile.avatar.url}}" alt="">
+        {% else %}
+        <img class="cabinet_avatar" src="{% static 'media/images/default_avatar.png' %}" alt="">
+        {% endif %}
+    </div>
+    <div class="client_body">
+        <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}" class="edit_profile"> <span><i class="fad fa-edit"></i></span> Редактировать <br> профиль</a>
+        <p>username <br> <span> {{user.username}} </span></p>
+        <p>имя <br> {% if not user.first_name %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.first_name}}</span> {% endif %}</p>
+        <p>фамилия <br> {% if not user.last_name %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.last_name}}</span> {% endif %}</p>
+        <p>телефон <br> {% if not user.clientprofile.phone %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.clientprofile.phone}}</span> {% endif %}</p>
+        <p>телеграм <br> {% if not user.clientprofile.telegram %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.clientprofile.telegram}}</span> {% endif %}</p>
+        <p>email <br> {% if not user.email %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.email}}</span> {% endif %}</p>
+    </div>
+</div>
+<div class="wedding_map">
+    <h3 class="wedding_map__title">
+        Моя подготовка к свадьбе
+    </h3>
+    <ul class="wedding_map__body">
+        <li><a href="{% url 'budget:budget_view' %}" class="wedding_map__link"><span><i class="fad fa-calculator-alt"></i> </span> Затраты/бюджет</a></li>
+        <li><a href="" class="wedding_map__link"><span><i class="fad fa-users"></i> </span> Сохраненные специалисты</a></li>
+        <li><a href="{% url 'account:tenders' %}" class="wedding_map__link"><span><i class="fad fa-handshake-alt"></i> </span> Мои тендеры</a></li>
+        <li><a href="{% url 'guest_list:guest_list' %}" class="wedding_map__link"><span><i class="fad fa-list-alt"></i> </span> Список гостей</a></li>
+        <li><a href="{% url 'plan:plan_list' %}" class="wedding_map__link"><span><i class="fad fa-clipboard-list-check"></i> </span> План свадебного дня</a></li>
+    </ul>
+</div>
+<a href="{% url 'tender:create' %}" class="create_tender">Создать тендер</a>

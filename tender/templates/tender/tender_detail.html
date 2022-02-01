@@ -65,8 +65,10 @@
             </div>
 
             {%if tender.author == request.user%}
-                <a href="{%url 'tender:update' tender.slug%}">Редактировать</a>
-                <a href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+              <div class="tender_func">
+                    <a class="tender_edit" href="{%url 'tender:update' tender.slug%}">Редактировать</a>
+                    <a class="tender_edit" href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+              </div>
             {%endif%}
 
             {%if tender.executor%}

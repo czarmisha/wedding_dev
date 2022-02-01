@@ -1,0 +1,164 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.cab_section{
+    padding: 40px 0;
+}
+
+.client_box{
+    border-radius: 3px;
+    background-color: #f6f6f6;
+    border: 13px solid #e0f1f2;
+    padding: 7px;
+    margin: 0 0 40px;
+    position: relative;
+}
+.client_img{
+    padding: 5px;
+    margin-right: 30px;
+}
+.cabinet_avatar{
+    width: 100px;
+    height: 100px;
+}
+.client_body{
+    padding: 5px;
+    width: 100%;
+}
+.client_body p{
+    margin-bottom: 12px;
+    line-height: .9;
+    font-family: 'Roboto_regular';
+    font-size: 12px;
+    color: var(--light-grey);
+}
+.client_body p span{
+    font-family: 'Roboto_medium';
+    font-size: 16px;
+    color: var(--dark-grey);
+}
+.client_body p span.unknown{
+    color: rgba(180, 0, 0, 0.85);
+}
+.edit_profile{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+    font-family: 'Roboto_medium';
+    font-size: 14px;
+    text-align: right;
+}
+.edit_profile span{
+    margin-right: 6px;
+    font-size: 28px;
+}
+.edit_profile:hover{
+    color: var(--blue-color);
+}
+.wedding_map{
+    padding: 10px;
+    background: #f3f3f3;
+    margin: 0 0 30px;
+}
+.wedding_map__title{
+    font-size: 20px;
+    width: 100%;
+    font-family: 'Roboto_medium';
+    color: var(--gold-color);
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+.wedding_map__body{
+    list-style: none;
+    width: 100%;
+    background: white;
+}
+.wedding_map__link{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+    color: #808285;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    font-family: 'Roboto_regular';
+    text-decoration: none;
+}
+.wedding_map__link:hover{
+    background: #ecfafb;
+    color: #808285;
+}
+.wedding_map__link span{
+    margin-right: 50px;
+    font-size: 44px;
+    color: var(--gold-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+}
+.create_tender{
+    font-family: 'Roboto_regular';
+    display: inline-block;
+    font-size: 16px;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    padding: 0 20px;
+    background: var(--gold-color);
+    border-radius: 20px;
+    margin: 0 20px 0 0;
+    text-decoration: none;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+.create_tender:hover{
+    color: white;
+}
+
+/* ----------------------------------------- media ---------------------------- */
+
+@media (max-width: 768px){
+    .client_box{
+        flex-direction: column;
+        align-items: start!important;
+    }
+    .client_img{
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 410px){
+    .wedding_map__link{
+        font-size: 14px;
+        padding: 15px 15px;
+    }
+    .wedding_map__link span{
+        font-size: 25px;
+        width: 35px;
+    }
+    .wedding_map__title{
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,47 @@
+{% extends 'account_base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/my_tenders.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class="title">Мои тендеры</h2>
+<div class="tender_list">
+    <div class="row">
+        {% for obj in tenders %}
+        <div class="col-12 col-md-6">
+            <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
+                <div class="tender_header d-flex align-items-center justify-content-between">
+                    <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
+                    <div class="tender_info">
+                        <span class="tender_on_date">на {{obj.on_date}}</span>
+                        <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
+                    </div>
+                </div>
+                <div class="tender_body d-flex align-items-start">
+                    <div class="tender_img">
+                        {% if obj.author.clientprofile.avatar %}
+                        <img src="{{obj.author.clientprofile.avatar.url}}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="tender_preview">
+                        <p class="tender_author">{{obj.author}}</p>
+                        <p class="tender_comment">{{obj.comment}}</p>
+                    </div>
+                </div>
+                <div class="tender_footer">
+                    <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
+                    <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+
+    </div>
+     <a href="{% url 'tender:create' %}" class="create_tender">Создать тендер</a>
+</div>
+
+{% endblock %}
