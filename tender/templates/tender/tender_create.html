@@ -1,13 +1,33 @@
 {% extends 'tender_base.html' %}
+{% load static %}
 
+{%block styles%}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/tender_create.css' %}">
+{%endblock%}
 
 {% block content %}
-<a href="{% url 'home' %}">home</a>
-<h1>Tender create</h1>
-<form action="" method="POST">
+<div class="tender_create">
+    <h1>Создать тендер</h1>
+     <form class="tender_create_form" method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
 
-{% csrf_token %}
-{{ form.as_p }}
-<button type="submit">SUBMIT</button>
-</form>
+    {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+          {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Создать</button>
+    </form>
+</div>
 {% endblock %}

@@ -5,9 +5,37 @@
     <link rel="stylesheet" href="{% static 'styles/client_update.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Update {{object}}</h1>
-    <form method="post" enctype='multipart/form-data'>{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Update">
-</form>
+<div class="client_update">
+    <h1>Редактировать профиль</h1>
+    <form class="client_update_form" method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+    <div class="form-group {%if field.name == 'avatar'%}avatar_group {%endif%}">
+        {%if field.name == 'avatar'%}
+            <a target="_blank" href="{{ MEDIA_URL }}{{ field.value }}"><img src="{{ MEDIA_URL }}{{ field.value }}" alt="" ></a>
+            <div class="wrapper">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+        {%else%}
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+          {% endif %}
+        {%endif%}
+
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+</div>
 {% endblock %}
+
+
+

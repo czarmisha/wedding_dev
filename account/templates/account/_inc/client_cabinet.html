@@ -8,7 +8,7 @@
         {% endif %}
     </div>
     <div class="client_body">
-        <a href="{% url 'account:update_client_profile' user.clientprofile.slug %}" class="edit_profile"> <span><i class="fad fa-edit"></i></span> Редактировать <br> профиль</a>
+        <a href="{% url 'account:update_client_profile' %}" class="edit_profile"> <span><i class="fad fa-edit"></i></span> Редактировать <br> профиль</a>
         <p>username <br> <span> {{user.username}} </span></p>
         <p>имя <br> {% if not user.first_name %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.first_name}}</span> {% endif %}</p>
         <p>фамилия <br> {% if not user.last_name %} <span class="unknown">неизвестно (отредактируйте профиль) </span> {% else %} <span> {{user.last_name}}</span> {% endif %}</p>

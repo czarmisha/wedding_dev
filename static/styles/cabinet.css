@@ -36,8 +36,9 @@ ul{
     margin-right: 30px;
 }
 .cabinet_avatar{
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
 }
 .client_body{
     padding: 5px;

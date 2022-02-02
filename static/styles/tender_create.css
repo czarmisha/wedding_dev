@@ -1,0 +1,133 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+ul, p{
+    margin: 0;
+    padding: 0;
+}
+
+
+/* --------------------------- main -------------------------------- */
+main{
+    padding: 10px 0 30px;
+}
+.tender_create{
+    padding: 25px 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 28px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+.tender_create_form{
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 25px 40px 25px;
+    border: 2px solid #c99e668f;
+    overflow: hidden;
+    background: #f4f3f3;
+}
+
+.tender_create_form .form-group{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.tender_create_form label{
+    font-size: 16px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+    margin-right: 15px;
+    width: 145px;
+}
+
+.tender_create_form .form-group input{
+    border: 1px solid #d3d3d3;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    width: calc(100% - 160px)
+}
+
+.tender_create_form .form-group textarea{
+    border: 1px solid #d3d3d3;
+    height: 150px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    width: calc(100% - 160px);
+    resize: none;
+}
+
+.tender_create_form .form-group select{
+    border: 1px solid #d3d3d3;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    width: calc(100% - 160px);
+    resize: none;
+}
+
+.tender_create_form button[type=submit]{
+    display: block;
+    width: 190px;
+    height: 42px;
+    margin: 30px auto 0;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+.tender_create_form button[type=submit]:hover {
+    background: #c99e668f;
+}
+/*--------------------media-------------------*/
+@media (max-width: 470px){
+    .tender_create_form .form-group{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .tender_create_form label{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .tender_create_form .form-group input{
+        width: 90%;
+    }
+
+    .tender_create_form .form-group textarea{
+        width: 90%;
+    }
+
+    .tender_create_form .form-group select{
+        width: 90%;
+    }
+}

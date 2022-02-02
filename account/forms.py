@@ -16,3 +16,11 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email')
+
+
+class ClientEditForm(forms.Form):
+    avatar = forms.ImageField(required=False, label='Фото профиля', widget=forms.FileInput())
+    first_name = forms.CharField(required=False, label="Имя")
+    last_name = forms.CharField(required=False, label="Фамилия")
+    phone = forms.CharField(required=False, label="Телефон")
+    telegram = forms.CharField(required=False, label="Telegram")

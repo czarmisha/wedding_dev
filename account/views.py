@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, ClientEditForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -59,6 +59,41 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home', kwargs={}))
+
+
+@login_required
+def client_edit(request):
+    if request.user.type == 'client':
+        if request.method == 'POST':
+            form = ClientEditForm(request.POST, request.FILES)
+            if form.is_valid():
+                cd = form.cleaned_data
+                try:
+                    client = ClientProfile.objects.get(user=request.user)
+                except:
+                    return HttpResponse('Unknown account')
+                client.user.first_name = cd['first_name']
+                client.user.last_name = cd['last_name']
+                if cd['avatar']:
+                    client.avatar = cd['avatar']
+                client.phone = cd['phone']
+                client.telegram = cd['telegram']
+                # TODO: telegram
+                client.user.save()
+                client.save()
+                return HttpResponseRedirect(reverse('account:cabinet', kwargs={'pk': client.user.pk}))
+        else:
+            initial_dict = {
+                "avatar": request.user.clientprofile.avatar if request.user.clientprofile.avatar else None,
+                'first_name': request.user.first_name if request.user.first_name else None,
+                'last_name': request.user.last_name if request.user.last_name else None,
+                'phone': request.user.clientprofile.phone if request.user.clientprofile.phone else None,
+                'telegram': request.user.clientprofile.telegram if request.user.clientprofile.telegram else None,
+            }
+            form = ClientEditForm(initial=initial_dict)
+    else:
+        return HttpResponse('u r not a client')
+    return render(request, 'account/clientprofile_update_form.html', {'form': form})
 
 
 class ClientProfileUpdateView(LoginRequiredMixin, UpdateView):

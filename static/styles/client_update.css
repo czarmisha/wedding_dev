@@ -23,3 +23,102 @@ ul, p{
 main{
     padding: 10px 0 30px;
 }
+.client_update{
+    padding: 25px 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: 28px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+.client_update_form{
+    width: 100%;
+    max-width: 500px;
+    padding: 40px 25px 40px 25px;
+    border: 2px solid #c99e668f;
+    overflow: hidden;
+    background: #f4f3f3;
+}
+
+.client_update_form .form-group{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.client_update_form .form-group .wrapper{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.client_update_form .form-group.avatar_group{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.client_update_form .form-group.avatar_group img{
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.client_update_form label{
+    font-size: 16px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+    margin-right: 15px;
+    width: 145px;
+}
+
+.client_update_form .form-group input{
+    border: 1px solid #d3d3d3;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    width: calc(100% - 160px)
+}
+
+.client_update_form button[type=submit]{
+    display: block;
+    width: 190px;
+    height: 42px;
+    margin: 30px auto 0;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+.client_update_form button[type=submit]:hover {
+    background: #c99e668f;
+}
+/*--------------------media-------------------*/
+@media (max-width: 470px){
+    .client_update_form .form-group{
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+    .client_update_form .form-group.avatar_group{
+        align-items: center;
+    }
+    .client_update_form label{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .client_update_form .form-group input{
+        width: 90%;
+    }
+}
