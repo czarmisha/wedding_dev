@@ -31,3 +31,27 @@ def add_to_favorite(request):
     else:
         return JsonResponse({'success': False}, safe=False)
 
+
+@login_required
+def remove_from_favorite(request):
+    if request.method == 'POST':
+        service_pk = request.POST.get('service_pk')
+        specialist = User.objects.filter(pk=service_pk).first()
+        success = False
+        err = ''
+        if request.user.type == 'client':
+            favorite = Favorite.objects.filter(client=request.user, specialist=specialist).first()
+            if favorite:
+                favorite.delete()
+                success = True
+        else:
+            err = 'Эта услуга доступна только для молодоженов'
+
+        resp = {
+            'success': success,
+            'error': err,
+        }
+        return JsonResponse(resp, safe=False)
+    else:
+        return JsonResponse({'success': False}, safe=False)
+

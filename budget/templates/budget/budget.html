@@ -1,38 +1,39 @@
-{% load i18n %}
+{% extends 'tender_base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{%block styles%}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/budget.css' %}">
+{%endblock%}
 
-<head>
-	<meta charset="UTF-8">
-	<title>Title</title>
-	<link rel="stylesheet" href="{% static 'styles/budget.css' %}">
-</head>
-
-<body>
-
+{%block content%}
 	<div id="Budget">
-		<div id="BudgetSum1">
-			<p>Бюджет моей свадьбы <input type="text" value="{{budget}}" id="BudgetI"></p>
-			<p>Можно еще потратить <span id="BudgetRest">0</span></p>
+		<h1>Свадебный бюджет</h1>
+		<div class="Budget_header">
+			<div id="BudgetH1">
+				<div class="d-flex align-items-center justify-content-start mb-3">
+					{% if request.user.is_authenticated %}
+					<a href="javascript:window.print();" id="print"><i class="fad fa-print"></i> <span>Печать</span></a>
+					<button class="save"><i class="fad fa-save"></i> <span>Сохранить</span></button>
+					{% else %}
+					<a href="" id="print">Зарегистрируйтесь чтобы распечатать</a>
+					<button class="">Зарегистрируйтесь чтобы сохранить</button>
+					{% endif %}
+				</div>
+			</div>
+			<div id="BudgetSum1">
+				<p>Бюджет моей свадьбы <input type="text" value="{%if budget == None%}0{%else%}{{budget}}{%endif%}" id="BudgetI"></p>
+				<p>Можно еще потратить <span id="BudgetRest">0</span></p>
+			</div>
+			<div id="BudgetSum2">
+				<p class="BudgetSum2Bold">Общая сумма затрат <span id="BudgetSpending">-</span></p>
+				<p>Уже оплачено <span id="BudgetPaid">-</span></p>
+				<p>Осталось оплатить <span id="BudgetUnpaid">-</span></p>
+			</div>
 		</div>
-		<div id="BudgetSum2">
-			<p class="BudgetSum2Bold">Общая сумма затрат <span id="BudgetSpending">-</span></p>
-			<p>Уже оплачено <span id="BudgetPaid">-</span></p>
-			<p>Осталось оплатить <span id="BudgetUnpaid">-</span></p>
-		</div>
-		<div id="BudgetH1">
-			<h1>Свадебный бюджет</h1>
-			{% if request.user.is_authenticated %}
-			<a href="javascript:window.print();" id="print">Печать</a>
-			<button class="save">Сохранить</button>
-			{% else %}
-			<a href="" id="print">Зарегистрируйтесь чтобы распечатать</a>
-			<button class="">Зарегистрируйтесь чтобы сохранить</button>
-			{% endif %}
 
-		</div>
 		{% if request.user.is_authenticated %}
 		<div id="BudgetTables">
 			{% if not json%}
@@ -41,7 +42,7 @@
 			{% for table in json %}
 				<table rel="{{table.rel}}">
 					<tr rel="{{table.rel}}">
-						<th class="table_name" table_name="{{table.table_name}}">Образ невесты <span class="add">пункт</span></th>
+						<th class="table_name" table_name="{{table.table_name}}">Образ невесты <span class="add"><i class="fad fa-plus"></i> пункт</span></th>
 						<th>Стоимость</th>
 						<th>Оплачено</th>
 						<th>Остаток</th>
@@ -50,7 +51,7 @@
 					{% for row in table.rows %}
 						<tr rel="{{row.rel}}" data="{{row.data}}">
 							<td class="row_name" row_name="{{row.name}}">
-								<span class="del" rel="{{row.rel}}" title="удалить строку">x</span>
+								<span class="del" rel="{{row.rel}}" title="удалить строку"><i class="fad fa-trash-alt"></i></span>
 								{{row.name}}
 							</td>
 							<td><input type="text" min="0" name="" value="{{row.sum}}" class="brd sum noborder s" rel="{{row.rel}}"></td>
@@ -63,6 +64,13 @@
 							</td>
 						</tr>
 					{% endfor %}
+					    <tr class="block_foot">
+							<td>Всего</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
 				</table>
 			{% endfor %}
 			{% endif %}
@@ -73,12 +81,19 @@
 	</div>
 	<div class="DeleteBlock deals-popup mfp-hide" id="DeleteBlock">
 		<p>Удалить строку?</p>
-		<span id="Yes">Да</span>
-		<span id="No">Нет</span>
+		<div class="DeleteBlock_answers d-flex align-items-center">
+			<span id="Yes">Да</span>
+			<span id="No">Нет</span>
+		</div>
 	</div>
+{%endblock%}
 
 
 
+
+
+
+{%block script%}
 
 <!--<script src="{% static 'bootstrap/js/jquery.js' %}"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -86,6 +101,10 @@
 	if({{last_rel}} == 0)var last_rel = 80
 	else var last_rel = {{last_rel}}
 	$(document).ready(function () {
+
+	let income_budget = $('#BudgetI').attr('value');
+	let norm_bidget = income_budget.replace(',', '.');
+    $('#BudgetI').attr('value', norm_bidget);
 
     Calculate();
 
@@ -210,11 +229,22 @@
         }
     });
 
+	$( "body" ).on("change", "textarea.descr",function() {
+		source_id = $(this).attr("rel");
+		descr = $('textarea.descr[rel='+source_id+']').val();
+		sum = $('input.sum[rel='+source_id+']').val();
+		paid = $('input.paid[rel='+source_id+']').val();
+		descr = $('p[data='+source_id+']').attr('rel');
+
+		Calculate();
+	});
+
     $("body").on("change", "input.name", function () {
         source_id_ = $(this).attr("rel");
         sum_ = $('input.sum[rel=' + source_id_ + ']').val();
         paid_ = $('input.paid[rel=' + source_id_ + ']').val();
         name_ = $('input.name[rel=' + source_id_ + ']').val();
+		$(this).parent('td').attr("row_name", $(this).val());
         if (sum_ == 0 && paid_ == 0)
             $('td[rel=' + source_id_ + ']').html('-');
         else
@@ -239,7 +269,7 @@
         parent_id = $(this).parents("table").attr('rel');
         s.parents("table").find('tr:first').after('<tr rel="' + last_rel + '" data="' +
             parent_id + '">' +
-            '<td><span class="del" rel="' + last_rel +
+            '<td class="row_name"><span class="del" rel="' + last_rel +
             '" title="удалить строку"></span><input type="text" class="name"  rel="' +
             last_rel + '" /></td>' +
             '<td><input type="text" name="" value="0" class="brd sum noborder" rel="' +
@@ -264,7 +294,7 @@
     $('body').on('click', 'span.del', function () {
     //    popup
         if($('.DeleteBlock').css('display') == 'none'){
-            $('.DeleteBlock').css('display', 'block');
+            $('.DeleteBlock').css('display', 'flex');
             $('.DeleteBlock').css('top', window.pageYOffset);
             $('body').css('overflow', 'hidden');
         }
@@ -288,7 +318,7 @@
         parent_id = $('#Yes').attr('data-rel');
         tr = $('tr[rel="' + source_id + '"]');
             tr.remove();
-            if($('.DeleteBlock').css('display') == 'block'){
+            if($('.DeleteBlock').css('display') == 'flex'){
                 $('.DeleteBlock').css('display', 'none');
                 $('body').css('overflow', 'auto');
             }
@@ -297,7 +327,7 @@
     });
 
     $('span#No').on('click', function () {
-        if($('.DeleteBlock').css('display') == 'block'){
+        if($('.DeleteBlock').css('display') == 'flex'){
             $('.DeleteBlock').css('display', 'none');
             $('body').css('overflow', 'auto');
         }
@@ -308,12 +338,13 @@
         e.preventDefault();
         SaveJSON();
         // SaveAll(); ajax post to save im db
-    })
+    });
 
 });
 
 function SaveJSON() {
     let budget = $('#BudgetI').val();
+	let float_budget = budget.replace(',', '.');
     let json = [];
     $("#BudgetTables table").each(function (index) {
         let obj = {};
@@ -321,6 +352,7 @@ function SaveJSON() {
         obj.rel = $(this).attr('rel');
         obj.table_name = $(this).find('.table_name').attr('table_name');
         $("tr", $(this)).each(function (index) {
+			if($(this).hasClass('block_foot')) return;
             let object = {};
             if(index != 0){
                 object.name = $(this).find('.row_name').attr('row_name');
@@ -350,7 +382,7 @@ function SaveJSON() {
           data: {
               'csrfmiddlewaretoken': "{{ csrf_token }}",
               "json": JSON.stringify(json),
-              "budget": budget,
+              "budget": float_budget,
               "last_rel": last_rel,
           },
           success: function(data) {
@@ -376,12 +408,12 @@ function Calculate() {
     $("#BudgetTables table").each(function (index) {
         sum = 0;
         $("input.sum", $(this)).each(function (index) {
-            sum = sum + parseInt($(this).val());
+            sum = sum + parseFloat($(this).val());
         });
 
         paid = 0;
         $("input.paid", $(this)).each(function (index) {
-            paid = paid + parseInt($(this).val());
+            paid = paid + parseFloat($(this).val());
         });
 
         $(this).find(".block_foot td:eq(1)").text(sum);
@@ -400,11 +432,9 @@ function Calculate() {
     $('#BudgetSpending').html(t_sum);
     $('#BudgetPaid').html(t_paid);
     $('#BudgetUnpaid').html(t_sum - t_paid);
-    budget = parseInt($('#BudgetI').val());
+    budget = parseFloat($('#BudgetI').val());
 
     $('#BudgetRest').html(budget - t_sum);
 }
 </script>
-</body>
-
-</html>
+{%endblock%}

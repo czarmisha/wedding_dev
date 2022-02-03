@@ -23,7 +23,28 @@
 #Budget table tr{
     position: relative;
 }
-
+#Budget table th{
+    padding: 7px 0;
+    font-size: 16px;
+    color: var(--dark-grey);
+    text-align: center;
+    font-family: 'Roboto_medium';
+}
+#Budget th .add{
+    padding: 3px 5px;
+    border-radius: 3px;
+    background: var(--gold-color);
+    cursor: pointer;
+    color: white;
+    margin-left: 7px;
+}
+#Budget table tr span.del{
+    display: none;
+    color: #f35050;
+    cursor: pointer;
+    position: absolute;
+    left: -25px;
+}
 #Budget table tr span.del{
     display: none;
     cursor: pointer;
@@ -73,7 +94,11 @@
 #Budget table tr td {
     position: relative;
 }
-
+#Budget .block_foot td {
+    font-size: 16px!important;
+    color: var(--dark-grey)!important;
+    font-family: 'Roboto_medium'!important;
+}
 #Budget #BudgetTables table td.bgc div {
     background-color: #fffae4;
     padding: 0;
@@ -97,7 +122,6 @@
     width: 989px;
     border: 1px solid #d7d7d7;
     margin: 28px 0 0 0;
-    border-collapse: inherit;
 }
 #Budget #BudgetTables table td textarea {
     background: #fffae4;
@@ -120,6 +144,7 @@
     width: 86px;
     height: 24px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     background: #f4f4f4;
     text-align: center;
     font-size: 15px;
@@ -127,19 +152,19 @@
     margin: -3px 0 0 23px;
 }
 #Budget #BudgetSum1 p span {
-    width: 50px;
-    display: block;
-    float: right;
-    text-align: center;
-    margin: 0 29px 0 0;
+    margin-left: 30px;
 }
 #Budget #BudgetSum1 {
     border: 2px dashed #ccc;
     border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
 }
 #Budget #BudgetSum2 {
     border: 2px solid #68bac2;
     border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 #Budget #BudgetSum2 p span {
     display: inline-block;
@@ -155,9 +180,11 @@
 }
 #Budget #BudgetSum2 p.BudgetSum2Bold {
     color: #49bdc8;
-    font-weight: 600;
+    font-family: 'Roboto_medium';
 }
-
+#BudgetSpending{
+    font-family: 'Roboto_medium';
+}
 .block_display{
     display: block;
 }
@@ -184,6 +211,75 @@
     line-height: 1.2;
     border: 3px solid #bbe4e7;
     box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.DeleteBlock_answers #Yes,
+.DeleteBlock_answers #No{
+    background: var(--gold-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 15px;
+    margin: 0 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.DeleteBlock_answers #No{
+    background: var(--blue-color);
+}
+.Budget_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h1{
+    font-size: 28px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    padding: 0 20px;
+    text-align: center;
+}
+.save{
+    display: inline-block;
+    margin: 5px;
+     padding: 7px 14px;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+.save:hover {
+    background: #c99e668f;
+}
+#print{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    padding: 7px 14px;
+    background: var(--blue-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+#print span{
+    margin-left: 6px;
+}
+#print:hover {
+    background: #1f5e818c;
 }
 /* .mfp-hide {
     display: none !important;
