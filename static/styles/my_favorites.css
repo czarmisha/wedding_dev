@@ -1,0 +1,116 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #3096ce8c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+
+/* --------------------- main ------------------ */
+main{
+    padding: 10px 0 30px;
+}
+
+.favorite_specialist{
+    text-decoration: none;
+    box-shadow: 0 0 0 2px #8082853f;
+    border-radius: 3px;
+    padding: 15px;
+}
+.favorite_specialists:hover{
+    box-shadow: 0 0 0 2px #c99e666e;
+}
+.favorite_specialists h1{
+    font-size: 28px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    padding: 0 20px;
+    text-align: center;
+}
+.favorite_specialists .info{
+    padding: 20px 25px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    color: #808285;
+    margin: 0 0 25px;
+}
+.favorite_specialists p{
+    text-transform: uppercase;
+    font-family: 'Roboto_bold';
+    display: flex;
+    align-items: center;
+}
+.favorite_specialists p .count{
+    margin-left: 5px;
+    font-size: 15px;
+    font-family: 'Roboto_regular'
+}
+.favorite_specialists p .icon{
+    font-size: 22px;
+    margin-right: 7px;
+    color: var(--gold-color);
+}
+.favorite_specialists h2{
+    cursor: pointer;
+    padding: 10px 0 10px 25px;
+    background: var(--blue-color);
+    overflow: hidden;
+    position: relative;
+}
+.favorite_specialists h2 span {
+    color: white;
+    font-size: 22px;
+    margin-right: 8px;
+}
+.favorite_specialists h2 button {
+    background: none;
+    font-size: 19px;
+    color: white;
+}
+.favorite_specialists h2 button:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    color: white;
+}
+.accordion-collapse{
+    padding: 20px;
+}
+.favorite_specialist{
+    display: flex;
+    align-items: center;
+}
+.favorite_specialist .spec_image{
+    width: 50px;
+    margin-right: 20px;
+    height: 50px;
+}
+.favorite_specialist .spec_image img{
+    width: 100%;
+}
+.favorite_specialist .spec_info{
+    font-size: 16px;
+    color: var(--light-grey);
+}
+.favorite_specialist .spec_name{
+    margin: 3px 0;
+    text-transform: none;
+}
+.favorite_specialist .spec_phone{
+    margin: 3px 0;
+}

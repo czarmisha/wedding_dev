@@ -481,7 +481,7 @@ class Restaurant(models.Model):
         return self.user.username
 
     def get_absolute_url(self):
-        return reverse('services:retaurant_detail', args=[str(self.slug)])
+        return reverse('services:restaurant_detail', args=[str(self.slug)])
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)

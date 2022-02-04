@@ -23,7 +23,7 @@
     </h3>
     <ul class="wedding_map__body">
         <li><a href="{% url 'budget:budget_view' %}" class="wedding_map__link"><span><i class="fad fa-calculator-alt"></i> </span> Затраты/бюджет</a></li>
-        <li><a href="" class="wedding_map__link"><span><i class="fad fa-users"></i> </span> Сохраненные специалисты</a></li>
+        <li><a href="{% url 'favorite:my_favorites' %}" class="wedding_map__link"><span><i class="fad fa-users"></i> </span> Сохраненные специалисты</a></li>
         <li><a href="{% url 'account:tenders' %}" class="wedding_map__link"><span><i class="fad fa-handshake-alt"></i> </span> Мои тендеры</a></li>
         <li><a href="{% url 'guest_list:guest_list' %}" class="wedding_map__link"><span><i class="fad fa-list-alt"></i> </span> Список гостей</a></li>
         <li><a href="{% url 'plan:plan_list' %}" class="wedding_map__link"><span><i class="fad fa-clipboard-list-check"></i> </span> План свадебного дня</a></li>

@@ -55,3 +55,40 @@ def remove_from_favorite(request):
     else:
         return JsonResponse({'success': False}, safe=False)
 
+
+@login_required
+def my_favorites(request):
+    if request.user.type != 'client':
+        return 'error message todo'
+
+    all_favorites_for_client = Favorite.objects.filter(client=request.user).all()
+    favorites_count = all_favorites_for_client.count()
+    context = {
+        'photographers': [],
+        'restaurants': [],
+        'artists': [],
+        'trasport': [],
+        'music': [],
+        'presenters': [],
+        'registry_offices': [],
+        'invitations': [],
+        'cakes': [],
+        'dresses': [],
+        'rings': [],
+        'bouquets': [],
+        'decor': [],
+        'costumes': [],
+        'accessories': [],
+        'stylists': [],
+        'photostudios': [],
+        'dance': [],
+        'agencies': [],
+        'count': favorites_count
+    }
+
+    for favorite in all_favorites_for_client:
+        if favorite.specialist.type == 'photographer':
+            context['photographers'].append(favorite.specialist.photographer)
+
+    return render(request, 'account/favorites.html', context)
+

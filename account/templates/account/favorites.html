@@ -1,0 +1,59 @@
+{% extends 'account_base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/my_favorites.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="favorite_specialists">
+        <h1>Вход</h1>
+        <div class="info">
+            <p>
+                <span class="icon"><i class="fad fa-bookmark"></i></span>
+                в избранных:
+                <span class="count">{{count}}</span>
+            </p>
+        </div>
+        <div class="accordion accordion-flush" id="accordionSpecialists">
+            {% if photographers %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <span><i class="fad fa-camera"></i></span> Фотографы
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionSpecialists">
+                    <div class="row">
+                        {% for obj in photographers %}
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <a href="{% url 'services:photographer_detail' obj.slug %}" class="favorite_specialist">
+                                <div class="spec_image">
+                                    {% if obj.avatar %}
+                                    <img src="{{obj.avatar.url}}" alt="">
+                                    {% else %}
+                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="spec_info">
+                                    <p class="spec_name">{{obj.full_name}}</p>
+                                    <p class="spec_phone">{{obj.phone}}</p>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+              </div>
+            {% endif %}
+
+<!--            -->
+<!--            -->
+<!--            -->
+<!--            -->
+<!--            -->
+        </div>
+
+    </div>
+
+{% endblock %}

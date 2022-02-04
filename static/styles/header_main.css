@@ -112,6 +112,7 @@ header nav{
 
 .header_buttons__gold{
     font-family: 'Roboto_medium';
+    padding: 3px 0;
     color: var(--dark-color);
     font-size: 17px;
     background: white;
@@ -133,6 +134,7 @@ header nav{
 .header_buttons__gold-reverse{
     font-family: 'Roboto_medium';
     color: white;
+    padding: 3px 0;
     font-size: 17px;
     background: var(--gold-color);
     line-height: 42px;
