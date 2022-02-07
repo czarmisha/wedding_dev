@@ -1,40 +1,46 @@
-{% load i18n %}
+{% extends 'tender_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'styles/guest_list.css' %}">
-</head>
-<body>
+
+{%block styles%}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/guest.css' %}">
+{%endblock%}
+
+{%block content%}
 <div id="Guest-list">
         <h3>Гости невесты</h3>
-        <ul>
+        <ul class="guest_list">
             {% for guest in bride_list %}
-            <li>{{guest.name}} {{guest.phone}} <span class="del_guest bride" pk="{{guest.pk}}">x</span></li>
+            <li>{{guest.name}} {{guest.phone}} <span class="del_guest bride" pk="{{guest.pk}}"><i class="fad fa-trash-alt"></i></span></li>
             {% endfor %}
         </ul>
 
-        <input class="name bride" type="text" placeholder="Имя">
-        <input class="phone bride" type="text" placeholder="Телефон">
-        <a href="" class="add_guest bride">Добавить гостя</a>
+        <div class="add_guest_block">
+            <input class="name bride" type="text" placeholder="Имя">
+            <input class="phone bride" type="text" placeholder="Телефон">
+            <a href="" class="add_guest bride">Добавить гостя</a>
+        </div>
 
         <br>
 
         <h3>Гости жениха</h3>
-        <ul>
+        <ul class="guest_list">
             {% for guest in groom_list %}
-            <li>{{guest.name}} {{guest.phone}} <span class="del_guest groom" pk="{{guest.pk}}">x</span></li>
+            <li>{{guest.name}} {{guest.phone}} <span class="del_guest groom" pk="{{guest.pk}}"><i class="fad fa-trash-alt"></i></span></li>
             {% endfor %}
         </ul>
 
-        <input class="name groom" type="text" placeholder="Имя">
-        <input class="phone groom" type="text" placeholder="Телефон">
-        <a href="" class="add_guest groom">Добавить гостя</a>
+        <div class="add_guest_block">
+            <input class="name groom" type="text" placeholder="Имя">
+            <input class="phone groom" type="text" placeholder="Телефон">
+            <a href="" class="add_guest groom">Добавить гостя</a>
+        </div>
 </div>
+{%endblock%}
 
-
+{% block script %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function () {
@@ -87,5 +93,4 @@
     })
 
 </script>
-</body>
-</html>
+{% endblock %}

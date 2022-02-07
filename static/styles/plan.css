@@ -11,12 +11,75 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Roboto_regular';
 }
 
 
 /* --------------------------- main -------------------------------- */
+main{
+    padding: 30px 0;
+    overflow-y: scroll;
+}
 
-.del_task{
+#Plan{
+    width: 100%;
+    max-width: 600px;
+    /*padding: 40px 25px 40px 25px;*/
+    border: 2px solid #c99e668f;
+    overflow: hidden;
+    background: #f4f3f3;
+    margin: 0 auto;
+}
+
+#Plan .del_task{
+    color: #f35050;
     display: none;
     cursor: pointer;
+    margin-left: 15px;
+}
+#Plan th{
+    padding: 7px 0;
+    font-size: 16px;
+    color: var(--dark-grey);
+    text-align: center;
+    font-family: 'Roboto_medium';
+}
+#Plan td{
+    padding: 7px 0;
+    font-size: 14px;
+    color: var(--light-grey);
+    text-align: center;
+}
+#Plan textarea{
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #939598;
+    padding: 10px 15px;
+    resize: none;
+    overflow: auto;
+    height: 50px;
+}
+#Plan input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    font-size: 15px;
+    color: #808285;
+}
+
+#Plan .add_task{
+    text-decoration: none;
+    padding: 7px 10px;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
 }

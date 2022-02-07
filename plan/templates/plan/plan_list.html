@@ -1,13 +1,14 @@
-{% load i18n %}
+{% extends 'tender_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'styles/plan.css' %}">
-</head>
-<body>
+
+{%block styles%}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/plan.css' %}">
+{%endblock%}
+
+{%block content%}
 <table id="Plan">
     <tr>
         <th>Время</th>
@@ -22,16 +23,19 @@
     {% for task in task_list %}
     <tr>
         <td>{{task.time}}</td>
-        <td>{{task.action}} <span class="del_task" pk="{{task.pk}}">x</span></td>
+        <td>{{task.action}} <span class="del_task" pk="{{task.pk}}"><i class="fad fa-trash-alt"></i></span></td>
     </tr>
     {% endfor %}
     {% endif %}
     <tr>
         <td><input type="time" class="time" required></td>
-        <td>><textarea name="" id="" cols="30" rows="5" class="action" required></textarea></td>
+        <td><textarea name="" id="" cols="30" rows="5" class="action" required></textarea></td>
         <td><a href="" class="add_task">Добавить</a></td>
     </tr>
 </table>
+{%endblock%}
+
+{%block script%}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -82,5 +86,4 @@
         });
     })
 </script>
-</body>
-</html>
+{%endblock%}

@@ -506,6 +506,9 @@ class Photographer(models.Model):
     def __str__(self):
         return self.user.username
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def get_absolute_url(self):
         return reverse('services:photographer_detail', args=[str(self.slug)])
 

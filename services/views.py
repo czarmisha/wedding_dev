@@ -127,7 +127,12 @@ class PhotographerList(FilterView):
     template_name = 'services/photographer_list.html'
     context_object_name = 'photographers'
     filterset_class = filters.PhotographerFilter
-    paginate_by = 2
+    paginate_by = 1
+
+    def get_context_data(self, **kwargs):
+        context = super(PhotographerList, self).get_context_data(**kwargs)
+        context['only_average'] = True
+        return context
 
 
 @login_required
