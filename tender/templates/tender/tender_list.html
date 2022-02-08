@@ -12,8 +12,44 @@
 <h2 class="title">Тендеры: молодожены ищут специалистов</h2>
 <div class="tender_filters">
     <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit" />
+        <p class="filter_wrapper">
+            <span>Услуга </span>
+            <select name="service" id="id_service">
+              <option value="" selected>---------</option>
+              <option value="photographer">Фотограф</option>
+              <option value="artist">Артист, Шоу программа</option>
+              <option value="transport">Транспорт</option>
+              <option value="music">Музыканты, Dj</option>
+              <option value="presenter">Ведущий</option>
+              <option value="invitation">Пригласительные</option>
+              <option value="cake">Торт</option>
+              <option value="dress">Платье</option>
+              <option value="ring">Кольца</option>
+              <option value="bouquet">Букет</option>
+              <option value="decor">Декор, оформление</option>
+              <option value="costume">Костюм</option>
+              <option value="accessories">Аксуссуары</option>
+              <option value="stylist">Стилист, Визажист</option>
+              <option value="photostudio">Фотостудия</option>
+              <option value="dance">Танец</option>
+              <option value="agency">Агенство</option>
+            </select>
+        </p>
+
+
+          <p class="filter_wrapper">
+             <span>Бюджет </span> от
+             <input type="number" name="budget_gt" step="any" id="id_budget_gt">
+             до
+             <input type="number" name="budget_lt" step="any" id="id_budget_lt">
+          </p>
+
+          <p class="filter_wrapper">
+              <span>Дата события</span>
+            <input type="date" name="on_date_start" placeholder="мм/дд/гг" id="id_on_date_start">
+            <input type="date" name="on_date_end" placeholder="мм/дд/гг" id="id_on_date_end">
+          </p>
+         <button class="filters_button" type="submit">Применить</button>
     </form>
 </div>
 <div class="tender_list">
