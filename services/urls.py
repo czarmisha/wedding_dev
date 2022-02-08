@@ -43,4 +43,6 @@ urlpatterns = [
     path('agency/<slug:slug>', views.AgencyDetail.as_view(), name='agency_detail'),
     path('create-review/', views.create_review, name='create_review'),
     path('create-portfolio/', views.add_portfolio, name='create_portfolio'),
+    path('extend-portfolio/', views.extend_portfolio, name='extend_portfolio'),
+    path('delete-portfolio/', views.delete_portfolio, name='delete_portfolio'),
 ]

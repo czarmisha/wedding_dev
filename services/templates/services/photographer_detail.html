@@ -56,15 +56,27 @@
                         </p>
                         <div class="specialist_portfolio">
                             <h3 class="subtitle">Портфолио</h3>
-                            <div class="row">
-                                {% for image in object.user.portfolio.images.all%}
-                                    <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                        <a href="{{image.image.url}}"><img class="w-100" src="{{image.image.url}}" alt=""></a>
-                                    </div>
+                            {%if user.portfolio%}
+                                <div class="row">
+                                    {% for image in object.user.portfolio.images.all%}
+                                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+<!--                                            <a href="{{image.image.url}}"><img class="w-100" src="{{image.image.url}}" alt=""></a>-->
+                                            <a href="{{image.image.url}}" style="width: 100%; background: url('{{image.image.url}}')no-repeat center center; background-size: cover; width: 100%; display: block; height: 100%; min-height: 250px; max-height: 300px">
+                                            </a>
+                                        </div>
+                                    {%endfor%}
+                                     <a href="{%url 'services:extend_portfolio'%}">Extend portfolio</a>
+                                     <a href="{%url 'services:delete_portfolio'%}">Delete portfolio</a>
+                                </div>
 
-                                {%endfor%}
+                            {%else%}
+                                {% if request.user.is_authenticated %}
+                                    <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
+                                {% endif %}
 
-                            </div>
+                            {%endif%}
+
+
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

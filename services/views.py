@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import PortfolioForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.core.files.base import ContentFile
 from django_filters.views import FilterView
 from . import filters
@@ -150,11 +150,43 @@ def add_portfolio(request):
                 image = Image(portfolio=portfolio)
                 image.image.save(f.name, ContentFile(data))
                 image.save()
-            return redirect('account:cabinet', pk=request.user.pk)
+            return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
             return render(request, 'services/add_portfolio.html', {'form': form})
     else:
         return redirect('home')
+
+
+@login_required
+def extend_portfolio(request):
+    if request.method == 'GET':
+        form = PortfolioForm()
+        return render(request, 'services/add_portfolio.html', {'form': form})
+    elif request.method == 'POST':
+        form = PortfolioForm(request.POST, request.FILES)
+        if form.is_valid():
+            portfolio = Portfolio.objects.get(user=request.user)
+            for f in request.FILES.getlist('images'):
+                data = f.read()
+                image = Image(portfolio=portfolio)
+                image.image.save(f.name, ContentFile(data))
+                image.save()
+            return HttpResponseRedirect(request.user.get_cabinet_url())
+        else:
+            return render(request, 'services/add_portfolio.html', {'form': form})
+    else:
+        return HttpResponseRedirect(request.user.get_cabinet_url())
+
+
+@login_required
+def delete_portfolio(request):
+    portfolio = Portfolio.objects.get(user=request.user)
+    if portfolio:
+        portfolio.delete()
+        return HttpResponseRedirect(request.user.get_cabinet_url())
+    else:
+        #TODO err message
+        return HttpResponseRedirect(request.user.get_cabinet_url())
 
 
 @login_required
