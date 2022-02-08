@@ -19,7 +19,6 @@
                     </ul>
                     <ul class="mobile_catalog position-absolute">
                         <li class="catalog_back"><i class="fad fa-long-arrow-left"></i><span>Назад</span></li>
-<!--                        <li class=""><a class="mobile-menu_link href="{% url 'home' %}">Главная</a></li>-->
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}">Фотографы</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:restaurant_list' %}">Рестораны и банкетные залы</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}">Артисты и шоу программы</a></li>
@@ -43,7 +42,7 @@
                     <ul class="account_menu position-absolute">
                         <li class="account_back"><i class="fad fa-long-arrow-left"></i><span>Назад</span></li>
                         {% if request.user.is_authenticated %}
-                            <li class=""><a class="mobile-menu_link" href="{% url 'account:cabinet' request.user.pk %}">Кабинет</a></li>
+                            <li class=""><a class="dropdown-item nav-link" href="{{ request.user.get_cabinet_url }}">Кабинет</a></li>
                             <li class=""><a class="mobile-menu_link" href="{% url 'account:logout' %}">Выйти</a></li>
                         {% else %}
                             <li class=""><a class="mobile-menu_link" href="{% url 'account:login' %}">Вход</a></li>
@@ -100,7 +99,7 @@
 
                             <ul class="account_dropdown_menu dropdown-menu" aria-labelledby="dropdownLinkAccount">
                                 {% if request.user.is_authenticated %}
-                                    <li class=""><a class="dropdown-item nav-link" href="{% url 'account:cabinet' request.user.pk %}">Кабинет</a></li>
+                                    <li class=""><a class="dropdown-item nav-link" href="{{ request.user.get_cabinet_url }}">Кабинет</a></li>
                                     <li class=""><a class="dropdown-item nav-link" href="{% url 'account:logout' %}">Выйти</a></li>
                                 {% else %}
                                     <li class=""><a class="dropdown-item nav-link" href="{% url 'account:login' %}">Вход</a></li>

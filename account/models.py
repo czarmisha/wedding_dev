@@ -15,6 +15,90 @@ class User(AbstractUser):
     type = models.CharField('Тип пользователя', max_length=155, default='client')
     ratings = GenericRelation(Rating, related_query_name='users')
 
+    def get_cabinet_url(self):
+        if self.type == 'client':
+            return reverse('account:cabinet', args=[self.pk])
+        elif self.type == 'photographer':
+            return reverse('services:photographer_detail', args=[self.photographer.slug])
+        elif self.type == 'restaurant':
+            return reverse('services:restaurant_detail', args=[self.restaurant.slug])
+        elif self.type == 'artist':
+            return reverse('services:artist_detail', args=[self.artist.slug])
+        elif self.type == 'transport':
+            return reverse('services:transport_detail', args=[self.transport.slug])
+        elif self.type == 'music':
+            return reverse('services:music_detail', args=[self.music.slug])
+        elif self.type == 'presenter':
+            return reverse('services:presenter_detail', args=[self.presenter.slug])
+        elif self.type == 'registryoffice':
+            return reverse('services:registryoffice_detail', args=[self.registryoffice.slug])
+        elif self.type == 'invitation':
+            return reverse('services:invitation_detail', args=[self.invitation.slug])
+        elif self.type == 'cake':
+            return reverse('services:cake_detail', args=[self.cake.slug])
+        elif self.type == 'dress':
+            return reverse('services:dress_detail', args=[self.dress.slug])
+        elif self.type == 'ring':
+            return reverse('services:ring_detail', args=[self.ring.slug])
+        elif self.type == 'bouquet':
+            return reverse('services:bouquet_detail', args=[self.bouquet.slug])
+        elif self.type == 'decor':
+            return reverse('services:decor_detail', args=[self.decor.slug])
+        elif self.type == 'costume':
+            return reverse('services:costume_detail', args=[self.costume.slug])
+        elif self.type == 'accessories':
+            return reverse('services:accessories_detail', args=[self.accessories.slug])
+        elif self.type == 'stylist':
+            return reverse('services:stylist_detail', args=[self.stylist.slug])
+        elif self.type == 'photostudio':
+            return reverse('services:photostudio_detail', args=[self.photostudio.slug])
+        elif self.type == 'dance':
+            return reverse('services:dance_detail', args=[self.dance.slug])
+        elif self.type == 'agency':
+            return reverse('services:agency_detail', args=[self.agency.slug])
+
+        # def get_user_slug(self):
+        #     if self.type == 'client':
+        #         return self.clientprofile.slug
+        #     elif self.type == 'photographer':
+        #         return self.photographer.slug
+        #     elif self.type == 'restaurant':
+        #         return self.restaurant.slug
+        #     elif self.type == 'artist':
+        #         return self.artist.slug
+        #     elif self.type == 'transport':
+        #         return self.transport.slug
+        #     elif self.type == 'music':
+        #         return self.music.slug
+        #     elif self.type == 'presenter':
+        #         return self.presenter.slug
+        #     elif self.type == 'registryoffice':
+        #         return self.registryoffice.slug
+        #     elif self.type == 'invitation':
+        #         return self.invitation.slug
+        #     elif self.type == 'cake':
+        #         return self.cake.slug
+        #     elif self.type == 'dress':
+        #         return self.dress.slug
+        #     elif self.type == 'ring':
+        #         return self.ring.slug
+        #     elif self.type == 'bouquet':
+        #         return self.bouquet.slug
+        #     elif self.type == 'decor':
+        #         return self.decor.slug
+        #     elif self.type == 'costume':
+        #         return self.costume.slug
+        #     elif self.type == 'accessories':
+        #         return self.accessories.slug
+        #     elif self.type == 'stylist':
+        #         return self.stylist.slug
+        #     elif self.type == 'photostudio':
+        #         return self.photostudio.slug
+        #     elif self.type == 'dance':
+        #         return self.dance.slug
+        #     elif self.type == 'agency':
+        #         return self.agency.slug
+
 
 class Category(models.Model):
     title = models.CharField(max_length=30)
