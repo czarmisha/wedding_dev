@@ -8,8 +8,8 @@ from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .models import ClientProfile
+from django.contrib import messages
 from tender.models import Tender
-
 
 User = get_user_model()
 
@@ -47,9 +47,9 @@ def user_login(request):
                     login(request, user)
                     return HttpResponseRedirect(reverse('home', kwargs={}))
                 else:
-                    return HttpResponse('Disabled account')
+                    messages.error(request, 'Вы пытаетесь зайти в отключенный аккаунт')
             else:
-                return HttpResponse('Invalid login')
+                messages.error(request, 'Вы ввели неверный логин или пароль')
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
@@ -71,14 +71,17 @@ def client_edit(request):
                 try:
                     client = ClientProfile.objects.get(user=request.user)
                 except:
-                    return HttpResponse('Unknown account')
+                    messages.error(request,
+                                   'Вы пытаетесь редактировать несуществующий аккаунт. Пожалуйста,'
+                                   ' обратитесь к администартору сайта'
+                                   )
                 client.user.first_name = cd['first_name']
                 client.user.last_name = cd['last_name']
                 if cd['avatar']:
                     client.avatar = cd['avatar']
                 client.phone = cd['phone']
                 client.telegram = cd['telegram']
-                # TODO: telegram
+                # TODO: telegram/ если ошибка редирект на эту ше форму с сообщением об ишибке
                 client.user.save()
                 client.save()
                 return HttpResponseRedirect(reverse('account:cabinet', kwargs={'pk': client.user.pk}))
@@ -92,13 +95,14 @@ def client_edit(request):
             }
             form = ClientEditForm(initial=initial_dict)
     else:
-        return HttpResponse('u r not a client')
+        messages.error(request,
+                       'Вы не являетесь молодоженом! Здесь какая-то ошибка, обратитесь к администратору сайта.')
     return render(request, 'account/clientprofile_update_form.html', {'form': form})
 
 
 class ClientProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = ClientProfile
-    fields = ['avatar', 'phone', 'telegram',]
+    fields = ['avatar', 'phone', 'telegram', ]
     template_name_suffix = '_update_form'
 
 

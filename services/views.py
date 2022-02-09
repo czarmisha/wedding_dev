@@ -185,7 +185,6 @@ def delete_portfolio(request):
         portfolio.delete()
         return HttpResponseRedirect(request.user.get_cabinet_url())
     else:
-        #TODO err message
         return HttpResponseRedirect(request.user.get_cabinet_url())
 
 

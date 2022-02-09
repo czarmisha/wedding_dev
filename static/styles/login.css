@@ -103,6 +103,17 @@ h1{
 }
 
 
+/*-------------------- messages -----------------*/
+.messages {
+    list-style: none;
+}
+
+.messages li{
+    font-size: 15px;
+    color: #ff0000ad;
+    text-align: center;
+    font-family: 'Roboto_regular';
+}
 /* --------------------- media ---------------------*/
 
 @media (max-width: 470px){

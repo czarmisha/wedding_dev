@@ -57,20 +57,18 @@
                             <div class="row">
                                 {% for image in object.user.portfolio.images.all|slice:'4'%}
                                      <div class="col-3 mt-4">
-                                        <img class="w-100" src="{{image.image.url}}" alt="">
+                                        <img class="" src="{{image.image.url}}" alt="">
                                     </div>
                                 {%endfor%}
 
                             </div>
                         </div>
                         <div class="spec_portfolio_slider">
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
-                            <div class="slide"><img class="w-100" src="media/images/w.jpg" alt=""></div>
+                             {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="slide">
+                                        <img class="slide_img" src="{{image.image.url}}" alt="">
+                                    </div>
+                            {%endfor%}
                         </div>
                     </div>
                 </div>
@@ -79,3 +77,27 @@
         {% endfor %}
     </div>
 {%endblock content%}
+{%block script%}
+ <script>
+    $(document).ready(function(){
+        $('.spec_portfolio_slider').slick({
+            arrows: false,
+            slidesToShow: 3,
+            centerMode: true,
+            centerPadding: '30px',
+            slidesToScroll: 2,
+            infinite: true,
+            speed: 300,
+            responsive: [
+                {
+                breakpoint: 500,
+                    settings: {
+                        slidesToShow: 2,
+                        centerPadding: '15px',
+                    }
+                },
+            ]
+        });
+    });
+</script>
+{%endblock%}

@@ -34,19 +34,16 @@ main{
     justify-content: flex-end;
 }
 .favorite a{
-    font-size: 25px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    font-size: 35px;
 }
 .add_favorite{
-    color: var(--light-grey);
+    color: white;
 }
 .add_favorite:hover{
     color: var(--gold-color);
 }
 .remove_favorite{
-    color: var(--gold-color);
+    color: #cd2b2b;
 }
 .remove_favorite:hover{
     color: var(--light-grey);

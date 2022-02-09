@@ -6,6 +6,7 @@ from .forms import TenderCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .filtres import TenderFilter
+from django.contrib import messages
 from django_filters.views import FilterView
 
 User = get_user_model()
@@ -59,7 +60,8 @@ class TenderCreate(LoginRequiredMixin, CreateView):
         tender = form.save(commit=False)
         for user_tender in self.request.user.tender_set.all():
             if user_tender.service == tender.service:
-                form.add_error('service', 'У вас уже есть тендер на эту услугу')
+                messages.error(self.request,
+                               'У вас уже есть тендер на поиск этой услуги.')
                 return super(TenderCreate, self).form_invalid(form)
         tender.author = self.request.user
         tender.save()
