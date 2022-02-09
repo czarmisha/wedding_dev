@@ -117,12 +117,13 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 #     }
 # }
 
+# windows databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': 'czar',
-        'PASSWORD': 'password',
+        'USER': 'postgres',
+        'PASSWORD': '0809',
         'HOST': 'localhost',
     }
 }

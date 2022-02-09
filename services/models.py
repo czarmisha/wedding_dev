@@ -1,3 +1,4 @@
+from time import timezone
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -42,6 +43,8 @@ class Agency(models.Model):
     avatar = models.ImageField(upload_to='avatars/agencies', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -56,6 +59,7 @@ class Agency(models.Model):
     class Meta:
         verbose_name = 'Свадебное агенство'
         verbose_name_plural = 'Свадебные агенства'
+        ordering = ['-is_pro', '-created',]
 
 
 class Dance(models.Model):
@@ -68,6 +72,8 @@ class Dance(models.Model):
     avatar = models.ImageField(upload_to='avatars/dances', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -82,6 +88,7 @@ class Dance(models.Model):
     class Meta:
         verbose_name = 'Свадебный танец'
         verbose_name_plural = 'Свадебный танец'
+        ordering = ['-is_pro', '-created',]
 
 
 class PhotoStudio(models.Model):
@@ -94,6 +101,8 @@ class PhotoStudio(models.Model):
     avatar = models.ImageField(upload_to='avatars/photoStudios', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -108,6 +117,7 @@ class PhotoStudio(models.Model):
     class Meta:
         verbose_name = 'Фотостудия'
         verbose_name_plural = 'Фотостудии'
+        ordering = ['-is_pro', '-created',]
 
 
 class Stylist(models.Model):
@@ -121,6 +131,8 @@ class Stylist(models.Model):
     avatar = models.ImageField(upload_to='avatars/stylists', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -135,6 +147,7 @@ class Stylist(models.Model):
     class Meta:
         verbose_name = 'Стилист, визажист'
         verbose_name_plural = 'Стилисты, визажисты'
+        ordering = ['-is_pro', '-created',]
 
 
 class Accessories(models.Model):
@@ -146,6 +159,8 @@ class Accessories(models.Model):
     avatar = models.ImageField(upload_to='avatars/accessories', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -160,6 +175,7 @@ class Accessories(models.Model):
     class Meta:
         verbose_name = 'Свадебные аксессуары'
         verbose_name_plural = 'Свадебные аксессуары'
+        ordering = ['-is_pro', '-created',]
 
 
 class Costume(models.Model):
@@ -172,6 +188,8 @@ class Costume(models.Model):
     avatar = models.ImageField(upload_to='avatars/costumes', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -186,6 +204,7 @@ class Costume(models.Model):
     class Meta:
         verbose_name = 'Свадебный костюм'
         verbose_name_plural = 'Свадебные костюмы'
+        ordering = ['-is_pro', '-created',]
 
 
 class Decor(models.Model):
@@ -195,6 +214,8 @@ class Decor(models.Model):
     avatar = models.ImageField(upload_to='avatars/decors', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -209,6 +230,7 @@ class Decor(models.Model):
     class Meta:
         verbose_name = 'Оформление и декор'
         verbose_name_plural = 'Оформление и декор'
+        ordering = ['-is_pro', '-created',]
 
 
 class Bouquet(models.Model):
@@ -221,6 +243,8 @@ class Bouquet(models.Model):
     avatar = models.ImageField(upload_to='avatars/bouquets', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -235,6 +259,7 @@ class Bouquet(models.Model):
     class Meta:
         verbose_name = 'Свадебный букет'
         verbose_name_plural = 'Свадебные букеты'
+        ordering = ['-is_pro', '-created',]
 
 
 class Ring(models.Model):
@@ -246,6 +271,8 @@ class Ring(models.Model):
     avatar = models.ImageField(upload_to='avatars/rings', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -260,6 +287,7 @@ class Ring(models.Model):
     class Meta:
         verbose_name = 'Свадебное кольцо'
         verbose_name_plural = 'Свадебные кольца'
+        ordering = ['-is_pro', '-created',]
 
 
 class Dress(models.Model):
@@ -271,6 +299,8 @@ class Dress(models.Model):
     avatar = models.ImageField(upload_to='avatars/dresses', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -285,6 +315,7 @@ class Dress(models.Model):
     class Meta:
         verbose_name = 'Свадебное платье'
         verbose_name_plural = 'Свадебные платья'
+        ordering = ['-is_pro', '-created',]
 
 
 class Cake(models.Model):
@@ -297,6 +328,8 @@ class Cake(models.Model):
     avatar = models.ImageField(upload_to='avatars/cakes', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -311,6 +344,7 @@ class Cake(models.Model):
     class Meta:
         verbose_name = 'Свадебный торт'
         verbose_name_plural = 'Свадебные торты'
+        ordering = ['-is_pro', '-created',]
 
 
 class Invitation(models.Model):
@@ -322,6 +356,8 @@ class Invitation(models.Model):
     avatar = models.ImageField(upload_to='avatars/invitations', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -336,6 +372,7 @@ class Invitation(models.Model):
     class Meta:
         verbose_name = 'Пригласительное'
         verbose_name_plural = 'Пригласительные'
+        ordering = ['-is_pro', '-created',]
 
 
 class RegistryOffice(models.Model):
@@ -347,6 +384,8 @@ class RegistryOffice(models.Model):
     avatar = models.ImageField(upload_to='avatars/registryOffices', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -361,6 +400,7 @@ class RegistryOffice(models.Model):
     class Meta:
         verbose_name = 'Дворец бракосочетания, ЗАГС'
         verbose_name_plural = 'Дворцы бракосочтания, ЗАГСы'
+        ordering = ['-is_pro', '-created',]
 
 
 class Presenter(models.Model):
@@ -372,6 +412,8 @@ class Presenter(models.Model):
     avatar = models.ImageField(upload_to='avatars/presenters', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -386,6 +428,7 @@ class Presenter(models.Model):
     class Meta:
         verbose_name = 'Ведущий'
         verbose_name_plural = 'Ведущие'
+        ordering = ['-is_pro', '-created',]
 
 
 class Music(models.Model):
@@ -397,6 +440,8 @@ class Music(models.Model):
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -411,6 +456,7 @@ class Music(models.Model):
     class Meta:
         verbose_name = 'Музыкальная группа, DJ'
         verbose_name_plural = 'Музыкальные группы, DJ'
+        ordering = ['-is_pro', '-created',]
 
 
 class Transport(models.Model):
@@ -425,6 +471,8 @@ class Transport(models.Model):
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -439,6 +487,7 @@ class Transport(models.Model):
     class Meta:
         verbose_name = 'Транспорт'
         verbose_name_plural = 'Транспорт'
+        ordering = ['-is_pro', '-created',]
 
 
 class Artist(models.Model):
@@ -449,6 +498,8 @@ class Artist(models.Model):
     avatar = models.ImageField(upload_to='avatars/artists', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -463,6 +514,7 @@ class Artist(models.Model):
     class Meta:
         verbose_name = 'Шоу программа, артист'
         verbose_name_plural = 'Шоу программы, артисты'
+        ordering = ['-is_pro', '-created',]
 
 
 class Restaurant(models.Model):
@@ -476,6 +528,8 @@ class Restaurant(models.Model):
     avatar = models.ImageField(upload_to='avatars/restaurants', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -490,6 +544,7 @@ class Restaurant(models.Model):
     class Meta:
         verbose_name = 'Банкетный зал, ретсоран'
         verbose_name_plural = 'Банкетные залы, рестораны'
+        ordering = ['-is_pro', '-created',]
 
 
 class Photographer(models.Model):
@@ -502,6 +557,8 @@ class Photographer(models.Model):
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return self.user.username
@@ -519,4 +576,5 @@ class Photographer(models.Model):
     class Meta:
         verbose_name = 'Фотограф'
         verbose_name_plural = 'Фотографы'
+        ordering = ['-is_pro', '-created',]
 
