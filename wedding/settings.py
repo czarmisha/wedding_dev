@@ -94,10 +94,26 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+#  SQLite3 ubuntu
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# POSTGRESQL ubuntu
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'czar',
+#         'PASSWORD': 'password',
+#         # 'NAME': 'postgres',
+#         # 'USER': 'postgres',
+#         # 'PASSWORD': '0809',
+#         'HOST': 'localhost',
+#         # 'PORT': '8000',
 #     }
 # }
 
@@ -107,11 +123,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'czar',
         'PASSWORD': 'password',
-        # 'NAME': 'postgres',
-        # 'USER': 'postgres',
-        # 'PASSWORD': '0809',
         'HOST': 'localhost',
-        # 'PORT': '8000',
     }
 }
 
