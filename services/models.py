@@ -533,6 +533,7 @@ class Restaurant(models.Model):
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
