@@ -15,6 +15,9 @@ class User(AbstractUser):
     type = models.CharField('Тип пользователя', max_length=155, default='client')
     ratings = GenericRelation(Rating, related_query_name='users')
 
+    def __str__(self):
+        return self.username
+
     def get_cabinet_url(self):
         if self.type == 'client':
             return reverse('account:cabinet', args=[self.pk])

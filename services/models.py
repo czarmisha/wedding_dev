@@ -10,6 +10,9 @@ User = get_user_model()
 class Portfolio(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
 
+    def __str__(self):
+        return f'Портфолио {self.user}'
+
     class Meta:
         verbose_name = 'Портфолио'
         verbose_name_plural = 'Портфолио'
@@ -28,11 +31,15 @@ class Review(models.Model):
     service_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='service_reviews')
     client_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
     text = models.TextField('Текст отзыва', default=' ')
+    created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return f'Отзыв {self.client_user} на {self.service_user}'
 
     class Meta:
         verbose_name = 'Отзыв'
         verbose_name_plural = 'Отзывы'
-        # ordering = ('bar_date', 'related.name',)
+        ordering = ('-created',)
 
 
 class Agency(models.Model):
@@ -530,6 +537,9 @@ class Restaurant(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     type = models.ForeignKey('RestaurantType', on_delete=models.CASCADE, verbose_name='Тип заведения', null=True)
     kitchen = models.ManyToManyField('KitchenType', verbose_name='Кухня')
+    additional_services = models.ManyToManyField('RestaurantAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('RestaurantBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('RestaurantPaymentMethod', verbose_name='Способы оплаты')
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
@@ -551,6 +561,39 @@ class Restaurant(models.Model):
         verbose_name = 'Банкетный зал, ретсоран'
         verbose_name_plural = 'Банкетные залы, рестораны'
         ordering = ['-is_pro', '-created',]
+
+
+class RestaurantAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Услуга за доп плату'
+        verbose_name_plural = 'Услуги за доп плату'
+
+
+class RestaurantBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Преимущество заведения'
+        verbose_name_plural = 'Преимущества заведения'
+
+
+class RestaurantPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Способ оплаты'
+        verbose_name_plural = 'Способы оплаты'
 
 
 class RestaurantType(models.Model):

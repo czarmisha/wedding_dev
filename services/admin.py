@@ -217,3 +217,18 @@ class RestaurantTypeAdmin(admin.ModelAdmin):
 class KitchenTypeAdmin(admin.ModelAdmin):
     pass
 
+
+@admin.register(RestaurantAdditionalFeeService)
+class RestaurantAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(RestaurantBenefits)
+class RestaurantBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(RestaurantPaymentMethod)
+class RestaurantPaymentMethodAdmin(admin.ModelAdmin):
+    pass
+
