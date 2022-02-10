@@ -528,6 +528,11 @@ class Restaurant(models.Model):
     avatar = models.ImageField(upload_to='avatars/restaurants', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    type = models.ForeignKey('RestaurantType', on_delete=models.CASCADE, verbose_name='Тип заведения', null=True)
+    kitchen = models.ManyToManyField('KitchenType', verbose_name='Кухня')
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -545,6 +550,28 @@ class Restaurant(models.Model):
         verbose_name = 'Банкетный зал, ретсоран'
         verbose_name_plural = 'Банкетные залы, рестораны'
         ordering = ['-is_pro', '-created',]
+
+
+class RestaurantType(models.Model):
+    name = models.CharField('Тип заведения', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тип заведения'
+        verbose_name_plural = 'Типы заведений'
+
+
+class KitchenType(models.Model):
+    name = models.CharField('Название кухни', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Кухня'
+        verbose_name_plural = 'Кухни'
 
 
 class Photographer(models.Model):

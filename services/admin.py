@@ -206,3 +206,14 @@ class PortfolioAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(RestaurantType)
+class RestaurantTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(KitchenType)
+class KitchenTypeAdmin(admin.ModelAdmin):
+    pass
+
