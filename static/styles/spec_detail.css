@@ -90,15 +90,43 @@ main{
 }
 
 .specialist_telegram{
+    display: flex;
+    align-items: center;
     color: #414042;
     margin-bottom: 6px;
     font-size: 16px;
 }
 
+.specialist_telegram a{
+    margin-left: 6px;
+}
+
+.specialist_telegram span{
+    display: flex;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-color);
+}
+
 .specialist_phone{
+    display: flex;
+    align-items: center;
     color: #414042;
     margin-bottom: 6px;
     font-size: 16px;
+}
+
+.specialist_phone a{
+    margin-left: 6px;
+}
+
+.specialist_phone span{
+    display: flex;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-color);
 }
 
 .specialist_about{

@@ -35,10 +35,10 @@
                 </div>
                 <div class="contacts">
                     <h3 class="subtitle">Контакты</h3>
-                    <p class="specialist_telegram">Telegram: <a href="">{{object.telegram}}</a></p>
-                    <p class="specialist_telegram">Instagram: <a href="">{{object.instagram}}</a></p>
-                    <p class="specialist_telegram">Facebook: <a href="">{{object.facebook}}</a></p>
-                    <p class="specialist_phone">Телефон: <a href="phone:{{object.user.photographer.phone}}">{{object.phone}}</a></p>
+                    <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
+                    <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
+                    <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
+                    <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.user.photographer.phone}}">{{object.phone}}</a></p>
                 </div>
                 <div class="rating">
                     {%include 'services/_inc/rating.html'%}
