@@ -119,7 +119,7 @@ class ArtistList(ListView):
 class RestaurantList(ListView):
     model = Restaurant
     template_name = 'services/restaurant_list.html'
-    context_object_name = 'Restaurants'
+    context_object_name = 'restaurants'
 
 
 class PhotographerList(FilterView):
