@@ -20,8 +20,6 @@ ul{
 /* --------------------------- header -------------------------------- */
 .header{
     width: 100%;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -35,7 +33,7 @@ header nav{
     z-index: 3;
     width: 100%;
     justify-content: center;
-    background: rgba(144,144,144,.45);
+    background: white;
 }
 
 .header_background{
@@ -67,8 +65,8 @@ header nav{
 }
 
 .header_navigation .nav_link{
-    color: var(--gold-color);  
-    font-size: 16px; 
+    color: var(--gold-color);
+    font-size: 16px;
     font-family: 'Roboto_medium';
     display: block;
     margin: 0 10px;
@@ -78,90 +76,6 @@ header nav{
 
 .header_navigation .nav_link:hover{
     color: var(--dark-color);
-}
-
-.header_content{
-    padding: 15px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.header_content__title{
-    display: inline-block;
-    padding: 15px 20px 15px;
-    background: rgba(218, 218, 218, 0.44);
-    font-size: 32px;
-    border: 5px solid var(--gold-color);
-    margin: 0 0 30px;
-    color: var(--dark-color);  
-    font-family: 'Roboto_bold';
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.header_buttons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header_buttons__gold{
-    font-family: 'Roboto_medium';
-    padding: 3px 0;
-    color: var(--dark-color);
-    font-size: 17px;
-    background: white;
-    line-height: 42px;
-    display: inline-block;
-    border: 2px solid var(--gold-color);
-    border-radius: 20px;
-    width: 220px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 44%);
-    margin: 0 15px;
-}
-
-.header_buttons__gold:hover{
-    color: var(--gold-color);
-}
-
-.header_buttons__gold-reverse{
-    font-family: 'Roboto_medium';
-    color: white;
-    padding: 3px 0;
-    font-size: 17px;
-    background: var(--gold-color);
-    line-height: 42px;
-    display: inline-block;
-    border: 2px solid var(--gold-color);
-    border-radius: 20px;
-    width: 220px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 44%);
-    margin: 0 15px;
-}
-
-.header_buttons__gold-reverse:hover{
-    background-color: #a57b44;
-    color: white;
-}
-
-.header_content__text{
-    font-family: 'Roboto_regular';
-    font-size: 16px;
-    color: var(--dark-color);
-    margin-bottom: 50px;
-}
-
-.header_content__text span {
-    color: var(--gold-color);
 }
 
 .logo img{
@@ -325,7 +239,9 @@ header nav{
     min-width: 140px;
     max-width: 440px;
     left: 0;
-    z-index: 33333;
+    z-index: 111!important;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     transform: translateX(-100%);
     background: white;
     transition-duration: .3s;
@@ -348,9 +264,17 @@ header nav{
     margin: 0;
 }
 
+.header_navigation .mobile-menu_link{
+    font-size: 16px;
+}
+
+.header_navigation .mobile-menu_link:hover{
+    color: var(--dark-color);
+}
+
 .mobile-menu_link{
-    color: var(--gold-color);  
-    font-size: 18px; 
+    color: var(--gold-color);
+    font-size: 18px;
     font-family: 'Roboto_medium';
     display: block;
     text-decoration: none;
@@ -452,14 +376,48 @@ header nav{
 .catalog_btn>span, .account_btn>span{
     font-size: 26px;
 }
-
-
-
+/* --- cabinet_nav --- */
+.cabinet_nav{
+    width: 100%;
+    background: var(--blue-color);
+}
+.cabinet_nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.cabinet_nav_link{
+    display: flex;
+    padding: 7px 25px;
+    height: 54px;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+}
+.cabinet_nav_link:hover{
+    color: white;
+    background: rgba(255, 255, 255, 0.13);
+}
+.cabinet_avatar_mini{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.dark_color{
+    color: var(--dark-grey);
+    height: auto;
+}
+.dark_color:hover{
+    color: var(--dark-grey);
+}
 /* ----------------------------------------- media ---------------------------- */
 
 @media (max-width: 1050px){
     .my_dropdown .column_menu {
-        inset: 0px auto auto -30px!important;;   
+        inset: 0px auto auto -30px!important;;
     }
 }
 
@@ -471,74 +429,20 @@ header nav{
     }
 
     .header_navigation .nav_link{
-        font-size: 14px; 
+        font-size: 14px;
         margin: 0 7px;
     }
 
-    .header_content__title{
-        text-align: center;
-        padding: 8px 12px 8px;
-        font-size: 28px;
-        margin: 0 0 30px;
-    }
-    
-    .header_buttons__gold{
-        font-size: 15px;
-        line-height: 36px;
-        text-align: center;
-        margin: 0 15px;
-    }
-    
-    .header_buttons__gold-reverse{
-        font-size: 15px;
-        line-height: 36px;
-        text-align: center;
-        margin: 0 15px;
-    }
-    
-    .header_content__text{
-        font-size: 16px;
-        margin-bottom: 50px;
-        max-width: 480px;
+}
+@media (max-width: 991px) {
+    .cabinet_nav ul{
+        flex-direction: column;
     }
 }
 
-
 @media (max-width: 575px){
-    .header_content__title{
-        text-align: center;
-        padding: 8px 5px;
-        font-size: 22px;
-        margin: 0 0 30px;
-        border-width: 3px;
-    }
-
-    .header_buttons__gold{
-        font-size: 14px;
-        line-height: 32px;
-        text-align: center;
-        margin: 0 8px;
-        margin-bottom: 20px;
-    }
-    
-    .header_buttons__gold-reverse{
-        font-size: 14px;
-        line-height: 32px;
-        text-align: center;
-        margin: 0 8px;
-    }
-    
-    .header_content__text{
-        font-size: 16px;
-        margin-bottom: 50px;
-        max-width: 480px;
-        text-align: center;
-    }
     .header a.logo img{
         width: 100px;
         height: 100px;
-    }
-    .header_buttons{
-        flex-direction: column;
     }
 }

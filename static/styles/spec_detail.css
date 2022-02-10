@@ -245,6 +245,28 @@ main{
     color: var(--blue-color);
     font-family: 'Roboto_medium';
 }
+
+/* -------- restaurant --------- spec_more_info------- */
+
+.spec_more_info .more_info{
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 20px;
+    color: #808285;
+    font-size: 15px;
+    line-height: 1.4em;
+}
+
+.spec_more_info .more_info li{
+    width: 100%!important;
+    padding: 5px;
+}
+
+.spec_more_info .more_info li span{
+    margin-right: 10px;
+    color: var(--blue-color);
+}
+
 /* ----------------------------------------- media ---------------------------- */
 
 @media (max-width: 767px){

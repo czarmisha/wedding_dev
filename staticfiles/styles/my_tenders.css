@@ -5,10 +5,14 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
-    --blue-color: #3096ce8c;
 }
 
 *{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
     margin: 0;
     padding: 0;
 }
@@ -18,7 +22,6 @@
 main{
     padding: 10px 0 30px;
 }
-
 .title{
     background: url(../media/images/Handsha.svg)no-repeat center left;
     background-size: 50px 50px;
@@ -29,55 +32,6 @@ main{
     text-transform: uppercase;
     margin-bottom: 30px;
 }
-
-.tender_filters{
-    margin-bottom: 30px;
-}
-
-.filter_wrapper{
-    font-size: 16px;
-    color: var(--light-grey);
-    font-family: 'Roboto_regular';
-}
-
-.filter_wrapper input[type="number"] {
-    border: 1px solid #d3d3d3;
-    height: 26px;
-    padding: 0 15px;
-    color: #808285;
-    font-size: 14px;
-    width: 100px;
-}
-
-.filter_wrapper input[type="date"] {
-    border: 1px solid #d3d3d3;
-    height: 26px;
-    padding: 0 15px;
-    color: #808285;
-    font-size: 14px;
-}
-
-.filter_wrapper select {
-    border: 1px solid #d3d3d3;
-    height: 26px;
-    padding: 0 15px;
-    color: #808285;
-    font-size: 14px;
-}
-
-.filters_button{
-    display: block;
-    width: 150px;
-    height: 32px;
-    background: var(--gold-color);
-    color: #fff;
-    font-size: 16px;
-    border: 0;
-    border-radius: 5px;
-    -webkit-transition: background .2s ease;
-    transition: background .2s ease;
-}
-
 .tender_box{
     text-decoration: none;
     box-shadow: 0 0 2px 2px #d7d7d7;
@@ -176,40 +130,30 @@ main{
     line-height: 34px;
     font-family: 'Roboto_regular';
 }
-
-
-
+.create_tender{
+    font-family: 'Roboto_regular';
+    display: inline-block;
+    font-size: 16px;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    padding: 0 20px;
+    background: var(--gold-color);
+    border-radius: 20px;
+    margin: 0 20px 0 0;
+    text-decoration: none;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+.create_tender:hover{
+    color: white;
+}
 
 /* ----------------------------------------- media ---------------------------- */
-@media (max-width: 550px){
-    .filter_wrapper{
-        font-size: 14px;
-        color: var(--light-grey);
-        font-family: 'Roboto_regular';
-    }
-    .filter_wrapper input[type="number"] {
-        border: 1px solid #d3d3d3;
-        height: 26px;
-        padding: 0 15px;
-        color: #808285;
-        font-size: 12px;
-        width: 80px;
-    }
-    .filter_wrapper input[type="date"] {
-        width: 120px;
-    }
-}
+
 @media (max-width: 500px){
     .tender_header{
         flex-direction: column!important;
     }
 }
-@media (max-width: 350px){
-    .filter_wrapper span {
-        display: block;
-    }
-    .filter_wrapper input[type="date"] {
-        width: 150px;
-        margin-bottom: 10px;
-    }
-}
+

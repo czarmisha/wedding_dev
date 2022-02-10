@@ -1,0 +1,119 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #3096ce8c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+
+/* --------------------------- main -------------------------------- */
+main{
+    padding: 30px 0;
+}
+
+#Guest-list{
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 25px 40px 25px;
+    border: 2px solid #c99e668f;
+    overflow: hidden;
+    background: #f4f3f3;
+    margin: 0 auto;
+}
+
+#Guest-list h3{
+    text-align: center;
+    font-size: 22px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+
+.guest_list{
+    margin-bottom: 15px;
+    list-style: none;
+}
+
+.guest_list li{
+    font-size: 16px;
+    color: #939598;
+}
+
+.guest_list .del_guest{
+    color: #f35050;
+    display: none;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.add_guest_block{
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.add_guest_block input{
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    padding: 5px;
+}
+.add_guest{
+    /*display: block;*/
+    text-decoration: none;
+    padding: 7px 10px;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+/*------------------ meida ------------------*/
+
+@media (max-width: 768px){
+    .add_guest_block{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .add_guest_block .name{
+        margin-right: 5px;
+    }
+    .add_guest_block .phone{
+        margin-left: 5px;
+    }
+    .add_guest{
+        margin-top: 10px;
+    }
+}
+@media (max-width: 500px){
+    .add_guest_block{
+        flex-direction: column;
+        align-items: center;
+    }
+    .add_guest_block .name{
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    .add_guest_block .phone{
+        margin-left: 0px;
+    }
+    .add_guest{
+        margin-top: 10px;
+    }
+}

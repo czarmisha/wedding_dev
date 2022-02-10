@@ -10,7 +10,7 @@
 {% endblock%}
 
 {% block content %}
-    <h1>Список рестаранов и банкетных залов</h1>
+    <h1>Список ресторанов и банкетных залов</h1>
 <!--    <div class="filters">-->
 <!--         <form method="get">-->
 <!--            <p class="filter_wrapper">-->
@@ -30,7 +30,7 @@
 <!--    </div>-->
     <div class="spec_list">
         {% for object in restaurants %}
-        <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
+        <a class="spec_box d-block" href="{% url 'services:restaurant_detail' object.slug %}">
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">

@@ -22,5 +22,5 @@ class UserAdmin(auth_admin.UserAdmin):
 
 admin.site.register(ClientProfile)
 # admin.site.register(Category)
-# admin.site.register(City)
-# admin.site.register(District)
+admin.site.register(City)
+admin.site.register(District)

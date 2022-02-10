@@ -320,6 +320,20 @@ class RestaurantDetail(DetailView):
     template_name = 'services/restaurant_detail.html'
     # context_object_name = 'restaurant'
 
+    def get_context_data(self, **kwargs):
+        context = super(RestaurantDetail, self).get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
+        return context
+    
+    
+
 
 class PhotographerDetail(DetailView):
     model = Photographer

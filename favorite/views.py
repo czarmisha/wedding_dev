@@ -89,6 +89,10 @@ def my_favorites(request):
     for favorite in all_favorites_for_client:
         if favorite.specialist.type == 'photographer':
             context['photographers'].append(favorite.specialist.photographer)
+        elif favorite.specialist.type == 'restaurant':
+            context['restaurants'].append(favorite.specialist.restaurant)
+        
+        print(context)
 
     return render(request, 'account/favorites.html', context)
 

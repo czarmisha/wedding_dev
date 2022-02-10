@@ -45,6 +45,35 @@
                     </div>
                 </div>
               </div>
+            {% elif restaurants %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <span><i class="fad fa-camera"></i></span> Банкетные залы и рестораны
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionSpecialists">
+                    <div class="row">
+                        {% for obj in restaurants %}
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <a href="{% url 'services:restaurant_detail' obj.slug %}" class="favorite_specialist">
+                                <div class="spec_image">
+                                    {% if obj.avatar %}
+                                    <img src="{{obj.avatar.url}}" alt="">
+                                    {% else %}
+                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="spec_info">
+                                    <p class="spec_name">{{obj.name}}</p>
+                                    <p class="spec_phone">{{obj.phone}}</p>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+              </div>
             {% endif %}
 
 <!--            -->

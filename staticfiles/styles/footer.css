@@ -1,0 +1,97 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #3096ce8c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+/* -------------- footer ------------------*/
+
+footer{
+    padding: 30px 0;
+    background: #efefef;
+}
+
+.footer_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 470px;
+    width: 100%;
+}
+
+.footer .logo{
+    display: block;
+    margin-top: -30px;
+}
+
+.footer_call-us{
+    border: 2px solid #c99e668f;
+    border-radius: 20px;
+    font-size: 16px;
+    color: var(--light-grey);
+    font-weight: 500;
+    text-decoration: none;
+    box-sizing: border-box;
+    padding: 10px 25px;
+    transition: all .2s ease;
+    margin-bottom: 30px;
+    font-family: 'Roboto_medium';
+}
+
+.footer_call-us span{
+    margin-right: 7px;
+}
+
+.footer_call-us:hover{
+    color: var(--light-grey);
+    border-color: var(--blue-color);
+}
+
+.footer_socials{
+    margin-bottom: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer_socials a{
+    font-size: 22px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--blue-color);
+    text-decoration: none;
+}
+
+.footer_socials a:hover{
+    background: var(--gold-color);
+    color: white;
+}
+
+.footer_rights{
+    padding: 0 15px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+}
