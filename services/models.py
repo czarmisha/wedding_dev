@@ -274,7 +274,7 @@ class Decor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена', null=True)
+    price = models.FloatField('Минимальная цена украшения зала', null=True)
     avatar = models.ImageField(upload_to='avatars/decors', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
@@ -465,7 +465,6 @@ class Cake(models.Model):
 
 
 class Invitation(models.Model):
-    #TODO полиграия ил индвид
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
@@ -549,7 +548,7 @@ class Presenter(models.Model):
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     price = models.FloatField('Цена', null=True)
-    price_per_evening = models.FloatField('Цена', null=True)
+    price_per_hour = models.FloatField('Цена за час', null=True)
     composition = models.CharField('Состав', max_length=50, choices=_COMPOSITION_TYPE, null=True)
     gender = models.CharField('Пол', max_length=50, choices=_GENDER, null=True)
     language = models.ManyToManyField('Language', verbose_name='Языки')
@@ -606,7 +605,7 @@ class Music(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена', null=True)
+    price = models.FloatField('Цена за выступление', null=True)
     price_per_evening = models.FloatField('Цена за вечер', null=True)
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
     composition = models.CharField('Исполнители', max_length=50, choices=_COMPOSITION_TYPE, null=True)
