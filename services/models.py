@@ -49,6 +49,11 @@ class Agency(models.Model):
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/agencies', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    price = models.FloatField('Начальная цена', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -70,14 +75,22 @@ class Agency(models.Model):
 
 
 class Dance(models.Model):
-    #TODO свадебный слаон ил индвид
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена ')
+    price = models.FloatField('Цена ', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dances', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -102,7 +115,7 @@ class PhotoStudio(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price_per_hour = models.FloatField('Цена за час')
+    price_per_hour = models.FloatField('Цена за час', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/photoStudios', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -131,16 +144,24 @@ class PhotoStudio(models.Model):
 
 
 class Stylist(models.Model):
-    #TODO свадебный слаон ил индвид
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена ')
+    price = models.FloatField('Цена ', null=True)
     on_departure = models.BooleanField('На выезд', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/stylists', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -169,6 +190,12 @@ class Accessories(models.Model):
     avatar = models.ImageField(upload_to='avatars/accessories', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    price = models.FloatField('Цена', null=True)
+    accessories_type = models.ManyToManyField('AccessoriesType', null=True)    
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -188,15 +215,41 @@ class Accessories(models.Model):
         ordering = ['-is_pro', '-created',]
 
 
+class AccessoriesType(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Название')
+
+    def __str__(self)   :
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тип аксессуаров'
+        verbose_name_plural = 'Типы аксессуаров'
+
+
 class Costume(models.Model):
-    #TODO свадебный слаон ил индвид
+    _CONDITION_TYPES = [
+        ('sale', 'Продажа'),
+        ('rent', 'Аренд')
+    ]
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
+    price = models.FloatField('Начальная цена', null=True)
     rent = models.BooleanField('На прокат', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/costumes', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -249,15 +302,24 @@ class Decor(models.Model):
 
 
 class Bouquet(models.Model):
-    #TODO свадебный слаон ил индвид
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена')
+    price = models.FloatField('Цена', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/bouquets', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -278,7 +340,11 @@ class Bouquet(models.Model):
 
 
 class Ring(models.Model):
-    #TODO свадебный слаон ил индвид
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
@@ -286,6 +352,12 @@ class Ring(models.Model):
     avatar = models.ImageField(upload_to='avatars/rings', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    price = models.FloatField('Цена', null=True)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -306,14 +378,34 @@ class Ring(models.Model):
 
 
 class Dress(models.Model):
-    #TODO свадебный слаон ил индвид
+    _DRESS_TYPES = [
+        ('bouffant', 'Пышное'),
+        ('straight', 'Прямое')
+    ]
+    _CONDITION_TYPES = [
+        ('sale', 'Продажа'),
+        ('rent', 'Аренд')
+    ]
+    _TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)
+    dress_type = models.CharField(max_length=50, choices=_DRESS_TYPES, null=True, verbose_name='Тип платье')
+    condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dresses', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    price = models.FloatField('Начальная цена', null=True)
     slug = models.SlugField(max_length=200, unique=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -334,14 +426,24 @@ class Dress(models.Model):
 
 
 class Cake(models.Model):
-    #TODO кондитерка ил индвид
+    _TYPES = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price_per_kg = models.FloatField('Цена за кг')
+    type = models.CharField(max_length=50, choices=_TYPES, null=True)
+    price_per_kg = models.FloatField('Цена за кг', null=True)
+    price = models.FloatField('Начальная цена', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/cakes', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -370,6 +472,11 @@ class Invitation(models.Model):
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/invitations', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    price = models.FloatField('Начальная цена', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -428,7 +535,7 @@ class RegistryOffice(models.Model):
 
 
 class Presenter(models.Model):
-    _COMPOSION_TYPE = [
+    _COMPOSITION_TYPE = [
         ('duet', 'Дуэт'),
         ('solo', 'Соло'),
     ]
@@ -441,13 +548,16 @@ class Presenter(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена')
+    price = models.FloatField('Цена', null=True)
     price_per_evening = models.FloatField('Цена', null=True)
-    composition = models.CharField('Состав', max_length=50, choices=_COMPOSION_TYPE, null=True)
+    composition = models.CharField('Состав', max_length=50, choices=_COMPOSITION_TYPE, null=True)
     gender = models.CharField('Пол', max_length=50, choices=_GENDER, null=True)
     language = models.ManyToManyField('Language', verbose_name='Языки')
     avatar = models.ImageField(upload_to='avatars/presenters', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -480,13 +590,32 @@ class Language(models.Model):
 
 
 class Music(models.Model):
+    _COMPOSITION_TYPE = [
+        ('duet', 'Дуэт'),
+        ('solo', 'Соло'),
+        ('group', 'Группа'),
+        ('dj', 'Dj'),
+    ]
+
+    _VOCAL_TYPE = [
+        ('men', 'Мужской'),
+        ('women', 'Женский'),
+        ('mixed', 'Смешанный'),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена')
-    price_per_hour = models.FloatField('Цена за час')
+    price = models.FloatField('Цена', null=True)
+    price_per_evening = models.FloatField('Цена за вечер', null=True)
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
+    composition = models.CharField('Исполнители', max_length=50, choices=_COMPOSITION_TYPE, null=True)
+    vocal = models.CharField('Вокал', max_length=50, choices=_VOCAL_TYPE, null=True)
+    language = models.ManyToManyField('Language', verbose_name='Языки исполнения песен')
     phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -502,8 +631,8 @@ class Music(models.Model):
         super(Music, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Музыкальная группа, DJ'
-        verbose_name_plural = 'Музыкальные группы, DJ'
+        verbose_name = 'Музыкальная группа и DJ'
+        verbose_name_plural = 'Музыкальные группы и DJ'
         ordering = ['-is_pro', '-created',]
 
 
@@ -517,8 +646,8 @@ class Transport(models.Model):
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     type = models.CharField(max_length=50, choices=_TRANSPORT_TYPE, null=True)
-    price = models.FloatField('Цена')
-    price_per_hour = models.FloatField('Цена за час')
+    price = models.FloatField('Цена', null=True)
+    price_per_hour = models.FloatField('Цена за час', null=True)
     with_driver = models.BooleanField('С водителем', default=True)
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -574,9 +703,13 @@ class Artist(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена')
+    price = models.FloatField('Цена', null=True)
     avatar = models.ImageField(upload_to='avatars/artists', verbose_name='Аватар', blank=True)
+    type = models.ManyToManyField('ShowType', verbose_name='Тип шоупрограммы', null=True)
     phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
@@ -595,6 +728,17 @@ class Artist(models.Model):
         verbose_name = 'Шоу программа, артист'
         verbose_name_plural = 'Шоу программы, артисты'
         ordering = ['-is_pro', '-created',]
+
+
+class ShowType(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тип шоупрограммы'
+        verbose_name_plural = 'Типы шоупрограмм'
 
 
 class Restaurant(models.Model):
@@ -695,8 +839,8 @@ class Photographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     full_name = models.CharField('Имя и Фамилия', max_length=155)
     about = models.TextField('О себе')
-    price = models.FloatField('Цена')
-    price_per_hour = models.FloatField('Цена за час')
+    price = models.FloatField('Цена', null=True)
+    price_per_hour = models.FloatField('Цена за час', null=True)
     avatar = models.ImageField(upload_to='avatars/photographers', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
