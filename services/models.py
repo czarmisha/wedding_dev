@@ -1,4 +1,3 @@
-from re import T
 from time import timezone
 from django.db import models
 from django.urls import reverse
@@ -103,12 +102,15 @@ class PhotoStudio(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    price = models.FloatField('Цена ')
     price_per_hour = models.FloatField('Цена за час')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/photoStudios', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -219,9 +221,14 @@ class Decor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
+    price = models.FloatField('Цена', null=True)
     avatar = models.ImageField(upload_to='avatars/decors', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -421,11 +428,24 @@ class RegistryOffice(models.Model):
 
 
 class Presenter(models.Model):
-    # TODO Language
+    _COMPOSION_TYPE = [
+        ('duet', 'Дуэт'),
+        ('solo', 'Соло'),
+    ]
+    _GENDER = [
+        ('men', 'Мужчина'),
+        ('women', 'Женщина'),
+        ('mixed', 'Смешанный'),
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     price = models.FloatField('Цена')
+    price_per_evening = models.FloatField('Цена', null=True)
+    composition = models.CharField('Состав', max_length=50, choices=_COMPOSION_TYPE, null=True)
+    gender = models.CharField('Пол', max_length=50, choices=_GENDER, null=True)
+    language = models.ManyToManyField('Language', verbose_name='Языки')
     avatar = models.ImageField(upload_to='avatars/presenters', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
@@ -443,9 +463,20 @@ class Presenter(models.Model):
         super(Presenter, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Ведущий'
-        verbose_name_plural = 'Ведущие'
+        verbose_name = 'Ведущий и тамада'
+        verbose_name_plural = 'Ведущие и тамада'
         ordering = ['-is_pro', '-created',]
+
+
+class Language(models.Model):
+    name = models.CharField(("Язык"), max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Язык'
+        verbose_name_plural = 'Языки'
 
 
 class Music(models.Model):
@@ -477,17 +508,27 @@ class Music(models.Model):
 
 
 class Transport(models.Model):
-    #TODO индивидуал сёрвис ор компани/ car type
+    _TRANSPORT_TYPE = [
+        ('business', 'Компания'),
+        ('private', 'Индивидуальные услуги')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
+    type = models.CharField(max_length=50, choices=_TRANSPORT_TYPE, null=True)
     price = models.FloatField('Цена')
     price_per_hour = models.FloatField('Цена за час')
-    # car_type =
     with_driver = models.BooleanField('С водителем', default=True)
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    car_type = models.ManyToManyField('CarType', verbose_name='Тип автомобиля')
+    car_brand = models.ManyToManyField('CarBrand', verbose_name='Марка автомобиля')
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -505,6 +546,28 @@ class Transport(models.Model):
         verbose_name = 'Транспорт'
         verbose_name_plural = 'Транспорт'
         ordering = ['-is_pro', '-created',]
+    
+
+class CarType(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Тип автомобиля'
+        verbose_name_plural = 'Типы автомобилей'
+
+
+class CarBrand(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Марка автомобиля'
+        verbose_name_plural = 'Марки автомобилей'
 
 
 class Artist(models.Model):
