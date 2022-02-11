@@ -1,3 +1,4 @@
+from re import T
 from time import timezone
 from django.db import models
 from django.urls import reverse
@@ -383,14 +384,23 @@ class Invitation(models.Model):
 
 
 class RegistryOffice(models.Model):
+    _REGISTRY_TYPE = [
+        ('visiting', 'Выездная'),
+        ('not_visiting', 'Не выездная')
+    ]
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     address = models.CharField('Адрес', max_length=500)
-    on_departure = models.BooleanField('На выезд', default=False)
     avatar = models.ImageField(upload_to='avatars/registryOffices', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
+    type = models.CharField(max_length=50, choices=_REGISTRY_TYPE, null=True)
+    location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
+    telegram = models.CharField(max_length=155, blank=True)
+    instagram = models.CharField(max_length=155, blank=True)
+    facebook = models.CharField(max_length=155, blank=True)
     is_pro = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True, null=True)
 

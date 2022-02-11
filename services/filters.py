@@ -1,3 +1,4 @@
+from random import choices
 import django_filters
 from . import models
 from account.models import District
@@ -25,5 +26,14 @@ class RestaurantFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Restaurant
-        fields = ['type', 'average_check_gt', 'average_check_lt', 'capacity_gt', 'capacity_lt', ]
+        fields = ['type', 'average_check_gt', 'average_check_lt', 'capacity_gt', 'capacity_lt', 'location']
+
+
+class RegistryOfficeFilter(django_filters.FilterSet):
+    location = django_filters.ModelChoiceFilter(queryset=District.objects.all())
+    type = django_filters.ChoiceFilter(field_name='type', choices=models.RegistryOffice._REGISTRY_TYPE)
+
+    class Meta:
+        model = models.RegistryOffice
+        fields = ['type', 'location' ]
 

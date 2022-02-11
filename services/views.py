@@ -86,10 +86,13 @@ class InvitationList(ListView):
     context_object_name = 'Invitations'
 
 
-class RegistryOfficeList(ListView):
+class RegistryOfficeList(FilterView):
     model = RegistryOffice
     template_name = 'services/registryoffice_list.html'
     context_object_name = 'registry_offices'
+
+    filterset_class = filters.RegistryOfficeFilter
+    paginate_by = 1
 
 
 class PresenterList(ListView):
@@ -292,6 +295,18 @@ class RegistryOfficeDetail(DetailView):
     model = RegistryOffice
     template_name = 'services/registryoffice_detail.html'
     # context_object_name = 'registryoffice'
+
+    def get_context_data(self, **kwargs):
+        context = super(RegistryOfficeDetail, self).get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
+        return context
 
 
 class PresenterDetail(DetailView):
