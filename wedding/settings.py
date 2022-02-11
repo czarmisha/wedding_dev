@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "debug_toolbar",
     'account',
     'services',
     'tender',
@@ -67,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = 'wedding.urls'
@@ -103,26 +105,26 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 # }
 
 # POSTGRESQL ubuntu
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'postgres',
-#         'USER': 'czar',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#     }
-# }
-
-# windows databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '0809',
+        'USER': 'czar',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
     }
 }
+
+# windows databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': '0809',
+#         'HOST': 'localhost',
+#     }
+# }
 
 
 # Password validation
@@ -173,4 +175,10 @@ STAR_RATINGS_RERATE = False
 # STAR_RATINGS_RANGE = 5
 STAR_RATINGS_STAR_HEIGHT = 16
 STAR_RATINGS_STAR_WIDTH = 16
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
 

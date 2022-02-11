@@ -31,6 +31,7 @@ urlpatterns = [
     path('favorite/', include('favorite.urls', namespace='favorite')),
     path('admin/', admin.site.urls),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

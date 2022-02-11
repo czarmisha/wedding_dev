@@ -116,10 +116,13 @@ class ArtistList(ListView):
     context_object_name = 'artists'
 
 
-class RestaurantList(ListView):
+class RestaurantList(FilterView):
     model = Restaurant
     template_name = 'services/restaurant_list.html'
     context_object_name = 'restaurants'
+
+    filterset_class = filters.RestaurantFilter
+    paginate_by = 1
 
 
 class PhotographerList(FilterView):

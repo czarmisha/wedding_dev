@@ -145,6 +145,23 @@ h1{
     margin-bottom: 35px;
     text-transform: uppercase;
 }
+
+/* ---- restaurant_filters ----- */
+.restaurant_filters select{
+    border: 1px solid #d3d3d3;
+    height: 26px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+}
+.restaurant_filters select[multiple]{
+    border: 1px solid #d3d3d3;
+    height: 80px;
+    color: #808285;
+    font-size: 14px;
+}
+
+
 /* ----------------------- media -------------- */
 
 

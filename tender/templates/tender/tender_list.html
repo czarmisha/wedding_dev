@@ -15,39 +15,39 @@
         <p class="filter_wrapper">
             <span>Услуга </span>
             <select name="service" id="id_service">
-              <option value="" selected>---------</option>
-              <option value="photographer">Фотограф</option>
-              <option value="artist">Артист, Шоу программа</option>
-              <option value="transport">Транспорт</option>
-              <option value="music">Музыканты, Dj</option>
-              <option value="presenter">Ведущий</option>
-              <option value="invitation">Пригласительные</option>
-              <option value="cake">Торт</option>
-              <option value="dress">Платье</option>
-              <option value="ring">Кольца</option>
-              <option value="bouquet">Букет</option>
-              <option value="decor">Декор, оформление</option>
-              <option value="costume">Костюм</option>
-              <option value="accessories">Аксуссуары</option>
-              <option value="stylist">Стилист, Визажист</option>
-              <option value="photostudio">Фотостудия</option>
-              <option value="dance">Танец</option>
-              <option value="agency">Агенство</option>
+              <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
+              <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>Фотограф</option>
+              <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>Артист, Шоу программа</option>
+              <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>Транспорт</option>
+              <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>Музыканты, Dj</option>
+              <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>Ведущий</option>
+              <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>Пригласительные</option>
+              <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>Торт</option>
+              <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>Платье</option>
+              <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>Кольца</option>
+              <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>Букет</option>
+              <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>Декор, оформление</option>
+              <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>Костюм</option>
+              <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>Аксуссуары</option>
+              <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>Стилист, Визажист</option>
+              <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>Фотостудия</option>
+              <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>Танец</option>
+              <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>Агенство</option>
             </select>
         </p>
 
 
           <p class="filter_wrapper">
              <span>Бюджет </span> от
-             <input type="number" name="budget_gt" step="any" id="id_budget_gt">
+             <input type="number" name="budget_gt" step="any" id="id_budget_gt" value="{{filter.form.budget_gt.value}}">
              до
-             <input type="number" name="budget_lt" step="any" id="id_budget_lt">
+             <input type="number" name="budget_lt" step="any" id="id_budget_lt" value="{{filter.form.budget_lt.value}}">
           </p>
 
           <p class="filter_wrapper">
               <span>Дата события</span>
-            <input type="date" name="on_date_start" placeholder="мм/дд/гг" id="id_on_date_start">
-            <input type="date" name="on_date_end" placeholder="мм/дд/гг" id="id_on_date_end">
+            <input type="date" name="on_date_start" placeholder="мм/дд/гг" id="id_on_date_start" value="{{filter.form.on_date_start.value}}">
+            <input type="date" name="on_date_end" placeholder="мм/дд/гг" id="id_on_date_end" value="{{filter.form.on_date_end.value}}">
           </p>
          <button class="filters_button" type="submit">Применить</button>
     </form>
