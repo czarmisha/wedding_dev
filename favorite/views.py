@@ -83,6 +83,7 @@ def my_favorites(request):
         'photostudios': [],
         'dance': [],
         'agencies': [],
+        'videographers': [],
         'count': favorites_count
     }
 
@@ -93,38 +94,40 @@ def my_favorites(request):
             context['restaurants'].append(favorite.specialist.restaurant)
         elif favorite.specialist.type == 'registryoffice':
             context['registry_offices'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['artists'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['transport'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['music'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['presenters'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['invitations'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['cakes'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['dresses'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['rings'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['bouquets'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['decor'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['costumes'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['accessories'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['stylists'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['photostudios'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['dance'].append(favorite.specialist.registryoffice)
-        elif favorite.specialist.type == 'registryoffice':
-            context['agencies'].append(favorite.specialist.registryoffice)
+        elif favorite.specialist.type == 'artist':
+            context['artists'].append(favorite.specialist.artist)
+        elif favorite.specialist.type == 'transport':
+            context['transport'].append(favorite.specialist.transport)
+        elif favorite.specialist.type == 'music':
+            context['music'].append(favorite.specialist.music)
+        elif favorite.specialist.type == 'presenter':
+            context['presenters'].append(favorite.specialist.presenter)
+        elif favorite.specialist.type == 'invitation':
+            context['invitations'].append(favorite.specialist.registryofinvitationfice)
+        elif favorite.specialist.type == 'cake':
+            context['cakes'].append(favorite.specialist.cake)
+        elif favorite.specialist.type == 'dress':
+            context['dresses'].append(favorite.specialist.dress)
+        elif favorite.specialist.type == 'ring':
+            context['rings'].append(favorite.specialist.ring)
+        elif favorite.specialist.type == 'bouquet':
+            context['bouquets'].append(favorite.specialist.bouquet)
+        elif favorite.specialist.type == 'decor':
+            context['decor'].append(favorite.specialist.decor)
+        elif favorite.specialist.type == 'costume':
+            context['costumes'].append(favorite.specialist.costume)
+        elif favorite.specialist.type == 'accessories':
+            context['accessories'].append(favorite.specialist.accessories)
+        elif favorite.specialist.type == 'stylist':
+            context['stylists'].append(favorite.specialist.stylist)
+        elif favorite.specialist.type == 'photostudio':
+            context['photostudios'].append(favorite.specialist.photostudio)
+        elif favorite.specialist.type == 'dance':
+            context['dance'].append(favorite.specialist.dance)
+        elif favorite.specialist.type == 'agency':
+            context['agencies'].append(favorite.specialist.agency)
+        elif favorite.specialist.type == 'videographer':
+            context['videographers'].append(favorite.specialist.videographer)
 
         
     print(context)

@@ -29,7 +29,7 @@
          </form>
     </div>
     <div class="spec_list">
-        {% for object in filter.qs %}
+        {% for object in objs %}
         <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
             <div class="row">
                 <div class="col-12 col-md-2">
@@ -40,7 +40,7 @@
                         <img src="{% static 'media/images/s.jpg' %}" alt="">
                         {%endif%}
                         <p class="spec_rating">{{object.get_average_rating}}</p>
-                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                        <p class="spec_reviews">Отзывы (<span>{{object.review_count}}</span>)</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-10">

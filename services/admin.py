@@ -193,6 +193,16 @@ class PhotographerAdmin(admin.ModelAdmin):
         obj.save()
 
 
+@admin.register(Videographer)
+class VideographerAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        username = obj.user.username
+        obj.slug = slugify(username)
+        obj.user.type = 'videographer'
+        obj.user.save()
+        obj.save()
+
+
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     pass

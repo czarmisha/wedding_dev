@@ -25,26 +25,28 @@
             {% block content %}
 
             {% endblock %}
-
-            {% if page_obj.paginator%}
-                <div class="pagination">
-                    <span class="step-links">
-                        {% if page_obj.has_previous %}
-                            <a href="?page=1">&laquo; first</a>
-                            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                        {% endif %}
-
-                        <span class="current">
-                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-                        </span>
-
-                        {% if page_obj.has_next %}
-                            <a href="?page={{ page_obj.next_page_number }}">next</a>
-                            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-                        {% endif %}
-                    </span>
-                </div>
+            {% if objs.has_other_pages %}
+                <ul class="pagination">
+                {% if objs.has_previous %}
+                    <li><a href="?page={{ objs.previous_page_number }}"><i class="fad fa-angle-double-left"></i></a></li>
+                {% else %}
+                    <li class="disabled"><span><i class="fad fa-angle-double-left"></i></span></li>
             {% endif %}
+                {% for i in objs.paginator.page_range %}
+                {% if objs.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)
+                    </span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% if objs.has_next %}
+                    <li><a href="?page={{ objs.next_page_number }}"><i class="fad fa-angle-double-right"></i></a></li>
+                {% else %}
+                    <li class="disabled"><span><i class="fad fa-angle-double-right"></i></span></li>
+                {% endif %}
+            </ul>
+         {% endif %}
         </div>
     </main>
     <footer>

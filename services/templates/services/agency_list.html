@@ -1,10 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'services_base.html' %}
+{% load static %}
+{% load ratings %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
+<link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+{% endblock%}
 
-</body>
-</html>
+{% block content %}
+    <h1>Список дворцов бракосочетания и ЗАГСов</h1>
+    <div class="filters restaurant_filters">
+         <form method="get">
+            <p class="filter_wrapper">
+                <span>Тип церемонии </span>
+                {{filter.form.type}}
+            </p>
+            <p class="filter_wrapper">
+                <span>Местоположение </span>
+                {{filter.form.location}}
+            </p>
+            <button type="submit">Применить</button>
+         </form>
+    </div>
+    <div class="spec_list">
+        {% for object in filter.qs %}
+        <a class="spec_box d-block" href="{% url 'services:registryoffice_detail' object.slug %}">
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <div class="left d-flex flex-column align-items-center">
+                        {%if object.avatar%}
+                        <img src="{{object.avatar.url}}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        {%endif%}
+                        <p class="spec_rating">{{object.get_average_rating}}</p>
+                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10">
+                    <div class="right h-100 d-flex flex-column justify-content-between">
+                        <div class="info d-flex align-items-center justify-content-between">
+                            <h3 class="spec_fullname">{{object.name}}</h3>
+                            <div class="info_right d-flex align-items-center">
+                                <p class="spec_price">{{object.average_check}} сум</p>
+                                <span> | </span>
+                                <p class="spec_price">{{object.capacity}} чел.</p>
+                            </div>
+                        </div>
+                        <div class="spec_portfolio">
+                            <div class="row">
+                                {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="col-3 mt-4">
+                                        <img class="" src="{{image.image.url}}" alt="">
+                                    </div>
+                                {%endfor%}
+
+                            </div>
+                        </div>
+                        <div class="spec_portfolio_slider">
+                             {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="slide">
+                                        <img class="slide_img" src="{{image.image.url}}" alt="">
+                                    </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{%endblock content%}
+{%block script%}
+ <script>
+    $(document).ready(function(){
+        $('.spec_portfolio_slider').slick({
+            arrows: false,
+            slidesToShow: 3,
+            centerMode: true,
+            centerPadding: '30px',
+            slidesToScroll: 2,
+            infinite: true,
+            speed: 300,
+            responsive: [
+                {
+                breakpoint: 500,
+                    settings: {
+                        slidesToShow: 2,
+                        centerPadding: '15px',
+                    }
+                },
+            ]
+        });
+    });
+</script>
+{%endblock%}

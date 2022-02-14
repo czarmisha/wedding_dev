@@ -1,4 +1,4 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView
 from .models import *
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
@@ -9,136 +9,391 @@ from django.core.files.base import ContentFile
 from django_filters.views import FilterView
 from . import filters
 from favorite.models import Favorite
+from django.db.models import Count
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 User = get_user_model()
 
 
-class AgencyList(ListView):
-    model = Agency
-    template_name = 'services/agency_list.html'
-    context_object_name = 'agencies'
+def agency_list(request):
+    f = filters.AgencyFilter(request.GET, queryset=Agency.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/agency_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class DanceList(ListView):
-    model = Dance
-    template_name = 'services/dance_list.html'
-    context_object_name = 'dance'
+def dance_list(request):
+    f = filters.DanceFilter(request.GET, queryset=Dance.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/dance_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class PhotoStudioList(ListView):
-    model = PhotoStudio
-    template_name = 'services/photostudio_list.html'
-    context_object_name = 'photostudios'
+def photostudio_list(request):
+    f = filters.PhotoStudioFilter(request.GET, queryset=PhotoStudio.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/photostudio_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class StylistList(ListView):
-    model = Stylist
-    template_name = 'services/stylist_list.html'
-    context_object_name = 'stylists'
+def stylist_list(request):
+    f = filters.StylistFilter(request.GET, queryset=Stylist.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/stylist_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class AccessoriesList(ListView):
-    model = Accessories
-    template_name = 'services/accessories_list.html'
-    context_object_name = 'accessories'
+def accessories_list(request):
+    f = filters.AccessoriesFilter(request.GET, queryset=Accessories.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/accessories_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class CostumeList(ListView):
-    model = Costume
-    template_name = 'services/costume_list.html'
-    context_object_name = 'costumes'
+def costume_list(request):
+    f = filters.CostumeFilter(request.GET, queryset=Costume.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/costume_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class DecorList(ListView):
-    model = Decor
-    template_name = 'services/decor_list.html'
-    context_object_name = 'decor'
+def decor_list(request):
+    f = filters.DecorFilter(request.GET, queryset=Decor.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/decor_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class BouquetList(ListView):
-    model = Bouquet
-    template_name = 'services/bouquet_list.html'
-    context_object_name = 'bouquets'
+def bouquet_list(request):
+    f = filters.BouquetFilter(request.GET, queryset=Bouquet.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/bouquet_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class RingList(ListView):
-    model = Ring
-    template_name = 'services/ring_list.html'
-    context_object_name = 'rings'
+def ring_list(request):
+    f = filters.RingFilter(request.GET, queryset=Ring.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/ring_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class DressList(ListView):
-    model = Dress
-    template_name = 'services/dress_list.html'
-    context_object_name = 'dresses'
+def dress_list(request):
+    f = filters.DressFilter(request.GET, queryset=Dress.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/dress_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class CakeList(ListView):
-    model = Cake
-    template_name = 'services/cake_list.html'
-    context_object_name = 'cakes'
+def cake_list(request):
+    f = filters.CakeFilter(request.GET, queryset=Cake.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/cake_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class InvitationList(ListView):
-    model = Invitation
-    template_name = 'services/invitation_list.html'
-    context_object_name = 'Invitations'
+def invitation_list(request):
+    f = filters.InvitationFilter(request.GET, queryset=Invitation.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/invitation_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class RegistryOfficeList(FilterView):
-    model = RegistryOffice
-    template_name = 'services/registryoffice_list.html'
-    context_object_name = 'registry_offices'
+def registry_office_list(request):
+    f = filters.RegistryOfficeFilter(request.GET, queryset=RegistryOffice.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
 
-    filterset_class = filters.RegistryOfficeFilter
-    paginate_by = 1
-
-
-class PresenterList(ListView):
-    model = Presenter
-    template_name = 'services/presenter_list.html'
-    context_object_name = 'presenters'
-
-
-class MusicList(ListView):
-    model = Music
-    template_name = 'services/music_list.html'
-    context_object_name = 'music'
+    return render(request, 'services/registryoffice_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class TransportList(ListView):
-    model = Transport
-    template_name = 'services/transport_list.html'
-    context_object_name = 'trasport'
+def presenter_list(request):
+    f = filters.PresenterFilter(request.GET, queryset=Presenter.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/presenter_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class ArtistList(ListView):
-    model = Artist
-    template_name = 'services/artist_list.html'
-    context_object_name = 'artists'
+def music_list(request):
+    f = filters.MusicFilter(request.GET, queryset=Music.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/music_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class RestaurantList(FilterView):
-    model = Restaurant
-    template_name = 'services/restaurant_list.html'
-    context_object_name = 'restaurants'
+def transport_list(request):
+    f = filters.TransportFilter(request.GET, queryset=Transport.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
 
-    filterset_class = filters.RestaurantFilter
-    paginate_by = 1
+    return render(request, 'services/transport_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
-class PhotographerList(FilterView):
-    model = Photographer
-    template_name = 'services/photographer_list.html'
-    context_object_name = 'photographers'
-    filterset_class = filters.PhotographerFilter
-    paginate_by = 1
+def artist_list(request):
+    f = filters.ArtistFilter(request.GET, queryset=Artist.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
 
-    def get_context_data(self, **kwargs):
-        context = super(PhotographerList, self).get_context_data(**kwargs)
-        context['only_average'] = True
-        return context
+    return render(request, 'services/artist_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
+
+
+def restaurant_list(request):
+    f = filters.RestaurantFilter(request.GET, queryset=Restaurant.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/restaurant_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
+
+
+def photographer_list(request):
+    f = filters.PhotographerFilter(request.GET, queryset=Photographer.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/photographer_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
+
+
+def videographer_list(request):
+    f = filters.VideographerFilter(request.GET, queryset=Videographer.objects.select_related(
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    paginator = Paginator(f.qs, 10)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'services/videographer_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
 
 
 @login_required
@@ -203,7 +458,8 @@ def create_review(request):
         service_user = User.objects.get(pk=service_user_pk)
         client_user = User.objects.get(pk=client_user_pk)
         if not Review.objects.filter(service_user=service_user, client_user=client_user).exists():
-            review = Review(service_user=service_user, client_user=client_user, text=text)
+            review = Review(service_user=service_user,
+                            client_user=client_user, text=text)
             review.save()
             resp = {
                 'success': True,
@@ -305,7 +561,8 @@ class RegistryOfficeDetail(DetailView):
                 context['favorite'] = True
         except:
             print('anonymous user')
-        context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
         return context
 
 
@@ -347,10 +604,9 @@ class RestaurantDetail(DetailView):
                 context['favorite'] = True
         except:
             print('anonymous user')
-        context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
         return context
-    
-    
 
 
 class PhotographerDetail(DetailView):
@@ -367,6 +623,24 @@ class PhotographerDetail(DetailView):
                 context['favorite'] = True
         except:
             print('anonymous user')
-        context['reviews'] = Review.objects.all().filter(service_user=self.object.user)
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
         return context
 
+
+class VideographerDetail(DetailView):
+    model = Videographer
+    template_name = 'services/videographer_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context

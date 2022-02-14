@@ -18,6 +18,9 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
+    def get_reviews_count(self):
+        return self.service_reviews.count()
+
     def get_cabinet_url(self):
         if self.type == 'client':
             return reverse('account:cabinet', args=[self.pk])
@@ -59,48 +62,9 @@ class User(AbstractUser):
             return reverse('services:dance_detail', args=[self.dance.slug])
         elif self.type == 'agency':
             return reverse('services:agency_detail', args=[self.agency.slug])
+        elif self.type == 'videographer':
+            return reverse('services:videographer_detail', args=[self.videographer.slug])
 
-        # def get_user_slug(self):
-        #     if self.type == 'client':
-        #         return self.clientprofile.slug
-        #     elif self.type == 'photographer':
-        #         return self.photographer.slug
-        #     elif self.type == 'restaurant':
-        #         return self.restaurant.slug
-        #     elif self.type == 'artist':
-        #         return self.artist.slug
-        #     elif self.type == 'transport':
-        #         return self.transport.slug
-        #     elif self.type == 'music':
-        #         return self.music.slug
-        #     elif self.type == 'presenter':
-        #         return self.presenter.slug
-        #     elif self.type == 'registryoffice':
-        #         return self.registryoffice.slug
-        #     elif self.type == 'invitation':
-        #         return self.invitation.slug
-        #     elif self.type == 'cake':
-        #         return self.cake.slug
-        #     elif self.type == 'dress':
-        #         return self.dress.slug
-        #     elif self.type == 'ring':
-        #         return self.ring.slug
-        #     elif self.type == 'bouquet':
-        #         return self.bouquet.slug
-        #     elif self.type == 'decor':
-        #         return self.decor.slug
-        #     elif self.type == 'costume':
-        #         return self.costume.slug
-        #     elif self.type == 'accessories':
-        #         return self.accessories.slug
-        #     elif self.type == 'stylist':
-        #         return self.stylist.slug
-        #     elif self.type == 'photostudio':
-        #         return self.photostudio.slug
-        #     elif self.type == 'dance':
-        #         return self.dance.slug
-        #     elif self.type == 'agency':
-        #         return self.agency.slug
 
 
 class Category(models.Model):

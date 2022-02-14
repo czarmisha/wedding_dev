@@ -64,6 +64,9 @@ class Agency(models.Model):
     def get_absolute_url(self):
         return reverse('services:agency_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Agency, self).save(*args, **kwargs)
@@ -101,6 +104,9 @@ class Dance(models.Model):
     def get_absolute_url(self):
         return reverse('services:dance_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Dance, self).save(*args, **kwargs)
@@ -132,6 +138,9 @@ class PhotoStudio(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:photostudio_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -171,6 +180,9 @@ class Stylist(models.Model):
     def get_absolute_url(self):
         return reverse('services:stylist_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Stylist, self).save(*args, **kwargs)
@@ -191,7 +203,7 @@ class Accessories(models.Model):
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
     price = models.FloatField('Цена', null=True)
-    accessories_type = models.ManyToManyField('AccessoriesType', null=True)    
+    accessories_type = models.ManyToManyField('AccessoriesType')    
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
@@ -204,6 +216,9 @@ class Accessories(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:accessories_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -260,6 +275,9 @@ class Costume(models.Model):
     def get_absolute_url(self):
         return reverse('services:costume_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Costume, self).save(*args, **kwargs)
@@ -290,6 +308,9 @@ class Decor(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:decor_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -329,6 +350,9 @@ class Bouquet(models.Model):
     def get_absolute_url(self):
         return reverse('services:bouquet_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Bouquet, self).save(*args, **kwargs)
@@ -366,6 +390,9 @@ class Ring(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:ring_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -415,6 +442,9 @@ class Dress(models.Model):
     def get_absolute_url(self):
         return reverse('services:dress_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Dress, self).save(*args, **kwargs)
@@ -454,6 +484,9 @@ class Cake(models.Model):
     def get_absolute_url(self):
         return reverse('services:cake_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Cake, self).save(*args, **kwargs)
@@ -485,6 +518,9 @@ class Invitation(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:invitation_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -522,6 +558,9 @@ class RegistryOffice(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:registryoffice_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -566,6 +605,9 @@ class Presenter(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:presenter_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -625,6 +667,9 @@ class Music(models.Model):
     def get_absolute_url(self):
         return reverse('services:music_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Music, self).save(*args, **kwargs)
@@ -666,6 +711,9 @@ class Transport(models.Model):
     def get_absolute_url(self):
         return reverse('services:transport_detail', args=[str(self.slug)])
 
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
         super(Transport, self).save(*args, **kwargs)
@@ -704,7 +752,7 @@ class Artist(models.Model):
     description = models.TextField('Описание')
     price = models.FloatField('Цена', null=True)
     avatar = models.ImageField(upload_to='avatars/artists', verbose_name='Аватар', blank=True)
-    type = models.ManyToManyField('ShowType', verbose_name='Тип шоупрограммы', null=True)
+    type = models.ManyToManyField('ShowType', verbose_name='Тип шоупрограммы')
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
@@ -718,6 +766,9 @@ class Artist(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:artist_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -768,6 +819,9 @@ class Restaurant(models.Model):
 
     def get_absolute_url(self):
         return reverse('services:restaurant_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -850,11 +904,11 @@ class Photographer(models.Model):
     def __str__(self):
         return self.user.username
 
-    def get_average_rating(self):
-        return self.user.ratings.ratings_for_instance(self.user).average
-
     def get_absolute_url(self):
         return reverse('services:photographer_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
@@ -865,3 +919,34 @@ class Photographer(models.Model):
         verbose_name_plural = 'Фотографы'
         ordering = ['-is_pro', '-created',]
 
+
+class Videographer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
+    full_name = models.CharField('Имя и Фамилия', max_length=155)
+    about = models.TextField('О себе')
+    price = models.FloatField('Цена', null=True)
+    price_per_hour = models.FloatField('Цена за час', null=True)
+    avatar = models.ImageField(upload_to='avatars/videographers', verbose_name='Аватар', blank=True)
+    phone = models.CharField('Телефон', max_length=13)
+    telegram = models.CharField('Телеграм', max_length=50)
+    slug = models.SlugField(max_length=200, unique=True)
+    is_pro = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return self.user.username
+
+    def get_absolute_url(self):
+        return reverse('services:videographer_detail', args=[str(self.slug)])
+
+    def get_average_rating(self):
+        return self.user.ratings.ratings_for_instance(self.user).average
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.user.username)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'Видеограф'
+        verbose_name_plural = 'Видеографы'
+        ordering = ['-is_pro', '-created',]

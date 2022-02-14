@@ -17,6 +17,10 @@ class PhotographerFilter(django_filters.FilterSet):
         fields = ['price_gt', 'price_lt', 'price_per_hour_gt', 'price_per_hour_lt']
 
 
+class VideographerFilter(django_filters.FilterSet):
+    pass
+
+
 class RestaurantFilter(django_filters.FilterSet):
     average_check_gt = django_filters.NumberFilter(field_name='average_check', lookup_expr='gte')
     average_check_lt = django_filters.NumberFilter(field_name='average_check', lookup_expr='lte')
@@ -60,7 +64,7 @@ class DecorFilter(django_filters.FilterSet):
         fields = ['location', 'price_gt', 'price_lt']
 
 
-class Transport(django_filters.FilterSet):
+class TransportFilter(django_filters.FilterSet):
     pass
 
 
