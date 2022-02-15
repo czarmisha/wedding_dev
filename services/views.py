@@ -478,82 +478,225 @@ def create_review(request):
 class AgencyDetail(DetailView):
     model = Agency
     template_name = 'services/agency_detail.html'
-    # context_object_name = 'agency'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class DanceDetail(DetailView):
     model = Dance
     template_name = 'services/dance_detail.html'
-    # context_object_name = 'dance'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class PhotoStudioDetail(DetailView):
     model = PhotoStudio
     template_name = 'services/photostudio_detail.html'
-    # context_object_name = 'photostudio'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class StylistDetail(DetailView):
     model = Stylist
     template_name = 'services/stylist_detail.html'
-    # context_object_name = 'stylist'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class AccessoriesDetail(DetailView):
     model = Accessories
     template_name = 'services/accessories_detail.html'
-    # context_object_name = 'accessories'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class CostumeDetail(DetailView):
     model = Costume
     template_name = 'services/costume_detail.html'
-    # context_object_name = 'costume'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class DecorDetail(DetailView):
     model = Decor
     template_name = 'services/decor_detail.html'
-    # context_object_name = 'decor'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class BouquetDetail(DetailView):
     model = Bouquet
     template_name = 'services/bouquet_detail.html'
-    # context_object_name = 'bouquet'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class RingDetail(DetailView):
     model = Ring
     template_name = 'services/ring_detail.html'
-    # context_object_name = 'ring'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class DressDetail(DetailView):
     model = Dress
     template_name = 'services/dress_detail.html'
-    # context_object_name = 'dress'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class CakeDetail(DetailView):
     model = Cake
     template_name = 'services/cake_detail.html'
-    # context_object_name = 'cake'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class InvitationDetail(DetailView):
     model = Invitation
     template_name = 'services/invitation_detail.html'
-    # context_object_name = 'invitation'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class RegistryOfficeDetail(DetailView):
     model = RegistryOffice
     template_name = 'services/registryoffice_detail.html'
-    # context_object_name = 'registryoffice'
 
     def get_context_data(self, **kwargs):
-        context = super(RegistryOfficeDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
                 context['reviewed'] = True
@@ -569,31 +712,78 @@ class RegistryOfficeDetail(DetailView):
 class PresenterDetail(DetailView):
     model = Presenter
     template_name = 'services/presenter_detail.html'
-    # context_object_name = 'presenter'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class MusicDetail(DetailView):
     model = Music
     template_name = 'services/music_detail.html'
-    # context_object_name = 'music'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class TransportDetail(DetailView):
     model = Transport
     template_name = 'services/transport_detail.html'
-    # context_object_name = 'transport'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class ArtistDetail(DetailView):
     model = Artist
     template_name = 'services/artist_detail.html'
-    # context_object_name = 'artist'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
+                context['reviewed'] = True
+            if self.object.user.favorite_specialists.filter(client=self.request.user):
+                context['favorite'] = True
+        except:
+            print('anonymous user')
+        context['reviews'] = Review.objects.all().filter(
+            service_user=self.object.user)
+        return context
 
 
 class RestaurantDetail(DetailView):
     model = Restaurant
     template_name = 'services/restaurant_detail.html'
-    # context_object_name = 'restaurant'
 
     def get_context_data(self, **kwargs):
         context = super(RestaurantDetail, self).get_context_data(**kwargs)
@@ -612,10 +802,9 @@ class RestaurantDetail(DetailView):
 class PhotographerDetail(DetailView):
     model = Photographer
     template_name = 'services/photographer_detail.html'
-    # context_object_name = 'photographer'
 
     def get_context_data(self, **kwargs):
-        context = super(PhotographerDetail, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         try:
             if Review.objects.filter(service_user=self.object.user, client_user=self.request.user).exists():
                 context['reviewed'] = True

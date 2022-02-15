@@ -186,6 +186,13 @@ h1{
     background: #efefef;
     font-size: 16px;
 }
+.kitchen_checkboxes{
+    margin-bottom: 0;
+}
+#id_kitchen label{
+    color: #808285;
+    font-size: 14px;
+}
 
 
 /* ----------------------- media -------------- */

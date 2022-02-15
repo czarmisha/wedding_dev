@@ -1,7 +1,5 @@
-from logging import Filter
-from pyexpat import model
-from random import choices
 import django_filters
+from django import forms
 from . import models
 from account.models import District
 
@@ -28,7 +26,10 @@ class RestaurantFilter(django_filters.FilterSet):
     capacity_lt = django_filters.NumberFilter(field_name='capacity', lookup_expr='lte')
     type = django_filters.ModelChoiceFilter(queryset=models.RestaurantType.objects.all())
     location = django_filters.ModelChoiceFilter(queryset=District.objects.all())
-    kitchen = django_filters.ModelMultipleChoiceFilter(queryset=models.KitchenType.objects.all())
+    kitchen = django_filters.ModelMultipleChoiceFilter(
+        queryset=models.KitchenType.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
 
     class Meta:
         model = models.Restaurant
@@ -85,15 +86,15 @@ class PresenterFilter(django_filters.FilterSet):
 class MusicFilter(django_filters.FilterSet):
     price_lt = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
     price_gt = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
-    price_per_hour_lt = django_filters.NumberFilter(field_name='price_per_hour', lookup_expr='lte')
-    price_per_hour_gt = django_filters.NumberFilter(field_name='price_per_hour', lookup_expr='gte')
+    price_per_evening_lt = django_filters.NumberFilter(field_name='price_per_evening', lookup_expr='lte')
+    price_per_evening_gt = django_filters.NumberFilter(field_name='price_per_evening', lookup_expr='gte')
     composition = django_filters.ChoiceFilter(field_name='composition', choices=models.Music._COMPOSITION_TYPE)
     vocal = django_filters.ChoiceFilter(field_name='vocal', choices=models.Music._VOCAL_TYPE)
     language = django_filters.ModelChoiceFilter(queryset=models.Language.objects.all())
 
     class Meta:
         model = models.Music
-        fields = ['price_per_hour_gt', 'price_per_hour_lt', 'price_gt', 'price_lt', 'composition', 'vocal', 'language']
+        fields = ['price_per_evening_gt', 'price_per_evening_lt', 'price_gt', 'price_lt', 'composition', 'vocal', 'language']
 
 
 class ArtistFilter(django_filters.FilterSet):

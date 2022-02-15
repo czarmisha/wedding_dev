@@ -10,23 +10,39 @@
 {% endblock%}
 
 {% block content %}
-    <h1>Список дворцов бракосочетания и ЗАГСов</h1>
+    <h1>Музыкальные группы и DJ</h1>
     <div class="filters restaurant_filters">
-         <form method="get">
+        <form method="get">
             <p class="filter_wrapper">
-                <span>Тип церемонии </span>
-                {{filter.form.type}}
+                <span>Цена за вечер от </span>
+                <input type="number" name="price_per_evening_gt" step="any" id="id_price_per_evening_gt" value={{filter.form.price_per_evening_gt.value}}>
+                <span>до </span>
+                <input type="number" name="price_per_evening_lt" step="any" id="id_price_per_evening_lt" value={{filter.form.price_per_evening_lt.value}}>
             </p>
             <p class="filter_wrapper">
-                <span>Местоположение </span>
-                {{filter.form.location}}
+                <span>Цена за выступление от </span>
+                <input type="number" name="price_gt" step="any" id="id_price_gt" value={{filter.form.price_gt.value}}>
+                <span>до </span>
+                <input type="number" name="price_lt" step="any" id="id_price_lt" value={{filter.form.price_lt.value}}>
+            </p>
+            <p class="filter_wrapper">
+                <span>Исполнители </span>
+                {{filter.form.composition}}
+            </p>
+            <p class="filter_wrapper">
+                <span>Вокал </span>
+                {{filter.form.vocal}}
+            </p>
+            <p class="filter_wrapper">
+                <span>Языки исполнения песен </span>
+                {{filter.form.language}}
             </p>
             <button type="submit">Применить</button>
          </form>
     </div>
     <div class="spec_list">
         {% for object in filter.qs %}
-        <a class="spec_box d-block" href="{% url 'services:registryoffice_detail' object.slug %}">
+        <a class="spec_box d-block" href="{% url 'services:music_detail' object.slug %}">
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">
@@ -44,9 +60,9 @@
                         <div class="info d-flex align-items-center justify-content-between">
                             <h3 class="spec_fullname">{{object.name}}</h3>
                             <div class="info_right d-flex align-items-center">
-                                <p class="spec_price">{{object.average_check}} сум</p>
+                                <p class="spec_price">За выстуление {{object.price}} сум</p>
                                 <span> | </span>
-                                <p class="spec_price">{{object.capacity}} чел.</p>
+                                <p class="spec_price">За вечер {{object.price_per_evening}} сум</p>
                             </div>
                         </div>
                         <div class="spec_portfolio">

@@ -242,3 +242,18 @@ class RestaurantBenefitsAdmin(admin.ModelAdmin):
 class RestaurantPaymentMethodAdmin(admin.ModelAdmin):
     pass
 
+
+@admin.register(ShowType)
+class ShowTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Language)
+class LanguageAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AccessoriesType)
+class AccessoriesTypeAdmin(admin.ModelAdmin):
+    pass
+
