@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import PortfolioForm
 from django.shortcuts import render, redirect, HttpResponseRedirect
-from django.core.files.base import ContentFile
 from django_filters.views import FilterView
 from . import filters
 from favorite.models import Favorite
@@ -95,6 +94,7 @@ def stylist_list(request):
 def accessories_list(request):
     f = filters.AccessoriesFilter(request.GET, queryset=Accessories.objects.select_related(
         'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+    print(f.qs)
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:

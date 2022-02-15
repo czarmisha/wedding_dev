@@ -196,7 +196,7 @@ class DanceFilter(django_filters.FilterSet):
 
 
 class AccessoriesFilter(django_filters.FilterSet):
-    accessories_type = django_filters.ModelChoiceFilter(queryser=models.AccessoriesType.objects.all())
+    accessories_type = django_filters.ModelChoiceFilter(queryset=models.AccessoriesType.objects.all())
     price_lt = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
     price_gt = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
     location = django_filters.ModelChoiceFilter(queryset=District.objects.all())
