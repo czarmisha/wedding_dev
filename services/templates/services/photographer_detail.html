@@ -20,8 +20,8 @@
                 {%endif%}
                 <div class="info">
                     <h3 class="subtitle">Информация</h3>
-                    <p class="specialist_fullname">{% if object.user.photographer.full_name %}
-                        {{object.user.photographer.full_name}} {% else %} {{object.user}} {% endif %}</p>
+                    <p class="specialist_fullname">{% if object.user.photographer.name %}
+                        {{object.user.photographer.name}} {% else %} {{object.user}} {% endif %}</p>
                     <p class="specialist_type">{% if object.user.type == 'photographer'%} Фотограф {% endif %}</p>
                     <p class="specialist_price">Цена: <span>{{object.user.photographer.price}} сум</span></p>
                     <p class="specialist_price">Цена в час: <span>{{object.user.photographer.price_per_hour}} сум</span></p>

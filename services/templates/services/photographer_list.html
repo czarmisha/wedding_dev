@@ -11,6 +11,14 @@
 
 {% block content %}
     <h1>Список фотографов</h1>
+    <div class="search">
+        <form id="Search" class='search_form' method="get" action="{% url 'search:search_ajax' %}">
+            <p class="filter_wrapper">
+                <span>Поиск по имени </span>
+                <input type="text" name="name">
+            </p>
+         </form>
+    </div>
     <div class="filters">
          <form method="get">
             <p class="filter_wrapper">
@@ -46,7 +54,7 @@
                 <div class="col-12 col-md-10">
                     <div class="right h-100 d-flex flex-column justify-content-between">
                         <div class="info d-flex align-items-center justify-content-between">
-                            <h3 class="spec_fullname">{{object.full_name}}</h3>
+                            <h3 class="spec_fullname">{{object.name}}</h3>
                             <div class="info_right d-flex align-items-center">
                                 <p class="spec_price">{{object.price}} сум</p>
                                 <span> | </span>
@@ -99,5 +107,27 @@
             ]
         });
     });
-</script>
+    $(".search_form input").on("change", function () {
+        console.log('asdads');
+        let input = $(this)
+        if(input.val() != '' && input.val() != ' '){
+        $.ajax({
+        method: "GET",
+        url: "{% url 'search:search_ajax' %}",
+        dataType: "json",
+        data: {
+            'csrfmiddlewaretoken': "{{ csrf_token }}",
+            "service": '{{object.user.type}}',
+            "name": input.val()
+        },
+        success: function(data) {
+            if(data['success'])
+            console.log(data, 'yeap')
+        },
+        error: function(er) {
+            console.log(er, 'noup');
+        }
+        });
+        }
+    });
 {%endblock%}
