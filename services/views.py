@@ -1,9 +1,10 @@
 from django.views.generic import DetailView
+from django.core.files.base import ContentFile
 from .models import *
 from django.http import JsonResponse
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from .forms import PortfolioForm
+from .forms import PortfolioForm, VideoForm
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django_filters.views import FilterView
 from . import filters
@@ -399,18 +400,35 @@ def videographer_list(request):
 @login_required
 def add_portfolio(request):
     if request.method == 'GET':
-        form = PortfolioForm()
+
+        if request.user.type == 'transport':
+            form = VideoForm()
+        else:
+            form = PortfolioForm()
         return render(request, 'services/add_portfolio.html', {'form': form})
+
     elif request.method == 'POST':
-        form = PortfolioForm(request.POST, request.FILES)
+
+        if request.user.type == 'transport':
+            form = VideoForm(request.POST, request.FILES)
+        else:
+            form = PortfolioForm(request.POST, request.FILES)
+        
         if form.is_valid():
             portfolio = Portfolio(user=request.user)
             portfolio.save()
-            for f in request.FILES.getlist('images'):
-                data = f.read()
-                image = Image(portfolio=portfolio)
-                image.image.save(f.name, ContentFile(data))
-                image.save()
+            if request.user.type == 'transport':
+                for f in request.FILES.getlist('videos'):
+                    data = f.read()
+                    video = Video(portfolio=portfolio)
+                    video.videofile.save(f.name, ContentFile(data))
+                    video.save()
+            else:
+                for f in request.FILES.getlist('images'):
+                    data = f.read()
+                    image = Image(portfolio=portfolio)
+                    image.image.save(f.name, ContentFile(data))
+                    image.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
             return render(request, 'services/add_portfolio.html', {'form': form})

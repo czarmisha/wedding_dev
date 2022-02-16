@@ -27,6 +27,16 @@ class Image(models.Model):
         verbose_name_plural = 'Фото'
 
 
+class Video(models.Model):
+    videofile = models.FileField(upload_to='portfolio/videos/%Y/%m/%d/', null=True)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='videos')
+    uploaded   = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
+
+
 class Review(models.Model):
     service_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='service_reviews')
     client_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
@@ -681,7 +691,7 @@ class Music(models.Model):
 
 
 class Transport(models.Model):
-    _TRANSPORT_TYPE = [
+    _TYPE = [
         ('business', 'Компания'),
         ('private', 'Индивидуальные услуги')
     ]
@@ -689,9 +699,8 @@ class Transport(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
-    type = models.CharField(max_length=50, choices=_TRANSPORT_TYPE, null=True)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)
     price = models.FloatField('Цена', null=True)
-    price_per_hour = models.FloatField('Цена за час', null=True)
     with_driver = models.BooleanField('С водителем', default=True)
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -716,7 +725,7 @@ class Transport(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.user.username)
-        super(Transport, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Транспорт'

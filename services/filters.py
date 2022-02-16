@@ -66,7 +66,23 @@ class DecorFilter(django_filters.FilterSet):
 
 
 class TransportFilter(django_filters.FilterSet):
-    pass
+    type = django_filters.ChoiceFilter(field_name='type', choices=models.Transport._TYPE)
+    location = django_filters.ModelChoiceFilter(queryset=District.objects.all())
+    car_type = django_filters.ModelMultipleChoiceFilter(
+        queryset=models.CarType.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+    car_brand = django_filters.ModelMultipleChoiceFilter(
+        queryset=models.CarBrand.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
+    price_lt = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
+    price_gt = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
+    with_driver = django_filters.BooleanFilter(field_name='with_driver')
+
+    class Meta:
+        model = models.Transport
+        fields = ['type', 'location', 'price_gt', 'price_lt', 'car_type', 'car_brand', 'with_driver']
 
 
 class PresenterFilter(django_filters.FilterSet):

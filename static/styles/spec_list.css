@@ -139,7 +139,7 @@ main{
     transition: background .2s ease;
 }
 h1{
-     font-size: 28px;
+    font-size: 24px;
     color: var(--dark-grey);
     font-family: 'Roboto_medium';
     margin-bottom: 35px;
@@ -189,7 +189,9 @@ h1{
 .kitchen_checkboxes{
     margin-bottom: 0;
 }
-#id_kitchen label{
+#id_kitchen label,
+#id_car_type label,
+#id_car_brand label{
     color: #808285;
     font-size: 14px;
 }

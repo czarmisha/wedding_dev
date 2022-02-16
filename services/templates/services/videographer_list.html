@@ -1,0 +1,103 @@
+{% extends 'services_base.html' %}
+{% load static %}
+{% load ratings %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
+<link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+{% endblock%}
+
+{% block content %}
+    <h1>Список фотографов</h1>
+    <div class="filters">
+         <form method="get">
+            <p class="filter_wrapper">
+                <span>Цена от </span>
+                <input type="number" name="price_gt" step="any" id="id_price_gt" value={{filter.form.price_gt.value}}>
+                <span>до </span>
+                <input type="number" name="price_lt" step="any" id="id_price_lt" value={{filter.form.price_lt.value}}>
+            </p>
+            <p class="filter_wrapper">
+                <span>Цена в час от </span>
+                <input type="number" name="price_per_hour_gt" step="any" id="id_price_per_hour_gt" value={{filter.form.price_per_hour_gt.value}}>
+                <span> до</span>
+                <input type="number" name="price_per_hour_lt" step="any" id="id_price_per_hour_lt" value={{filter.form.price_per_hour_lt.value}}>
+            </p>
+            <button type="submit">Применить</button>
+         </form>
+    </div>
+    <div class="spec_list">
+        {% for object in objs %}
+        <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
+            <div class="row">
+                <div class="col-12 col-md-2">
+                    <div class="left d-flex flex-column align-items-center">
+                        {%if object.avatar%}
+                        <img src="{{object.avatar.url}}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        {%endif%}
+                        <p class="spec_rating">{{object.get_average_rating}}</p>
+                        <p class="spec_reviews">Отзывы (<span>{{object.review_count}}</span>)</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10">
+                    <div class="right h-100 d-flex flex-column justify-content-between">
+                        <div class="info d-flex align-items-center justify-content-between">
+                            <h3 class="spec_fullname">{{object.full_name}}</h3>
+                            <div class="info_right d-flex align-items-center">
+                                <p class="spec_price">{{object.price}} сум</p>
+                                <span> | </span>
+                                <p class="spec_price">{{object.price_per_hour}} сум/час</p>
+                            </div>
+                        </div>
+                        <div class="spec_portfolio">
+                            <div class="row">
+                                {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="col-3 mt-4">
+                                        <img class="" src="{{image.image.url}}" alt="">
+                                    </div>
+                                {%endfor%}
+
+                            </div>
+                        </div>
+                        <div class="spec_portfolio_slider">
+                             {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                     <div class="slide">
+                                        <img class="slide_img" src="{{image.image.url}}" alt="">
+                                    </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{%endblock content%}
+{%block script%}
+ <script>
+    $(document).ready(function(){
+        $('.spec_portfolio_slider').slick({
+            arrows: false,
+            slidesToShow: 3,
+            centerMode: true,
+            centerPadding: '30px',
+            slidesToScroll: 2,
+            infinite: true,
+            speed: 300,
+            responsive: [
+                {
+                breakpoint: 500,
+                    settings: {
+                        slidesToShow: 2,
+                        centerPadding: '15px',
+                    }
+                },
+            ]
+        });
+    });
+</script>
+{%endblock%}

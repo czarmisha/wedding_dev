@@ -218,6 +218,11 @@ class ImageAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(RestaurantType)
 class RestaurantTypeAdmin(admin.ModelAdmin):
     pass
@@ -255,5 +260,15 @@ class LanguageAdmin(admin.ModelAdmin):
 
 @admin.register(AccessoriesType)
 class AccessoriesTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(CarType)
+class CarTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(CarBrand)
+class CarBrandAdmin(admin.ModelAdmin):
     pass
 
