@@ -3,6 +3,7 @@ from services.models import *
 
 
 def search_from_ajax(request):
+    resp = {'success': False}
     if request.method == 'GET':
         service = request.GET.get('service')
         name = request.GET.get('name')
@@ -14,9 +15,11 @@ def search_from_ajax(request):
             resp = {
             'error': 'unknown service type',
             'success': False,
-        }
+            }
+            return JsonResponse(resp, safe=False)
 
-        resp['success'] = True,
+        if resp['queryset']:
+            resp['success'] = True,
         return JsonResponse(resp, safe=False)
     else:
         resp = {
@@ -26,4 +29,4 @@ def search_from_ajax(request):
         return JsonResponse(resp, safe=False)
 
 def search_by_name(Model, name):
-    return Model.objects.filter(name=name)
+    return list(Model.objects.filter(name=name))

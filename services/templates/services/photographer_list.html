@@ -107,8 +107,7 @@
             ]
         });
     });
-    $(".search_form input").on("change", function () {
-        console.log('asdads');
+    $(".search_form input").on("keyup", function () {
         let input = $(this)
         if(input.val() != '' && input.val() != ' '){
         $.ajax({
@@ -117,7 +116,7 @@
         dataType: "json",
         data: {
             'csrfmiddlewaretoken': "{{ csrf_token }}",
-            "service": '{{object.user.type}}',
+            "service": 'photographer',
             "name": input.val()
         },
         success: function(data) {
@@ -130,4 +129,5 @@
         });
         }
     });
+</script>
 {%endblock%}
