@@ -18,7 +18,7 @@ User = get_user_model()
 
 def agency_list(request):
     f = filters.AgencyFilter(request.GET, queryset=Agency.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -37,7 +37,7 @@ def agency_list(request):
 
 def dance_list(request):
     f = filters.DanceFilter(request.GET, queryset=Dance.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -56,7 +56,7 @@ def dance_list(request):
 
 def photostudio_list(request):
     f = filters.PhotoStudioFilter(request.GET, queryset=PhotoStudio.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -75,7 +75,7 @@ def photostudio_list(request):
 
 def stylist_list(request):
     f = filters.StylistFilter(request.GET, queryset=Stylist.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -94,7 +94,7 @@ def stylist_list(request):
 
 def accessories_list(request):
     f = filters.AccessoriesFilter(request.GET, queryset=Accessories.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     print(f.qs)
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
@@ -114,7 +114,7 @@ def accessories_list(request):
 
 def costume_list(request):
     f = filters.CostumeFilter(request.GET, queryset=Costume.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -133,7 +133,7 @@ def costume_list(request):
 
 def decor_list(request):
     f = filters.DecorFilter(request.GET, queryset=Decor.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -152,7 +152,7 @@ def decor_list(request):
 
 def bouquet_list(request):
     f = filters.BouquetFilter(request.GET, queryset=Bouquet.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -171,7 +171,7 @@ def bouquet_list(request):
 
 def ring_list(request):
     f = filters.RingFilter(request.GET, queryset=Ring.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -190,7 +190,7 @@ def ring_list(request):
 
 def dress_list(request):
     f = filters.DressFilter(request.GET, queryset=Dress.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -209,7 +209,7 @@ def dress_list(request):
 
 def cake_list(request):
     f = filters.CakeFilter(request.GET, queryset=Cake.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -228,7 +228,7 @@ def cake_list(request):
 
 def invitation_list(request):
     f = filters.InvitationFilter(request.GET, queryset=Invitation.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -247,7 +247,7 @@ def invitation_list(request):
 
 def registry_office_list(request):
     f = filters.RegistryOfficeFilter(request.GET, queryset=RegistryOffice.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -266,7 +266,7 @@ def registry_office_list(request):
 
 def presenter_list(request):
     f = filters.PresenterFilter(request.GET, queryset=Presenter.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -285,7 +285,7 @@ def presenter_list(request):
 
 def music_list(request):
     f = filters.MusicFilter(request.GET, queryset=Music.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -304,7 +304,7 @@ def music_list(request):
 
 def transport_list(request):
     f = filters.TransportFilter(request.GET, queryset=Transport.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -323,7 +323,7 @@ def transport_list(request):
 
 def artist_list(request):
     f = filters.ArtistFilter(request.GET, queryset=Artist.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -342,7 +342,7 @@ def artist_list(request):
 
 def restaurant_list(request):
     f = filters.RestaurantFilter(request.GET, queryset=Restaurant.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -361,7 +361,7 @@ def restaurant_list(request):
 
 def photographer_list(request):
     f = filters.PhotographerFilter(request.GET, queryset=Photographer.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -380,7 +380,7 @@ def photographer_list(request):
 
 def videographer_list(request):
     f = filters.VideographerFilter(request.GET, queryset=Videographer.objects.select_related(
-        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")))
+        'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
     paginator = Paginator(f.qs, 10)
     page = request.GET.get('page', 1)
     try:
@@ -413,7 +413,7 @@ def add_portfolio(request):
             form = VideoForm(request.POST, request.FILES)
         else:
             form = PortfolioForm(request.POST, request.FILES)
-        
+
         if form.is_valid():
             portfolio = Portfolio(user=request.user)
             portfolio.save()

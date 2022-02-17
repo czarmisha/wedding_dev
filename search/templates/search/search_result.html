@@ -19,7 +19,7 @@
         <p>{{queryset}}</p>
     {% else %}
         {% for object in queryset %}
-        <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
+        <a class="spec_box {% if object.is_pro %}is_pro{% endif %} d-block" href="{{object.get_absolute_url}}">
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">

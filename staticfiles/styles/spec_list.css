@@ -139,12 +139,90 @@ main{
     transition: background .2s ease;
 }
 h1{
-     font-size: 28px;
+    font-size: 24px;
     color: var(--dark-grey);
     font-family: 'Roboto_medium';
     margin-bottom: 35px;
     text-transform: uppercase;
 }
+
+/* ---- restaurant_filters ----- */
+.restaurant_filters select{
+    border: 1px solid #d3d3d3;
+    height: 26px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+}
+.restaurant_filters select[multiple]{
+    border: 1px solid #d3d3d3;
+    height: 80px;
+    color: #808285;
+    font-size: 14px;
+}
+
+.pagination li{
+    margin: 0 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pagination li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #efefef;
+    color: var(--gold-color);
+    font-size: 16px;
+}
+.pagination li.active span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: #efefef;
+    font-size: 16px;
+}
+.kitchen_checkboxes{
+    margin-bottom: 0;
+}
+#id_kitchen label,
+#id_car_type label,
+#id_car_brand label{
+    color: #808285;
+    font-size: 14px;
+}
+
+
+
+/* ---------- search ------- */
+.search input{
+    width: 250px;
+}
+.search .filter_wrapper{
+    display: flex;
+    align-items: center;
+}
+.search button {
+    margin-left: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    width: 26px;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
 /* ----------------------- media -------------- */
 
 
@@ -189,5 +267,8 @@ h1{
         color: #808285;
         font-size: 12px;
         width: 80px;
+    }
+    .search input{
+        width: 250px;
     }
 }

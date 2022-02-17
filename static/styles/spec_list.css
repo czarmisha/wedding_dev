@@ -20,6 +20,7 @@ main{
 }
 
 .spec_box{
+    overflow: hidden;
     text-decoration: none;
     padding: 10px 10px 10px;
     border-radius: 3px;
@@ -27,6 +28,24 @@ main{
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     box-shadow: 0 0 0 2px #8082853f;
+}
+
+.spec_box.is_pro{
+    box-shadow: 0 0 0 2px var(--gold-color);
+}
+
+.spec_box .is_pro_badge{
+    font-family: 'Roboto_medium';
+    position: absolute;
+    text-align: center;
+    transform: rotate(-45deg);
+    color: white;
+    font-size: 18px;
+    top: 14px;
+    left: -45px;
+    width: 150px;
+    height: 30px;
+    background-color: rgb(194, 72, 72);
 }
 
 .spec_box:hover{

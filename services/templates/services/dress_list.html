@@ -49,7 +49,7 @@
     </div>
     <div class="spec_list">
         {% for object in filter.qs %}
-        <a class="spec_box d-block" href="{% url 'services:dress_detail' object.slug %}">
+        <a class="spec_box {% if object.is_pro %}is_pro{% endif %} d-block" href="{% url 'services:dress_detail' object.slug %}">
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">
