@@ -39,7 +39,7 @@
     </div>
     <div class="spec_list">
         {% for object in objs %}
-        <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{% url 'services:photographer_detail' object.slug %}">
+        <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
             {% if object.is_pro %}
             <span class="is_pro_badge">PRO</span>
             {% endif %}
