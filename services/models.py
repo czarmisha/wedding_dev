@@ -899,7 +899,7 @@ class KitchenType(models.Model):
 
 class Photographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    full_name = models.CharField('Имя и Фамилия', max_length=155)
+    name = models.CharField('Имя и Фамилия', max_length=155)
     about = models.TextField('О себе')
     price = models.FloatField('Цена', null=True)
     price_per_hour = models.FloatField('Цена за час', null=True)
@@ -931,7 +931,7 @@ class Photographer(models.Model):
 
 class Videographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    full_name = models.CharField('Имя и Фамилия', max_length=155)
+    name = models.CharField('Имя и Фамилия', max_length=155)
     about = models.TextField('О себе')
     price = models.FloatField('Цена', null=True)
     price_per_hour = models.FloatField('Цена за час', null=True)

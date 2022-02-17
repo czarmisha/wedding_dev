@@ -11,6 +11,15 @@
 
 {% block content %}
     <h1>Список фотографов</h1>
+    <div class="search">
+        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
+            <p class="filter_wrapper">
+                <input type="text" name="name" placeholder="Поиск по имени">
+                <input type="hidden" name="service" value="videographer">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </p>
+         </form>
+    </div>
     <div class="filters">
          <form method="get">
             <p class="filter_wrapper">
@@ -46,7 +55,7 @@
                 <div class="col-12 col-md-10">
                     <div class="right h-100 d-flex flex-column justify-content-between">
                         <div class="info d-flex align-items-center justify-content-between">
-                            <h3 class="spec_fullname">{{object.full_name}}</h3>
+                            <h3 class="spec_fullname">{{object.name}}</h3>
                             <div class="info_right d-flex align-items-center">
                                 <p class="spec_price">{{object.price}} сум</p>
                                 <span> | </span>
