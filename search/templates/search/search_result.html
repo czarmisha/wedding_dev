@@ -10,48 +10,16 @@
 {% endblock%}
 
 {% block content %}
-    <h1>Список ресторанов и банкетных залов</h1>
-    <div class="search">
-        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
-            <p class="filter_wrapper">
-                <input type="text" name="name" placeholder="Поиск по имени">
-                <input type="hidden" name="service" value="restaurant">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </p>
-         </form>
-    </div>
-    <div class="filters restaurant_filters">
-         <form method="get">
-            <p class="filter_wrapper">
-                <span>Тип заведения </span>
-                {{filter.form.type}}
-            </p>
-            <p class="filter_wrapper">
-                <span>Средний чек от </span>
-                <input type="number" name="average_check_gt" step="any" id="id_average_check_gt">
-                <span> до</span>
-                <input type="number" name="average_check_lt" step="any" id="id_average_check_lt">
-            </p>
-            <p class="filter_wrapper">
-                <span>Вместимость от </span>
-                <input type="number" name="capacity_gt" step="any" id="id_capacity_gt" value="{{filter.form.capacity_gt.value}}">
-                <span> до</span>
-                <input type="number" name="capacity_lt" step="any" id="id_capacity_lt" value="{{filter.form.capacity_lt.value}}">
-            </p>
-            <p class="filter_wrapper">
-                <span>Местоположение </span>
-                {{filter.form.location}}
-            </p>
-            <p class="filter_wrapper kitchen_checkboxes">
-                <span>Кухня </span>
-                {{filter.form.kitchen}}
-            </p>
-            <button type="submit">Применить</button>
-         </form>
-    </div>
-    <div class="spec_list">
-        {% for object in filter.qs %}
-        <a class="spec_box d-block" href="{% url 'services:restaurant_detail' object.slug %}">
+<h1>Результаты поиска</h1>
+
+<div class="spec_list">
+    {% if error %}
+        <p>{{error}}</p>
+    {% elif queryset == 'Поиск не дал никаких результатов' %}
+        <p>{{queryset}}</p>
+    {% else %}
+        {% for object in queryset %}
+        <a class="spec_box d-block" href="{% url 'services:photographer_detail' object.slug %}">
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">
@@ -61,7 +29,7 @@
                         <img src="{% static 'media/images/s.jpg' %}" alt="">
                         {%endif%}
                         <p class="spec_rating">{{object.get_average_rating}}</p>
-                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                        <p class="spec_reviews">Отзывы (<span>{{object.review_count}}</span>)</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -69,15 +37,15 @@
                         <div class="info d-flex align-items-center justify-content-between">
                             <h3 class="spec_fullname">{{object.name}}</h3>
                             <div class="info_right d-flex align-items-center">
-                                <p class="spec_price">{{object.average_check}} сум</p>
+                                <p class="spec_price">{{object.price}} сум</p>
                                 <span> | </span>
-                                <p class="spec_price">{{object.capacity}} чел.</p>
+                                <p class="spec_price">{{object.price_per_hour}} сум/час</p>
                             </div>
                         </div>
                         <div class="spec_portfolio">
                             <div class="row">
                                 {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="col-3 mt-4">
+                                        <div class="col-3 mt-4">
                                         <img class="" src="{{image.image.url}}" alt="">
                                     </div>
                                 {%endfor%}
@@ -85,8 +53,8 @@
                             </div>
                         </div>
                         <div class="spec_portfolio_slider">
-                             {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="slide">
+                                {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                        <div class="slide">
                                         <img class="slide_img" src="{{image.image.url}}" alt="">
                                     </div>
                             {%endfor%}
@@ -96,7 +64,8 @@
             </div>
         </a>
         {% endfor %}
-    </div>
+    {% endif %}
+</div>
 {%endblock content%}
 {%block script%}
  <script>

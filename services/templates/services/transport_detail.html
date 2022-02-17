@@ -22,7 +22,7 @@
                     <h3 class="subtitle">Информация</h3>
                     <p class="specialist_fullname">{% if object.name %}
                         {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                    <p class="specialist_type">{{object.type}}</p>
+                    <p class="specialist_type">{{object.get_type_display}}</p>
                     <p class="specialist_price">Район: <span>{{object.location}}</span></p>
                     <p class="specialist_price">С водителем: <span>{% if object.with_driver %}да {% else %} нет {% endif %}</span></p>
                     <p class="specialist_price">Типы авто: <span>

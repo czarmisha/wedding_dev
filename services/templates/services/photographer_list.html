@@ -12,10 +12,11 @@
 {% block content %}
     <h1>Список фотографов</h1>
     <div class="search">
-        <form id="Search" class='search_form' method="get" action="{% url 'search:search_ajax' %}">
+        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
             <p class="filter_wrapper">
-                <span>Поиск по имени </span>
-                <input type="text" name="name">
+                <input type="text" name="name" placeholder="Поиск по имени">
+                <input type="hidden" name="service" value="photographer">
+                <button type="submit"><i class="fas fa-search"></i></button>
             </p>
          </form>
     </div>
@@ -106,28 +107,6 @@
                 },
             ]
         });
-    });
-    $(".search_form input").on("keyup", function () {
-        let input = $(this)
-        if(input.val() != '' && input.val() != ' '){
-        $.ajax({
-        method: "GET",
-        url: "{% url 'search:search_ajax' %}",
-        dataType: "json",
-        data: {
-            'csrfmiddlewaretoken': "{{ csrf_token }}",
-            "service": 'photographer',
-            "name": input.val()
-        },
-        success: function(data) {
-            if(data['success'])
-            console.log(data, 'yeap')
-        },
-        error: function(er) {
-            console.log(er, 'noup');
-        }
-        });
-        }
     });
 </script>
 {%endblock%}

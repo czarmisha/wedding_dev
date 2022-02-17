@@ -197,6 +197,32 @@ h1{
 }
 
 
+
+/* ---------- search ------- */
+.search input{
+    width: 250px;
+}
+.search .filter_wrapper{
+    display: flex;
+    align-items: center;
+}
+.search button {
+    margin-left: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    width: 26px;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
 /* ----------------------- media -------------- */
 
 
@@ -241,5 +267,8 @@ h1{
         color: #808285;
         font-size: 12px;
         width: 80px;
+    }
+    .search input{
+        width: 250px;
     }
 }

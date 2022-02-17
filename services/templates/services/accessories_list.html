@@ -11,6 +11,15 @@
 
 {% block content %}
     <h1>Свадебные букеты</h1>
+    <div class="search">
+        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
+            <p class="filter_wrapper">
+                <input type="text" name="name" placeholder="Поиск по имени">
+                <input type="hidden" name="service" value="accessories">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </p>
+         </form>
+    </div>
     <div class="filters restaurant_filters">
          <form method="get">
             <p class="filter_wrapper">

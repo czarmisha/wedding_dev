@@ -3,5 +3,5 @@ from . import views
 
 app_name = 'search'
 urlpatterns = [
-    path('', views.search_from_ajax, name='search_ajax'),
+    path('', views.search_service, name='search_service'),
 ]
