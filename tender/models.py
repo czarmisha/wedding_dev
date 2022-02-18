@@ -25,6 +25,7 @@ class Tender(models.Model):
         ('photostudio', 'Фотостудия'),
         ('dance', 'Танец'),
         ('agency', 'Агенство'),
+        ('videographer', 'Видеограф'),
     ]
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     executor = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='executor', blank=True)

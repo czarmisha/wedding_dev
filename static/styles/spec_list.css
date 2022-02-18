@@ -139,7 +139,7 @@ main{
 }
 .filter_wrapper input {
     border: 1px solid #d3d3d3;
-    height: 26px;
+    height: 29px;
     padding: 0 15px;
     color: #808285;
     font-size: 14px;
@@ -148,7 +148,7 @@ main{
 .filters button{
     display: block;
     width: 150px;
-    height: 32px;
+    height: 29px;
     background: var(--gold-color);
     color: #fff;
     font-size: 16px;
@@ -158,17 +158,25 @@ main{
     transition: background .2s ease;
 }
 h1{
-    font-size: 24px;
+    font-size: 22px;
     color: var(--dark-grey);
     font-family: 'Roboto_medium';
     margin-bottom: 35px;
     text-transform: uppercase;
 }
 
+h2{
+    font-size: 18px;
+    color: var(--dark-grey);
+    font-family: 'Roboto_medium';
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
 /* ---- restaurant_filters ----- */
 .restaurant_filters select{
     border: 1px solid #d3d3d3;
-    height: 26px;
+    height: 29px;
     padding: 0 15px;
     color: #808285;
     font-size: 14px;
@@ -213,6 +221,7 @@ h1{
 #id_car_brand label{
     color: #808285;
     font-size: 14px;
+    margin-bottom: 5px;
 }
 
 
@@ -220,6 +229,7 @@ h1{
 /* ---------- search ------- */
 .search input{
     width: 250px;
+    height: 31px;
 }
 .search .filter_wrapper{
     display: flex;
@@ -231,8 +241,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 26px;
-    width: 26px;
+    height: 31px;
+    width: 45px;
     background: var(--gold-color);
     color: #fff;
     font-size: 16px;
@@ -274,6 +284,12 @@ h1{
     }
 }
 @media (max-width: 365px){
+    h1{
+        font-size: 18px;
+    }
+    h2{
+        font-size: 16px;
+    }
     .filter_wrapper{
         font-size: 14px;
         color: var(--light-grey);
@@ -281,13 +297,14 @@ h1{
     }
     .filter_wrapper input {
         border: 1px solid #d3d3d3;
-        height: 26px;
+        height: 29px;
         padding: 0 15px;
         color: #808285;
         font-size: 12px;
         width: 80px;
     }
     .search input{
+        height: 31px;
         width: 250px;
     }
 }

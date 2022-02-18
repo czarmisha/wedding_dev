@@ -21,6 +21,50 @@ class User(AbstractUser):
     def get_reviews_count(self):
         return self.service_reviews.count()
 
+    def check_avatar(self):
+        if self.type == 'client':
+            return self.clientprofile.avatar
+        elif self.type == 'photographer':
+            return self.photographer.avatar
+        elif self.type == 'restaurant':
+            return self.restaurant.avatar
+        elif self.type == 'artist':
+            return self.artist.avatar 
+        elif self.type == 'transport':
+            return self.transport.avatar 
+        elif self.type == 'music':
+            return self.music.avatar 
+        elif self.type == 'presenter':
+            return self.presenter.avatar 
+        elif self.type == 'registryoffice':
+            return self.registryoffice.avatar 
+        elif self.type == 'invitation':
+            return self.invitation.avatar 
+        elif self.type == 'cake':
+            return self.cake.avatar 
+        elif self.type == 'dress':
+            return self.dress.avatar 
+        elif self.type == 'ring':
+            return self.ring.avatar 
+        elif self.type == 'bouquet':
+            return self.bouquet.avatar 
+        elif self.type == 'decor':
+            return self.decor.avatar 
+        elif self.type == 'costume':
+            return self.costume.avatar 
+        elif self.type == 'accessories':
+            return self.accessories.avatar 
+        elif self.type == 'stylist':
+            return self.stylist.avatar 
+        elif self.type == 'photostudio':
+            return self.photostudio.avatar 
+        elif self.type == 'dance':
+            return self.dance.avatar 
+        elif self.type == 'agency':
+            return self.agency.avatar 
+        elif self.type == 'videographer':
+            return self.videographer.avatar 
+
     def get_cabinet_url(self):
         if self.type == 'client':
             return reverse('account:cabinet', args=[self.pk])

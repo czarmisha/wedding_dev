@@ -26,7 +26,7 @@
                         {%if object.avatar%}
                         <img src="{{object.avatar.url}}" alt="">
                         {% else %}
-                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                         {%endif%}
                         <p class="spec_rating">{{object.get_average_rating}}</p>
                         <p class="spec_reviews">Отзывы (<span>{{object.review_count}}</span>)</p>

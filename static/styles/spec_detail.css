@@ -326,3 +326,8 @@ main{
         margin-bottom: 40px;
     }
 }
+@media (max-width: 400px){
+    .spec_more_info .more_info{
+        padding: 0;
+    }
+}

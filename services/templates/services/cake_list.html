@@ -21,6 +21,7 @@
          </form>
     </div>
     <div class="filters restaurant_filters">
+        <h2>Фильтры</h2>
         <form method="get">
             <p class="filter_wrapper">
                 <span>Тип </span>
@@ -57,7 +58,7 @@
                         {%if object.avatar%}
                         <img src="{{object.avatar.url}}" alt="">
                         {% else %}
-                        <img src="{% static 'media/images/s.jpg' %}" alt="">
+                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                         {%endif%}
                         <p class="spec_rating">{{object.get_average_rating}}</p>
                         <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>

@@ -32,7 +32,15 @@
                 </div>
             </div>
             <div class="tender_body d-flex align-items-start">
-                <div class="tender_img"><img src="{% static 'media/images/s.jpg' %}" alt=""></div>
+                <div class="tender_img">
+                    
+                    {% if tender.author.clientprofile.avatar %}
+                    <img src="{{ tender.author.clientprofile.avatar.url }}" alt="">
+                    {% else %}
+                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                    {% endif %}
+
+                </div>
                 <div class="tender_preview">
                     <p class="tender_author">{{tender.author}}</p>
                     <p class="tender_comment">{{tender.comment}}</p>
@@ -49,15 +57,14 @@
 
                     {% for response in tender.responses.all%}
                         <div class="row">
-                        {% if response.from_user.type == 'photographer' %}
-
                             <div class="col-12 col-md-6 d-flex align-items-center mb-4">
-                                <img src="{% static 'media/images/s.jpg' %}" alt="">
+                                {% if response.from_user.check_avatar %}
+                                <img src="{{ response.from_user.check_avatar.url }}" alt="">
+                                {% else %}
+                                <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                                {% endif %}
                                 <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
                             </div>
-                        {% elif response.from_user.type == 'restaurant' %}
-                            <a href="{{response.from_user.restaurant.get_absolute_url}}">{{response.from_user}}</a>
-                        {% endif %}
                         </div>
                     {%endfor%}
 
@@ -77,7 +84,7 @@
                 {%if responded%}
                     <span>Вы откликнулись</span>
                 {%elif tender.service == request.user.type%}
-                    <a href="" class="createResponse">Откликнуться на тендер</a>
+                    <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">Откликнуться на тендер</a>
                 {%endif%}
             {%endif%}
         </div>

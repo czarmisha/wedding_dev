@@ -12,11 +12,11 @@
 {% block content %}
      <div class="row">
         <div class="col-12 col-md-4 col-lg-3">
-            <div class="detail_left d-flex flex-column align-items-center align-items-md-start">
+            <div class="detail_left d-flex flex-column">
                 {%if object.avatar%}
                 <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
                 {% else %}
-                <img class="avatar w-100" src="{% static 'media/images/s.jpg' %}" alt="">
+                <img class="avatar w-100" src="{% static 'media/images/default_avatar.png' %}" alt="">
                 {%endif%}
                 <div class="info">
                     <h3 class="subtitle">Информация</h3>
@@ -100,7 +100,7 @@
                                     {% if review.client_user.clientprofile.avatar %}
                                     <img src="{{review.client_user.clientprofile.avatar.url}}" alt="" width="50" height="50">
                                     {% else %}
-                                    <img src="{% static 'media/images/s.jpg' %}" alt="" width="50" height="50">
+                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="" width="50" height="50">
                                     {% endif %}
                                     <span>{{review.client_user}}</span>
                                     <p>{{review.text}}</p>
