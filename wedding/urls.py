@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 app_name = 'wedding'
 urlpatterns = [
     path('', views.home, name='home'),
+    path('promo/', views.promo, name='promo'),
+    path('catalog/', views.catalog, name='catalog'),
     path('account/', include('account.urls', namespace='account')),
     path('services/', include('services.urls', namespace='services')),
     path('tender/', include('tender.urls', namespace='tender')),

@@ -89,6 +89,7 @@ header nav{
     inset: 0px auto auto -58px!important;
     padding: 20px;
     z-index: 999999;
+    transform: translate(-282px, 39px)!important;
 }
 
 .my_dropdown .column_menu a{
@@ -250,7 +251,7 @@ header nav{
 }
 
 .mobile-menu .wrapper{
-    padding: 25px;
+    padding: 25px 0;
 }
 
 .mobile-menu.active{
@@ -264,6 +265,11 @@ header nav{
     margin: 0;
 }
 
+.mobile-menu_list li{
+    padding: 0 20px;
+    border-bottom: 1px solid #8082859e;
+}
+
 .header_navigation .mobile-menu_link{
     font-size: 16px;
 }
@@ -273,21 +279,21 @@ header nav{
 }
 
 .mobile-menu_link{
-    color: var(--gold-color);
-    font-size: 18px;
+    color: #8082859e;  
+    font-size: 15px; 
     font-family: 'Roboto_medium';
     display: block;
     text-decoration: none;
     text-transform: uppercase;
     margin-bottom: 15px;
     margin-bottom: 0;
-    padding: 5px 0;
+    padding: 7px 0;
 }
 
 .mobile_catalog{
     top: 0;bottom: 0;
     width: 100%;
-    padding: 25px;
+    padding: 25px 0;
     z-index: 33334;
     transform: translateX(-101%);
     background: white;
@@ -309,23 +315,29 @@ header nav{
     padding-left: 10px;
 }
 
+.mobile_catalog li {
+    padding: 0 20px;
+    border-bottom: 1px solid #8082859e;
+}
+
 .catalog_back{
-    color: var(--gold-color);
-    font-size: 30px;
+    color: #8082859e;
+    font-size: 15px;
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    border-bottom: none!important;
 }
 
 .catalog_back>span{
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 8px;
 }
 
 .account_menu{
     top: 0;bottom: 0;
     width: 100%;
-    padding: 25px;
+    padding: 25px 0;
     z-index: 33334;
     transform: translateX(-101%);
     background: white;
@@ -347,16 +359,22 @@ header nav{
     padding-left: 10px;
 }
 
+.account_menu li {
+    padding: 0 20px;
+    border-bottom: 1px solid #8082859e;
+}
+
 .account_back{
-    color: var(--gold-color);
-    font-size: 30px;
+    color: #8082859e;
+    font-size: 15px;
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    border-bottom: none!important;
 }
 
 .account_back>span{
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 8px;
 }
 
@@ -374,8 +392,36 @@ header nav{
 }
 
 .catalog_btn>span, .account_btn>span{
-    font-size: 26px;
+    font-size: 15px;
 }
+
+.mobile-menu_social{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mobile-menu_social a{
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--blue-color);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.mobile-menu_social a:hover{
+    background: var(--gold-color);
+    color: white;
+}
+
+
 /* --- cabinet_nav --- */
 .cabinet_nav{
     width: 100%;

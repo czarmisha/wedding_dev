@@ -5,3 +5,10 @@ from tender.models import Tender
 def home(request):
     tenders = Tender.objects.all()[:3]
     return render(request, 'wedding/home.html', context={'tenders': tenders})
+
+def promo(request):
+    return render(request, 'wedding/promo.html', context={})
+
+def catalog(request):
+    return render(request, 'services/catalog.html', context={})
+    

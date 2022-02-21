@@ -49,10 +49,10 @@
     <section class="welcome">
                 <div class="container text-center">
                     <h2 class="welcome_title title">Добро пожаловать в мир T<span>O</span>YP<span>O</span>Y!</h2>
-                    <a href="" class="btn__gold welcome_client-register">Регистрация молодоженов</a>
+                    <a href="{% url 'account:registration' %}" class="btn__gold welcome_client-register">Регистрация молодоженов</a>
 
                     <h2 class="welcome_subtitle">Вы свадебный профессионал или фирма?</h2>
-                    <a href="" class="welcome_spec-register">Как вам зарегистрироваться?</a>
+                    <a href="{% url 'promo' %}" class="welcome_spec-register">Как вам зарегистрироваться?</a>
                 </div>
             </section>
 {% endblock %}
