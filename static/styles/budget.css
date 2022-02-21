@@ -284,3 +284,9 @@ h1{
 /* .mfp-hide {
     display: none !important;
 } */
+
+@media (max-width:600px) {
+    #Budget table tr span.del{
+        left: 2px;
+    }
+}
