@@ -89,24 +89,24 @@ header nav{
     inset: 0px auto auto -58px!important;
     padding: 20px;
     z-index: 999999;
-    transform: translate(-282px, 39px)!important;
+    /* transform: translate(-282px, 39px)!important; */
 }
 
 .my_dropdown .column_menu a{
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
-    padding: 10px 0 10px 60px;
+    padding: 10px 0 10px 0px;
     font-size: 16px;
     color: #7c8184;
     text-decoration: none;
     transition: all .2s ease;
     background-repeat: no-repeat;
     background-position: 20px center;
-    padding-left: 60px !important;
     text-transform: none !important;
 }
 
-.my_dropdown .column_menu a::before{
+/* .my_dropdown .column_menu a::before{
     content: '';
     width: 54px;
     height: 36px;
@@ -116,15 +116,20 @@ header nav{
     margin: -20px 0 0;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-}
+} */
 
 .my_dropdown .column_menu a:hover{
     background-color: white!important;
     color: var(--gold-color);
 }
 
-.column_menu .dropdown_bg:nth-child(1) a::before{
-    background-image: url(../../media/images/download.png);
+.column_menu a img{
+    width: 36px;
+    height: 36px;
+}
+
+/* .column_menu .dropdown_bg:nth-child(1) a::before{
+    background-image: url('../../media/images/8989898.jpg');
 }
 .column_menu .dropdown_bg:nth-child(2) a::before{
     background-image: url(../../media/images/download.png);
@@ -179,7 +184,7 @@ header nav{
 }
 .column_menu .dropdown_bg:nth-child(19) a::before{
     background-image: url(../../media/images/download.png);
-}
+} */
 
 /* -------- burger btn -------- */
 .burger_btn{
