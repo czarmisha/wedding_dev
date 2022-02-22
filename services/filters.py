@@ -69,10 +69,7 @@ class DecorFilter(django_filters.FilterSet):
 class TransportFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(field_name='type', choices=models.Transport._TYPE)
     location = django_filters.ModelChoiceFilter(queryset=District.objects.all())
-    car_type = django_filters.ModelMultipleChoiceFilter(
-        queryset=models.CarType.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-    )
+    car_type = django_filters.ModelChoiceFilter(queryset=models.CarType.objects.all())
     car_brand = django_filters.ModelMultipleChoiceFilter(
         queryset=models.CarBrand.objects.all(),
         widget=forms.CheckboxSelectMultiple,
@@ -214,11 +211,12 @@ class DanceFilter(django_filters.FilterSet):
 
 class AccessoriesFilter(django_filters.FilterSet):
     accessories_type = django_filters.ModelChoiceFilter(queryset=models.AccessoriesType.objects.all(), empty_label='Тип')
-    # price_lt = django_filters.NumberFilter(field_name='price', lookup_expr='lte')
-    # price_gt = django_filters.NumberFilter(field_name='price', lookup_expr='gte')
     price = django_filters.RangeFilter()
-    location = django_filters.ModelChoiceFilter(queryset=District.objects.all(), empty_label='Местоположение')
-
+    # location = django_filters.ModelChoiceFilter(queryset=District.objects.all(), empty_label='Район')
+    location = django_filters.ModelMultipleChoiceFilter(
+        queryset=District.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+    )
 
     class Meta:
         model = models.Accessories
