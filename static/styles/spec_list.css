@@ -16,7 +16,7 @@
 
 /* -------------- main -------------- */
 main{
-    padding: 15px 0 30px;
+    padding: 0 0 30px;
 }
 
 .spec_box{
@@ -81,10 +81,6 @@ main{
     margin: 5px 0 12px;
 }
 
-.spec_reviews{
-
-}
-
 .spec_reviews>span{
     color: var(--gold-color);
 }
@@ -144,15 +140,17 @@ main{
     color: #808285;
     font-size: 14px;
     width: 100px;
+    background: white;
 }
-.filters button{
+#Filter button{
     display: block;
-    width: 150px;
     height: 29px;
+    padding: 0 9px;
     background: var(--gold-color);
     color: #fff;
     font-size: 16px;
     border: 0;
+    margin: 0 9px;
     border-radius: 5px;
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
@@ -172,20 +170,27 @@ h2{
     margin-bottom: 10px;
     text-transform: uppercase;
 }
+#Filter .filter_wrapper{
+    margin: 0 3px;
+}
 
 /* ---- restaurant_filters ----- */
-.restaurant_filters select{
+select{
     border: 1px solid #d3d3d3;
     height: 29px;
     padding: 0 15px;
     color: #808285;
     font-size: 14px;
+    border-radius: 5px;
+    background: white;
 }
-.restaurant_filters select[multiple]{
+select[multiple]{
     border: 1px solid #d3d3d3;
     height: 80px;
     color: #808285;
     font-size: 14px;
+    border-radius: 5px;
+    background: white;
 }
 
 .pagination li{
@@ -227,15 +232,16 @@ h2{
 
 
 /* ---------- search ------- */
-.search input{
-    width: 250px;
+#Search input{
+    width: 200px;
     height: 31px;
+    border: none;
 }
-.search .filter_wrapper{
+#Search .filter_wrapper{
     display: flex;
     align-items: center;
 }
-.search button {
+#Search button {
     margin-left: 8px;
     cursor: pointer;
     display: flex;
@@ -251,6 +257,71 @@ h2{
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
 }
+
+/* --------------------- TOP PLACE --------------- */
+#TopPlace{
+    background: url('../media/images/top_place_1.jpg')no-repeat center center /cover;
+    position: relative;
+}
+#TopPlace::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 2;
+    box-shadow: inset 0px 0px 30px rgb(0 0 0 / 71%);
+}
+.top_place{
+    min-height: 332px;
+    z-index: 3;
+    position: relative;
+}
+.top_title h1{
+    color: white;
+    font-family: 'Roboto_medium';
+    font-size: 36px;
+    margin-bottom: 0;
+    text-transform: capitalize;
+}
+.top_title{
+    padding-top: 70px;
+    margin-bottom: 20px;
+}
+.top_descr p{
+    color: white;
+    font-size: 20px;
+}
+
+/* -----------------------FILTERS --------------------- */
+#FiltersSection{
+    margin-bottom: 60px;
+}
+.filters_desktop{
+    background-color: #fff;
+    -webkit-box-shadow: -1px 16px 5px rgb(204 208 221 / 50%);
+    box-shadow: -1px 16px 5px rgb(204 208 221 / 50%);
+    border-radius: 18px;
+    width: 100%;
+    margin-top: -40px;
+    margin-bottom: 0;
+    padding: 23px 7px 23px 7px;
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#Filter{
+    display: flex;
+    align-items: center;
+}
+.filters_desktop .filter_wrapper{
+    margin-bottom: 0;
+}
+
 
 /* ----------------------- media -------------- */
 
