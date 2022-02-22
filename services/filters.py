@@ -215,7 +215,7 @@ class AccessoriesFilter(django_filters.FilterSet):
     # location = django_filters.ModelChoiceFilter(queryset=District.objects.all(), empty_label='Район')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
+        widget=forms.SelectMultiple,
     )
 
     class Meta:

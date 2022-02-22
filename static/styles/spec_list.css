@@ -142,7 +142,7 @@ main{
     width: 100px;
     background: white;
 }
-#Filter button{
+#Filter button[type='submit']{
     display: block;
     height: 29px;
     padding: 0 9px;
@@ -192,7 +192,33 @@ select[multiple]{
     border-radius: 5px;
     background: white;
 }
-
+#id_location{
+    width: 300px;
+}
+.selection{
+    font-size: 10px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    margin-top: 0!important;
+    margin-left: 0!important;
+    margin-right: 3px;
+}
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #d3d3d3;
+    height: 29px;
+    padding: 0 10px;
+    color: #808285;
+    font-size: 14px;
+    border-radius: 5px;
+    background: white;
+}
+.select2-selection__choice__display{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 40px;
+    display: inline-block;
+    white-space: nowrap;
+}
 .pagination li{
     margin: 0 3px;
     display: flex;
