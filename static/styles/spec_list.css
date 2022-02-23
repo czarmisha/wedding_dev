@@ -400,7 +400,11 @@ select:focus{
     transition-duration: .3s;
     transition-timing-function: linear;
 }
-
+.custom_width,
+.custom_width select,
+.custom_width input{
+    width: 70px;
+}
 
 /* ----------------------- media -------------- */
 

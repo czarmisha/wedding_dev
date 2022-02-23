@@ -65,14 +65,13 @@ class PhotoStudioFilter(django_filters.FilterSet):
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
-    price_per_hour_lt = django_filters.NumberFilter(
-        field_name='price_per_hour', lookup_expr='lte')
-    price_per_hour_gt = django_filters.NumberFilter(
-        field_name='price_per_hour', lookup_expr='gte')
+    type = django_filters.ChoiceFilter(
+        field_name='type', choices=models.PhotoStudio._TYPE, empty_label='Тип')
+    price = django_filters.RangeFilter(field_name='price_per_hour')
 
     class Meta:
         model = models.PhotoStudio
-        fields = ['location', 'price_per_hour_gt', 'price_per_hour_lt']
+        fields = ['type', 'price', 'location']
 
 
 class DecorFilter(django_filters.FilterSet):
@@ -80,14 +79,11 @@ class DecorFilter(django_filters.FilterSet):
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+    price = django_filters.RangeFilter()
 
     class Meta:
         model = models.Decor
-        fields = ['location', 'price_gt', 'price_lt']
+        fields = ['location', 'price']
 
 
 class TransportFilter(django_filters.FilterSet):
@@ -207,21 +203,18 @@ class DressFilter(django_filters.FilterSet):
 
 class CostumeFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Costume._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Costume._TYPE, empty_label='Тип')
+    price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
     condition = django_filters.ChoiceFilter(
-        field_name='condition', choices=models.Costume._CONDITION_TYPES)
+        field_name='condition', choices=models.Costume._CONDITION_TYPES, empty_label='Вид сделки')
 
     class Meta:
         model = models.Costume
-        fields = ['type', 'price_gt', 'price_lt', 'condition', 'location']
+        fields = ['type', 'price', 'condition', 'location']
 
 
 class RingFilter(django_filters.FilterSet):
@@ -240,11 +233,8 @@ class RingFilter(django_filters.FilterSet):
 
 class BouquetFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Bouquet._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Bouquet._TYPE, empty_label='Тип')
+    price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -252,16 +242,15 @@ class BouquetFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Bouquet
-        fields = ['type', 'price_gt', 'price_lt', 'location']
+        fields = ['type', 'price', 'location']
 
 
 class StylistFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Stylist._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Stylist._TYPE, empty_label='Тип')
+    service_type = django_filters.ChoiceFilter(
+        field_name='type', choices=models.Stylist._SERVICE_TYPE, empty_label='Вид услуги')
+    price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -269,16 +258,13 @@ class StylistFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Stylist
-        fields = ['type', 'price_gt', 'price_lt', 'location']
+        fields = ['type', 'price', 'service_type', 'location']
 
 
 class DanceFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Dance._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Dance._TYPE, empty_label='Тип')
+    price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -286,7 +272,7 @@ class DanceFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Dance
-        fields = ['type', 'price_gt', 'price_lt', 'location']
+        fields = ['type', 'price', 'location']
 
 
 class AccessoriesFilter(django_filters.FilterSet):
@@ -315,10 +301,6 @@ class InvitationFilter(django_filters.FilterSet):
 
 
 class AgencyFilter(django_filters.FilterSet):
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -326,4 +308,4 @@ class AgencyFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Agency
-        fields = ['price_gt', 'price_lt', 'location']
+        fields = ['location']

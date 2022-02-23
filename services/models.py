@@ -128,11 +128,16 @@ class Dance(models.Model):
 
 
 class PhotoStudio(models.Model):
+    _TYPE = [
+        ('1', 'Фотостудии'),
+        ('2', 'Локации для фотосессий')
+    ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     price_per_hour = models.FloatField('Цена за час', null=True)
     address = models.CharField('Адрес', max_length=500)
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)  
     avatar = models.ImageField(upload_to='avatars/photoStudios', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
@@ -167,6 +172,11 @@ class Stylist(models.Model):
         ('business', 'Компания'),
         ('private', 'Индивидуальные услуги')
     ]
+    _SERVICE_TYPE = [
+        ('1', 'Свадебная причёска'),
+        ('2', 'Свадебный маникюр'),
+        ('3', 'Свадебный макияж')
+    ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
@@ -176,7 +186,8 @@ class Stylist(models.Model):
     avatar = models.ImageField(upload_to='avatars/stylists', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
-    type = models.CharField(max_length=50, choices=_TYPE, null=True)    
+    type = models.CharField(max_length=50, choices=_TYPE, null=True)
+    service_type = models.CharField(max_length=50, choices=_SERVICE_TYPE, null=True, verbose_name='Вид услуги')
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
