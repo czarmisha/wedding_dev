@@ -102,6 +102,7 @@ header nav{
     font-family: 'Roboto_bold';
     text-transform: uppercase;
     text-align: center;
+    border-radius: 17px;
 }
 
 .header_buttons{
