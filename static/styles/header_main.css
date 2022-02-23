@@ -32,7 +32,7 @@ header nav{
     display: flex;
     align-items: center;
     margin-top: -15px;
-    z-index: 3;
+    z-index: 5;
     width: 100%;
     justify-content: center;
     background: rgba(144,144,144,.45);

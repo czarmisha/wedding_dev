@@ -7,82 +7,104 @@
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
 <link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 {% endblock%}
 
 {% block content %}
-    <h1>Пригласительные</h1>
-    <div class="search">
-        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
-            <p class="filter_wrapper">
-                <input type="text" name="name" placeholder="Поиск по имени">
-                <input type="hidden" name="service" value="invitation">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </p>
-         </form>
-    </div>
-    <div class="filters restaurant_filters">
-        <h2>Фильтры</h2>
-        <form method="get">
-            <p class="filter_wrapper">
-                <span>Местоположение </span>
-                {{filter.form.location}}
-            </p>
-            <button type="submit">Применить</button>
-         </form>
-    </div>
-    <div class="spec_list">
-        {% for object in filter.qs %}
-        <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
-            {% if object.is_pro %}
-            <span class="is_pro_badge">PRO</span>
-            {% endif %}
-            <div class="row">
-                <div class="col-12 col-md-2">
-                    <div class="left d-flex flex-column align-items-center">
-                        {%if object.avatar%}
-                        <img src="{{object.avatar.url}}" alt="">
-                        {% else %}
-                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
-                        {%endif%}
-                        <p class="spec_rating">{{object.get_average_rating}}</p>
-                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
-                    </div>
+    <section id="TopPlace">
+        <div class="container">
+            <div class="top_place">
+                <div class="top_title">
+                    <h1>Пригласительные</h1>
                 </div>
-                <div class="col-12 col-md-10">
-                    <div class="right h-100 d-flex flex-column justify-content-between">
-                        <div class="info d-flex align-items-center justify-content-between">
-                            <h3 class="spec_fullname">{{object.name}}</h3>
-                            <div class="info_right d-flex align-items-center">
-                                <p class="spec_price">{{object.price}} сум</p>
-                            </div>
-                        </div>
-                        <div class="spec_portfolio">
-                            <div class="row">
-                                {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="col-3 mt-4">
-                                        <img class="" src="{{image.image.url}}" alt="">
-                                    </div>
-                                {%endfor%}
-
-                            </div>
-                        </div>
-                        <div class="spec_portfolio_slider">
-                             {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="slide">
-                                        <img class="slide_img" src="{{image.image.url}}" alt="">
-                                    </div>
-                            {%endfor%}
-                        </div>
-                    </div>
+                <div class="top_descr">
+                    <p>Тут могла быть ваша реклама. По вопросам размещения рекламы обращайтесь к админу сайта.</p>
+                </div>
+                <div class="mobile_filter_btn">
+                    <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
                 </div>
             </div>
-        </a>
-        {% endfor %}
+        </div>
+    </section>
+
+    <section id="FiltersSection">
+        <div class="container">
+            <div class='filters_desktop'>
+                <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
+                <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
+                    <p class="filter_wrapper">
+                        <input type="text" name="name" placeholder="Поиск по названию ...">
+                        <input type="hidden" name="service" value="accessories">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </p>
+                </form>
+                <form id="Filter" method="get">
+                    <p class="filter_wrapper">
+                        {{filter.form.location}}
+                    </p>
+                    <button type="submit">Применить</button>
+                </form>
+            </div>
+            <div class='filters_mobile'></div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="spec_list">
+            {% for object in filter.qs %}
+            <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
+                {% if object.is_pro %}
+                <span class="is_pro_badge">PRO</span>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12 col-md-2">
+                        <div class="left d-flex flex-column align-items-center">
+                            {%if object.avatar%}
+                            <img src="{{object.avatar.url}}" alt="">
+                            {% else %}
+                            <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                            {%endif%}
+                            <p class="spec_rating">{{object.get_average_rating}}</p>
+                            <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <div class="right h-100 d-flex flex-column justify-content-between">
+                            <div class="info d-flex align-items-center justify-content-between">
+                                <h3 class="spec_fullname">{{object.name}}</h3>
+                                <div class="info_right d-flex align-items-center">
+                                    <p class="spec_price">{{object.price}} сум</p>
+                                </div>
+                            </div>
+                            <div class="spec_portfolio">
+                                <div class="row">
+                                    {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                         <div class="col-3 mt-4">
+                                            <img class="" src="{{image.image.url}}" alt="">
+                                        </div>
+                                    {%endfor%}
+    
+                                </div>
+                            </div>
+                            <div class="spec_portfolio_slider">
+                                 {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                         <div class="slide">
+                                            <img class="slide_img" src="{{image.image.url}}" alt="">
+                                        </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 {%endblock content%}
 {%block script%}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
  <script>
     $(document).ready(function(){
+
         $('.spec_portfolio_slider').slick({
             arrows: false,
             slidesToShow: 3,
@@ -101,6 +123,23 @@
                 },
             ]
         });
+
+        $('.mobile_filter_btn a').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+        $('.filter_close_btn').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+
+        $('#id_location').select2({
+            placeholder: "Район",
+        })
     });
 </script>
 {%endblock%}

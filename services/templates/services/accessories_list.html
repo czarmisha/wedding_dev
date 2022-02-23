@@ -21,7 +21,7 @@
                     <p>Тут могла быть ваша реклама. По вопросам размещения рекламы обращайтесь к админу сайта.</p>
                 </div>
                 <div class="mobile_filter_btn">
-                    <a href="#"><span><i class="fad fa-filter"></i></span> Показать фильтры</a>
+                    <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
                 </div>
             </div>
         </div>
@@ -30,6 +30,7 @@
     <section id="FiltersSection">
         <div class="container">
             <div class='filters_desktop'>
+                <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
                 <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
                     <p class="filter_wrapper">
                         <input type="text" name="name" placeholder="Поиск по названию ...">
@@ -52,12 +53,7 @@
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
                     </p>
-                    {% comment %} <p class="filter_wrapper">
-                        <span>Цена от </span>
-                        <input type="number" name="price_gt" step="any" id="id_price_gt" value={{filter.form.price_gt.value}}>
-                        <span>до </span>
-                        <input type="number" name="price_lt" step="any" id="id_price_lt" value={{filter.form.price_lt.value}}>
-                    </p> {% endcomment %}
+
                     <p class="filter_wrapper">
                         {{filter.form.location}}
                     </p>
@@ -143,6 +139,7 @@
                 $('#id_price_1').val('');
             }
             else if($(this).val() == '1'){
+                $('#id_price_0').val('');
                 $('#id_price_1').val('200');
             }
             else if($(this).val() == '2'){
@@ -155,6 +152,7 @@
             }
             else if($(this).val() == '4'){
                 $('#id_price_0').val('10001');
+                $('#id_price_1').val('');
             }
         });
 
@@ -177,7 +175,22 @@
             ]
         });
 
-        $('#id_location').select2()
+        $('.mobile_filter_btn a').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+        $('.filter_close_btn').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+
+        $('#id_location').select2({
+            placeholder: "Район",
+        })
     });
 </script>
 {%endblock%}
