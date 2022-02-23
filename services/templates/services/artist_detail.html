@@ -10,111 +10,112 @@
 
 
 {% block content %}
-     <div class="row">
-        <div class="col-12 col-md-4 col-lg-3">
-            <div class="detail_left d-flex flex-column">
-                {%if object.avatar%}
-                <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
-                {% else %}
-                <img class="avatar w-100" src="{% static 'media/images/default_avatar.png' %}" alt="">
-                {%endif%}
-                <div class="info">
-                    <h3 class="subtitle">Информация</h3>
-                    <p class="specialist_fullname">{% if object.name %}
-                        {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                    <p class="specialist_type">Артист/шоу программа</p>
-                    <p class="specialist_price">Цена: <span>{{object.price}} сум</span></p>
-                </div>
-                <div class="contacts">
-                    <h3 class="subtitle">Контакты</h3>
-                    <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
-                    <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
-                    <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
-                    <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
-                </div>
-                <div class="rating">
-                    {%include 'services/_inc/rating.html'%}
-                </div>
-                {%if request.user.type == 'client'%}
-                <div class="favorite">
-                    {% if favorite %}
-                    <a href="" class="remove_favorite"><i class="fad fa-heart-square"></i></a>
+     <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3">
+                <div class="detail_left d-flex flex-column">
+                    {%if object.avatar%}
+                    <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
                     {% else %}
-                    <a href="" class="add_favorite"><i class="fad fa-heart-square"></i></a>
-                    {% endif %}
+                    <img class="avatar w-100" src="{% static 'media/images/default_avatar.png' %}" alt="">
+                    {%endif%}
+                    <div class="info">
+                        <h3 class="subtitle">Информация</h3>
+                        <p class="specialist_fullname">{% if object.name %}
+                            {{object.name}} {% else %} {{object.user}} {% endif %}</p>
+                        <p class="specialist_type">Артист/шоу программа</p>
+                        <p class="specialist_price">Цена: <span>{{object.price}} сум</span></p>
+                    </div>
+                    <div class="contacts">
+                        <h3 class="subtitle">Контакты</h3>
+                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
+                    </div>
+                    <div class="rating">
+                        {%include 'services/_inc/rating.html'%}
+                    </div>
+                    {%if request.user.type == 'client'%}
+                    <div class="favorite">
+                        {% if favorite %}
+                        <a href="" class="remove_favorite"><i class="fad fa-heart-square"></i></a>
+                        {% else %}
+                        <a href="" class="add_favorite"><i class="fad fa-heart-square"></i></a>
+                        {% endif %}
+                    </div>
+                    {%endif%}
                 </div>
-                {%endif%}
             </div>
-        </div>
-        <div class="col-12 col-md-8 col-lg-9">
-            <div class="detail_right">
-                <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Профиль</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Отзывы <span>({{reviews.count}})</span></button>
-                    </li>
-                  </ul>
-                  <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <p class="specialist_about">
-                            {{object.user.photographer.about}}
-                        </p>
-                        <div class="specialist_portfolio">
-                            <h3 class="subtitle">Портфолио</h3>
-                            {%if object.user.portfolio%}
-                                <div class="row">
-                                    {% for image in object.user.portfolio.images.all %}
-                                        <div class="col-12 col-md-6 col-lg-4 mb-4">
-<!--                                            <a href="{{image.image.url}}"><img class="w-100" src="{{image.image.url}}" alt=""></a>-->
-                                            <a href="{{image.image.url}}" style="width: 100%; background: url('{{image.image.url}}')no-repeat center center; background-size: cover; width: 100%; display: block; height: 100%; min-height: 250px; max-height: 300px">
-                                            </a>
-                                        </div>
-                                    {%endfor%}
+            <div class="col-12 col-md-8 col-lg-9">
+                <div class="detail_right">
+                    <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Профиль</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Отзывы <span>({{reviews.count}})</span></button>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <p class="specialist_about">
+                                {{object.user.photographer.about}}
+                            </p>
+                            <div class="specialist_portfolio">
+                                <h3 class="subtitle">Портфолио</h3>
+                                {%if object.user.portfolio%}
+                                    <div class="row">
+                                        {% for image in object.user.portfolio.images.all %}
+                                            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                                <a href="{{image.image.url}}" style="width: 100%; background: url('{{image.image.url}}')no-repeat center center; background-size: cover; width: 100%; display: block; height: 100%; min-height: 250px; max-height: 300px">
+                                                </a>
+                                            </div>
+                                        {%endfor%}
+                                        {% if request.user.is_authenticated and request.user == object.user%}
+                                         <a href="{%url 'services:extend_portfolio'%}">Extend portfolio</a>
+                                         <a href="{%url 'services:delete_portfolio'%}">Delete portfolio</a>
+                                        {% endif %}
+    
+                                    </div>
+    
+                                {%else%}
                                     {% if request.user.is_authenticated and request.user == object.user%}
-                                     <a href="{%url 'services:extend_portfolio'%}">Extend portfolio</a>
-                                     <a href="{%url 'services:delete_portfolio'%}">Delete portfolio</a>
+                                        <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
                                     {% endif %}
-
-                                </div>
-
-                            {%else%}
-                                {% if request.user.is_authenticated and request.user == object.user%}
-                                    <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
-                                {% endif %}
-
-                            {%endif%}
-
-
+    
+                                {%endif%}
+    
+    
+                            </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <ul class="review_list w-100">
-                            {%for review in reviews%}
-                                <li class="review_box d-flex align-items-center">
-                                    {% if review.client_user.clientprofile.avatar %}
-                                    <img src="{{review.client_user.clientprofile.avatar.url}}" alt="" width="50" height="50">
-                                    {% else %}
-                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="" width="50" height="50">
-                                    {% endif %}
-                                    <span>{{review.client_user}}</span>
-                                    <p>{{review.text}}</p>
-                                </li>
-                            {%endfor%}
-                        </ul>
-                        {%if request.user.type == 'client'%}
-                            {%if not reviewed%}
-                                {%include 'services/_inc/review_form.html'%}
-                            {%else%}
-                                <span class="also_reviewed">Вы уже писали отзыв</span>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <ul class="review_list w-100">
+                                {%for review in reviews%}
+                                    <li class="review_box d-flex align-items-center">
+                                        {% if review.client_user.clientprofile.avatar %}
+                                        <img src="{{review.client_user.clientprofile.avatar.url}}" alt="" width="50" height="50">
+                                        {% else %}
+                                        <img src="{% static 'media/images/default_avatar.png' %}" alt="" width="50" height="50">
+                                        {% endif %}
+                                        <span>{{review.client_user}}</span>
+                                        <p>{{review.text}}</p>
+                                    </li>
+                                {%endfor%}
+                            </ul>
+                            {%if request.user.type == 'client'%}
+                                {%if not reviewed%}
+                                    {%include 'services/_inc/review_form.html'%}
+                                {%else%}
+                                    <span class="also_reviewed">Вы уже писали отзыв</span>
+                                {%endif%}
                             {%endif%}
-                        {%endif%}
-
-                    </div>
-                  </div>
+    
+                        </div>
+                      </div>
+                </div>
             </div>
-        </div>
+         </div>
      </div>
 {% endblock %}
 
