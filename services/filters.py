@@ -226,11 +226,8 @@ class CostumeFilter(django_filters.FilterSet):
 
 class RingFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Ring._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Ring._TYPE, empty_label='Тип услуг')
+    price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -238,7 +235,7 @@ class RingFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Ring
-        fields = ['type', 'price_gt', 'price_lt', 'location']
+        fields = ['type', 'price', 'location']
 
 
 class BouquetFilter(django_filters.FilterSet):
