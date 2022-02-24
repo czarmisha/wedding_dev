@@ -7,104 +7,265 @@
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
 <link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 {% endblock%}
 
 {% block content %}
-    <h1>Список ресторанов и банкетных залов</h1>
-    <div class="search">
-        <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
-            <p class="filter_wrapper">
-                <input type="text" name="name" placeholder="Поиск по имени">
-                <input type="hidden" name="service" value="restaurant">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </p>
-         </form>
-    </div>
-    <div class="filters restaurant_filters">
-        <h2>Фильтры</h2>
-         <form method="get">
-            <p class="filter_wrapper">
-                <span>Тип заведения </span>
-                {{filter.form.type}}
-            </p>
-            <p class="filter_wrapper">
-                <span>Средний чек от </span>
-                <input type="number" name="average_check_gt" step="any" id="id_average_check_gt">
-                <span> до</span>
-                <input type="number" name="average_check_lt" step="any" id="id_average_check_lt">
-            </p>
-            <p class="filter_wrapper">
-                <span>Вместимость от </span>
-                <input type="number" name="capacity_gt" step="any" id="id_capacity_gt" value="{{filter.form.capacity_gt.value}}">
-                <span> до</span>
-                <input type="number" name="capacity_lt" step="any" id="id_capacity_lt" value="{{filter.form.capacity_lt.value}}">
-            </p>
-            <p class="filter_wrapper">
-                <span>Местоположение </span>
-                {{filter.form.location}}
-            </p>
-            <p class="filter_wrapper kitchen_checkboxes">
-                <span>Кухня </span>
-                {{filter.form.kitchen}}
-            </p>
-            <button type="submit">Применить</button>
-         </form>
-    </div>
-    <div class="spec_list">
-        {% for object in filter.qs %}
-        <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
-            {% if object.is_pro %}
-            <span class="is_pro_badge">PRO</span>
-            {% endif %}
-            <div class="row">
-                <div class="col-12 col-md-2">
-                    <div class="left d-flex flex-column align-items-center">
-                        {%if object.avatar%}
-                        <img src="{{object.avatar.url}}" alt="">
-                        {% else %}
-                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
-                        {%endif%}
-                        <p class="spec_rating">{{object.get_average_rating}}</p>
-                        <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
-                    </div>
+    <section id="TopPlace">
+        <div class="container">
+            <div class="top_place">
+                <div class="top_title">
+                    <h1>Банкетные залы и рестораны</h1>
                 </div>
-                <div class="col-12 col-md-10">
-                    <div class="right h-100 d-flex flex-column justify-content-between">
-                        <div class="info d-flex align-items-center justify-content-between">
-                            <h3 class="spec_fullname">{{object.name}}</h3>
-                            <div class="info_right d-flex align-items-center">
-                                <p class="spec_price">{{object.average_check}} сум</p>
-                                <span> | </span>
-                                <p class="spec_price">{{object.capacity}} чел.</p>
-                            </div>
-                        </div>
-                        <div class="spec_portfolio">
-                            <div class="row">
-                                {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="col-3 mt-4">
-                                        <img class="" src="{{image.image.url}}" alt="">
-                                    </div>
-                                {%endfor%}
-
-                            </div>
-                        </div>
-                        <div class="spec_portfolio_slider">
-                             {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                     <div class="slide">
-                                        <img class="slide_img" src="{{image.image.url}}" alt="">
-                                    </div>
-                            {%endfor%}
-                        </div>
-                    </div>
+                <div class="top_descr">
+                    <p>Тут могла быть ваша реклама. По вопросам размещения рекламы обращайтесь к админу сайта.</p>
+                </div>
+                <div class="mobile_filter_btn">
+                    <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
                 </div>
             </div>
-        </a>
-        {% endfor %}
+        </div>
+    </section>
+
+    <section id="FiltersSection">
+        <div class="container">
+            <div class='filters_desktop wrap'>
+                <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
+                <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
+                    <p class="filter_wrapper">
+                        <input type="text" name="name" placeholder="Поиск по названию ...">
+                        <input type="hidden" name="service" value="accessories">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </p>
+                </form>
+                <form id="Filter" method="get" class='wrap'>
+                    <p class="filter_wrapper">
+                        {{filter.form.type}}
+                    </p>
+                    <p class="filter_wrapper">
+                        <select name="" id="select_price_range">
+                            <option value="-1">Средний чек</option>
+                            <option init='1' value="1">0-200.000 сум</option>
+                            <option init='2' value="2">200.000-300.000 сум</option>
+                            <option init='3' value="3">300.000-400.000 сум</option>
+                            <option init='4' value="4">400.000-500.000 сум</option>
+                            <option init='5' value="5">выше 500.000 сум</option>
+                        </select>
+                        <input type="hidden" name="price_min" id="id_price_0">
+                        <input type="hidden" name="price_max" id="id_price_1">
+                    </p>
+                    <p class="filter_wrapper">
+                        <select name="" id="select_capacity_range">
+                            <option value="-1">Вместимость</option>
+                            <option init='1' value="1">0-100 чел.</option>
+                            <option init='2' value="2">100-200 чел.</option>
+                            <option init='3' value="3">200-300 чел.</option>
+                            <option init='4' value="4">300-400 чел.</option>
+                            <option init='5' value="5">400-500 чел.</option>
+                            <option init='6' value="6">выше 500 чел.</option>
+                        </select>
+                        <input type="hidden" name="capacity_min" id="id_capacity_0">
+                        <input type="hidden" name="capacity_max" id="id_capacity_1">
+                    </p>
+                    <p class="filter_wrapper">
+                        {{filter.form.kitchen}}
+                    </p>
+                    <p class="filter_wrapper">
+                        {{filter.form.location}}
+                    </p>
+                    <button type="submit">Применить</button>
+                </form>
+            </div>
+            <div class='filters_mobile'></div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="spec_list">
+            {% for object in filter.qs %}
+            <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
+                {% if object.is_pro %}
+                <span class="is_pro_badge">PRO</span>
+                {% endif %}
+                <div class="row">
+                    <div class="col-12 col-md-2">
+                        <div class="left d-flex flex-column align-items-center">
+                            {%if object.avatar%}
+                            <img src="{{object.avatar.url}}" alt="">
+                            {% else %}
+                            <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                            {%endif%}
+                            <p class="spec_rating">{{object.get_average_rating}}</p>
+                            <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-10">
+                        <div class="right h-100 d-flex flex-column justify-content-between">
+                            <div class="info d-flex align-items-center justify-content-between">
+                                <h3 class="spec_fullname">{{object.name}}</h3>
+                                <div class="info_right d-flex align-items-center">
+                                    <p class="spec_price">{{object.average_check}} сум</p>
+                                    <span> | </span>
+                                    <p class="spec_price">{{object.capacity}} чел.</p>
+                                </div>
+                            </div>
+                            <div class="spec_portfolio">
+                                <div class="row">
+                                    {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                         <div class="col-3 mt-4">
+                                            <img class="" src="{{image.image.url}}" alt="">
+                                        </div>
+                                    {%endfor%}
+    
+                                </div>
+                            </div>
+                            <div class="spec_portfolio_slider">
+                                 {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                         <div class="slide">
+                                            <img class="slide_img" src="{{image.image.url}}" alt="">
+                                        </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 {%endblock content%}
 {%block script%}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
  <script>
     $(document).ready(function(){
+        let price_range = '{{filter.form.price.value}}'.replace(new RegExp("&"+"#"+"x27;", "g"), "").slice(1, -1).split(", ");
+        let capacity_range = '{{filter.form.capacity.value}}'.replace(new RegExp("&"+"#"+"x27;", "g"), "").slice(1, -1).split(", ");
+
+        $('#select_price_range option[selected="selected"]').each(
+            function() {
+                $(this).removeAttr('selected');
+            }
+        );
+        $('#select_capacity_range option[selected="selected"]').each(
+            function() {
+                $(this).removeAttr('selected');
+            }
+        );
+
+        if(!price_range[0] && price_range[1] == 200000){
+            $('#select_price_range option[init="1"]').attr('selected','selected');
+            $('#id_price_0').val('');
+            $('#id_price_1').val('200000');
+        }
+        if(price_range[0] == 200000 && price_range[1] == 300000){
+            $('#select_price_range option[init="2"]').attr('selected','selected');
+            $('#id_price_0').val('200000');
+            $('#id_price_1').val('300000');
+        }
+        if(price_range[0] == 300000 && price_range[1] == 400000){
+            $('#select_price_range option[init="3"]').attr('selected','selected');
+            $('#id_price_0').val('300000');
+            $('#id_price_1').val('400000');
+        }
+        if(price_range[0] == 400000 && price_range[1] == 500000){
+            $('#select_price_range option[init="4"]').attr('selected','selected');
+            $('#id_price_0').val('400000');
+            $('#id_price_1').val('500000');
+        }
+        if(price_range[0] == 500000 && !price_range[1]){
+            $('#select_price_range option[init="5"]').attr('selected','selected');
+            $('#id_price_0').val('500000');
+            $('#id_price_1').val('');
+        }
+
+        if(!capacity_range[0] && capacity_range[1] == 100){
+            $('#select_capacity_range option[init="1"]').attr('selected','selected');
+            $('#id_capacity_0').val('');
+            $('#id_capacity_1').val('100');
+        }
+        if(capacity_range[0] == 100 && capacity_range[1] == 200){
+            $('#select_capacity_range option[init="2"]').attr('selected','selected');
+            $('#id_capacity_0').val('100');
+            $('#id_capacity_1').val('200');
+        }
+        if(capacity_range[0] == 200 && capacity_range[1] == 300){
+            $('#select_capacity_range option[init="3"]').attr('selected','selected');
+            $('#id_capacity_0').val('200');
+            $('#id_capacity_1').val('300');
+        }
+        if(capacity_range[0] == 300 && capacity_range[1] == 400){
+            $('#select_capacity_range option[init="4"]').attr('selected','selected');
+            $('#id_capacity_0').val('300');
+            $('#id_capacity_1').val('400');
+        }
+        if(capacity_range[0] == 400 && capacity_range[1] == 500){
+            $('#select_capacity_range option[init="5"]').attr('selected','selected');
+            $('#id_capacity_0').val('400');
+            $('#id_capacity_1').val('500');
+        }
+        if(capacity_range[0] == 500 && !capacity_range[1]){
+            $('#select_capacity_range option[init="6"]').attr('selected','selected');
+            $('#id_capacity_0').val('500');
+            $('#id_capacity_1').val('');
+        }
+
+        $('#select_price_range').on('change', function(){
+            if($(this).val() == '-1'){
+                $('#id_price_0').val('');
+                $('#id_price_1').val('');
+            }
+            else if($(this).val() == '1'){
+                $('#id_price_0').val('');
+                $('#id_price_1').val('200000');
+            }
+            else if($(this).val() == '2'){
+                $('#id_price_0').val('200000');
+                $('#id_price_1').val('300000');
+            }
+            else if($(this).val() == '3'){
+                $('#id_price_0').val('300000');
+                $('#id_price_1').val('400000');
+            }
+            else if($(this).val() == '4'){
+                $('#id_price_0').val('400000');
+                $('#id_price_1').val('500000');
+            }
+            else if($(this).val() == '5'){
+                $('#id_price_0').val('500000');
+                $('#id_price_1').val('');
+            }
+        });
+
+        $('#select_capacity_range').on('change', function(){
+            if($(this).val() == '-1'){
+                $('#id_capacity_0').val('');
+                $('#id_capacity_1').val('');
+            }
+            else if($(this).val() == '1'){
+                $('#id_capacity_0').val('');
+                $('#id_capacity_1').val('100');
+            }
+            else if($(this).val() == '2'){
+                $('#id_capacity_0').val('100');
+                $('#id_capacity_1').val('200');
+            }
+            else if($(this).val() == '3'){
+                $('#id_capacity_0').val('200');
+                $('#id_capacity_1').val('300');
+            }
+            else if($(this).val() == '4'){
+                $('#id_capacity_0').val('300');
+                $('#id_capacity_1').val('400');
+            }
+            else if($(this).val() == '5'){
+                $('#id_capacity_0').val('400');
+                $('#id_capacity_1').val('500');
+            }
+            else if($(this).val() == '6'){
+                $('#id_capacity_0').val('500');
+                $('#id_capacity_1').val('');
+            }
+        });
+
         $('.spec_portfolio_slider').slick({
             arrows: false,
             slidesToShow: 3,
@@ -123,6 +284,26 @@
                 },
             ]
         });
+
+        $('.mobile_filter_btn a').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+        $('.filter_close_btn').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+
+        $('#id_location').select2({
+            placeholder: "Район",
+        })
+        $('#id_kitchen').select2({
+            placeholder: "Кухня",
+        })
     });
 </script>
 {%endblock%}

@@ -192,7 +192,10 @@ select[multiple]{
     border-radius: 5px;
     background: white;
 }
-#id_location{
+#id_location,
+#id_kitchen,
+#id_language,
+#id_car_brand{
     width: 300px;
 }
 .selection{
@@ -268,7 +271,16 @@ select[multiple]{
     font-size: 14px;
     margin-bottom: 5px;
 }
-
+.filters_desktop.wrap{
+    flex-wrap: wrap;
+}
+#Filter.wrap{
+    flex-wrap: wrap;
+}
+#Filter.wrap .filter_wrapper,
+#Filter.wrap button[type='submit']{
+    margin-top: 10px;
+}
 
 
 /* ---------- search ------- */
@@ -409,6 +421,9 @@ select:focus{
 /* ----------------------- media -------------- */
 
 @media (max-width: 992px){
+    .filters_desktop.wrap{
+        flex-wrap: unset;
+    }
     .select2-container--default .select2-selection--multiple{
         border: none!important;
     }
