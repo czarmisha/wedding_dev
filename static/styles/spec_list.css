@@ -312,7 +312,7 @@ select[multiple]{
 
 /* --------------------- TOP PLACE --------------- */
 #TopPlace{
-    background: url('../media/images/top_place_1.jpg')no-repeat center center /cover;
+    
     position: relative;
 }
 #TopPlace::before{
