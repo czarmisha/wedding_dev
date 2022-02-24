@@ -101,25 +101,19 @@ class TransportFilter(django_filters.FilterSet):
 
 
 class PresenterFilter(django_filters.FilterSet):
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
-    price_per_hour_lt = django_filters.NumberFilter(
-        field_name='price_per_hour', lookup_expr='lte')
-    price_per_hour_gt = django_filters.NumberFilter(
-        field_name='price_per_hour', lookup_expr='gte')
+    price = django_filters.RangeFilter(field_name='price_per_evening')
     composition = django_filters.ChoiceFilter(
-        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE)
+        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE, empty_label='Состав')
     gender = django_filters.ChoiceFilter(
-        field_name='gender', choices=models.Presenter._GENDER)
-    language = django_filters.ModelChoiceFilter(
-        queryset=models.Language.objects.all())
+        field_name='gender', choices=models.Presenter._GENDER, empty_label='Пол')
+    language = django_filters.ModelMultipleChoiceFilter(
+        queryset=models.Language.objects.all(),
+        widget=forms.SelectMultiple
+        )
 
     class Meta:
         model = models.Presenter
-        fields = ['price_per_hour_gt', 'price_per_hour_lt',
-                  'price_gt', 'price_lt', 'composition', 'gender', 'language']
+        fields = ['price', 'composition', 'gender', 'language']
 
 
 class MusicFilter(django_filters.FilterSet):
@@ -162,24 +156,18 @@ class CakeFilter(django_filters.FilterSet):
 
 class DressFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Dress._TYPE)
-    price_lt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='lte')
-    price_gt = django_filters.NumberFilter(
-        field_name='price', lookup_expr='gte')
+        field_name='type', choices=models.Dress._TYPE, empty_label='Тип')
+    price = django_filters.RangeFilter(field_name='price_per_kg')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
     condition = django_filters.ChoiceFilter(
-        field_name='condition', choices=models.Dress._CONDITION_TYPES)
-    dress_type = django_filters.ChoiceFilter(
-        field_name='dress_type', choices=models.Dress._DRESS_TYPES)
+        field_name='condition', choices=models.Dress._CONDITION_TYPES, empty_label='Тип услуги')
 
     class Meta:
         model = models.Dress
-        fields = ['type', 'price_gt', 'price_lt',
-                  'condition', 'dress_type', 'location']
+        fields = ['type', 'price', 'condition', 'location']
 
 
 class CostumeFilter(django_filters.FilterSet):
