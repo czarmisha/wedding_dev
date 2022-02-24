@@ -93,7 +93,8 @@ class TransportFilter(django_filters.FilterSet):
         widget=forms.SelectMultiple,
     )
     price = django_filters.RangeFilter()
-    with_driver = django_filters.BooleanFilter(field_name='with_driver')
+    with_driver = django_filters.ChoiceFilter(
+        field_name='with_driver', choices=models.Transport._WITH_DRIVER_TYPE, empty_label='Водитель')
 
     class Meta:
         model = models.Transport

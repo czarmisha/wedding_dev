@@ -706,13 +706,17 @@ class Transport(models.Model):
         ('business', 'Компания'),
         ('private', 'Индивидуальные услуги')
     ]
+    _WITH_DRIVER_TYPE = [
+        ('1', 'С водителем'),
+        ('2', 'Без водителя')
+    ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = models.TextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPE, null=True)
     price = models.FloatField('Цена', null=True)
-    with_driver = models.BooleanField('С водителем', default=True)
+    with_driver = models.CharField(max_length=50, choices=_WITH_DRIVER_TYPE, null=True)
     avatar = models.ImageField(upload_to='avatars/transports', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
