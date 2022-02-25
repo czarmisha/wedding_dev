@@ -1,8 +1,6 @@
 {% extends 'services_base.html' %}
 {% load static %}
-{% load ratings %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
@@ -45,10 +43,11 @@
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
                             <option value="-1">Цена</option>
-                            <option init='1' value="1">0-200 сум</option>
-                            <option init='2' value="2">201-1000 сум</option>
-                            <option init='3' value="3">1001-10000 сум</option>
-                            <option init='4' value="4">выше 10001 сум</option>
+                            <option init='1' value="1">0-200,000 сум</option>
+                            <option init='2' value="2">200,000-300,000 сум</option>
+                            <option init='3' value="3">300,000-400,000 сум</option>
+                            <option init='4' value="3">400,000-500,000 сум</option>
+                            <option init='5' value="4">выше 500,000 сум</option>
                         </select>
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
@@ -79,7 +78,7 @@
                             {% else %}
                             <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.get_average_rating}}</p>
+                            <p class="spec_rating">5</p>
                             <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
                         </div>
                     </div>
@@ -128,10 +127,11 @@
             }
         );
 
-        if(!price_range[0] && price_range[1] == 200) $('#select_price_range option[init="1"]').attr('selected','selected');
-        if(price_range[0] == 201 && price_range[1] == 1000) $('#select_price_range option[init="2"]').attr('selected','selected');
-        if(price_range[0] == 1001 && price_range[1] == 10000) $('#select_price_range option[init="3"]').attr('selected','selected');
-        if(price_range[0] == 10001 && !price_range[1]) $('#select_price_range option[init="4"]').attr('selected','selected');
+        if(!price_range[0] && price_range[1] == 200000) $('#select_price_range option[init="1"]').attr('selected','selected');
+        if(price_range[0] == 200000 && price_range[1] == 300000) $('#select_price_range option[init="2"]').attr('selected','selected');
+        if(price_range[0] == 300000 && price_range[1] == 400000) $('#select_price_range option[init="3"]').attr('selected','selected');
+        if(price_range[0] == 400000 && price_range[1] == 500000) $('#select_price_range option[init="4"]').attr('selected','selected');
+        if(price_range[0] == 500000 && !price_range[1]) $('#select_price_range option[init="5"]').attr('selected','selected');
 
         $('#select_price_range').on('change', function(){
             if($(this).val() == '-1'){
@@ -140,18 +140,22 @@
             }
             else if($(this).val() == '1'){
                 $('#id_price_0').val('');
-                $('#id_price_1').val('200');
+                $('#id_price_1').val('200000');
             }
             else if($(this).val() == '2'){
-                $('#id_price_0').val('201');
-                $('#id_price_1').val('1000');
+                $('#id_price_0').val('200000');
+                $('#id_price_1').val('300000');
             }
             else if($(this).val() == '3'){
-                $('#id_price_0').val('1001');
-                $('#id_price_1').val('10000');
+                $('#id_price_0').val('300000');
+                $('#id_price_1').val('400000');
             }
             else if($(this).val() == '4'){
-                $('#id_price_0').val('10001');
+                $('#id_price_0').val('400000');
+                $('#id_price_1').val('500000');
+            }
+            else if($(this).val() == '5'){
+                $('#id_price_0').val('500000');
                 $('#id_price_1').val('');
             }
         });

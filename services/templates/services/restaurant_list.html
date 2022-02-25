@@ -1,8 +1,6 @@
 {% extends 'services_base.html' %}
 {% load static %}
-{% load ratings %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
@@ -94,7 +92,7 @@
                             {% else %}
                             <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.get_average_rating}}</p>
+                            <p class="spec_rating"></p>
                             <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
                         </div>
                     </div>

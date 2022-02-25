@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from django.utils.text import slugify
-from star_ratings.models import Rating
 from django.contrib.contenttypes.fields import GenericRelation
 # from tender.models import Tender
 
@@ -13,7 +12,6 @@ class User(AbstractUser):
         ('photographer', 'Фотограф'),
     )
     type = models.CharField('Тип пользователя', max_length=155, default='client')
-    ratings = GenericRelation(Rating, related_query_name='users')
 
     def __str__(self):
         return self.username
