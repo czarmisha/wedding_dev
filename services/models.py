@@ -41,6 +41,7 @@ class Review(models.Model):
     service_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='service_reviews')
     client_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reviews')
     text = models.TextField('Текст отзыва', default=' ')
+    value = models.IntegerField('Значение оценки', default=0) # 0-not rated, 1-negative, 2-neutral, 3-positive
     created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):

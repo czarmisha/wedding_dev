@@ -19,6 +19,15 @@ class User(AbstractUser):
     def get_reviews_count(self):
         return self.service_reviews.count()
 
+    def get_negative_rate_count(self):
+        return self.service_reviews.filter(value=1).count()
+        
+    def get_neutral_rate_count(self):
+        return self.service_reviews.filter(value=2).count()
+
+    def get_positive_rate_count(self):
+        return self.service_reviews.filter(value=3).count()
+
     def check_avatar(self):
         if self.type == 'client':
             return self.clientprofile.avatar

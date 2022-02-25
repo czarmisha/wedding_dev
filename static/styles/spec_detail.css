@@ -225,10 +225,16 @@ main{
     flex-direction: column;
     align-items: start;
 }
+.review_wrapper{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
 
 .review_form textarea{
     margin-bottom: 15px;
     width: 100%;
+    max-width: 550px;
     max-width: 500px;
     min-height: 120px;
     padding: 12px 20px;
@@ -239,26 +245,50 @@ main{
     font-size: 16px;
     resize: none;
     font-family: 'Roboto_regular';
-    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 25%);
 }
 
 .review_form button{
     font-family: 'Roboto_medium';
-    color: var(--dark-color);
+    color: white;
     font-size: 15px;
-    background: white;
+    background: var(--gold-color);
     line-height: 42px;
     display: inline-block;
-    border: 2px solid var(--gold-color);
-    border-radius: 10px;
+    border-radius: 8px;
     width: 150px;
     text-align: center;
     text-decoration: none;
-    box-shadow: 0 3px 8px 0 rgb(0 0 0 / 25%);
+    border: none;
 }
 
 .review_form button:hover{
-    color: var(--gold-color);
+    color: white;
+}
+.rate_options{
+    list-style: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.detail_right ul.rate_options{
+    width: auto!important;
+}
+.rate_option{
+    margin: 0 7px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.negative_rate:hover,
+.negative_rate.selected{
+    color: #cd2b2b;
+}
+.neutral_rate:hover,
+.neutral_rate.selected{
+    color: var(--blue-color);
+}
+.positive_rate:hover,
+.positive_rate.selected{ 
+    color: #56ad01;
 }
 
 .star-ratings {

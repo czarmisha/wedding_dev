@@ -473,11 +473,12 @@ def create_review(request):
         service_user_pk = request.POST.get('service_user_pk')
         client_user_pk = request.POST.get('client_user_pk')
         text = request.POST.get('text')
+        rate_value = request.POST.get('rate_value')
         service_user = User.objects.get(pk=service_user_pk)
         client_user = User.objects.get(pk=client_user_pk)
         if not Review.objects.filter(service_user=service_user, client_user=client_user).exists():
             review = Review(service_user=service_user,
-                            client_user=client_user, text=text)
+                            client_user=client_user, text=text, value=rate_value)
             review.save()
             resp = {
                 'success': True,
