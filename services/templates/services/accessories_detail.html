@@ -34,15 +34,19 @@
                             </p>
                         <p class="specialist_price">Цена: <span>{{object.price}} сум</span></p>
                     </div>
+                    <div class="rating">
+                        <ul class="rating_options">
+                            <li class="rating_option negative_rating"><i class="fad fa-frown"></i><span>{{object.user.get_negative_rate_count}}</span></li>
+                            <li class="rating_option neutral_rating"><i class="fad fa-meh"></i><span>{{object.user.get_neutral_rate_count}}</span></li>
+                            <li class="rating_option positive_rating"><i class="fad fa-smile"></i><span>{{object.user.get_positive_rate_count}}</span></li>
+                        </ul>
+                    </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
-                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
-                    </div>
-                    <div class="rating">
-                        
+                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="{{object.telegram}}">Telegram</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}">Instagram</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}">Facebook</a></p>
                     </div>
                     {%if request.user.type == 'client'%}
                     <div class="favorite">
@@ -108,6 +112,11 @@
                                         {% endif %}
                                         <span>{{review.client_user}}</span>
                                         <p>{{review.text}}</p>
+                                        <ul class="rate_options">
+                                            <li class="rate_option negative_rate {% if review.value == 1 %}selected{% endif %}"><i class="fad fa-frown"></i></li>
+                                            <li class="rate_option neutral_rate {% if review.value == 2 %}selected{% endif %}"><i class="fad fa-meh"></i></li>
+                                            <li class="rate_option positive_rate {% if review.value == 3 %}selected{% endif %}"><i class="fad fa-smile"></i></li>
+                                        </ul>
                                     </li>
                                 {%endfor%}
                             </ul>
@@ -131,8 +140,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
-        $('.rate_option').click(function(){
-            $('.rate_option').each(function(){
+        $('.review_form .rate_option').click(function(){
+            $('.review_form .rate_option').each(function(){
                 $(this).removeClass('selected')
             });
             $(this).addClass('selected')
@@ -143,7 +152,7 @@
         e.preventDefault();
         let textarea = $('.review_form textarea')
         var btn = $(this);
-        if(textarea.val() != '' && textarea.val() != ' ' && $('.rate_option.selected').length){
+        if(textarea.val() != '' && textarea.val() != ' ' && $('.review_form .rate_option.selected').length){
           $.ajax({
           method: "POST",
           url: "{% url 'services:create_review' %}",
@@ -153,7 +162,7 @@
               "service_user_pk": '{{object.user.pk}}',
               "client_user_pk": '{{request.user.pk}}',
               "text": textarea.val(),
-              "rate_value": $('.rate_option.selected').attr('value')
+              "rate_value": $('.review_form .rate_option.selected').attr('value')
           },
           success: function(data) {
             if(data['success'] && data['save'])window.location.reload()

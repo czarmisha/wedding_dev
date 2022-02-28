@@ -78,7 +78,7 @@
                         {% else %}
                         <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                         {%endif%}
-                        <p class="spec_rating"></p>
+                        <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
                         <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
                     </div>
                 </div>

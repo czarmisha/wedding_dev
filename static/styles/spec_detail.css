@@ -279,19 +279,30 @@ main{
     cursor: pointer;
 }
 .negative_rate:hover,
-.negative_rate.selected{
+.negative_rate.selected,
+.review_list .negative_rate.selected:hover{
     color: #cd2b2b;
 }
 .neutral_rate:hover,
-.neutral_rate.selected{
+.neutral_rate.selected,
+.review_list .neutral_rate.selected:hover{
     color: var(--blue-color);
 }
 .positive_rate:hover,
-.positive_rate.selected{ 
+.positive_rate.selected,
+.review_list .positive_rate.selected:hover{ 
     color: #56ad01;
 }
+.review_list .rate_option{
+    cursor: auto;
+}
+.review_list .negative_rate:hover,
+.review_list .neutral_rate:hover,
+.review_list .positive_rate:hover{
+    color: inherit;
+}
 
-.star-ratings {
+/* .star-ratings {
     margin-bottom: 0;
     color: #808285;
     font-size: 16px;
@@ -302,8 +313,43 @@ main{
 .star-ratings span{
     color: var(--blue-color);
     font-family: 'Roboto_medium';
+} */
+.rating_options{
+    list-style: none;
+    display: flex;
+    height: 100%;
+    align-items: center;
 }
-
+ul.rating_options{
+    padding: 0;
+    width: auto!important;
+}
+.rating{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0;
+}
+.rating_option{
+    margin: 0 7px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+.rating_option span{
+    font-size: 18px;
+    margin-left: 5px;
+}
+.negative_rating{
+    color: #cd2b2b;
+}
+.neutral_rating{
+    color: var(--blue-color);
+}
+.positive_rating{ 
+    color: #56ad01;
+}
 .portfolio_element{
     width: 100%;
     opacity: .7;
@@ -327,6 +373,9 @@ main{
     right: 0;
     left: 0;
     bottom: 0;
+}
+.detail_right ul>li.review_box{
+    width: 100%!important;
 }
 /* -------- restaurant --------- spec_more_info------- */
 
@@ -354,6 +403,17 @@ main{
 @media (max-width: 767px){
     .detail_left{
         margin-bottom: 40px;
+    }
+}
+@media (max-width: 500px){
+    .review_box {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d3d3d3;
+    }
+    .review_box p{
+        text-align: center;
     }
 }
 @media (max-width: 400px){

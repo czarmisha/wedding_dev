@@ -9,81 +9,125 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="title">Тендеры: молодожены ищут специалистов</h2>
-<div class="tender_filters">
-    <form method="get">
-        <p class="filter_wrapper">
-            <span>Услуга </span>
-            <select name="service" id="id_service">
-              <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
-              <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>Фотограф</option>
-              <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>Артист, Шоу программа</option>
-              <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>Транспорт</option>
-              <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>Музыканты, Dj</option>
-              <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>Ведущий</option>
-              <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>Пригласительные</option>
-              <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>Торт</option>
-              <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>Платье</option>
-              <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>Кольца</option>
-              <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>Букет</option>
-              <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>Декор, оформление</option>
-              <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>Костюм</option>
-              <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>Аксуссуары</option>
-              <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>Стилист, Визажист</option>
-              <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>Фотостудия</option>
-              <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>Танец</option>
-              <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>Агенство</option>
-            </select>
-        </p>
-
-
-          <p class="filter_wrapper">
-             <span>Бюджет </span> от
-             <input type="number" name="budget_gt" step="any" id="id_budget_gt" value="{{filter.form.budget_gt.value}}">
-             до
-             <input type="number" name="budget_lt" step="any" id="id_budget_lt" value="{{filter.form.budget_lt.value}}">
-          </p>
-
-          <p class="filter_wrapper">
-              <span>Дата события</span>
-            <input type="date" name="on_date_start" placeholder="мм/дд/гг" id="id_on_date_start" value="{{filter.form.on_date_start.value}}">
-            <input type="date" name="on_date_end" placeholder="мм/дд/гг" id="id_on_date_end" value="{{filter.form.on_date_end.value}}">
-          </p>
-         <button class="filters_button" type="submit">Применить</button>
-    </form>
-</div>
-<div class="tender_list">
-    <div class="row">
-        {% for obj in filter.qs %}
-        <div class="col-12 col-md-6">
-            <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
-                <div class="tender_header d-flex align-items-center justify-content-between">
-                    <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
-                    <div class="tender_info">
-                        <span class="tender_on_date">на {{obj.on_date}}</span>
-                        <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
-                    </div>
-                </div>
-                <div class="tender_body d-flex align-items-start">
-                    <div class="tender_img">
-                        {% if obj.author.clientprofile.avatar %}
-                        <img src="{{obj.author.clientprofile.avatar.url}}" alt="">
-                        {% else %}
-                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
-                        {% endif %}
-                    </div>
-                    <div class="tender_preview">
-                        <p class="tender_author">{{obj.author}}</p>
-                        <p class="tender_comment">{{obj.comment}}</p>
-                    </div>
-                </div>
-                <div class="tender_footer">
-                    <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
-                    <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
-                </div>
-            </a>
+<section id="TopPlace" style="background: url({% static 'media/images/tenders.jpg' %})no-repeat center center /cover;">
+    <div class="container">
+        <div class="top_place">
+            <div class="top_title">
+                <h1>Тендеры</h1>
+            </div>
+            <div class="top_descr">
+                <p>Молодожены ищут специалистов</p>
+            </div>
+            <div class="mobile_filter_btn">
+                <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
+            </div>
         </div>
-        {% endfor %}
+    </div>
+</section>
+<section id="FiltersSection">
+    <div class="container">
+        <div class='filters_desktop'>
+            <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
+            <form id="Filter" method="get">
+                <p class="filter_wrapper">
+                    <span>Услуга </span>
+                    <select name="service" id="id_service">
+                      <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
+                      <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>Фотограф</option>
+                      <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>Артист, Шоу программа</option>
+                      <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>Транспорт</option>
+                      <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>Музыканты, Dj</option>
+                      <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>Ведущий</option>
+                      <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>Пригласительные</option>
+                      <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>Торт</option>
+                      <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>Платье</option>
+                      <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>Кольца</option>
+                      <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>Букет</option>
+                      <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>Декор, оформление</option>
+                      <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>Костюм</option>
+                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>Аксуссуары</option>
+                      <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>Стилист, Визажист</option>
+                      <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>Фотостудия</option>
+                      <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>Танец</option>
+                      <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>Агенство</option>
+                    </select>
+                </p>
+                <div class="filter_wrapper">
+                    <span>Бюджет "от-до"</span>
+                    <div class="">
+                        <input type="number" name="budget_gt" step="any" id="id_budget_gt" value="{{filter.form.budget_gt.value}}">
+                        <input type="number" name="budget_lt" step="any" id="id_budget_lt" value="{{filter.form.budget_lt.value}}">
+                    </div>
+                </div>
+       
+                 <div class="filter_wrapper">
+                     <span>Дата события "от-до"</span>
+                   <div>
+                       <input type="date" name="on_date_end" id="id_on_date_end" value="{{filter.form.on_date_end.value}}">
+                       <input type="date" name="on_date_start" id="id_on_date_start" value="{{filter.form.on_date_start.value}}">
+                   </div>
+                </div>
+                <button class="filters_button" type="submit">Применить</button>
+            </form>
+        </div>
+        <div class='filters_mobile'></div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="tender_list">
+        <div class="row">
+            {% for obj in filter.qs %}
+            <div class="col-12 col-md-6">
+                <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
+                    <div class="tender_header d-flex align-items-center justify-content-between">
+                        <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
+                        <div class="tender_info">
+                            <span class="tender_on_date">на {{obj.on_date}}</span>
+                            <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
+                        </div>
+                    </div>
+                    <div class="tender_body d-flex align-items-start">
+                        <div class="tender_img">
+                            {% if obj.author.clientprofile.avatar %}
+                            <img src="{{obj.author.clientprofile.avatar.url}}" alt="">
+                            {% else %}
+                            <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                            {% endif %}
+                        </div>
+                        <div class="tender_preview">
+                            <p class="tender_author">{{obj.author}}</p>
+                            <p class="tender_comment">{{obj.comment}}</p>
+                        </div>
+                    </div>
+                    <div class="tender_footer">
+                        <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
+                        <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
+{%block script%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script>
+    $(document).ready(function(){
+        $('.mobile_filter_btn a').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+        $('.filter_close_btn').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+
+    });
+</script>
+{%endblock%}

@@ -9,32 +9,34 @@
 {%endblock%}
 
 {% block content %}
-<div class="tender_create">
-    <h1>Создать тендер</h1>
-     <form class="tender_create_form" method="post" enctype='multipart/form-data'>
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    {% csrf_token %}
-
-    {% for hidden_field in form.hidden_fields %}
-    {{ hidden_field }}
-    {% endfor %}
-
-    {% for field in form.visible_fields %}
-    <div class="form-group">
-          {{ field.label_tag }}
-          {{ field }}
-          {% if field.help_text %}
-            <small class="form-text text-muted">{{ field.help_text }}</small>
-          {% endif %}
+<div class="container">
+    <div class="tender_create">
+        <h1>Создать тендер</h1>
+         <form class="tender_create_form" method="post" enctype='multipart/form-data'>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% csrf_token %}
+    
+        {% for hidden_field in form.hidden_fields %}
+        {{ hidden_field }}
+        {% endfor %}
+    
+        {% for field in form.visible_fields %}
+        <div class="form-group">
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.help_text %}
+                <small class="form-text text-muted">{{ field.help_text }}</small>
+              {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Создать</button>
+        </form>
     </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-primary">Создать</button>
-    </form>
 </div>
 {% endblock %}
