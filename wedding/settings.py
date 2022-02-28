@@ -55,8 +55,8 @@ INSTALLED_APPS = [
     'guest_list',
     'plan',
     'favorite',
-    'star_ratings',
     'django_filters',
+    # 'star_ratings',
 ]
 
 AUTH_USER_MODEL = 'account.User'

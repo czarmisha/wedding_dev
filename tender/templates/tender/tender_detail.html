@@ -21,72 +21,74 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col">
-        <div class="tender_box">
-            <div class="tender_header d-flex align-items-center justify-content-between">
-                <h3 class="tender_need">Нужен: <span>{{tender.get_service_display}}</span></h3>
-                <div class="tender_info">
-                    <span class="tender_on_date">на {{tender.on_date}}</span>
-                    <span class="tender_budget">Бюджет <span>{{tender.budget}} сум</span></span>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="tender_box">
+                <div class="tender_header d-flex align-items-center justify-content-between">
+                    <h3 class="tender_need">Нужен: <span>{{tender.get_service_display}}</span></h3>
+                    <div class="tender_info">
+                        <span class="tender_on_date">на {{tender.on_date}}</span>
+                        <span class="tender_budget">Бюджет <span>{{tender.budget}} сум</span></span>
+                    </div>
                 </div>
-            </div>
-            <div class="tender_body d-flex align-items-start">
-                <div class="tender_img">
-                    
-                    {% if tender.author.clientprofile.avatar %}
-                    <img src="{{ tender.author.clientprofile.avatar.url }}" alt="">
-                    {% else %}
-                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
-                    {% endif %}
-
+                <div class="tender_body d-flex align-items-start">
+                    <div class="tender_img">
+                        
+                        {% if tender.author.clientprofile.avatar %}
+                        <img src="{{ tender.author.clientprofile.avatar.url }}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                        {% endif %}
+    
+                    </div>
+                    <div class="tender_preview">
+                        <p class="tender_author">{{tender.author}}</p>
+                        <p class="tender_comment">{{tender.comment}}</p>
+                    </div>
                 </div>
-                <div class="tender_preview">
-                    <p class="tender_author">{{tender.author}}</p>
-                    <p class="tender_comment">{{tender.comment}}</p>
+                <div class="tender_footer">
+                    <span class="tender_created">Тендер создан: {{tender.create_date}}</span>
+                    <span class="tender_responses">Отклики: {{tender.responses.count}}</span>
                 </div>
-            </div>
-            <div class="tender_footer">
-                <span class="tender_created">Тендер создан: {{tender.create_date}}</span>
-                <span class="tender_responses">Отклики: {{tender.responses.count}}</span>
-            </div>
-
-            <div class="tender_specialists">
-                <div class="wrapper">
-                    <h3 class="title">Специалисты, которые откликнулись на этот тендер</h3>
-
-                    {% for response in tender.responses.all%}
-                        <div class="row">
-                            <div class="col-12 col-md-6 d-flex align-items-center mb-4">
-                                {% if response.from_user.check_avatar %}
-                                <img src="{{ response.from_user.check_avatar.url }}" alt="">
-                                {% else %}
-                                <img src="{% static 'media/images/default_avatar.png' %}" alt="">
-                                {% endif %}
-                                <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
+    
+                <div class="tender_specialists">
+                    <div class="wrapper">
+                        <h3 class="title">Специалисты, которые откликнулись на этот тендер</h3>
+    
+                        {% for response in tender.responses.all%}
+                            <div class="row">
+                                <div class="col-12 col-md-6 d-flex align-items-center mb-4">
+                                    {% if response.from_user.check_avatar %}
+                                    <img src="{{ response.from_user.check_avatar.url }}" alt="">
+                                    {% else %}
+                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                                    {% endif %}
+                                    <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
+                                </div>
                             </div>
-                        </div>
-                    {%endfor%}
-
+                        {%endfor%}
+    
+                    </div>
                 </div>
-            </div>
-
-            {%if tender.author == request.user%}
-              <div class="tender_func">
-                    <a class="tender_edit" href="{%url 'tender:update' tender.slug%}">Редактировать</a>
-                    <a class="tender_edit" href="{%url 'tender:delete' tender.slug%}">Удалить</a>
-              </div>
-            {%endif%}
-
-            {%if tender.executor%}
-                <p>Тендер закрыт. Исполнитель найден</p>
-            {%else%}
-                {%if responded%}
-                    <span>Вы откликнулись</span>
-                {%elif tender.service == request.user.type%}
-                    <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">Откликнуться на тендер</a>
+    
+                {%if tender.author == request.user%}
+                  <div class="tender_func">
+                        <a class="tender_edit" href="{%url 'tender:update' tender.slug%}">Редактировать</a>
+                        <a class="tender_edit" href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+                  </div>
                 {%endif%}
-            {%endif%}
+    
+                {%if tender.executor%}
+                    <p>Тендер закрыт. Исполнитель найден</p>
+                {%else%}
+                    {%if responded%}
+                        <span>Вы откликнулись</span>
+                    {%elif tender.service == request.user.type%}
+                        <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">Откликнуться на тендер</a>
+                    {%endif%}
+                {%endif%}
+            </div>
         </div>
     </div>
 </div>

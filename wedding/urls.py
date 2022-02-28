@@ -32,8 +32,8 @@ urlpatterns = [
     path('plan/', include('plan.urls', namespace='plan')),
     path('favorite/', include('favorite.urls', namespace='favorite')),
     path('admin/', admin.site.urls),
-    path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('search/', include('search.urls', namespace='search')),
+    # path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('__debug__/', include('debug_toolbar.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

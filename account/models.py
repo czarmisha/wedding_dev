@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from django.utils.text import slugify
-from star_ratings.models import Rating
 from django.contrib.contenttypes.fields import GenericRelation
 # from tender.models import Tender
 
@@ -12,14 +11,26 @@ class User(AbstractUser):
         ('client', 'Клиент'),
         ('photographer', 'Фотограф'),
     )
-    type = models.CharField('Тип пользователя', max_length=155, default='client')
-    ratings = GenericRelation(Rating, related_query_name='users')
+    type = models.CharField(
+        'Тип пользователя', max_length=155, default='client')
 
     def __str__(self):
         return self.username
 
+    def get_calculated_rate(self):
+        return int(self.get_positive_rate_count())*1 + int(self.get_neutral_rate_count())*.5 - int(self.get_negative_rate_count())*1
+
     def get_reviews_count(self):
         return self.service_reviews.count()
+
+    def get_negative_rate_count(self):
+        return self.service_reviews.filter(value=1).count()
+
+    def get_neutral_rate_count(self):
+        return self.service_reviews.filter(value=2).count()
+
+    def get_positive_rate_count(self):
+        return self.service_reviews.filter(value=3).count()
 
     def check_avatar(self):
         if self.type == 'client':
@@ -29,41 +40,41 @@ class User(AbstractUser):
         elif self.type == 'restaurant':
             return self.restaurant.avatar
         elif self.type == 'artist':
-            return self.artist.avatar 
+            return self.artist.avatar
         elif self.type == 'transport':
-            return self.transport.avatar 
+            return self.transport.avatar
         elif self.type == 'music':
-            return self.music.avatar 
+            return self.music.avatar
         elif self.type == 'presenter':
-            return self.presenter.avatar 
+            return self.presenter.avatar
         elif self.type == 'registryoffice':
-            return self.registryoffice.avatar 
+            return self.registryoffice.avatar
         elif self.type == 'invitation':
-            return self.invitation.avatar 
+            return self.invitation.avatar
         elif self.type == 'cake':
-            return self.cake.avatar 
+            return self.cake.avatar
         elif self.type == 'dress':
-            return self.dress.avatar 
+            return self.dress.avatar
         elif self.type == 'ring':
-            return self.ring.avatar 
+            return self.ring.avatar
         elif self.type == 'bouquet':
-            return self.bouquet.avatar 
+            return self.bouquet.avatar
         elif self.type == 'decor':
-            return self.decor.avatar 
+            return self.decor.avatar
         elif self.type == 'costume':
-            return self.costume.avatar 
+            return self.costume.avatar
         elif self.type == 'accessories':
-            return self.accessories.avatar 
+            return self.accessories.avatar
         elif self.type == 'stylist':
-            return self.stylist.avatar 
+            return self.stylist.avatar
         elif self.type == 'photostudio':
-            return self.photostudio.avatar 
+            return self.photostudio.avatar
         elif self.type == 'dance':
-            return self.dance.avatar 
+            return self.dance.avatar
         elif self.type == 'agency':
-            return self.agency.avatar 
+            return self.agency.avatar
         elif self.type == 'videographer':
-            return self.videographer.avatar 
+            return self.videographer.avatar
 
     def get_cabinet_url(self):
         if self.type == 'client':
@@ -110,7 +121,6 @@ class User(AbstractUser):
             return reverse('services:videographer_detail', args=[self.videographer.slug])
 
 
-
 class Category(models.Model):
     title = models.CharField(max_length=30)
 
@@ -138,7 +148,8 @@ class City(models.Model):
 
 class District(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название района')
-    city = models.ForeignKey('City', on_delete=models.CASCADE, verbose_name='Город района')
+    city = models.ForeignKey(
+        'City', on_delete=models.CASCADE, verbose_name='Город района')
 
     class Meta:
         verbose_name = 'Район'
@@ -150,11 +161,14 @@ class District(models.Model):
 
 class ClientProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    avatar = models.ImageField(upload_to='avatars/clients', verbose_name='Аватар', blank=True)
+    avatar = models.ImageField(
+        upload_to='avatars/clients', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
-    create_date = models.DateTimeField('Дата создания профиля', auto_now_add=True)
-    slug = models.SlugField(max_length=200, unique=True, default='defaultclient')
+    create_date = models.DateTimeField(
+        'Дата создания профиля', auto_now_add=True)
+    slug = models.SlugField(max_length=200, unique=True,
+                            default='defaultclient')
 
     def __str__(self):
         return self.user.username

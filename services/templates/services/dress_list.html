@@ -1,8 +1,6 @@
 {% extends 'services_base.html' %}
 {% load static %}
-{% load ratings %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
@@ -84,7 +82,7 @@
                             {% else %}
                             <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.get_average_rating}}</p>
+                            <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
                             <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
                         </div>
                     </div>
@@ -133,14 +131,46 @@
             }
         );
 
-        if(!price_range[0] && price_range[1] == 2000000) $('#select_price_range option[init="1"]').attr('selected','selected');
-        if(price_range[0] == 2000000 && price_range[1] == 3000000) $('#select_price_range option[init="2"]').attr('selected','selected');
-        if(price_range[0] == 3000000 && price_range[1] == 4000000) $('#select_price_range option[init="3"]').attr('selected','selected');
-        if(price_range[0] == 4000000 && price_range[1] == 5000000) $('#select_price_range option[init="4"]').attr('selected','selected');
-        if(price_range[0] == 5000000 && price_range[1] == 6000000) $('#select_price_range option[init="5"]').attr('selected','selected');
-        if(price_range[0] == 6000000 && price_range[1] == 7000000) $('#select_price_range option[init="6"]').attr('selected','selected');
-        if(price_range[0] == 7000000 && price_range[1] == 8000000) $('#select_price_range option[init="7"]').attr('selected','selected');
-        if(price_range[0] == 8000000 && !price_range[1]) $('#select_price_range option[init="8"]').attr('selected','selected');
+        if(!price_range[0] && price_range[1] == 2000000){
+            $('#select_price_range option[init="1"]').attr('selected','selected');
+            $('#id_price_0').val('');
+            $('#id_price_1').val('2000000');
+        }
+        if(price_range[0] == 2000000 && price_range[1] == 3000000){
+            $('#select_price_range option[init="2"]').attr('selected','selected');
+            $('#id_price_0').val('2000000');
+            $('#id_price_1').val('3000000');
+        }
+        if(price_range[0] == 3000000 && price_range[1] == 4000000){
+            $('#select_price_range option[init="3"]').attr('selected','selected');
+            $('#id_price_0').val('3000000');
+            $('#id_price_1').val('4000000');
+        }
+        if(price_range[0] == 4000000 && price_range[1] == 5000000){
+            $('#select_price_range option[init="4"]').attr('selected','selected');
+            $('#id_price_0').val('4000000');
+            $('#id_price_1').val('5000000');
+        }
+        if(price_range[0] == 5000000 && price_range[1] == 6000000){
+            $('#select_price_range option[init="5"]').attr('selected','selected');
+            $('#id_price_0').val('5000000');
+            $('#id_price_1').val('6000000');
+        }
+        if(price_range[0] == 6000000 && price_range[1] == 7000000){
+            $('#select_price_range option[init="6"]').attr('selected','selected');
+            $('#id_price_0').val('6000000');
+            $('#id_price_1').val('7000000');
+        }
+        if(price_range[0] == 7000000 && price_range[1] == 8000000){
+            $('#select_price_range option[init="7"]').attr('selected','selected');
+            $('#id_price_0').val('7000000');
+            $('#id_price_1').val('8000000');
+        }
+        if(price_range[0] == 8000000 && !price_range[1]){
+            $('#select_price_range option[init="8"]').attr('selected','selected');
+            $('#id_price_0').val('8000000');
+            $('#id_price_1').val('');
+        }
 
         $('#select_price_range').on('change', function(){
             if($(this).val() == '-1'){
