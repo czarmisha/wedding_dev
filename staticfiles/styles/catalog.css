@@ -40,10 +40,10 @@ h1{
 }
 .catalog_box span{
     text-align: center;
-    margin: 0 0 5px;
     font-size: 17px;
+    margin-top: 7px;
     color: #6d6e71;
-    height: 51px;
+    /* height: 51px; */
 }
 
 .catalog_img{

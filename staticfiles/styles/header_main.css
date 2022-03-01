@@ -35,7 +35,7 @@ header nav{
     z-index: 5;
     width: 100%;
     justify-content: center;
-    background: rgba(144,144,144,.45);
+    background: rgb(27 27 27 / 62%);
 }
 
 .header_background{

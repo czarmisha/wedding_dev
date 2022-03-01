@@ -36,14 +36,14 @@ h1{
     transition: color .2s;
     text-overflow: ellipsis;
     text-decoration: none;
-    margin-bottom: 30px;
+    margin-bottom: 38px;
 }
 .catalog_box span{
     text-align: center;
-    margin: 0 0 5px;
     font-size: 17px;
+    margin-top: 7px;
     color: #6d6e71;
-    height: 51px;
+    /* height: 51px; */
 }
 
 .catalog_img{
