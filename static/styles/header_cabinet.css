@@ -29,7 +29,7 @@ ul{
 header nav{
     display: flex;
     align-items: center;
-    margin-top: -15px;
+    /* margin-top: -15px; */
     z-index: 5;
     width: 100%;
     justify-content: center;
@@ -78,9 +78,13 @@ header nav{
     color: var(--dark-color);
 }
 
+.logo{
+    padding: 10px 15px;
+}
+
 .logo img{
-    width: 120px;
-    height: 120px;
+    width: 66px;
+    height: 44px;
 }
 
 .my_dropdown .column_menu{
@@ -493,7 +497,10 @@ header nav{
 
 @media (max-width: 575px){
     .header a.logo img{
-        width: 100px;
-        height: 100px;
+        width: 44px;
+        height: 30px;
+    }
+    .header a.logo{
+        padding: 10px 0;
     }
 }

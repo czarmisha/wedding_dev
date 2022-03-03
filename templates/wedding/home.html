@@ -45,8 +45,155 @@
                     </div>
                 </div>
             </section>
-
-    <section class="welcome">
+            <section class="catalog_section">
+                <div class="container">
+                    <h2 class="text-center title">Каталог услуг</h2>
+                <div class="catalog_box">
+                    <div class="catalog_left">
+                        <div class="catalog_top">
+                            <div class="catalog_top_left">
+                                <div class="catalog_wrapper">
+                                    <div class="catalog_441">
+                                        <div class="catalog_thumb">
+                                            <span style="background: url({%static 'media/images/catalog_1.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                        </div>
+                                        <div class="catalog_descr">
+                                            <h3>Фотографы</h3>
+                                        </div>
+                                        <a href="{% url 'services:photographer_list' %}" class="catalog_hover">
+                                            <h3>Фотографы</h3>
+                                            <span>Смотреть варианты</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="catalog_top_right">
+                                <div class="catalog_top_right_top">
+                                    <div class="catalog_wrapper">
+                                        <div class="catalog_234">
+                                            <div class="catalog_thumb">
+                                                <span style="background: url({%static 'media/images/catalog_2.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                            </div>
+                                            <div class="catalog_descr">
+                                                <h3>Видеографы</h3>
+                                            </div>
+                                            <a href="{% url 'services:videographer_list' %}" class="catalog_hover">
+                                                <h3>Видеографы</h3>
+                                                <span>Смотреть варианты</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="catalog_top_right_bottom">
+                                    <div class="catalog_wrapper">
+                                        <div class="catalog_183">
+                                            <div class="catalog_thumb">
+                                                <span style="background: url({%static 'media/images/catalog_3.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                            </div>
+                                            <div class="catalog_descr">
+                                                <h3>Рестораны</h3>
+                                            </div>
+                                            <a href="{% url 'services:restaurant_list' %}" class="catalog_hover">
+                                                <h3>Рестораны</h3>
+                                                <span>Смотреть варианты</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog_bottom">
+                            <div class="catalog_wrapper">
+                                <div class="catalog_209">
+                                    <div class="catalog_thumb">
+                                        <span style="background: url({%static 'media/images/catalog_9.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                    </div>
+                                    <div class="catalog_descr">
+                                        <h3>Пригласительные</h3>
+                                    </div>
+                                    <a href="{% url 'services:invitation_list' %}" class="catalog_hover">
+                                        <h3>Пригласительные</h3>
+                                        <span>Смотреть варианты</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catalog_right">
+                        <div class="catalog_bottom">
+                            <div class="catalog_wrapper">
+                                <div class="catalog_268">
+                                    <div class="catalog_thumb">
+                                        <span style="background: url({%static 'media/images/catalog_7.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                    </div>
+                                    <div class="catalog_descr">
+                                        <h3>Ведущие</h3>
+                                    </div>
+                                    <a href="{% url 'services:presenter_list' %}" class="catalog_hover">
+                                        <h3>Ведущие</h3>
+                                        <span>Смотреть варианты</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="catalog_top">
+                            <div class="catalog_top_left">
+                                <div class="catalog_wrapper">
+                                    <div class="catalog_382">
+                                        <div class="catalog_thumb">
+                                            <span style="background: url({%static 'media/images/catalog_5.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                        </div>
+                                        <div class="catalog_descr">
+                                            <h3>Транспорт</h3>
+                                        </div>
+                                        <a href="{% url 'services:transport_list' %}" class="catalog_hover">
+                                            <h3>Транспорт</h3>
+                                            <span>Смотреть варианты</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="catalog_top_right">
+                                <div class="catalog_top_right_top">
+                                    <div class="catalog_wrapper">
+                                        <div class="catalog_198">
+                                            <div class="catalog_thumb">
+                                                <span style="background: url({%static 'media/images/catalog_10.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                            </div>
+                                            <div class="catalog_descr">
+                                                <h3>Торты</h3>
+                                            </div>
+                                            <a href="{% url 'services:cake_list' %}" class="catalog_hover">
+                                                <h3>Торты</h3>
+                                                <span>Смотреть варианты</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="catalog_top_right_bottom">
+                                    <div class="catalog_wrapper">
+                                        <div class="catalog_161">
+                                            <div class="catalog_thumb">
+                                                <span style="background: url({%static 'media/images/catalog_16.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
+                                            </div>
+                                            <div class="catalog_descr">
+                                                <h3>Аксессуары</h3>
+                                            </div>
+                                            <a href="{% url 'services:accessories_list' %}" class="catalog_hover">
+                                                <h3>Аксессуары</h3>
+                                                <span>Смотреть варианты</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'catalog' %}" class="btn__gold">Смотреть весь каталог</a>
+                </div>
+            </section>
+            <section class="welcome">
                 <div class="container text-center">
                     <h2 class="welcome_title title">Добро пожаловать в мир T<span>O</span>YP<span>O</span>Y!</h2>
                     <a href="{% url 'account:registration' %}" class="btn__gold welcome_client-register">Регистрация молодоженов</a>
