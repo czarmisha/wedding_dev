@@ -97,7 +97,7 @@ header nav{
     padding: 15px 20px 15px;
     background: rgba(218, 218, 218, 0.44);
     font-size: 32px;
-    border: 5px solid var(--gold-color);
+    border: 3px solid var(--gold-color);
     margin: 0 0 30px;
     color: var(--dark-color);  
     font-family: 'Roboto_bold';

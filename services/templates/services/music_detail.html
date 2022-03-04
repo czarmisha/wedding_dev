@@ -108,6 +108,11 @@
                                         {% endif %}
                                         <span>{{review.client_user}}</span>
                                         <p>{{review.text}}</p>
+                                        <ul class="rate_options">
+                                            <li class="rate_option negative_rate {% if review.value == 1 %}selected{% endif %}"><i class="fad fa-frown"></i></li>
+                                            <li class="rate_option neutral_rate {% if review.value == 2 %}selected{% endif %}"><i class="fad fa-meh"></i></li>
+                                            <li class="rate_option positive_rate {% if review.value == 3 %}selected{% endif %}"><i class="fad fa-smile"></i></li>
+                                        </ul>
                                     </li>
                                 {%endfor%}
                             </ul>

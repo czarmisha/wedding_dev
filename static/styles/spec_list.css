@@ -6,6 +6,7 @@
     --light-grey: #808285;
     --gold-color: #c99e66;
     --blue-color: #3096ce8c;
+    --blue: #4197cb;
 }
 
 *{
@@ -23,15 +24,18 @@ main{
     overflow: hidden;
     text-decoration: none;
     padding: 10px 10px 10px;
-    border-radius: 3px;
     margin: 0 0 10px;
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
-    box-shadow: 0 0 0 2px #8082853f;
+    /* border-radius: 3px; */
+    /* box-shadow: 0 0 0 2px #8082853f; */
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 14%);
+    border-radius: 16px;
 }
 
 .spec_box.is_pro{
-    box-shadow: 0 0 0 2px var(--gold-color);
+    /* box-shadow: 0 0 0 2px var(--gold-color); */
+    border: 3px solid var(--blue-color);
 }
 
 .spec_box .is_pro_badge{
@@ -49,13 +53,14 @@ main{
 }
 
 .spec_box:hover{
-    box-shadow: 0 0 0 2px #c99e666e;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 40%);
+    /* box-shadow: 0 0 0 2px #c99e666e;*/
 }
 
 .left{
-    background-color: #646464;
+    background-color: #adadad;
     color: #f9f9f9;
-    border-color: #646464;
+    border-color: #adadad;
     border-radius: 5px;
     padding: 5px;
     font-size: 13px;
@@ -70,6 +75,7 @@ main{
     max-width: 200px;
     min-height: 160px;
     max-height: 200px;
+    border-radius: 50%;
 }
 
 .spec_rating{
@@ -88,6 +94,7 @@ main{
 .info{
     background: #f2f2f2;
     padding: 8px 12px;
+    border-radius: 5px;
 }
 
 .spec_fullname{
