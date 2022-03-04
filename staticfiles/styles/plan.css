@@ -26,7 +26,7 @@ main{
     max-width: 600px;
     /*padding: 40px 25px 40px 25px;*/
     border: 2px solid #c99e668f;
-    overflow: hidden;
+    overflow-y: scroll;
     background: #f4f3f3;
     margin: 0 auto;
 }
@@ -45,10 +45,16 @@ main{
     font-family: 'Roboto_medium';
 }
 #Plan td{
-    padding: 7px 0;
+    padding: 7px;
     font-size: 14px;
     color: var(--light-grey);
     text-align: center;
+}
+#Plan tr{
+    border-bottom: 1px solid #ccc;
+}
+#Plan tr:last-child{
+    border: none;
 }
 #Plan textarea{
     background: #fff;

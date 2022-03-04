@@ -5,6 +5,7 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
+    font-family: 'Roboto_regular';
 }
 
 *{
@@ -16,7 +17,19 @@ ul{
     margin: 0;
     padding: 0;
 }
-
+/* ----------- lang ----------------- */
+.lang_switch{
+    position: fixed;
+    top: 19px;
+    right: 20px;
+    z-index: 9999999;
+    color: var(--gold-color);
+}
+.lang_switch a{
+    color: var(--gold-color);
+    font-size: 16px;
+    font-family: 'Roboto_medium';
+}
 /* ----------------------------------------- tender_section ---------------------------- */
 .tender_section{
     background-color: #f6f6f6;
@@ -50,15 +63,12 @@ ul{
 
 .tender_box{
     padding: 25px 20px;
-    border: 4px solid #efefef;
+    /* border: 4px solid #efefef; */
     background: #fff;
     transition: all .2s ease;
     margin: 10px 0;
-}
-
-.tender_link:hover>.tender_box{
-    border: 4px solid #c99e6670;
-    box-shadow: 0 0 20px rgb(30 40 50 / 15%);
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
 }
 
 .tender_info{
@@ -192,8 +202,182 @@ ul{
     margin-bottom: 25px;
 }
 
+/* --------------------------- catalog section ------------------------------ */
+.catalog_section{
+    padding: 50px 0;
+}
+.catalog_box{
+    display: flex;
+    align-items: center;
+}
+.catalog_left{
+    width: 50%;
+    padding-right: 12px;
+}
+.catalog_right{
+    width: 50%;
+    padding-left: 12px;
+}
+.catalog_top,
+.catalog_bottom{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.catalog_top_left{
+    width: calc(50% - 12px);
 
-
+}
+.catalog_top_right{
+    width: calc(50% - 12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.catalog_wrapper{
+    width: 100%;
+}
+.catalog_thumb{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.catalog_descr{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 12px 32px 15px;
+    background-color: white;
+}
+.catalog_descr h3{
+    font-family: 'Roboto_medium';
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.catalog_hover{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    align-items: center;
+    background: #4197cb;
+    background-size: cover;
+    border-radius: 16px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+.catalog_hover:hover{
+    opacity: 1;
+}
+.catalog_hover h3{
+    font-size: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.catalog_hover span{
+    outline: none !important;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 11px 33px rgb(204 208 221 / 37%);
+    box-shadow: 0px 11px 33px rgb(204 208 221 / 37%);
+    height: 44px;
+    line-height: 44px;
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: #000 !important;
+    background-color: #fff;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.catalog_441{
+    height: 441px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_382{
+    height: 382px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_268{
+    height: 268px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_234{
+    height: 234px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_209{
+    height: 209px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_198{
+    height: 198px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_183{
+    height: 183px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_161{
+    height: 161px;
+    position: relative;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.catalog_section .btn__gold{
+    margin: 0 auto;
+    display: block;
+    background-color: white;
+    border: 2px solid #4197cb;
+    transition: all .3s;
+    color: #4197cb;
+    margin-top: 30px;
+}
+.catalog_section .btn__gold:hover{
+    background: #4197cb;
+    color: white;
+}
 /* -------------------------------------- welcome --------------------------------- */
 .welcome{
     background: white;
@@ -210,13 +394,20 @@ ul{
 }
 
 .welcome_client-register{
-    width: 280px;
+    width: 250px;
     height: 50px;
     line-height: 50px;
     text-align: center;
     margin-bottom: 50px;
+    background-color: white;
+    border: 2px solid #4197cb;
+    transition: all .3s;
+    color: #4197cb;
 }
-
+.welcome_client-register:hover{
+    background: #4197cb;
+    color: white;
+}
 .welcome_subtitle{
     font-family: 'Roboto_medium';
     font-size: 24px;
@@ -229,7 +420,79 @@ ul{
 .welcome_spec-register:hover{
     color: var(--light-grey);
 }
-
+/* ------------- planning_section --------------- */
+.planning_section{
+    padding: 50px 0 20px;
+    background-color: #f9f9f9;
+}
+.planning_section .title{
+    margin-bottom: 35px;
+}
+.planning_list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.planning_box{
+    padding: 12px;
+}
+.planning_box a{
+    text-decoration: none;
+    display: block;
+    width: 230px;
+    min-height: 193px;
+    background-color: #fff;
+    border-radius: 18px;
+    margin-bottom: 24px;
+    border: 2px solid #fff;
+    padding: 56px 16px 15px 23px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0px 13px 32px rgb(204 208 221 / 30%);
+}
+.planning_box a:hover{
+    border: 2px solid #4197cb;
+    box-shadow: 0px 13px 32px rgb(204 208 221 / 60%);
+}
+.planning_icon{
+    position: absolute;
+    top: -19px;
+    left: 23px;
+    width: 59px;
+    height: 58px;
+    border-radius: 18px;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-shadow: 0px 13px 32px rgb(204 208 221 / 20%);
+    box-shadow: 0px 13px 32px rgb(204 208 221 / 20%);
+    color: #4197cb;
+    font-size: 28px;
+}
+.planning_title{
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    color: black;
+    font-family: 'Roboto_medium';
+}
+.planning_descr{
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--light-grey);
+}
 /* ------------- promo_section ---------------- */
 
 .promo_section{
@@ -292,7 +555,7 @@ ul{
     }
 }
 
-@media (max-width: 767px){
+@media (max-width: 768px){
     .tender_section ul{
         flex-direction: column;
     }
@@ -304,6 +567,48 @@ ul{
     }
     .tender_customer{
         padding-left: 20px;
+    }
+    .catalog_441{
+        height: 200px;
+    }
+    .catalog_382{
+        height: 200px;
+    }
+    .catalog_268{
+        height: 200px;
+    }
+    .catalog_234{
+        height: 200px;
+    }
+    .catalog_209{
+        height: 200px;
+    }
+    .catalog_198{
+        height: 200px;
+    }
+    .catalog_183{
+        height: 200px;
+    }
+    .catalog_161{
+        height: 200px;
+    }
+    .catalog_top,
+    .catalog_box{
+        flex-direction: column;
+    }
+    .catalog_top_left,
+    .catalog_top_right,
+    .catalog_left,
+    .catalog_right{
+        width: 100%;
+        padding: 0;
+    }
+    .catalog_top,
+    .catalog_bottom{
+        margin: 0;
+    }
+    .catalog_wrapper{
+        margin-bottom: 24px;
     }
 }
 
