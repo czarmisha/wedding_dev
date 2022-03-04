@@ -8,35 +8,35 @@
             <div class="planning">
                 <ul class="planning_list">
                     <li class="planning_box">
-                        <a href="">
+                        <a href="{% url 'budget:budget_view' %}">
                             <span class="planning_icon"><i class="fad fa-calculator-alt"></i></span>
                             <p class="planning_title">Онлайн калькулятор расходов</p>
                             <p class="planning_descr">Ведите финансовый учет по всем свадебным позициям</p>
                         </a>
                     </li>
                     <li class="planning_box">
-                        <a href="">
+                        <a href="{% url 'favorite:my_favorites' %}">
                             <span class="planning_icon"><i class="fad fa-users"></i></span>
                             <p class="planning_title">Сохраненные специалисты</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
                     </li>
                     <li class="planning_box">
-                        <a href="">
+                        <a href="{% url 'account:tenders' %}">
                             <span class="planning_icon"><i class="fad fa-handshake-alt"></i></span>
                             <p class="planning_title">Мои тендеры</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
                     </li>
-                    <li class="planning_box">
-                        <a href="">
+                    {% comment %} <li class="planning_box">
+                        <a href="{% url 'guest_list:guest_list' %}">
                             <span class="planning_icon"><i class="fad fa-list-alt"></i></span>
                             <p class="planning_title">Список гостей</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
-                    </li>
+                    </li> {% endcomment %}
                     <li class="planning_box">
-                        <a href="">
+                        <a href="{% url 'plan:plan_list' %}">
                             <span class="planning_icon"><i class="fad fa-clipboard-list-check"></i></span>
                             <p class="planning_title">План свадебного дня</p>
                             <p class="planning_descr">Описание описание</p>

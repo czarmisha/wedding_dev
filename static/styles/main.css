@@ -17,7 +17,19 @@ ul{
     margin: 0;
     padding: 0;
 }
-
+/* ----------- lang ----------------- */
+.lang_switch{
+    position: fixed;
+    top: 19px;
+    right: 20px;
+    z-index: 9999999;
+    color: var(--gold-color);
+}
+.lang_switch a{
+    color: var(--gold-color);
+    font-size: 16px;
+    font-family: 'Roboto_medium';
+}
 /* ----------------------------------------- tender_section ---------------------------- */
 .tender_section{
     background-color: #f6f6f6;
