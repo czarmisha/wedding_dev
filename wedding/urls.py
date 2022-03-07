@@ -14,13 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
 from django.conf import settings
 from . import views
 from django.conf.urls.static import static
 
 app_name = 'wedding'
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('', views.home, name='home'),
     path('promo/', views.promo, name='promo'),
     path('catalog/', views.catalog, name='catalog'),
@@ -33,9 +34,9 @@ urlpatterns = [
     path('favorite/', include('favorite.urls', namespace='favorite')),
     path('admin/', admin.site.urls),
     path('search/', include('search.urls', namespace='search')),
-    # path('ratings/', include('star_ratings.urls', namespace='ratings')),
     path('__debug__/', include('debug_toolbar.urls')),
-]
+    # path('ratings/', include('star_ratings.urls', namespace='ratings')),
+)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "wedding.views.page_not_found_view"

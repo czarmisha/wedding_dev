@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <div class="header">
             <div class="mobile-menu position-absolute  d-lg-none">
@@ -19,7 +20,7 @@
                     </ul>
                     <ul class="mobile_catalog position-absolute">
                         <li class="catalog_back"><i class="fad fa-long-arrow-left"></i><span>Назад</span></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> Фотографы</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt="">  {% trans "Фотографы" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> Видеографы</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:restaurant_list' %}"><img src="{% static 'media/images/3.jpg' %}" alt=""> Рестораны и банкетные залы</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> Артисты и шоу программы</a></li>

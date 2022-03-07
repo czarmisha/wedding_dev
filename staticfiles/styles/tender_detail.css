@@ -159,7 +159,11 @@ main{
 .tender_edit:hover{
     color: white;
 }
-
+.createResponse{
+    margin-left: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
 
 /* ----------------------- media -------------- */
 
