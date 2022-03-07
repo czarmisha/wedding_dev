@@ -14,13 +14,13 @@
         <div class="container">
             <div class="top_place">
                 <div class="top_title">
-                    <h1>Музыкальные группы и DJ</h1>
+                    <h1>{% trans 'Музыкальные группы и DJ' %}</h1>
                 </div>
                 <div class="top_descr">
-                    <p>Пускайтесь в пляс под знакомые мелодии и композиции</p>
+                    <p>{% trans 'Пускайтесь в пляс под знакомые мелодии и композиции' %}</p>
                 </div>
                 <div class="mobile_filter_btn">
-                    <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
+                    <a href="#"><span><i class="fas fa-filter"></i></span> {% trans 'Показать фильтры' %}</a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
                 <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
                     <p class="filter_wrapper">
-                        <input type="text" name="name" placeholder="Поиск по названию ...">
+                        <input type="text" name="name" placeholder="{% trans 'Поиск по названию' %} ...">
                         <input type="hidden" name="service" value="accessories">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </p>
@@ -43,15 +43,15 @@
                     </p>
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
-                            <option value="-1">Стоимость за вечер</option>
-                            <option init='1' value="1">0-4.000.000 сум</option>
-                            <option init='2' value="2">4.000.000-5.000.000 сум</option>
-                            <option init='3' value="3">5.000.000-6.000.000 сум</option>
-                            <option init='4' value="4">6.000.000-7.000.000 сум</option>
-                            <option init='5' value="5">7.000.000-8.000.000 сум</option>
-                            <option init='6' value="6">8.000.000-9.000.000 сум</option>
-                            <option init='7' value="7">9.000.000-10.000.000 сум</option>
-                            <option init='8' value="8">выше 10.000.000 сум</option>
+                            <option value="-1">{% trans 'Стоимость за вечер' %}</option>
+                            <option init='1' value="1">0-4.000.000 {% trans 'сум' %}</option>
+                            <option init='2' value="2">4.000.000-5.000.000 {% trans 'сум' %}</option>
+                            <option init='3' value="3">5.000.000-6.000.000 {% trans 'сум' %}</option>
+                            <option init='4' value="4">6.000.000-7.000.000 {% trans 'сум' %}</option>
+                            <option init='5' value="5">7.000.000-8.000.000 {% trans 'сум' %}</option>
+                            <option init='6' value="6">8.000.000-9.000.000 {% trans 'сум' %}</option>
+                            <option init='7' value="7">9.000.000-10.000.000 {% trans 'сум' %}</option>
+                            <option init='8' value="8">{% trans 'выше' %} 10.000.000 {% trans 'сум' %}</option>
                         </select>
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
@@ -59,7 +59,7 @@
                     <p class="filter_wrapper">
                         {{filter.form.language}}
                     </p>
-                    <button type="submit">Применить</button>
+                    <button type="submit">{% trans 'Применить' %}</button>
                 </form>
             </div>
             <div class='filters_mobile'></div>
@@ -89,9 +89,9 @@
                             <div class="info d-flex align-items-center justify-content-between">
                                 <h3 class="spec_fullname">{{object.name}}</h3>
                                 <div class="info_right d-flex align-items-center">
-                                    <p class="spec_price">За выстуление {{object.price}} сум</p>
+                                    <p class="spec_price">{% trans 'За выстуление' %} {{object.price}} {% trans 'сум' %}</p>
                                     <span> | </span>
-                                    <p class="spec_price">За вечер {{object.price_per_evening}} сум</p>
+                                    <p class="spec_price">{% trans 'За вечер' %} {{object.price_per_evening}} {% trans 'сум' %}</p>
                                 </div>
                             </div>
                             <div class="spec_portfolio">
@@ -244,7 +244,7 @@
         });
 
         $('#id_language').select2({
-            placeholder: "Язык",
+            placeholder: "{% trans 'Язык' %}",
         })
     });
 </script>

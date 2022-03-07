@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 12:13+0500\n"
+"POT-Creation-Date: 2022-03-07 12:39+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,8 @@ msgid "в избранных"
 msgstr ""
 
 #: account/templates/account/favorites.html:24
+#: services/templates/services/catalog.html:18
+#: services/templates/services/photographer_list.html:16
 #: templates/wedding/_inc/header.html:24 templates/wedding/_inc/header.html:66
 #: templates/wedding/_inc/header_cabinet.html:24
 #: templates/wedding/_inc/header_cabinet.html:66
@@ -112,11 +114,13 @@ msgid "Фотографы"
 msgstr "Fotograflar"
 
 #: account/templates/account/favorites.html:54
+#: services/templates/services/restaurant_list.html:17
 msgid "Банкетные залы и рестораны"
 msgstr ""
 
 #: account/templates/account/favorites.html:84
 #: account/templates/account/favorites.html:535
+#: services/templates/services/registryoffice_list.html:17
 #: templates/wedding/_inc/header.html:31 templates/wedding/_inc/header.html:73
 #: templates/wedding/_inc/header_cabinet.html:31
 #: templates/wedding/_inc/header_cabinet.html:73
@@ -126,6 +130,8 @@ msgid "Дворцы бракосочетания и ЗАГСы"
 msgstr ""
 
 #: account/templates/account/favorites.html:114
+#: services/templates/services/catalog.html:24
+#: services/templates/services/videographer_list.html:16
 #: templates/wedding/_inc/header.html:25 templates/wedding/_inc/header.html:67
 #: templates/wedding/_inc/header_cabinet.html:25
 #: templates/wedding/_inc/header_cabinet.html:67
@@ -138,6 +144,7 @@ msgid "Видеографы"
 msgstr "Fotograflar"
 
 #: account/templates/account/favorites.html:144
+#: services/templates/services/catalog.html:36
 #: templates/wedding/_inc/header.html:27 templates/wedding/_inc/header.html:69
 #: templates/wedding/_inc/header_cabinet.html:27
 #: templates/wedding/_inc/header_cabinet.html:69
@@ -147,6 +154,7 @@ msgid "Артисты и шоу программы"
 msgstr ""
 
 #: account/templates/account/favorites.html:174
+#: services/templates/services/catalog.html:42
 #: templates/wedding/_inc/header.html:28 templates/wedding/_inc/header.html:70
 #: templates/wedding/_inc/header_cabinet.html:28
 #: templates/wedding/_inc/header_cabinet.html:70
@@ -161,11 +169,14 @@ msgid "Музыкальный группы и DJ"
 msgstr ""
 
 #: account/templates/account/favorites.html:234
+#: services/templates/services/presenter_list.html:17
 msgid "Ведущие и тамада"
 msgstr ""
 
 #: account/templates/account/favorites.html:264
+#: services/templates/services/catalog.html:66
 #: services/templates/services/invitation_detail.html:27
+#: services/templates/services/invitation_list.html:17
 #: templates/wedding/_inc/header.html:32 templates/wedding/_inc/header.html:74
 #: templates/wedding/_inc/header_cabinet.html:32
 #: templates/wedding/_inc/header_cabinet.html:74
@@ -187,6 +198,7 @@ msgstr ""
 
 #: account/templates/account/favorites.html:324
 #: services/templates/services/dress_detail.html:27
+#: services/templates/services/dress_list.html:17
 #: templates/wedding/_inc/header.html:34 templates/wedding/_inc/header.html:76
 #: templates/wedding/_inc/header_cabinet.html:34
 #: templates/wedding/_inc/header_cabinet.html:76
@@ -221,6 +233,7 @@ msgstr ""
 
 #: account/templates/account/favorites.html:474
 #: services/templates/services/accessories_detail.html:27
+#: services/templates/services/accessories_list.html:17
 #: templates/wedding/_inc/header.html:39 templates/wedding/_inc/header.html:81
 #: templates/wedding/_inc/header_cabinet.html:39
 #: templates/wedding/_inc/header_cabinet.html:81
@@ -230,6 +243,8 @@ msgid "Свадебные аксессуары"
 msgstr ""
 
 #: account/templates/account/favorites.html:504
+#: services/templates/services/catalog.html:114
+#: services/templates/services/stylist_list.html:17
 #: templates/wedding/_inc/header.html:40 templates/wedding/_inc/header.html:82
 #: templates/wedding/_inc/header_cabinet.html:40
 #: templates/wedding/_inc/header_cabinet.html:82
@@ -239,10 +254,13 @@ msgid "Стилисты и визажисты"
 msgstr ""
 
 #: account/templates/account/favorites.html:565
+#: services/templates/services/dance_list.html:17
 msgid "Свадебный танец"
 msgstr ""
 
 #: account/templates/account/favorites.html:595
+#: services/templates/services/agency_list.html:17
+#: services/templates/services/catalog.html:132
 #: templates/wedding/_inc/header.html:43 templates/wedding/_inc/header.html:85
 #: templates/wedding/_inc/header_cabinet.html:43
 #: templates/wedding/_inc/header_cabinet.html:85
@@ -301,28 +319,152 @@ msgid "Бюджет"
 msgstr ""
 
 #: account/templates/account/my_tenders.html:20
+#: services/templates/services/accessories_list.html:47
+#: services/templates/services/accessories_list.html:48
+#: services/templates/services/accessories_list.html:49
+#: services/templates/services/accessories_list.html:50
+#: services/templates/services/accessories_list.html:51
+#: services/templates/services/accessories_list.html:91
 #: services/templates/services/agency_detail.html:29
+#: services/templates/services/agency_list.html:74
 #: services/templates/services/artist_detail.html:28
+#: services/templates/services/artist_list.html:44
+#: services/templates/services/artist_list.html:45
+#: services/templates/services/artist_list.html:46
+#: services/templates/services/artist_list.html:47
+#: services/templates/services/artist_list.html:48
+#: services/templates/services/artist_list.html:49
+#: services/templates/services/artist_list.html:50
+#: services/templates/services/artist_list.html:89
 #: services/templates/services/bouquet_detail.html:30
+#: services/templates/services/bouquet_list.html:47
+#: services/templates/services/bouquet_list.html:48
+#: services/templates/services/bouquet_list.html:49
+#: services/templates/services/bouquet_list.html:50
+#: services/templates/services/bouquet_list.html:51
+#: services/templates/services/bouquet_list.html:52
+#: services/templates/services/bouquet_list.html:91
 #: services/templates/services/cake_detail.html:28
 #: services/templates/services/cake_detail.html:29
+#: services/templates/services/cake_list.html:47
+#: services/templates/services/cake_list.html:48
+#: services/templates/services/cake_list.html:49
+#: services/templates/services/cake_list.html:50
+#: services/templates/services/cake_list.html:51
+#: services/templates/services/cake_list.html:90
 #: services/templates/services/costume_detail.html:31
+#: services/templates/services/costume_list.html:47
+#: services/templates/services/costume_list.html:48
+#: services/templates/services/costume_list.html:49
+#: services/templates/services/costume_list.html:50
+#: services/templates/services/costume_list.html:51
+#: services/templates/services/costume_list.html:52
+#: services/templates/services/costume_list.html:53
+#: services/templates/services/costume_list.html:54
+#: services/templates/services/costume_list.html:95
 #: services/templates/services/dance_detail.html:30
+#: services/templates/services/dance_list.html:47
+#: services/templates/services/dance_list.html:48
+#: services/templates/services/dance_list.html:49
+#: services/templates/services/dance_list.html:50
+#: services/templates/services/dance_list.html:51
+#: services/templates/services/dance_list.html:90
 #: services/templates/services/decor_detail.html:29
+#: services/templates/services/decor_list.html:47
+#: services/templates/services/decor_list.html:48
+#: services/templates/services/decor_list.html:49
+#: services/templates/services/decor_list.html:50
+#: services/templates/services/decor_list.html:51
+#: services/templates/services/decor_list.html:52
+#: services/templates/services/decor_list.html:91
 #: services/templates/services/dress_detail.html:31
+#: services/templates/services/dress_list.html:47
+#: services/templates/services/dress_list.html:48
+#: services/templates/services/dress_list.html:49
+#: services/templates/services/dress_list.html:50
+#: services/templates/services/dress_list.html:51
+#: services/templates/services/dress_list.html:52
+#: services/templates/services/dress_list.html:53
+#: services/templates/services/dress_list.html:54
+#: services/templates/services/dress_list.html:95
 #: services/templates/services/invitation_detail.html:29
+#: services/templates/services/invitation_list.html:74
 #: services/templates/services/music_detail.html:31
 #: services/templates/services/music_detail.html:32
+#: services/templates/services/music_list.html:47
+#: services/templates/services/music_list.html:48
+#: services/templates/services/music_list.html:49
+#: services/templates/services/music_list.html:50
+#: services/templates/services/music_list.html:51
+#: services/templates/services/music_list.html:52
+#: services/templates/services/music_list.html:53
+#: services/templates/services/music_list.html:54
+#: services/templates/services/music_list.html:92
+#: services/templates/services/music_list.html:94
 #: services/templates/services/photographer_detail.html:28
 #: services/templates/services/photographer_detail.html:29
+#: services/templates/services/photographer_list.html:43
+#: services/templates/services/photographer_list.html:44
+#: services/templates/services/photographer_list.html:45
+#: services/templates/services/photographer_list.html:46
+#: services/templates/services/photographer_list.html:47
+#: services/templates/services/photographer_list.html:48
+#: services/templates/services/photographer_list.html:84
 #: services/templates/services/photostudio_detail.html:29
+#: services/templates/services/photostudio_list.html:47
+#: services/templates/services/photostudio_list.html:48
+#: services/templates/services/photostudio_list.html:49
+#: services/templates/services/photostudio_list.html:50
+#: services/templates/services/photostudio_list.html:51
+#: services/templates/services/photostudio_list.html:90
 #: services/templates/services/presenter_detail.html:31
 #: services/templates/services/presenter_detail.html:32
+#: services/templates/services/presenter_list.html:47
+#: services/templates/services/presenter_list.html:48
+#: services/templates/services/presenter_list.html:49
+#: services/templates/services/presenter_list.html:50
+#: services/templates/services/presenter_list.html:51
+#: services/templates/services/presenter_list.html:52
+#: services/templates/services/presenter_list.html:93
+#: services/templates/services/registryoffice_list.html:78
 #: services/templates/services/restaurant_detail.html:35
+#: services/templates/services/restaurant_list.html:47
+#: services/templates/services/restaurant_list.html:48
+#: services/templates/services/restaurant_list.html:49
+#: services/templates/services/restaurant_list.html:50
+#: services/templates/services/restaurant_list.html:51
+#: services/templates/services/restaurant_list.html:105
 #: services/templates/services/ring_detail.html:29
+#: services/templates/services/ring_list.html:47
+#: services/templates/services/ring_list.html:48
+#: services/templates/services/ring_list.html:49
+#: services/templates/services/ring_list.html:50
+#: services/templates/services/ring_list.html:51
+#: services/templates/services/ring_list.html:52
+#: services/templates/services/ring_list.html:91
 #: services/templates/services/stylist_detail.html:37
+#: services/templates/services/stylist_list.html:47
+#: services/templates/services/stylist_list.html:48
+#: services/templates/services/stylist_list.html:49
+#: services/templates/services/stylist_list.html:50
+#: services/templates/services/stylist_list.html:51
+#: services/templates/services/stylist_list.html:91
+#: services/templates/services/transport_list.html:47
+#: services/templates/services/transport_list.html:48
+#: services/templates/services/transport_list.html:49
+#: services/templates/services/transport_list.html:50
+#: services/templates/services/transport_list.html:51
+#: services/templates/services/transport_list.html:52
+#: services/templates/services/transport_list.html:100
 #: services/templates/services/videographer_detail.html:28
 #: services/templates/services/videographer_detail.html:29
+#: services/templates/services/videographer_list.html:43
+#: services/templates/services/videographer_list.html:44
+#: services/templates/services/videographer_list.html:45
+#: services/templates/services/videographer_list.html:46
+#: services/templates/services/videographer_list.html:47
+#: services/templates/services/videographer_list.html:48
+#: services/templates/services/videographer_list.html:84
 #: templates/wedding/home.html:68 tender/templates/tender/tender_detail.html:33
 #: tender/templates/tender/tender_list.html:88
 msgid "сум"
@@ -465,6 +607,7 @@ msgid "нет"
 msgstr ""
 
 #: services/templates/services/accessories_detail.html:36
+#: services/templates/services/accessories_list.html:46
 #: services/templates/services/agency_detail.html:29
 #: services/templates/services/artist_detail.html:28
 #: services/templates/services/bouquet_detail.html:30
@@ -530,23 +673,42 @@ msgid "Профиль"
 msgstr ""
 
 #: services/templates/services/accessories_detail.html:70
+#: services/templates/services/accessories_list.html:83
 #: services/templates/services/agency_detail.html:63
+#: services/templates/services/agency_list.html:66
 #: services/templates/services/artist_detail.html:62
+#: services/templates/services/artist_list.html:81
 #: services/templates/services/bouquet_detail.html:64
+#: services/templates/services/bouquet_list.html:83
 #: services/templates/services/cake_detail.html:64
+#: services/templates/services/cake_list.html:82
 #: services/templates/services/costume_detail.html:65
+#: services/templates/services/costume_list.html:87
 #: services/templates/services/dance_detail.html:64
+#: services/templates/services/dance_list.html:82
 #: services/templates/services/decor_detail.html:63
+#: services/templates/services/decor_list.html:83
 #: services/templates/services/dress_detail.html:65
+#: services/templates/services/dress_list.html:87
 #: services/templates/services/invitation_detail.html:63
+#: services/templates/services/invitation_list.html:66
 #: services/templates/services/music_detail.html:66
+#: services/templates/services/photographer_list.html:76
+#: services/templates/services/photostudio_list.html:82
 #: services/templates/services/presenter_detail.html:66
+#: services/templates/services/presenter_list.html:85
 #: services/templates/services/registryoffice_detail.html:63
+#: services/templates/services/registryoffice_list.html:70
 #: services/templates/services/restaurant_detail.html:70
+#: services/templates/services/restaurant_list.html:97
 #: services/templates/services/ring_detail.html:63
+#: services/templates/services/ring_list.html:83
 #: services/templates/services/stylist_detail.html:71
+#: services/templates/services/stylist_list.html:83
 #: services/templates/services/transport_detail.html:75
+#: services/templates/services/transport_list.html:92
 #: services/templates/services/videographer_detail.html:63
+#: services/templates/services/videographer_list.html:76
 msgid "Отзывы"
 msgstr ""
 
@@ -665,12 +827,159 @@ msgstr ""
 msgid "Вы уже писали отзыв"
 msgstr ""
 
+#: services/templates/services/accessories_list.html:20
+msgid ""
+"Подчеркните основную тематику праздника, придавая им торжественный акцент"
+msgstr ""
+
+#: services/templates/services/accessories_list.html:23
+#: services/templates/services/agency_list.html:23
+#: services/templates/services/artist_list.html:22
+#: services/templates/services/bouquet_list.html:23
+#: services/templates/services/cake_list.html:23
+#: services/templates/services/costume_list.html:23
+#: services/templates/services/dance_list.html:23
+#: services/templates/services/decor_list.html:23
+#: services/templates/services/dress_list.html:23
+#: services/templates/services/invitation_list.html:23
+#: services/templates/services/music_list.html:23
+#: services/templates/services/photographer_list.html:22
+#: services/templates/services/photostudio_list.html:23
+#: services/templates/services/presenter_list.html:23
+#: services/templates/services/registryoffice_list.html:23
+#: services/templates/services/restaurant_list.html:23
+#: services/templates/services/ring_list.html:23
+#: services/templates/services/stylist_list.html:23
+#: services/templates/services/transport_list.html:23
+#: services/templates/services/videographer_list.html:22
+#: tender/templates/tender/tender_list.html:23
+msgid "Показать фильтры"
+msgstr ""
+
+#: services/templates/services/accessories_list.html:35
+#: services/templates/services/agency_list.html:35
+#: services/templates/services/artist_list.html:34
+#: services/templates/services/bouquet_list.html:35
+#: services/templates/services/cake_list.html:35
+#: services/templates/services/costume_list.html:35
+#: services/templates/services/dance_list.html:35
+#: services/templates/services/decor_list.html:35
+#: services/templates/services/dress_list.html:35
+#: services/templates/services/invitation_list.html:35
+#: services/templates/services/music_list.html:35
+#: services/templates/services/photostudio_list.html:35
+#: services/templates/services/presenter_list.html:35
+#: services/templates/services/registryoffice_list.html:34
+#: services/templates/services/restaurant_list.html:35
+#: services/templates/services/ring_list.html:35
+#: services/templates/services/stylist_list.html:35
+#: services/templates/services/transport_list.html:35
+msgid "Поиск по названию"
+msgstr ""
+
+#: services/templates/services/accessories_list.html:51
+#: services/templates/services/artist_list.html:50
+#: services/templates/services/bouquet_list.html:52
+#: services/templates/services/cake_list.html:51
+#: services/templates/services/costume_list.html:54
+#: services/templates/services/dance_list.html:51
+#: services/templates/services/decor_list.html:52
+#: services/templates/services/dress_list.html:54
+#: services/templates/services/music_list.html:54
+#: services/templates/services/photographer_list.html:48
+#: services/templates/services/photostudio_list.html:51
+#: services/templates/services/presenter_list.html:52
+#: services/templates/services/restaurant_list.html:51
+#: services/templates/services/restaurant_list.html:64
+#: services/templates/services/ring_list.html:52
+#: services/templates/services/stylist_list.html:51
+#: services/templates/services/transport_list.html:52
+#: services/templates/services/videographer_list.html:48
+msgid "выше"
+msgstr ""
+
+#: services/templates/services/accessories_list.html:60
+#: services/templates/services/agency_list.html:44
+#: services/templates/services/artist_list.html:58
+#: services/templates/services/bouquet_list.html:61
+#: services/templates/services/cake_list.html:60
+#: services/templates/services/costume_list.html:65
+#: services/templates/services/dance_list.html:60
+#: services/templates/services/decor_list.html:61
+#: services/templates/services/dress_list.html:65
+#: services/templates/services/invitation_list.html:44
+#: services/templates/services/music_list.html:62
+#: services/templates/services/photographer_list.html:53
+#: services/templates/services/photostudio_list.html:60
+#: services/templates/services/presenter_list.html:63
+#: services/templates/services/registryoffice_list.html:47
+#: services/templates/services/restaurant_list.html:75
+#: services/templates/services/ring_list.html:61
+#: services/templates/services/stylist_list.html:62
+#: services/templates/services/transport_list.html:70
+#: services/templates/services/videographer_list.html:53
+#: tender/templates/tender/tender_list.html:71
+msgid "Применить"
+msgstr ""
+
+#: services/templates/services/accessories_list.html:197
+#: services/templates/services/agency_list.html:139
+#: services/templates/services/bouquet_list.html:227
+#: services/templates/services/cake_list.html:218
+#: services/templates/services/costume_list.html:248
+#: services/templates/services/dance_list.html:216
+#: services/templates/services/decor_list.html:226
+#: services/templates/services/dress_list.html:248
+#: services/templates/services/invitation_list.html:140
+#: services/templates/services/photostudio_list.html:217
+#: services/templates/services/registryoffice_detail.html:28
+#: services/templates/services/registryoffice_list.html:146
+#: services/templates/services/restaurant_detail.html:28
+#: services/templates/services/restaurant_list.html:301
+#: services/templates/services/ring_list.html:226
+#: services/templates/services/stylist_list.html:216
+#: services/templates/services/transport_detail.html:28
+#: services/templates/services/transport_list.html:235
+msgid "Район"
+msgstr ""
+
+#: services/templates/services/add_portfolio.html:12
+#: tender/templates/tender/tender_create.html:39
+msgid "Создать"
+msgstr ""
+
 #: services/templates/services/agency_detail.html:27
 msgid "Свадебнон агенство"
 msgstr ""
 
+#: services/templates/services/agency_list.html:20
+msgid ""
+"Доверьтесь настоящим профессионалам своего деля для проведения праздника"
+msgstr ""
+
 #: services/templates/services/artist_detail.html:27
 msgid "Артист/шоу программа"
+msgstr ""
+
+#: services/templates/services/artist_list.html:16
+msgid "Шоу программа и артисты"
+msgstr ""
+
+#: services/templates/services/artist_list.html:19
+msgid ""
+"Не упустите возможность удивить гостей завораживающими выступлениями артистов"
+msgstr ""
+
+#: services/templates/services/artist_list.html:42
+msgid "Стоимость программы"
+msgstr ""
+
+#: services/templates/services/artist_list.html:43
+#: services/templates/services/costume_list.html:47
+#: services/templates/services/dress_list.html:47
+#: services/templates/services/photographer_list.html:43
+#: services/templates/services/videographer_list.html:43
+msgid "до"
 msgstr ""
 
 #: services/templates/services/bouquet_detail.html:29
@@ -681,8 +990,119 @@ msgstr ""
 msgid "Тип"
 msgstr ""
 
+#: services/templates/services/bouquet_list.html:17
+msgid "Букет невесты"
+msgstr ""
+
+#: services/templates/services/bouquet_list.html:20
+msgid "Подчеркните свой свадебный образ невесты важным элементов"
+msgstr ""
+
+#: services/templates/services/bouquet_list.html:46
+msgid "Стоимость букета"
+msgstr ""
+
 #: services/templates/services/cake_detail.html:29
 msgid "За кг"
+msgstr ""
+
+#: services/templates/services/cake_list.html:17
+msgid "Торты и кондитерские изделия"
+msgstr ""
+
+#: services/templates/services/cake_list.html:20
+msgid "Побалуйте себя и своих гостей сладким кусочком радости"
+msgstr ""
+
+#: services/templates/services/cake_list.html:46
+msgid "Цена за кг"
+msgstr ""
+
+#: services/templates/services/cake_list.html:92
+msgid "сум/кг"
+msgstr ""
+
+#: services/templates/services/catalog.html:12
+msgid "Каталог свадебных специалистов"
+msgstr ""
+
+#: services/templates/services/catalog.html:30 templates/wedding/home.html:132
+#: templates/wedding/home.html:135
+msgid "Рестораны"
+msgstr ""
+
+#: services/templates/services/catalog.html:48
+msgid "Музыканты и DJ"
+msgstr ""
+
+#: services/templates/services/catalog.html:54
+#: templates/wedding/_inc/header.html:30 templates/wedding/_inc/header.html:72
+#: templates/wedding/_inc/header_cabinet.html:30
+#: templates/wedding/_inc/header_cabinet.html:72
+#: templates/wedding/_inc/header_main.html:29
+#: templates/wedding/_inc/header_main.html:73 templates/wedding/home.html:168
+#: templates/wedding/home.html:171
+msgid "Ведущие"
+msgstr ""
+
+#: services/templates/services/catalog.html:60
+msgid "ЗАГСы"
+msgstr ""
+
+#: services/templates/services/catalog.html:72 templates/wedding/home.html:202
+#: templates/wedding/home.html:205
+msgid "Торты"
+msgstr ""
+
+#: services/templates/services/catalog.html:78
+msgid "Платья"
+msgstr ""
+
+#: services/templates/services/catalog.html:84
+#: tender/templates/tender/tender_list.html:45
+msgid "Кольца"
+msgstr ""
+
+#: services/templates/services/catalog.html:90
+msgid "Букеты"
+msgstr ""
+
+#: services/templates/services/catalog.html:96
+#: services/templates/services/decor_detail.html:27
+#: services/templates/services/decor_list.html:17
+#: templates/wedding/_inc/header.html:37 templates/wedding/_inc/header.html:79
+#: templates/wedding/_inc/header_cabinet.html:37
+#: templates/wedding/_inc/header_cabinet.html:79
+#: templates/wedding/_inc/header_main.html:36
+#: templates/wedding/_inc/header_main.html:80
+msgid "Оформление и декор"
+msgstr ""
+
+#: services/templates/services/catalog.html:102
+msgid "Костюмы"
+msgstr ""
+
+#: services/templates/services/catalog.html:108 templates/wedding/home.html:218
+#: templates/wedding/home.html:221
+msgid "Аксессуары"
+msgstr ""
+
+#: services/templates/services/catalog.html:120
+#: templates/wedding/_inc/header.html:41 templates/wedding/_inc/header.html:83
+#: templates/wedding/_inc/header_cabinet.html:41
+#: templates/wedding/_inc/header_cabinet.html:83
+#: templates/wedding/_inc/header_main.html:40
+#: templates/wedding/_inc/header_main.html:84
+msgid "Фотостудии"
+msgstr ""
+
+#: services/templates/services/catalog.html:126
+#: templates/wedding/_inc/header.html:42 templates/wedding/_inc/header.html:84
+#: templates/wedding/_inc/header_cabinet.html:42
+#: templates/wedding/_inc/header_cabinet.html:84
+#: templates/wedding/_inc/header_main.html:41
+#: templates/wedding/_inc/header_main.html:85
+msgid "Танцевальные коллективы"
 msgstr ""
 
 #: services/templates/services/costume_detail.html:30
@@ -690,17 +1110,30 @@ msgstr ""
 msgid "Вид сделки"
 msgstr ""
 
+#: services/templates/services/costume_list.html:17
+msgid "Мужские костюмы"
+msgstr ""
+
+#: services/templates/services/costume_list.html:20
+msgid "Станьте самым модным и галантным королём этого вечера"
+msgstr ""
+
+#: services/templates/services/costume_list.html:46
+#: services/templates/services/dress_list.html:46
+#: services/templates/services/stylist_list.html:46
+msgid "Стоимость"
+msgstr ""
+
 #: services/templates/services/dance_detail.html:27
 msgid "Танцевальный коллектив"
 msgstr ""
 
-#: services/templates/services/decor_detail.html:27
-#: templates/wedding/_inc/header.html:37 templates/wedding/_inc/header.html:79
-#: templates/wedding/_inc/header_cabinet.html:37
-#: templates/wedding/_inc/header_cabinet.html:79
-#: templates/wedding/_inc/header_main.html:36
-#: templates/wedding/_inc/header_main.html:80
-msgid "Оформление и декор"
+#: services/templates/services/dance_list.html:20
+msgid "Подарите всем присутсвующим самое запоминающееся событие вечера"
+msgstr ""
+
+#: services/templates/services/dance_list.html:46
+msgid "Стоимость занятия"
 msgstr ""
 
 #: services/templates/services/decor_detail.html:28
@@ -714,8 +1147,24 @@ msgstr ""
 msgid "р-н"
 msgstr ""
 
+#: services/templates/services/decor_list.html:20
+msgid "Создайте изысканный дизайн и незабываемую атмосферу своего праздника"
+msgstr ""
+
+#: services/templates/services/decor_list.html:46
+msgid "Стоимость оформления зала"
+msgstr ""
+
 #: services/templates/services/dress_detail.html:30
 msgid "Тип платья"
+msgstr ""
+
+#: services/templates/services/dress_list.html:20
+msgid "Станьте самой модной и очаровательной королевой этого вечера"
+msgstr ""
+
+#: services/templates/services/invitation_list.html:20
+msgid "Отдайте предпочтение самому первому впечатлению о Вашей свадьбе"
 msgstr ""
 
 #: services/templates/services/music_detail.html:27
@@ -740,7 +1189,29 @@ msgid "Выступление"
 msgstr ""
 
 #: services/templates/services/music_detail.html:32
+#: services/templates/services/music_list.html:94
 msgid "За вечер"
+msgstr ""
+
+#: services/templates/services/music_list.html:17
+msgid "Музыкальные группы и DJ"
+msgstr ""
+
+#: services/templates/services/music_list.html:20
+msgid "Пускайтесь в пляс под знакомые мелодии и композиции"
+msgstr ""
+
+#: services/templates/services/music_list.html:46
+msgid "Стоимость за вечер"
+msgstr ""
+
+#: services/templates/services/music_list.html:92
+msgid "За выстуление"
+msgstr ""
+
+#: services/templates/services/music_list.html:247
+#: services/templates/services/presenter_list.html:230
+msgid "Язык"
 msgstr ""
 
 #: services/templates/services/photographer_detail.html:27
@@ -756,9 +1227,41 @@ msgstr "Fotograflar"
 msgid "Цена в час"
 msgstr ""
 
+#: services/templates/services/photographer_list.html:19
+msgid "Запечатлите на долгую память самые яркие моменты Вашей жизни"
+msgstr ""
+
+#: services/templates/services/photographer_list.html:34
+#: services/templates/services/videographer_list.html:34
+msgid "Поиск по имени"
+msgstr ""
+
+#: services/templates/services/photographer_list.html:42
+#: services/templates/services/videographer_list.html:42
+msgid "Стоимость съемки"
+msgstr ""
+
+#: services/templates/services/photographer_list.html:86
+#: services/templates/services/presenter_list.html:95
+#: services/templates/services/videographer_list.html:86
+msgid "сум/час"
+msgstr ""
+
 #: services/templates/services/photostudio_detail.html:27
 #: tender/templates/tender/tender_list.html:51
 msgid "Фотостудия"
+msgstr ""
+
+#: services/templates/services/photostudio_list.html:17
+msgid "Площадки для фотосессий"
+msgstr ""
+
+#: services/templates/services/photostudio_list.html:20
+msgid "Проявите яркие эмоции и актёрское мастерство для незабываемых кадров"
+msgstr ""
+
+#: services/templates/services/photostudio_list.html:46
+msgid "Стоимость часа аренды"
 msgstr ""
 
 #: services/templates/services/presenter_detail.html:27
@@ -777,10 +1280,32 @@ msgstr ""
 msgid "За час"
 msgstr ""
 
-#: services/templates/services/registryoffice_detail.html:28
-#: services/templates/services/restaurant_detail.html:28
-#: services/templates/services/transport_detail.html:28
-msgid "Район"
+#: services/templates/services/presenter_list.html:20
+msgid ""
+"Зарядите позитивом и хорошим настроением гостей на протяжении всего вечера"
+msgstr ""
+
+#: services/templates/services/presenter_list.html:46
+#: services/templates/services/transport_list.html:46
+msgid "Стоимость дня аренды"
+msgstr ""
+
+#: services/templates/services/registryoffice_list.html:20
+msgid ""
+"Проведите торжественную церемонию в элегантном Дворце бракосочетания Вашего "
+"города"
+msgstr ""
+
+#: services/templates/services/registryoffice_list.html:80
+#: services/templates/services/restaurant_detail.html:36
+#: services/templates/services/restaurant_list.html:59
+#: services/templates/services/restaurant_list.html:60
+#: services/templates/services/restaurant_list.html:61
+#: services/templates/services/restaurant_list.html:62
+#: services/templates/services/restaurant_list.html:63
+#: services/templates/services/restaurant_list.html:64
+#: services/templates/services/restaurant_list.html:107
+msgid "чел"
 msgstr ""
 
 #: services/templates/services/restaurant_detail.html:30
@@ -793,10 +1318,6 @@ msgstr ""
 
 #: services/templates/services/restaurant_detail.html:36
 msgid "Кол-во мест"
-msgstr ""
-
-#: services/templates/services/restaurant_detail.html:36
-msgid "чел"
 msgstr ""
 
 #: services/templates/services/restaurant_detail.html:79
@@ -816,6 +1337,42 @@ msgstr ""
 msgid "Способ оплаты"
 msgstr ""
 
+#: services/templates/services/restaurant_list.html:20
+msgid ""
+"Найдите для себя подходящее свадебное место для проведения праздника мечты"
+msgstr ""
+
+#: services/templates/services/restaurant_list.html:46
+msgid "Средний чек"
+msgstr ""
+
+#: services/templates/services/restaurant_list.html:58
+msgid "Вместимость"
+msgstr ""
+
+#: services/templates/services/restaurant_list.html:304
+msgid "Кухня"
+msgstr ""
+
+#: services/templates/services/ring_list.html:17
+#: templates/wedding/_inc/header.html:35 templates/wedding/_inc/header.html:77
+#: templates/wedding/_inc/header_cabinet.html:35
+#: templates/wedding/_inc/header_cabinet.html:77
+#: templates/wedding/_inc/header_main.html:34
+#: templates/wedding/_inc/header_main.html:78
+msgid "Обручальные кольца"
+msgstr ""
+
+#: services/templates/services/ring_list.html:20
+msgid ""
+"Окунитесь в выбор драгоценных изделий, которые будут напоминать о важной "
+"событии в Вашей жизни"
+msgstr ""
+
+#: services/templates/services/ring_list.html:46
+msgid "Стоимость кольца"
+msgstr ""
+
 #: services/templates/services/stylist_detail.html:27
 msgid "Стились/визажист"
 msgstr ""
@@ -824,12 +1381,32 @@ msgstr ""
 msgid "На выезд"
 msgstr ""
 
+#: services/templates/services/stylist_list.html:20
+msgid "Создайте свой незабываемой образ при помощи профессионалов"
+msgstr ""
+
 #: services/templates/services/transport_detail.html:30
 msgid "Типы авто"
 msgstr ""
 
 #: services/templates/services/transport_detail.html:35
 msgid "Марки авто"
+msgstr ""
+
+#: services/templates/services/transport_list.html:17
+msgid "Транспортные услуги"
+msgstr ""
+
+#: services/templates/services/transport_list.html:20
+msgid "Окунитесь в мир роскоши и комфорта при выборе свадебного авто"
+msgstr ""
+
+#: services/templates/services/transport_list.html:238
+msgid "Марка авто"
+msgstr ""
+
+#: services/templates/services/videographer_list.html:19
+msgid "Сохраните и пересматривайте Вашу свадьбу спустя время снова и снова"
 msgstr ""
 
 #: templates/base.html:21
@@ -935,45 +1512,12 @@ msgstr ""
 msgid "Музыканты и Dj"
 msgstr ""
 
-#: templates/wedding/_inc/header.html:30 templates/wedding/_inc/header.html:72
-#: templates/wedding/_inc/header_cabinet.html:30
-#: templates/wedding/_inc/header_cabinet.html:72
-#: templates/wedding/_inc/header_main.html:29
-#: templates/wedding/_inc/header_main.html:73 templates/wedding/home.html:168
-#: templates/wedding/home.html:171
-msgid "Ведущие"
-msgstr ""
-
-#: templates/wedding/_inc/header.html:35 templates/wedding/_inc/header.html:77
-#: templates/wedding/_inc/header_cabinet.html:35
-#: templates/wedding/_inc/header_cabinet.html:77
-#: templates/wedding/_inc/header_main.html:34
-#: templates/wedding/_inc/header_main.html:78
-msgid "Обручальные кольца"
-msgstr ""
-
 #: templates/wedding/_inc/header.html:38 templates/wedding/_inc/header.html:80
 #: templates/wedding/_inc/header_cabinet.html:38
 #: templates/wedding/_inc/header_cabinet.html:80
 #: templates/wedding/_inc/header_main.html:37
 #: templates/wedding/_inc/header_main.html:81
 msgid "Свадебный костюм"
-msgstr ""
-
-#: templates/wedding/_inc/header.html:41 templates/wedding/_inc/header.html:83
-#: templates/wedding/_inc/header_cabinet.html:41
-#: templates/wedding/_inc/header_cabinet.html:83
-#: templates/wedding/_inc/header_main.html:40
-#: templates/wedding/_inc/header_main.html:84
-msgid "Фотостудии"
-msgstr ""
-
-#: templates/wedding/_inc/header.html:42 templates/wedding/_inc/header.html:84
-#: templates/wedding/_inc/header_cabinet.html:42
-#: templates/wedding/_inc/header_cabinet.html:84
-#: templates/wedding/_inc/header_main.html:41
-#: templates/wedding/_inc/header_main.html:85
-msgid "Танцевальные коллективы"
 msgstr ""
 
 #: templates/wedding/_inc/header.html:48 templates/wedding/_inc/header.html:104
@@ -1053,18 +1597,6 @@ msgstr ""
 msgid "Смотреть варианты"
 msgstr ""
 
-#: templates/wedding/home.html:132 templates/wedding/home.html:135
-msgid "Рестораны"
-msgstr ""
-
-#: templates/wedding/home.html:202 templates/wedding/home.html:205
-msgid "Торты"
-msgstr ""
-
-#: templates/wedding/home.html:218 templates/wedding/home.html:221
-msgid "Аксессуары"
-msgstr ""
-
 #: templates/wedding/home.html:231
 msgid "Смотреть весь каталог"
 msgstr ""
@@ -1113,10 +1645,6 @@ msgstr ""
 msgid "Отменить"
 msgstr ""
 
-#: tender/templates/tender/tender_create.html:39
-msgid "Создать"
-msgstr ""
-
 #: tender/templates/tender/tender_detail.html:58
 msgid "Специалисты, которые откликнулись на этот тендер"
 msgstr ""
@@ -1141,10 +1669,6 @@ msgstr ""
 msgid "Молодожены ищут специалистов"
 msgstr ""
 
-#: tender/templates/tender/tender_list.html:23
-msgid "Показать фильтры"
-msgstr ""
-
 #: tender/templates/tender/tender_list.html:34
 msgid "Услуга"
 msgstr ""
@@ -1167,10 +1691,6 @@ msgstr ""
 
 #: tender/templates/tender/tender_list.html:44
 msgid "Платье"
-msgstr ""
-
-#: tender/templates/tender/tender_list.html:45
-msgid "Кольца"
 msgstr ""
 
 #: tender/templates/tender/tender_list.html:46
@@ -1207,10 +1727,6 @@ msgstr ""
 
 #: tender/templates/tender/tender_list.html:65
 msgid "Дата события "
-msgstr ""
-
-#: tender/templates/tender/tender_list.html:71
-msgid "Применить"
 msgstr ""
 
 #: tender/templates/tender/tender_update_form.html:15

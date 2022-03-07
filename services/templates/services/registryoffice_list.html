@@ -14,13 +14,13 @@
         <div class="container">
             <div class="top_place">
                 <div class="top_title">
-                    <h1>Дворцы бракосочетания и ЗАГСы</h1>
+                    <h1>{% trans 'Дворцы бракосочетания и ЗАГСы' %}</h1>
                 </div>
                 <div class="top_descr">
-                    <p>Проведите торжественную церемонию в элегантном Дворце бракосочетания Вашего города</p>
+                    <p>{% trans 'Проведите торжественную церемонию в элегантном Дворце бракосочетания Вашего города' %}</p>
                 </div>
                 <div class="mobile_filter_btn">
-                    <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
+                    <a href="#"><span><i class="fas fa-filter"></i></span> {% trans 'Показать фильтры' %}</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
                 <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
                 <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
                     <p class="filter_wrapper">
-                        <input type="text" name="name" placeholder="Поиск по названию ...">
+                        <input type="text" name="name" placeholder="{% trans 'Поиск по названию' %} ...">
                         <input type="hidden" name="service" value="accessories">
                         <button type="submit"><i class="fas fa-search"></i></button>
                     </p>
@@ -44,7 +44,7 @@
                     <p class="filter_wrapper">
                         {{filter.form.location}}
                     </p>
-                    <button type="submit">Применить</button>
+                    <button type="submit">{% trans 'Применить' %}</button>
                 </form>
             </div>
             <div class='filters_mobile'></div>
@@ -67,7 +67,7 @@
                             <img src="{% static 'media/images/default_avatar.png' %}" alt="">
                             {%endif%}
                             <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
-                            <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>
+                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.user.service_reviews.count}}</span>)</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-10">
@@ -75,9 +75,9 @@
                             <div class="info d-flex align-items-center justify-content-between">
                                 <h3 class="spec_fullname">{{object.name}}</h3>
                                 <div class="info_right d-flex align-items-center">
-                                    <p class="spec_price">{{object.average_check}} сум</p>
+                                    <p class="spec_price">{{object.average_check}} {% trans 'сум' %}</p>
                                     <span> | </span>
-                                    <p class="spec_price">{{object.capacity}} чел.</p>
+                                    <p class="spec_price">{{object.capacity}} {% trans 'чел' %}.</p>
                                 </div>
                             </div>
                             <div class="spec_portfolio">
@@ -143,7 +143,7 @@
         });
 
         $('#id_location').select2({
-            placeholder: "Район",
+            placeholder: "{% trans 'Район' %}",
         })
     });
 </script>
