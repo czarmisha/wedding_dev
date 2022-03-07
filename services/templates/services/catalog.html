@@ -1,4 +1,5 @@
 {% extends 'services_base.html' %}
+{% load i18n %}
 {% load static %}
 {% block styles %}
 <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -8,127 +9,127 @@
 
 {% block content %}
 <div class="container">
-    <h1>Каталог свадебных специалистов</h1>
+    <h1>{% trans "Каталог свадебных специалистов" %}</h1>
     <div class="catalog">
         <div class="row">
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:photographer_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_1.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Фотографы</span>
+                    <span class="catalog_title">{% trans "Фотографы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:videographer_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_2.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Видеографы</span>
+                    <span class="catalog_title">{% trans "Видеографы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:restaurant_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_3.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Рестораны</span>
+                    <span class="catalog_title">{% trans "Рестораны" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:artist_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_4.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Артисты и шоу программы</span>
+                    <span class="catalog_title">{% trans "Артисты и шоу программы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:transport_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_5.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Транспорт</span>
+                    <span class="catalog_title">{% trans "Транспорт" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:music_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_6.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Музыканты и DJ</span>
+                    <span class="catalog_title">{% trans "Музыканты и DJ" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:presenter_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_7.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Ведущие</span>
+                    <span class="catalog_title">{% trans "Ведущие" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:registryoffice_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_8.jpg' %}" alt=""></div>
-                    <span class="catalog_title">ЗАГСы</span>
+                    <span class="catalog_title">{% trans "ЗАГСы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:invitation_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_9.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Пригласительные</span>
+                    <span class="catalog_title">{% trans "Пригласительные" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:cake_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_10.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Торты</span>
+                    <span class="catalog_title">{% trans "Торты" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:dress_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_11.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Платья</span>
+                    <span class="catalog_title">{% trans "Платья" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:ring_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_12.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Кольца</span>
+                    <span class="catalog_title">{% trans "Кольца" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:bouquet_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_13.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Букеты</span>
+                    <span class="catalog_title">{% trans "Букеты" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:decor_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_14.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Оформление и декор</span>
+                    <span class="catalog_title">{% trans "Оформление и декор" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:costume_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_15.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Костюмы</span>
+                    <span class="catalog_title">{% trans "Костюмы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:accessories_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_16.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Аксессуары</span>
+                    <span class="catalog_title">{% trans "Аксессуары" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:stylist_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_17.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Стилисты и визажисты</span>
+                    <span class="catalog_title">{% trans "Стилисты и визажисты" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:photostudio_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_18.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Фотостудии</span>
+                    <span class="catalog_title">{% trans "Фотостудии" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:dance_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_19.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Танцевальные коллективы</span>
+                    <span class="catalog_title">{% trans "Танцевальные коллективы" %}</span>
                 </a>
             </div>
             <div class="col-6 col-md-4 col-ls-3">
                 <a class="catalog_box" href="{% url 'services:agency_list' %}">
                     <div class="catalog_img"><img class="w-100" src="{% static 'media/images/catalog_20.jpg' %}" alt=""></div>
-                    <span class="catalog_title">Свадебные агенства</span>
+                    <span class="catalog_title">{% trans "Свадебные агенства" %}</span>
                 </a>
             </div>
         </div>
