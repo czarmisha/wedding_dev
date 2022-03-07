@@ -13,6 +13,23 @@
                         <li class=""><a href="" class="mobile-menu_link">{% trans "Контакты" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link account_btn d-flex align-items-center justify-content-between">{% trans "Аккаунт" %} <span><i class="fad fa-long-arrow-right"></i></span></a></li>
                     </ul>
+                    <div class="languages_mobile">
+                        <div class="dropdown">
+                            <a class="nav_link dropdown-toggle" href="#" role="button" id="dropdownLang" data-bs-toggle="dropdown" aria-expanded="false">
+                              {{CURRENT_LANGUAGE}}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+                                {% for language in languages %}
+                                    <li>
+                                    <a href="/{{ language.code }}/"
+                                        {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                                        {{ language.code }}
+                                    </a>
+                                    </li>
+                                {% endfor %}
+                            </ul> 
+                        </div>
+                    </div>
                     <ul class="mobile-menu_social list-unstyled">
                         <li><a href=""><i class="fab fa-instagram"></i></a></li>
                         <li><a href=""><i class="fab fa-facebook-f"></i></a></li>

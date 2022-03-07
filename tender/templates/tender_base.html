@@ -15,6 +15,26 @@
 </head>
 <body>
     <header>
+        {% get_current_language as CURRENT_LANGUAGE %}
+        {% get_available_languages as AVAILABLE_LANGUAGES %}
+        {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+        <div class="languages d-none d-lg-flex">
+        <div class="dropdown">
+            <a class="nav_link dropdown-toggle" href="#" role="button" id="dropdownLang" data-bs-toggle="dropdown" aria-expanded="false">
+            {{CURRENT_LANGUAGE}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownLang">
+                {% for language in languages %}
+                    <li>
+                    <a href="/{{ language.code }}/"
+                        {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                        {{ language.code }}
+                    </a>
+                    </li>
+                {% endfor %}
+            </ul> 
+        </div>
+        </div>
         {% block header %}
             {% include 'wedding/_inc/header.html' %}
         {% endblock %}

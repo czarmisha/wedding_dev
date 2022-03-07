@@ -546,7 +546,7 @@ ul{
 }
 /* ----------------------------------------- media ---------------------------- */
 
-@media (max-width: 991px){
+@media (max-width: 992px){
     .tender_section .title{
         font-size: 24px;
     }
@@ -620,6 +620,12 @@ ul{
     .tender_btns .btn__white{
         margin-right: 0;
         margin-bottom: 20px;
+    }
+    .planning_box{
+        width: 100%;
+    }
+    .planning_box a{
+        width: 100%;
     }
 }
 

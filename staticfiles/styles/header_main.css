@@ -37,6 +37,7 @@ header nav{
     justify-content: center;
     /* background: rgba(144,144,144,.45); */
     background: white;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 8%);
 }
 
 .header_background{
@@ -171,8 +172,8 @@ header nav{
 }
 
 .logo img{
-    width: 66px;
-    height: 44px;
+    width: 76px;
+    height: 52px;
 }
 
 .my_dropdown .column_menu{
@@ -589,8 +590,8 @@ header nav{
         text-align: center;
     }
     .header a.logo img{
-        width: 44px;
-        height: 30px;
+        width: 52px;
+        height: 36px;
     }
     .header a.logo{
         padding: 10px 0;
