@@ -1,4 +1,5 @@
-<p class="write_review">Написать отзыв</p>
+{% load i18n %}
+<p class="write_review">{% trans "Написать отзыв" %}</p>
 <form action="" class="review_form">
     <div class="review_wrapper">
         <textarea name="text" required=true></textarea>
@@ -8,5 +9,5 @@
             <li class="rate_option positive_rate" value='3'><i class="fad fa-smile"></i></li>
         </ul>
     </div>
-    <button type="submit" class="form_confirm">Отправить</button>
+    <button type="submit" class="form_confirm">{% trans "Отправить" %}</button>
 </form>

@@ -1,4 +1,5 @@
 {% extends 'services_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block styles %}
@@ -20,16 +21,16 @@
                     <img class="avatar w-100" src="{% static 'media/images/default_avatar.png' %}" alt="">
                     {%endif%}
                     <div class="info">
-                        <h3 class="subtitle">Информация</h3>
+                        <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">Танцевальный коллектив</p>
-                        <p class="specialist_type">Адрес: {{object.address}}</p>
-                        <p class="specialist_type">Тип: {{object.type}}</p>
-                        <p class="specialist_price">Цена: <span>{{object.price}} сум</span></p>
+                        <p class="specialist_type">{% trans "Танцевальный коллектив" %}</p>
+                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                        <p class="specialist_type">{% trans "Тип" %}: {{object.type}}</p>
+                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
-                        <h3 class="subtitle">Контакты</h3>
+                        <h3 class="subtitle">{% trans "Контакты" %}</h3>
                         <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
                         <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
                         <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
@@ -57,10 +58,10 @@
                 <div class="detail_right">
                     <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Профиль</button>
+                          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">{% trans "Профиль" %}</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Отзывы <span>({{reviews.count}})</span></button>
+                          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{% trans "Отзывы" %} <span>({{reviews.count}})</span></button>
                         </li>
                       </ul>
                       <div class="tab-content" id="myTabContent">
@@ -69,7 +70,7 @@
                                 {{object.user.photographer.about}}
                             </p>
                             <div class="specialist_portfolio">
-                                <h3 class="subtitle">Портфолио</h3>
+                                <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}
                                     <div class="row">
                                         {% for image in object.user.portfolio.images.all %}
@@ -79,15 +80,15 @@
                                             </div>
                                         {%endfor%}
                                         {% if request.user.is_authenticated and request.user == object.user%}
-                                         <a href="{%url 'services:extend_portfolio'%}">Extend portfolio</a>
-                                         <a href="{%url 'services:delete_portfolio'%}">Delete portfolio</a>
+                                         <a href="{%url 'services:extend_portfolio'%}">{% trans "Увеличить портфолио" %}</a>
+                                         <a href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a>
                                         {% endif %}
     
                                     </div>
     
                                 {%else%}
                                     {% if request.user.is_authenticated and request.user == object.user%}
-                                        <a href="{%url 'services:create_portfolio'%}">Create portfolio</a>
+                                        <a href="{%url 'services:create_portfolio'%}">{% trans "Создать портфолио" %}</a>
                                     {% endif %}
     
                                 {%endif%}
@@ -118,7 +119,7 @@
                                 {%if not reviewed%}
                                     {%include 'services/_inc/review_form.html'%}
                                 {%else%}
-                                    <span class="also_reviewed">Вы уже писали отзыв</span>
+                                    <span class="also_reviewed">{% trans "Вы уже писали отзыв" %}</span>
                                 {%endif%}
                             {%endif%}
     
