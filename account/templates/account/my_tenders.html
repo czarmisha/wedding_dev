@@ -1,4 +1,5 @@
 {% extends 'account_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block styles %}
@@ -6,17 +7,17 @@
 {% endblock %}
 
 {% block content %}
-<h2 class="title">Мои тендеры</h2>
+<h2 class="title">{% trans "Мои тендеры" %}</h2>
 <div class="tender_list">
     <div class="row">
         {% for obj in tenders %}
         <div class="col-12 col-md-6">
             <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
                 <div class="tender_header d-flex align-items-center justify-content-between">
-                    <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
+                    <h3 class="tender_need">{% trans "Нужен" %}: <span>{{obj.get_service_display}}</span></h3>
                     <div class="tender_info">
-                        <span class="tender_on_date">на {{obj.on_date}}</span>
-                        <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
+                        <span class="tender_on_date">{% trans "на" %} {{obj.on_date}}</span>
+                        <span class="tender_budget">{% trans "Бюджет" %} <span>{{obj.budget}} {% trans "сум" %}</span></span>
                     </div>
                 </div>
                 <div class="tender_body d-flex align-items-start">
@@ -33,15 +34,15 @@
                     </div>
                 </div>
                 <div class="tender_footer">
-                    <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
-                    <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
+                    <span class="tender_created">{% trans "Тендер создан" %}: {{obj.create_date}}</span>
+                    <span class="tender_responses">{% trans "Отклики" %}: {{obj.responses.count}}</span>
                 </div>
             </a>
         </div>
         {% endfor %}
 
     </div>
-     <a href="{% url 'tender:create' %}" class="create_tender">Создать тендер</a>
+     <a href="{% url 'tender:create' %}" class="create_tender">{% trans "Создать тендер" %}</a>
 </div>
 
 {% endblock %}

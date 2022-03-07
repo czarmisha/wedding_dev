@@ -1,44 +1,38 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load static %}
 
 {% block main %}
     <section class="planning_section">
         <div class="container">
-            <h2 class="text-center title">Простой и удобный свадебный планировщик</h2>
+            <h2 class="text-center title">{% trans "Простой и удобный свадебный планировщик" %}</h2>
             <div class="planning">
                 <ul class="planning_list">
                     <li class="planning_box">
                         <a href="{% url 'budget:budget_view' %}">
                             <span class="planning_icon"><i class="fad fa-calculator-alt"></i></span>
-                            <p class="planning_title">Онлайн калькулятор расходов</p>
+                            <p class="planning_title">{% trans "Онлайн калькулятор расходов" %}</p>
                             <p class="planning_descr">Ведите финансовый учет по всем свадебным позициям</p>
                         </a>
                     </li>
                     <li class="planning_box">
                         <a href="{% url 'favorite:my_favorites' %}">
                             <span class="planning_icon"><i class="fad fa-users"></i></span>
-                            <p class="planning_title">Сохраненные специалисты</p>
+                            <p class="planning_title">{% trans "Сохраненные специалисты" %}</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
                     </li>
                     <li class="planning_box">
                         <a href="{% url 'account:tenders' %}">
                             <span class="planning_icon"><i class="fad fa-handshake-alt"></i></span>
-                            <p class="planning_title">Мои тендеры</p>
+                            <p class="planning_title">{% trans "Мои тендеры" %}</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
                     </li>
-                    {% comment %} <li class="planning_box">
-                        <a href="{% url 'guest_list:guest_list' %}">
-                            <span class="planning_icon"><i class="fad fa-list-alt"></i></span>
-                            <p class="planning_title">Список гостей</p>
-                            <p class="planning_descr">Описание описание</p>
-                        </a>
-                    </li> {% endcomment %}
                     <li class="planning_box">
                         <a href="{% url 'plan:plan_list' %}">
                             <span class="planning_icon"><i class="fad fa-clipboard-list-check"></i></span>
-                            <p class="planning_title">План свадебного дня</p>
+                            <p class="planning_title">{% trans "План свадебного дня" %}</p>
                             <p class="planning_descr">Описание описание</p>
                         </a>
                     </li>
@@ -48,13 +42,13 @@
     </section>
     <section class="tender_section">
                 <div class="container">
-                    <h2 class="text-center title">Здесь молодожены ищут специалистов. Создано <span>{{tender_count}}</span> тендеров</h2>
+                    <h2 class="text-center title">{% trans "Здесь молодожены ищут специалистов. Создано" %} <span>{{tender_count}}</span> {% trans "тендеров" %}</h2>
                     <ul class="d-flex text-center justify-content-center">
-                        <li><span>1.</span> Создавай объявления</li>
-                        <li><span>2.</span> Получай предложения от специалистов</li>
-                        <li><span>3.</span> Выбирай лучших</li>
+                        <li><span>1.</span> {% trans "Создавай объявления" %}</li>
+                        <li><span>2.</span> {% trans "Получай предложения от специалистов" %}</li>
+                        <li><span>3.</span> {% trans "Выбирай лучших" %}</li>
                     </ul>
-                    <p class="text">Тендеры помогают съкономить массу времени на поиски</p>
+                    <p class="text">{% trans "Тендеры помогают съкономить массу времени на поиски" %}</p>
 
                     <div class="tender_list row align-items-center justify-content-center">
                         {% for tender in tenders %}
@@ -68,15 +62,15 @@
                                         <img src="{% static 'media/images/TOYPOY_logo_png.png'%}" alt="" class="">
                                         {% endif %}
                                         <p class="tender_info-text">
-                                            Нужен <br>
+                                            {% trans "Нужен" %} <br>
                                             <span class="tender_specialist">{{tender.get_service_display}}</span> <br>
-                                            на {{tender.on_date}} <br>
-                                            Бюджет: <span class="tender_budget">{{tender.budget}} сум</span>
+                                            {% trans "на" %} {{tender.on_date}} <br>
+                                            {% trans "Бюджет" %}: <span class="tender_budget">{{tender.budget}} {% trans "сум" %}</span>
                                         </p>
                                     </div>
                                     <p class="tender_customer text-start">{{tender.author}}</p>
                                     <p class="tender_description">{{tender.comment|truncatechars:50}}</p>
-                                    <p class="tender_responses">Отклики: {{tender.responses.count}}</p>
+                                    <p class="tender_responses">{% trans "Отклики" %}: {{tender.responses.count}}</p>
                                 </div>
                                </a>
                             </div>
@@ -84,14 +78,14 @@
 
                     </div>
                     <div class="tender_btns">
-                        <a href="{% url 'tender:list' %}" class="btn__white">Смотреть тендеры</a>
-                        <a href="{% url 'tender:create' %}" class="btn__gold">Создать тендер</a>
+                        <a href="{% url 'tender:list' %}" class="btn__white">{% trans "Смотреть тендеры" %}</a>
+                        <a href="{% url 'tender:create' %}" class="btn__gold">{% trans "Создать тендер" %}</a>
                     </div>
                 </div>
             </section>
             <section class="catalog_section">
                 <div class="container">
-                    <h2 class="text-center title">Каталог услуг</h2>
+                    <h2 class="text-center title">{% trans "Каталог услуг" %}</h2>
                 <div class="catalog_box">
                     <div class="catalog_left">
                         <div class="catalog_top">
@@ -102,11 +96,11 @@
                                             <span style="background: url({%static 'media/images/catalog_1.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                         </div>
                                         <div class="catalog_descr">
-                                            <h3>Фотографы</h3>
+                                            <h3>{% trans "Фотографы" %}</h3>
                                         </div>
                                         <a href="{% url 'services:photographer_list' %}" class="catalog_hover">
-                                            <h3>Фотографы</h3>
-                                            <span>Смотреть варианты</span>
+                                            <h3>{% trans "Фотографы" %}</h3>
+                                            <span>{% trans "Смотреть варианты" %}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -119,11 +113,11 @@
                                                 <span style="background: url({%static 'media/images/catalog_2.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                             </div>
                                             <div class="catalog_descr">
-                                                <h3>Видеографы</h3>
+                                                <h3>{% trans "Видеографы" %}</h3>
                                             </div>
                                             <a href="{% url 'services:videographer_list' %}" class="catalog_hover">
-                                                <h3>Видеографы</h3>
-                                                <span>Смотреть варианты</span>
+                                                <h3>{% trans "Видеографы" %}</h3>
+                                                <span>{% trans "Смотреть варианты" %}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -135,11 +129,11 @@
                                                 <span style="background: url({%static 'media/images/catalog_3.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                             </div>
                                             <div class="catalog_descr">
-                                                <h3>Рестораны</h3>
+                                                <h3>{% trans "Рестораны" %}</h3>
                                             </div>
                                             <a href="{% url 'services:restaurant_list' %}" class="catalog_hover">
-                                                <h3>Рестораны</h3>
-                                                <span>Смотреть варианты</span>
+                                                <h3>{% trans "Рестораны" %}</h3>
+                                                <span>{% trans "Смотреть варианты" %}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -153,11 +147,11 @@
                                         <span style="background: url({%static 'media/images/catalog_9.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                     </div>
                                     <div class="catalog_descr">
-                                        <h3>Пригласительные</h3>
+                                        <h3>{% trans "Пригласительные" %}</h3>
                                     </div>
                                     <a href="{% url 'services:invitation_list' %}" class="catalog_hover">
-                                        <h3>Пригласительные</h3>
-                                        <span>Смотреть варианты</span>
+                                        <h3>{% trans "Пригласительные" %}</h3>
+                                        <span>{% trans "Смотреть варианты" %}</span>
                                     </a>
                                 </div>
                             </div>
@@ -171,11 +165,11 @@
                                         <span style="background: url({%static 'media/images/catalog_7.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                     </div>
                                     <div class="catalog_descr">
-                                        <h3>Ведущие</h3>
+                                        <h3>{% trans "Ведущие" %}</h3>
                                     </div>
                                     <a href="{% url 'services:presenter_list' %}" class="catalog_hover">
-                                        <h3>Ведущие</h3>
-                                        <span>Смотреть варианты</span>
+                                        <h3>{% trans "Ведущие" %}</h3>
+                                        <span>{% trans "Смотреть варианты" %}</span>
                                     </a>
                                 </div>
                             </div>
@@ -188,10 +182,10 @@
                                             <span style="background: url({%static 'media/images/catalog_5.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                         </div>
                                         <div class="catalog_descr">
-                                            <h3>Транспорт</h3>
+                                            <h3>{% trans "Транспорт" %}</h3>
                                         </div>
                                         <a href="{% url 'services:transport_list' %}" class="catalog_hover">
-                                            <h3>Транспорт</h3>
+                                            <h3>{% trans "Транспорт" %}</h3>
                                             <span>Смотреть варианты</span>
                                         </a>
                                     </div>
@@ -205,11 +199,11 @@
                                                 <span style="background: url({%static 'media/images/catalog_10.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                             </div>
                                             <div class="catalog_descr">
-                                                <h3>Торты</h3>
+                                                <h3>{% trans "Торты" %}</h3>
                                             </div>
                                             <a href="{% url 'services:cake_list' %}" class="catalog_hover">
-                                                <h3>Торты</h3>
-                                                <span>Смотреть варианты</span>
+                                                <h3>{% trans "Торты" %}</h3>
+                                                <span>{% trans "Смотреть варианты" %}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -221,11 +215,11 @@
                                                 <span style="background: url({%static 'media/images/catalog_16.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                             </div>
                                             <div class="catalog_descr">
-                                                <h3>Аксессуары</h3>
+                                                <h3>{% trans "Аксессуары" %}</h3>
                                             </div>
                                             <a href="{% url 'services:accessories_list' %}" class="catalog_hover">
-                                                <h3>Аксессуары</h3>
-                                                <span>Смотреть варианты</span>
+                                                <h3>{% trans "Аксессуары" %}</h3>
+                                                <span>{% trans "Смотреть варианты" %}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -234,16 +228,16 @@
                         </div>
                     </div>
                 </div>
-                <a href="{% url 'catalog' %}" class="btn__gold">Смотреть весь каталог</a>
+                <a href="{% url 'catalog' %}" class="btn__gold">{% trans "Смотреть весь каталог" %}</a>
                 </div>
             </section>
             <section class="welcome">
                 <div class="container text-center">
-                    <h2 class="welcome_title title">Добро пожаловать в мир T<span>O</span>YP<span>O</span>Y!</h2>
-                    <a href="{% url 'account:registration' %}" class="btn__gold welcome_client-register">Регистрация молодоженов</a>
+                    <h2 class="welcome_title title">{% trans "Добро пожаловать в мир" %} T<span>O</span>YP<span>O</span>Y!</h2>
+                    <a href="{% url 'account:registration' %}" class="btn__gold welcome_client-register">{% trans "Регистрация молодоженов" %}</a>
 
-                    <h2 class="welcome_subtitle">Вы свадебный профессионал или фирма?</h2>
-                    <a href="{% url 'promo' %}" class="welcome_spec-register">Как вам зарегистрироваться?</a>
+                    <h2 class="welcome_subtitle">{% trans "Вы свадебный профессионал или фирма?" %}</h2>
+                    <a href="{% url 'promo' %}" class="welcome_spec-register">{% trans "Как вам зарегистрироваться?" %}</a>
                 </div>
             </section>
 {% endblock %}

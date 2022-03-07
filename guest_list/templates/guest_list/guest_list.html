@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {%block styles%}
@@ -10,7 +11,7 @@
 
 {%block content%}
 <div id="Guest-list">
-        <h3>Гости невесты</h3>
+        <h3>{% trans "Гости невесты<" %}/h3>
         <ul class="guest_list">
             {% for guest in bride_list %}
             <li>{{guest.name}} {{guest.phone}} <span class="del_guest bride" pk="{{guest.pk}}"><i class="fad fa-trash-alt"></i></span></li>
@@ -18,14 +19,14 @@
         </ul>
 
         <div class="add_guest_block">
-            <input class="name bride" type="text" placeholder="Имя">
-            <input class="phone bride" type="text" placeholder="Телефон">
-            <a href="" class="add_guest bride">Добавить гостя</a>
+            <input class="name bride" type="text" placeholder="{% trans 'Имя' %}">
+            <input class="phone bride" type="text" placeholder="{% trans 'Телефон' %}">
+            <a href="" class="add_guest bride">{% trans "Добавить гостя" %}</a>
         </div>
 
         <br>
 
-        <h3>Гости жениха</h3>
+        <h3>{% trans "Гости жениха" %}</h3>
         <ul class="guest_list">
             {% for guest in groom_list %}
             <li>{{guest.name}} {{guest.phone}} <span class="del_guest groom" pk="{{guest.pk}}"><i class="fad fa-trash-alt"></i></span></li>
@@ -33,9 +34,9 @@
         </ul>
 
         <div class="add_guest_block">
-            <input class="name groom" type="text" placeholder="Имя">
-            <input class="phone groom" type="text" placeholder="Телефон">
-            <a href="" class="add_guest groom">Добавить гостя</a>
+            <input class="name groom" type="text" placeholder="{% trans 'Имя' %}">
+            <input class="phone groom" type="text" placeholder="{% trans 'Телефон' %}">
+            <a href="" class="add_guest groom">{% trans "Добавить гостя" %}</a>
         </div>
 </div>
 {%endblock%}

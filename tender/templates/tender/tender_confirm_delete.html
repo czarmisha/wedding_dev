@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {%block styles%}
@@ -11,11 +12,11 @@
 {% block content %}
 <div class="contianer">
     <div class="tender_delete">
-        <h1>Удалить тендер</h1>
+        <h1>{% trans "Удалить тендер" %}</h1>
         <form method="post" class="tender_delete_form">{% csrf_token %}
-        <p>Вы точно хотите удалить этот тендер "{{ object }}"?</p>
-        <button type="submit" class="btn btn-primary">Подтвердить</button>
-        <a class="cancel" href="{% url 'tender:detail' object.slug %}">Отменить</a>
+        <p>{% trans "Вы точно хотите удалить этот тендер" %} "{{ object }}"?</p>
+        <button type="submit" class="btn btn-primary">{% trans "Подтвердить" %}</button>
+        <a class="cancel" href="{% url 'tender:detail' object.slug %}">{% trans "Отменить" %}</a>
         </form>
     </div>
 </div>

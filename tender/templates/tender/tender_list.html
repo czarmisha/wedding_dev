@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {% block styles %}
@@ -13,13 +14,13 @@
     <div class="container">
         <div class="top_place">
             <div class="top_title">
-                <h1>Тендеры</h1>
+                <h1>{% trans "Тендеры" %}</h1>
             </div>
             <div class="top_descr">
-                <p>Молодожены ищут специалистов</p>
+                <p>{% trans "Молодожены ищут специалистов" %}</p>
             </div>
             <div class="mobile_filter_btn">
-                <a href="#"><span><i class="fas fa-filter"></i></span> Показать фильтры</a>
+                <a href="#"><span><i class="fas fa-filter"></i></span> {% trans "Показать фильтры" %}</a>
             </div>
         </div>
     </div>
@@ -30,30 +31,30 @@
             <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
             <form id="Filter" method="get">
                 <p class="filter_wrapper">
-                    <span>Услуга </span>
+                    <span>{% trans "Услуга" %} </span>
                     <select name="service" id="id_service">
                       <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
-                      <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>Фотограф</option>
-                      <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>Артист, Шоу программа</option>
-                      <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>Транспорт</option>
-                      <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>Музыканты, Dj</option>
-                      <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>Ведущий</option>
-                      <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>Пригласительные</option>
-                      <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>Торт</option>
-                      <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>Платье</option>
-                      <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>Кольца</option>
-                      <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>Букет</option>
-                      <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>Декор, оформление</option>
-                      <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>Костюм</option>
-                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>Аксуссуары</option>
-                      <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>Стилист, Визажист</option>
-                      <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>Фотостудия</option>
-                      <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>Танец</option>
-                      <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>Агенство</option>
+                      <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>
+                      <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>{% trans "Артист, Шоу программа" %}</option>
+                      <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>{% trans "Транспорт" %}</option>
+                      <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>{% trans "Музыканты, Dj" %}</option>
+                      <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>{% trans "Ведущий" %}</option>
+                      <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>{% trans "Пригласительные" %}</option>
+                      <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>{% trans "Торт" %}</option>
+                      <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>{% trans "Платье" %}</option>
+                      <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>{% trans "Кольца" %}</option>
+                      <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>{% trans "Букет" %}</option>
+                      <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>{% trans "Декор, оформление" %}</option>
+                      <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>{% trans "Костюм" %}</option>
+                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>{% trans "Аксуссуары" %}</option>
+                      <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>{% trans "Стилист, Визажист" %}</option>
+                      <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
+                      <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
+                      <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>{% trans "Агенство" %}</option>
                     </select>
                 </p>
                 <div class="filter_wrapper">
-                    <span>Бюджет "от-до"</span>
+                    <span>{% trans "Бюджет "от-до"" %}</span>
                     <div class="">
                         <input type="number" name="budget_gt" step="any" id="id_budget_gt" value="{{filter.form.budget_gt.value}}">
                         <input type="number" name="budget_lt" step="any" id="id_budget_lt" value="{{filter.form.budget_lt.value}}">
@@ -61,13 +62,13 @@
                 </div>
        
                  <div class="filter_wrapper">
-                     <span>Дата события "от-до"</span>
+                     <span>{% trans "Дата события "от-до"" %}</span>
                    <div>
                        <input type="date" name="on_date_end" id="id_on_date_end" value="{{filter.form.on_date_end.value}}">
                        <input type="date" name="on_date_start" id="id_on_date_start" value="{{filter.form.on_date_start.value}}">
                    </div>
                 </div>
-                <button class="filters_button" type="submit">Применить</button>
+                <button class="filters_button" type="submit">{% trans "Применить" %}</button>
             </form>
         </div>
         <div class='filters_mobile'></div>
@@ -81,10 +82,10 @@
             <div class="col-12 col-md-6">
                 <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
                     <div class="tender_header d-flex align-items-center justify-content-between">
-                        <h3 class="tender_need">Нужен: <span>{{obj.get_service_display}}</span></h3>
+                        <h3 class="tender_need">{% trans "Нужен" %}: <span>{{obj.get_service_display}}</span></h3>
                         <div class="tender_info">
-                            <span class="tender_on_date">на {{obj.on_date}}</span>
-                            <span class="tender_budget">Бюджет <span>{{obj.budget}} сум</span></span>
+                            <span class="tender_on_date">{% trans "на" %} {{obj.on_date}}</span>
+                            <span class="tender_budget">{% trans "Бюджет" %} <span>{{obj.budget}} {% trans "сум" %}</span></span>
                         </div>
                     </div>
                     <div class="tender_body d-flex align-items-start">
@@ -101,8 +102,8 @@
                         </div>
                     </div>
                     <div class="tender_footer">
-                        <span class="tender_created">Тендер создан: {{obj.create_date}}</span>
-                        <span class="tender_responses">Отклики: {{obj.responses.count}}</span>
+                        <span class="tender_created">{% trans "Тендер создан" %}: {{obj.create_date}}</span>
+                        <span class="tender_responses">{% trans "Отклики" %}: {{obj.responses.count}}</span>
                     </div>
                 </a>
             </div>

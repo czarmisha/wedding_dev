@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {%block styles%}
@@ -11,7 +12,7 @@
 {% block content %}
 <div class="container">
     <div class="tender_create">
-        <h1>Создать тендер</h1>
+        <h1>{% trans "Создать тендер" %}</h1>
          <form class="tender_create_form" method="post" enctype='multipart/form-data'>
             {% if messages %}
             <ul class="messages">
@@ -35,7 +36,7 @@
               {% endif %}
         </div>
         {% endfor %}
-        <button type="submit" class="btn btn-primary">Создать</button>
+        <button type="submit" class="btn btn-primary">{% trans "Создать" %}</button>
         </form>
     </div>
 </div>

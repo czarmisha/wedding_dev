@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 10:31+0500\n"
+"POT-Creation-Date: 2022-03-07 11:13+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,8 +48,559 @@ msgstr ""
 msgid "Пожалуйста, авторизируйтесь"
 msgstr ""
 
+#: templates/wedding/_inc/footer.html:9
+msgid "Позвоните нам"
+msgstr ""
+
+#: templates/wedding/_inc/footer.html:17
+msgid ""
+"Использование материалов сайта разрешено только при указании гиперссылки на "
+"страницу сайта, откуда копируется материл, с указанием бренда"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:9 templates/wedding/_inc/header.html:62
+#: templates/wedding/_inc/header_cabinet.html:9
+#: templates/wedding/_inc/header_cabinet.html:62
+#: templates/wedding/_inc/header_main.html:8
+#: templates/wedding/_inc/header_main.html:63
+msgid "Услуги"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:11 templates/wedding/_inc/header.html:89
+#: templates/wedding/_inc/header_cabinet.html:11
+#: templates/wedding/_inc/header_cabinet.html:89
+#: templates/wedding/_inc/header_main.html:10
+#: templates/wedding/_inc/header_main.html:90
+msgid "Рейтинг"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:12 templates/wedding/_inc/header.html:90
+#: templates/wedding/_inc/header_cabinet.html:12
+#: templates/wedding/_inc/header_cabinet.html:90
+#: templates/wedding/_inc/header_main.html:11
+#: templates/wedding/_inc/header_main.html:91
+#: tender/templates/tender/tender_list.html:17
+msgid "Тендеры"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:13 templates/wedding/_inc/header.html:94
+#: templates/wedding/_inc/header_cabinet.html:13
+#: templates/wedding/_inc/header_cabinet.html:94
+#: templates/wedding/_inc/header_main.html:12
+#: templates/wedding/_inc/header_main.html:95
+msgid "О нас"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:14 templates/wedding/_inc/header.html:95
+#: templates/wedding/_inc/header_cabinet.html:14
+#: templates/wedding/_inc/header_cabinet.html:95
+#: templates/wedding/_inc/header_main.html:13
+#: templates/wedding/_inc/header_main.html:96 templates/wedding/promo.html:21
+msgid "Контакты"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:15 templates/wedding/_inc/header.html:99
+#: templates/wedding/_inc/header_cabinet.html:15
+#: templates/wedding/_inc/header_cabinet.html:99
+#: templates/wedding/_inc/header_main.html:14
+#: templates/wedding/_inc/header_main.html:100
+msgid "Аккаунт"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:23 templates/wedding/_inc/header.html:46
+#: templates/wedding/_inc/header_cabinet.html:23
+#: templates/wedding/_inc/header_cabinet.html:46
 #: templates/wedding/_inc/header_main.html:22
+#: templates/wedding/_inc/header_main.html:45
+msgid "Назад"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:24 templates/wedding/_inc/header.html:66
+#: templates/wedding/_inc/header_cabinet.html:24
+#: templates/wedding/_inc/header_cabinet.html:66
+#: templates/wedding/_inc/header_main.html:23
+#: templates/wedding/_inc/header_main.html:67 templates/wedding/home.html:99
+#: templates/wedding/home.html:102
 msgid "Фотографы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:25 templates/wedding/_inc/header.html:67
+#: templates/wedding/_inc/header_cabinet.html:25
+#: templates/wedding/_inc/header_cabinet.html:67
+#: templates/wedding/_inc/header_main.html:24
+#: templates/wedding/_inc/header_main.html:68 templates/wedding/home.html:116
+#: templates/wedding/home.html:119
+msgid "Видеографы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:26 templates/wedding/_inc/header.html:68
+#: templates/wedding/_inc/header_cabinet.html:26
+#: templates/wedding/_inc/header_cabinet.html:68
+#: templates/wedding/_inc/header_main.html:25
+#: templates/wedding/_inc/header_main.html:69
+msgid "Рестораны и банкетные залы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:27 templates/wedding/_inc/header.html:69
+#: templates/wedding/_inc/header_cabinet.html:27
+#: templates/wedding/_inc/header_cabinet.html:69
+#: templates/wedding/_inc/header_main.html:26
+#: templates/wedding/_inc/header_main.html:70
+msgid "Артисты и шоу программы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:28 templates/wedding/_inc/header.html:70
+#: templates/wedding/_inc/header_cabinet.html:28
+#: templates/wedding/_inc/header_cabinet.html:70
+#: templates/wedding/_inc/header_main.html:27
+#: templates/wedding/_inc/header_main.html:71 templates/wedding/home.html:185
+#: templates/wedding/home.html:188 tender/templates/tender/tender_list.html:39
+msgid "Транспорт"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:29 templates/wedding/_inc/header.html:71
+#: templates/wedding/_inc/header_cabinet.html:29
+#: templates/wedding/_inc/header_cabinet.html:71
+#: templates/wedding/_inc/header_main.html:28
+#: templates/wedding/_inc/header_main.html:72
+msgid "Музыканты и Dj"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:30 templates/wedding/_inc/header.html:72
+#: templates/wedding/_inc/header_cabinet.html:30
+#: templates/wedding/_inc/header_cabinet.html:72
+#: templates/wedding/_inc/header_main.html:29
+#: templates/wedding/_inc/header_main.html:73 templates/wedding/home.html:168
+#: templates/wedding/home.html:171
+msgid "Ведущие"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:31 templates/wedding/_inc/header.html:73
+#: templates/wedding/_inc/header_cabinet.html:31
+#: templates/wedding/_inc/header_cabinet.html:73
+#: templates/wedding/_inc/header_main.html:30
+#: templates/wedding/_inc/header_main.html:74
+msgid "Дворцы бракосочетания и ЗАГСы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:32 templates/wedding/_inc/header.html:74
+#: templates/wedding/_inc/header_cabinet.html:32
+#: templates/wedding/_inc/header_cabinet.html:74
+#: templates/wedding/_inc/header_main.html:31
+#: templates/wedding/_inc/header_main.html:75 templates/wedding/home.html:150
+#: templates/wedding/home.html:153 tender/templates/tender/tender_list.html:42
+msgid "Пригласительные"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:33 templates/wedding/_inc/header.html:75
+#: templates/wedding/_inc/header_cabinet.html:33
+#: templates/wedding/_inc/header_cabinet.html:75
+#: templates/wedding/_inc/header_main.html:32
+#: templates/wedding/_inc/header_main.html:76
+msgid "Свадебные торты"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:34 templates/wedding/_inc/header.html:76
+#: templates/wedding/_inc/header_cabinet.html:34
+#: templates/wedding/_inc/header_cabinet.html:76
+#: templates/wedding/_inc/header_main.html:33
+#: templates/wedding/_inc/header_main.html:77
+msgid "Свадебные платья"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:35 templates/wedding/_inc/header.html:77
+#: templates/wedding/_inc/header_cabinet.html:35
+#: templates/wedding/_inc/header_cabinet.html:77
+#: templates/wedding/_inc/header_main.html:34
+#: templates/wedding/_inc/header_main.html:78
+msgid "Обручальные кольца"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:36 templates/wedding/_inc/header.html:78
+#: templates/wedding/_inc/header_cabinet.html:36
+#: templates/wedding/_inc/header_cabinet.html:78
+#: templates/wedding/_inc/header_main.html:35
+#: templates/wedding/_inc/header_main.html:79
+msgid "Свадебные букеты"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:37 templates/wedding/_inc/header.html:79
+#: templates/wedding/_inc/header_cabinet.html:37
+#: templates/wedding/_inc/header_cabinet.html:79
+#: templates/wedding/_inc/header_main.html:36
+#: templates/wedding/_inc/header_main.html:80
+msgid "Оформление и декор"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:38 templates/wedding/_inc/header.html:80
+#: templates/wedding/_inc/header_cabinet.html:38
+#: templates/wedding/_inc/header_cabinet.html:80
+#: templates/wedding/_inc/header_main.html:37
+#: templates/wedding/_inc/header_main.html:81
+msgid "Свадебный костюм"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:39 templates/wedding/_inc/header.html:81
+#: templates/wedding/_inc/header_cabinet.html:39
+#: templates/wedding/_inc/header_cabinet.html:81
+#: templates/wedding/_inc/header_main.html:38
+#: templates/wedding/_inc/header_main.html:82
+msgid "Свадебные аксессуары"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:40 templates/wedding/_inc/header.html:82
+#: templates/wedding/_inc/header_cabinet.html:40
+#: templates/wedding/_inc/header_cabinet.html:82
+#: templates/wedding/_inc/header_main.html:39
+#: templates/wedding/_inc/header_main.html:83
+msgid "Стилисты и визажисты"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:41 templates/wedding/_inc/header.html:83
+#: templates/wedding/_inc/header_cabinet.html:41
+#: templates/wedding/_inc/header_cabinet.html:83
+#: templates/wedding/_inc/header_main.html:40
+#: templates/wedding/_inc/header_main.html:84
+msgid "Фотостудии"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:42 templates/wedding/_inc/header.html:84
+#: templates/wedding/_inc/header_cabinet.html:42
+#: templates/wedding/_inc/header_cabinet.html:84
+#: templates/wedding/_inc/header_main.html:41
+#: templates/wedding/_inc/header_main.html:85
+msgid "Танцевальные коллективы"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:43 templates/wedding/_inc/header.html:85
+#: templates/wedding/_inc/header_cabinet.html:43
+#: templates/wedding/_inc/header_cabinet.html:85
+#: templates/wedding/_inc/header_main.html:42
+#: templates/wedding/_inc/header_main.html:86
+msgid "Свадебные агенства"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:48 templates/wedding/_inc/header.html:104
+#: templates/wedding/_inc/header_cabinet.html:48
+#: templates/wedding/_inc/header_cabinet.html:104
+#: templates/wedding/_inc/header_main.html:47
+#: templates/wedding/_inc/header_main.html:105
+msgid "Кабинет"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:49 templates/wedding/_inc/header.html:105
+#: templates/wedding/_inc/header_cabinet.html:49
+#: templates/wedding/_inc/header_cabinet.html:105
+#: templates/wedding/_inc/header_main.html:48
+#: templates/wedding/_inc/header_main.html:106
+msgid "Выйти"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:51 templates/wedding/_inc/header.html:107
+#: templates/wedding/_inc/header_cabinet.html:51
+#: templates/wedding/_inc/header_cabinet.html:107
+#: templates/wedding/_inc/header_main.html:50
+#: templates/wedding/_inc/header_main.html:108
+msgid "Вход"
+msgstr ""
+
+#: templates/wedding/_inc/header.html:52 templates/wedding/_inc/header.html:108
+#: templates/wedding/_inc/header_cabinet.html:52
+#: templates/wedding/_inc/header_cabinet.html:108
+#: templates/wedding/_inc/header_main.html:51
+#: templates/wedding/_inc/header_main.html:109
+msgid "Регистрация"
+msgstr ""
+
+#: templates/wedding/_inc/header_main.html:119
+msgid "Организуйте свадьбу не выходя из дома"
+msgstr ""
+
+#: templates/wedding/_inc/header_main.html:121
+msgid ""
+"собрал каталог лучших специалистов Ташкента для организации вашей свадьбы "
+"мечты"
+msgstr ""
+
+#: templates/wedding/_inc/header_main.html:126
+msgid "Искать специалистов"
+msgstr ""
+
+#: templates/wedding/home.html:8
+msgid "Простой и удобный свадебный планировщик"
+msgstr ""
+
+#: templates/wedding/home.html:14
+msgid "Онлайн калькулятор расходов"
+msgstr ""
+
+#: templates/wedding/home.html:21
+msgid "Сохраненные специалисты"
+msgstr ""
+
+#: templates/wedding/home.html:28
+msgid "Мои тендеры"
+msgstr ""
+
+#: templates/wedding/home.html:35
+msgid "План свадебного дня"
+msgstr ""
+
+#: templates/wedding/home.html:45
+msgid "Здесь молодожены ищут специалистов. Создано"
+msgstr ""
+
+#: templates/wedding/home.html:45
+msgid "тендеров"
+msgstr ""
+
+#: templates/wedding/home.html:47
+msgid "Создавай объявления"
+msgstr ""
+
+#: templates/wedding/home.html:48
+msgid "Получай предложения от специалистов"
+msgstr ""
+
+#: templates/wedding/home.html:49
+msgid "Выбирай лучших"
+msgstr ""
+
+#: templates/wedding/home.html:51
+msgid "Тендеры помогают съкономить массу времени на поиски"
+msgstr ""
+
+#: templates/wedding/home.html:65 tender/templates/tender/tender_detail.html:30
+#: tender/templates/tender/tender_list.html:85
+msgid "Нужен"
+msgstr ""
+
+#: templates/wedding/home.html:67 tender/templates/tender/tender_detail.html:32
+#: tender/templates/tender/tender_list.html:87
+msgid "на"
+msgstr ""
+
+#: templates/wedding/home.html:68 tender/templates/tender/tender_detail.html:33
+#: tender/templates/tender/tender_list.html:88
+msgid "Бюджет"
+msgstr ""
+
+#: templates/wedding/home.html:68 tender/templates/tender/tender_detail.html:33
+#: tender/templates/tender/tender_list.html:88
+msgid "сум"
+msgstr ""
+
+#: templates/wedding/home.html:73 tender/templates/tender/tender_detail.html:53
+#: tender/templates/tender/tender_list.html:106
+msgid "Отклики"
+msgstr ""
+
+#: templates/wedding/home.html:81
+msgid "Смотреть тендеры"
+msgstr ""
+
+#: templates/wedding/home.html:82 tender/templates/tender/tender_create.html:15
+msgid "Создать тендер"
+msgstr ""
+
+#: templates/wedding/home.html:88
+msgid "Каталог услуг"
+msgstr ""
+
+#: templates/wedding/home.html:103 templates/wedding/home.html:120
+#: templates/wedding/home.html:136 templates/wedding/home.html:154
+#: templates/wedding/home.html:172 templates/wedding/home.html:206
+#: templates/wedding/home.html:222
+msgid "Смотреть варианты"
+msgstr ""
+
+#: templates/wedding/home.html:132 templates/wedding/home.html:135
+msgid "Рестораны"
+msgstr ""
+
+#: templates/wedding/home.html:202 templates/wedding/home.html:205
+msgid "Торты"
+msgstr ""
+
+#: templates/wedding/home.html:218 templates/wedding/home.html:221
+msgid "Аксессуары"
+msgstr ""
+
+#: templates/wedding/home.html:231
+msgid "Смотреть весь каталог"
+msgstr ""
+
+#: templates/wedding/home.html:236
+msgid "Добро пожаловать в мир"
+msgstr ""
+
+#: templates/wedding/home.html:237
+msgid "Регистрация молодоженов"
+msgstr ""
+
+#: templates/wedding/home.html:239
+msgid "Вы свадебный профессионал или фирма?"
+msgstr ""
+
+#: templates/wedding/home.html:240
+msgid "Как вам зарегистрироваться?"
+msgstr ""
+
+#: templates/wedding/promo.html:8
+msgid "Что может дать"
+msgstr ""
+
+#: templates/wedding/promo.html:8
+msgid "свадебным специалистам"
+msgstr ""
+
+#: templates/wedding/promo.html:13
+msgid "Как специалисту зарегистрироваться на сайт"
+msgstr ""
+
+#: tender/templates/tender/tender_confirm_delete.html:15
+msgid "Удалить тендер"
+msgstr ""
+
+#: tender/templates/tender/tender_confirm_delete.html:17
+msgid "Вы точно хотите удалить этот тендер"
+msgstr ""
+
+#: tender/templates/tender/tender_confirm_delete.html:18
+msgid "Подтвердить"
+msgstr ""
+
+#: tender/templates/tender/tender_confirm_delete.html:19
+msgid "Отменить"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:39
+msgid "Создать"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:52
+#: tender/templates/tender/tender_list.html:105
+msgid "Тендер создан"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:58
+msgid "Специалисты, которые откликнулись на этот тендер"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:78
+msgid "Редактировать"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:79
+msgid "Удалить"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:84
+msgid "Тендер закрыт. Исполнитель найден"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:87
+msgid "Вы откликнулись"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:89
+msgid "Откликнуться на тендер"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:20
+msgid "Молодожены ищут специалистов"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:23
+msgid "Показать фильтры"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:34
+msgid "Услуга"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:37
+msgid "Фотограф"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:38
+msgid "Артист, Шоу программа"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:40
+msgid "Музыканты, Dj"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:41
+msgid "Ведущий"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:43
+msgid "Торт"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:44
+msgid "Платье"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:45
+msgid "Кольца"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:46
+msgid "Букет"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:47
+msgid "Декор, оформление"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:48
+msgid "Костюм"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:49
+msgid "Аксуссуары"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:50
+msgid "Стилист, Визажист"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:51
+msgid "Фотостудия"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:52
+msgid "Танец"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:53
+msgid "Агенство"
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:57
+msgid "Бюджет "
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:65
+msgid "Дата события "
+msgstr ""
+
+#: tender/templates/tender/tender_list.html:71
+msgid "Применить"
+msgstr ""
+
+#: tender/templates/tender/tender_update_form.html:15
+msgid "Редактировать тендер"
+msgstr ""
+
+#: tender/templates/tender/tender_update_form.html:32
+msgid "Сохранить"
+msgstr ""
+
+#: tender/templates/tender_base.html:14
+msgid "Список тендеров"
 msgstr ""
 
 #: wedding/settings.py:158

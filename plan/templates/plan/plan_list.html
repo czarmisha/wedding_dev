@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 {%block styles%}
@@ -11,8 +12,8 @@
 {%block content%}
 <table id="Plan">
     <tr>
-        <th>Время</th>
-        <th>Действие</th>
+        <th>{% trans "Время" %}</th>
+        <th>{% trans "Действие" %}</th>
     </tr>
     {% if not task_list%}
 <!--    <tr>-->
@@ -30,7 +31,7 @@
     <tr>
         <td><input type="time" class="time" required></td>
         <td><textarea name="" id="" cols="30" rows="5" class="action" required></textarea></td>
-        <td><a href="" class="add_task">Добавить</a></td>
+        <td><a href="" class="add_task">{% trans "Добавить" %}</a></td>
     </tr>
 </table>
 {%endblock%}

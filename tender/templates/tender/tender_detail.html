@@ -1,4 +1,5 @@
 {% extends 'tender_base.html' %}
+{% load i18n %}
 {% load static %}
 
 
@@ -26,10 +27,10 @@
         <div class="col">
             <div class="tender_box">
                 <div class="tender_header d-flex align-items-center justify-content-between">
-                    <h3 class="tender_need">Нужен: <span>{{tender.get_service_display}}</span></h3>
+                    <h3 class="tender_need">{% trans "Нужен" %}: <span>{{tender.get_service_display}}</span></h3>
                     <div class="tender_info">
-                        <span class="tender_on_date">на {{tender.on_date}}</span>
-                        <span class="tender_budget">Бюджет <span>{{tender.budget}} сум</span></span>
+                        <span class="tender_on_date">{% trans "на" %} {{tender.on_date}}</span>
+                        <span class="tender_budget">{% trans "Бюджет" %} <span>{{tender.budget}} {% trans "сум" %}</span></span>
                     </div>
                 </div>
                 <div class="tender_body d-flex align-items-start">
@@ -48,13 +49,13 @@
                     </div>
                 </div>
                 <div class="tender_footer">
-                    <span class="tender_created">Тендер создан: {{tender.create_date}}</span>
-                    <span class="tender_responses">Отклики: {{tender.responses.count}}</span>
+                    <span class="tender_created">{% trans "Тендер создан" %}: {{tender.create_date}}</span>
+                    <span class="tender_responses">{% trans "Отклики" %}: {{tender.responses.count}}</span>
                 </div>
     
                 <div class="tender_specialists">
                     <div class="wrapper">
-                        <h3 class="title">Специалисты, которые откликнулись на этот тендер</h3>
+                        <h3 class="title">{% trans "Специалисты, которые откликнулись на этот тендер" %}</h3>
     
                         {% for response in tender.responses.all%}
                             <div class="row">
@@ -74,18 +75,18 @@
     
                 {%if tender.author == request.user%}
                   <div class="tender_func">
-                        <a class="tender_edit" href="{%url 'tender:update' tender.slug%}">Редактировать</a>
-                        <a class="tender_edit" href="{%url 'tender:delete' tender.slug%}">Удалить</a>
+                        <a class="tender_edit" href="{%url 'tender:update' tender.slug%}">{% trans "Редактировать" %}</a>
+                        <a class="tender_edit" href="{%url 'tender:delete' tender.slug%}">{% trans "Удалить" %}</a>
                   </div>
                 {%endif%}
     
                 {%if tender.executor%}
-                    <p>Тендер закрыт. Исполнитель найден</p>
+                    <p>{% trans "Тендер закрыт. Исполнитель найден" %}</p>
                 {%else%}
                     {%if responded%}
-                        <span>Вы откликнулись</span>
+                        <span>{% trans "Вы откликнулись" %}</span>
                     {%elif tender.service == request.user.type%}
-                        <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">Откликнуться на тендер</a>
+                        <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">{% trans "Откликнуться на тендер" %}</a>
                     {%endif%}
                 {%endif%}
             </div>
