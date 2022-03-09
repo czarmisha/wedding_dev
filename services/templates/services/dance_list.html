@@ -29,6 +29,7 @@
     <section id="FiltersSection">
         <div class="container">
             <div class='filters_desktop'>
+                <a href="{% url 'services:top' %}?service=dance" class="top10_link">ТОП-10</a>
                 <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
                 <form id="Search" class='search_form' method="GET" action="{% url 'search:search_service' %}">
                     <p class="filter_wrapper">

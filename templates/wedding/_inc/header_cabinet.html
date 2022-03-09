@@ -8,7 +8,7 @@
                         <li class="">
                             <a class="mobile-menu_link catalog_btn d-flex align-items-center justify-content-between" href="#">{% trans "Услуги" %} <span><i class="fad fa-long-arrow-right"></i></span></a>
                         </li>
-                        <li class=""><a href="{% url 'catalog' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
+                        <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
                         <li class=""><a href="{% url 'tender:list'%}" class="mobile-menu_link">{% trans "Тендеры" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link">{% trans "О нас" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link">{% trans "Контакты" %}</a></li>
@@ -106,7 +106,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class=""><a href="{% url 'catalog' %}" class="nav_link">{% trans "Рейтинг" %}</a></li>
+                    <li class=""><a href="{% url 'services:top' %}" class="nav_link">{% trans "Рейтинг" %}</a></li>
                     <li class=""><a href="{% url 'tender:list'%}" class="nav_link">{% trans "Тендеры" %}</a></li>
                 </ul>
                 <a href="{% url 'home' %}" class="logo"><img src="{% static 'media/images/TOYPOY_logo_png.png' %}" alt=""></a>

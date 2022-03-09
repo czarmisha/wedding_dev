@@ -64,6 +64,10 @@
         margin: 0;
         margin-top: 15px;
     }
+    .rating #Filter span{
+        margin: 0;
+        margin-bottom: 10px;
+    }
 }
 @media (max-width: 400px){
     .rating_left{

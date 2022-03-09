@@ -55,6 +55,7 @@
                             <option value="dance" {% if service == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
                             <option value="agency" {% if service == "agency" %}selected{% endif %}>{% trans "Агенство" %}</option>
                             <option value="restaurant" {% if service == "restaurant" %}selected{% endif %}>{% trans "Банкетные залы и рестораны" %}</option>
+                            <option value="registryoffice" {% if service == "registryoffice" %}selected{% endif %}>{% trans "Дворцы бракосочетания и ЗАГСы" %}</option>
                         </select>
                     </div>
                       <button class="filters_button" type="submit">{% trans "Применить" %}</button>
@@ -65,6 +66,8 @@
     </section>
    
     <div class="container">
+        
+        {% if user_list %}
         <div class="rating_list">
             {% for user in user_list %}
                 <a href="{{ user.get_cabinet_url }}" class="rating_box">
@@ -84,6 +87,7 @@
                 </a>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 {%endblock content%}
 {%block script%}
