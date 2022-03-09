@@ -1,0 +1,105 @@
+{% extends 'services_base.html' %}
+{% load i18n %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
+<link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
+<link rel="stylesheet" href="{% static 'styles/rating.css' %}">
+<link href="{% static 'select2/select2.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block content %}
+    <section id="TopPlace" style="background: url({% static 'media/images/accessories.jpg' %})no-repeat center center /cover;">
+        <div class="container">
+            <div class="top_place">
+                <div class="top_title">
+                    <h1>{% trans 'Топ 10 специалистов' %}</h1>
+                </div>
+                <div class="top_descr">
+                    <p>{% trans 'Топ 10 специалистов - лучший способ быстро найти лучших и проверенных специалистов' %}</p>
+                </div>
+                <div class="mobile_filter_btn">
+                    <a href="#"><span><i class="fas fa-filter"></i></span> {% trans 'Показать фильтры' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="FiltersSection">
+        <div class="container">
+            <div class='filters_desktop rating'>
+                <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
+                <form id='Filter' method='GET' action="{% url 'services:top' %}" class="w-100">
+                    <div>
+                        <span>Категория</span>
+                        <select name="service" id="id_service">
+                            <option value="" {% if not service %}selected{% endif %}>---------</option>
+                            <option value="photographer" {% if service == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>
+                            <option value="videographer" {% if service == "videographer" %}selected{% endif %}>{% trans "Видеограф" %}</option>
+                            <option value="artist" {% if service == "artist" %}selected{% endif %}>{% trans "Артист, Шоу программа" %}</option>
+                            <option value="transport" {% if service == "transport" %}selected{% endif %}>{% trans "Транспорт" %}</option>
+                            <option value="music" {% if service == "music" %}selected{% endif %}>{% trans "Музыканты, Dj" %}</option>
+                            <option value="presenter" {% if service == "presenter" %}selected{% endif %}>{% trans "Ведущий" %}</option>
+                            <option value="invitation" {% if service == "invitation" %}selected{% endif %}>{% trans "Пригласительные" %}</option>
+                            <option value="cake" {% if service == "cake" %}selected{% endif %}>{% trans "Торт" %}</option>
+                            <option value="dress" {% if service == "dress" %}selected{% endif %}>{% trans "Платье" %}</option>
+                            <option value="ring" {% if service == "ring" %}selected{% endif %}>{% trans "Кольца" %}</option>
+                            <option value="bouquet" {% if service == "bouquet" %}selected{% endif %}>{% trans "Букет" %}</option>
+                            <option value="decor" {% if service == "decor" %}selected{% endif %}>{% trans "Декор, оформление" %}</option>
+                            <option value="costume" {% if service == "costume" %}selected{% endif %}>{% trans "Костюм" %}</option>
+                            <option value="accessories" {% if service == "accessories" %}selected{% endif %}>{% trans "Аксуссуары" %}</option>
+                            <option value="stylist" {% if service == "stylist" %}selected{% endif %}>{% trans "Стилист, Визажист" %}</option>
+                            <option value="photostudio" {% if service == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
+                            <option value="dance" {% if service == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
+                            <option value="agency" {% if service == "agency" %}selected{% endif %}>{% trans "Агенство" %}</option>
+                            <option value="restaurant" {% if service == "restaurant" %}selected{% endif %}>{% trans "Банкетные залы и рестораны" %}</option>
+                        </select>
+                    </div>
+                      <button class="filters_button" type="submit">{% trans "Применить" %}</button>
+                </form>
+            </div>
+            <div class='filters_mobile'></div>
+        </div>
+    </section>
+   
+    <div class="container">
+        <div class="rating_list">
+            {% for user in user_list %}
+                <a href="{{ user.get_cabinet_url }}" class="rating_box">
+                    <div class="rating_left d-flex align-items-center">
+                        {% if user.check_avatar %}
+                        <img src="{{ user.check_avatar.url }}" alt="">
+                        {% else %}
+                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                        {% endif %}
+                        <p class="name">
+                            {{ user.get_name }}
+                        </p>
+                    </div>
+                    <div class="rating_right">
+                        <p>Рейтинг <span>{{ user.rating }}</span></p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{%endblock content%}
+{%block script%}
+<script>
+        $('.mobile_filter_btn a').on('click', function(e){
+
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+        $('.filter_close_btn').on('click', function(e){
+            e.preventDefault();
+            $('.filters_desktop').toggleClass('open');
+            if($('.filters_desktop').hasClass('open')) $('body').css('overflow', 'hidden');
+            else $('body').css('overflow', 'auto');
+        });
+</script>
+{%endblock%}

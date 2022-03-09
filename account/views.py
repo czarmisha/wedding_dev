@@ -125,3 +125,5 @@ def my_tenders(request):
         return render(request, 'account/my_tenders.html', {'tenders': tenders})
     else:
         return render(request, 'wedding/home.html')
+        
+    

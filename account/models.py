@@ -7,12 +7,9 @@ from django.contrib.contenttypes.fields import GenericRelation
 
 
 class User(AbstractUser):
-    _TYPES_OF_USER = (
-        ('client', 'Клиент'),
-        ('photographer', 'Фотограф'),
-    )
     type = models.CharField(
         'Тип пользователя', max_length=155, default='client')
+    rating = models.FloatField('Рейтинг пользователя', default=0)
 
     def __str__(self):
         return self.username
@@ -31,6 +28,51 @@ class User(AbstractUser):
 
     def get_positive_rate_count(self):
         return self.service_reviews.filter(value=3).count()
+
+    def get_name(self):
+        if self.type == 'client':
+            return self.first_name + self.last_name
+        elif self.type == 'photographer':
+            return self.photographer.name
+        elif self.type == 'restaurant':
+            return self.restaurant.name
+        elif self.type == 'artist':
+            return self.artist.name
+        elif self.type == 'transport':
+            return self.transport.name
+        elif self.type == 'music':
+            return self.music.name
+        elif self.type == 'presenter':
+            return self.presenter.name
+        elif self.type == 'registryoffice':
+            return self.registryoffice.name
+        elif self.type == 'invitation':
+            return self.invitation.name
+        elif self.type == 'cake':
+            return self.cake.name
+        elif self.type == 'dress':
+            return self.dress.name
+        elif self.type == 'ring':
+            return self.ring.name
+        elif self.type == 'bouquet':
+            return self.bouquet.name
+        elif self.type == 'decor':
+            return self.decor.name
+        elif self.type == 'costume':
+            return self.costume.name
+        elif self.type == 'accessories':
+            return self.accessories.name
+        elif self.type == 'stylist':
+            return self.stylist.name
+        elif self.type == 'photostudio':
+            return self.photostudio.name
+        elif self.type == 'dance':
+            return self.dance.name
+        elif self.type == 'agency':
+            return self.agency.name
+        elif self.type == 'videographer':
+            return self.videographer.name
+
 
     def check_avatar(self):
         if self.type == 'client':

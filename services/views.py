@@ -16,6 +16,18 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 User = get_user_model()
 
 
+def top_rating(request):
+    service = request.GET.get('service')
+    if service:
+        context = {
+            'user_list': User.objects.filter(type=service).order_by('-rating')[:10],
+            'service': service,
+        }
+    else:
+        context = {}
+    return render(request, 'account/rating.html', context)
+
+
 def agency_list(request):
     f = filters.AgencyFilter(request.GET, queryset=Agency.objects.select_related(
         'user', 'user__portfolio').annotate(review_count=Count("user__service_reviews")).order_by('-is_pro', '-created'))
@@ -480,6 +492,8 @@ def create_review(request):
             review = Review(service_user=service_user,
                             client_user=client_user, text=text, value=rate_value)
             review.save()
+            service_user.rating = service_user.get_calculated_rate()
+            service_user.save()
             resp = {
                 'success': True,
                 'save': True

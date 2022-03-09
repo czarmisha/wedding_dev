@@ -35,6 +35,7 @@
                     <select name="service" id="id_service">
                       <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
                       <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>
+                      <option value="videographer" {% if filter.form.service.value == "videographer" %}selected{% endif %}>{% trans "Видеограф" %}</option>
                       <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>{% trans "Артист, Шоу программа" %}</option>
                       <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>{% trans "Транспорт" %}</option>
                       <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>{% trans "Музыканты, Dj" %}</option>
@@ -51,6 +52,7 @@
                       <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
                       <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
                       <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>{% trans "Агенство" %}</option>
+                      <option value="restaurant" {% if service == "restaurant" %}selected{% endif %}>{% trans "Банкетные залы и рестораны" %}</option>
                     </select>
                 </p>
                 <div class="filter_wrapper">

@@ -149,6 +149,15 @@ main{
     width: 100px;
     background: white;
 }
+.rating #Filter{
+    justify-content: space-between;
+}
+.rating #Filter span{
+    justify-content: space-between;
+    color: #808285;
+    font-size: 14px;
+    margin-right: 7px;
+}
 #Filter button[type='submit']{
     display: block;
     height: 29px;
@@ -428,6 +437,11 @@ select:focus{
 /* ----------------------- media -------------- */
 
 @media (max-width: 992px){
+    .rating #Filter>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .filters_desktop.wrap{
         flex-wrap: unset;
     }
