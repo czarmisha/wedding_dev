@@ -11,6 +11,7 @@ from . import filters
 from favorite.models import Favorite
 from django.db.models import Count
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.utils.translation import gettext_lazy as _
 
 
 User = get_user_model()
@@ -437,7 +438,7 @@ def add_portfolio(request):
             form = VideoForm()
         else:
             form = PortfolioForm()
-        return render(request, 'services/add_portfolio.html', {'form': form})
+        return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Создать портфолио')})
 
     elif request.method == 'POST':
 
@@ -463,7 +464,7 @@ def add_portfolio(request):
                     image.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
-            return render(request, 'services/add_portfolio.html', {'form': form})
+            return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Создать портфолио')})
     else:
         return redirect('home')
 
@@ -472,7 +473,7 @@ def add_portfolio(request):
 def extend_portfolio(request):
     if request.method == 'GET':
         form = PortfolioForm()
-        return render(request, 'services/add_portfolio.html', {'form': form})
+        return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Расширить портфолио')})
     elif request.method == 'POST':
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
@@ -484,7 +485,7 @@ def extend_portfolio(request):
                 image.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
-            return render(request, 'services/add_portfolio.html', {'form': form})
+            return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Расширить портфолио')})
     else:
         return HttpResponseRedirect(request.user.get_cabinet_url())
 

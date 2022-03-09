@@ -1,15 +1,20 @@
+{% extends "account_base.html" %}
 {% load i18n %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <form action="" method="post" enctype="multipart/form-data">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="{% trans 'Создать' %}"></p>
-    </form>
-</body>
-</html>
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login">
+        <h1>{{ title }}</h1>
+        <form action="" method="post" enctype="multipart/form-data" class='login_form'>
+            {{ form.as_p }}
+            {% csrf_token %}
+            <p><input type="submit" value="{% trans 'Создать' %}"></p>
+        </form>
+    </div>
+{% endblock %}
