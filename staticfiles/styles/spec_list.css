@@ -149,6 +149,15 @@ main{
     width: 100px;
     background: white;
 }
+.rating #Filter{
+    justify-content: space-between;
+}
+.rating #Filter span{
+    justify-content: space-between;
+    color: #808285;
+    font-size: 14px;
+    margin-right: 7px;
+}
 #Filter button[type='submit']{
     display: block;
     height: 29px;
@@ -414,6 +423,17 @@ select:focus{
     left: 8px;
     display: none;
 }
+.top10_link{
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: -33px;
+    text-decoration: none;
+    font-family: 'Roboto_medium';
+}
+.top10_link:hover{
+    color: white;
+}
 .filters_desktop.open{
     transform: translateX(0px);
     transition-duration: .3s;
@@ -428,6 +448,11 @@ select:focus{
 /* ----------------------- media -------------- */
 
 @media (max-width: 992px){
+    .rating #Filter>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .filters_desktop.wrap{
         flex-wrap: unset;
     }
@@ -436,6 +461,14 @@ select:focus{
     }
     .filter_close_btn{
         display: inline-block;
+    }
+    .top10_link{
+        color: #4197cb;
+        top: auto;
+        bottom: 50px;
+    }
+    .top10_link:hover{
+        color: #4197cb;
     }
     .mobile_filter_btn{
         display: block;

@@ -430,6 +430,7 @@ select:focus{
     top: -33px;
     text-decoration: none;
     font-family: 'Roboto_medium';
+    text-decoration: underline;
 }
 .top10_link:hover{
     color: white;

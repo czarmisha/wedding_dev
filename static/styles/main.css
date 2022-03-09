@@ -35,6 +35,9 @@ ul{
     text-decoration: none;
     font-family: 'Roboto_medium';
 }
+.languages_mobile a{
+    color: black;
+}
 .languages .dropdown-menu,
 .languages_mobile .dropdown-menu{
     min-width: auto;
