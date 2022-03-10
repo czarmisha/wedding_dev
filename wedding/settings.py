@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'plan',
     'favorite',
     'django_filters',
+    # 'mapbox_location_field',
     # 'star_ratings',
 ]
 

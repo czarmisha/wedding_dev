@@ -129,7 +129,7 @@ header nav{
     inset: 0px auto auto -58px!important;
     padding: 20px;
     z-index: 999999;
-    /* transform: translate(-282px, 39px)!important; */
+    transform: translate3d(-222px, 26px, 0px)!important;
 }
 
 .my_dropdown .column_menu a{
@@ -138,7 +138,7 @@ header nav{
     position: relative;
     padding: 10px 0 10px 0px;
     font-size: 16px;
-    color: #7c8184;
+    color: black;
     text-decoration: none;
     transition: all .2s ease;
     background-repeat: no-repeat;
@@ -166,6 +166,7 @@ header nav{
 .column_menu a img{
     width: 36px;
     height: 36px;
+    margin-right: 5px;
 }
 
 /* .column_menu .dropdown_bg:nth-child(1) a::before{
@@ -323,6 +324,16 @@ header nav{
 
 .header_navigation .mobile-menu_link:hover{
     color: var(--dark-color);
+}
+
+.header_navigation.left{
+    min-width: 500px;
+    justify-content: flex-end;
+}
+
+.header_navigation.right{
+    min-width: 500px;
+    justify-content: flex-start;
 }
 
 .mobile-menu_link{

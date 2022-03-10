@@ -320,11 +320,13 @@ header nav{
 
 .burger_btn.active span{
     transform: rotate(45deg);
+    background-color: black;
 }
 
 .burger_btn.active span::after{
     top: 0;
     transform: rotate(-90deg);
+    background-color: black;
 }
 
 .burger_btn.active span::before{
@@ -367,7 +369,8 @@ header nav{
 }
 
 .mobile-menu_link{
-    color: #8082859e;  
+    color: black;  
+    /* color: #8082859e;   */
     font-size: 15px; 
     font-family: 'Roboto_medium';
     display: block;
@@ -375,11 +378,12 @@ header nav{
     text-transform: uppercase;
     margin-bottom: 15px;
     margin-bottom: 0;
-    padding: 7px 0;
+    padding: 10px 0;
 }
 .mobile-menu_link img{
     width: 36px;
     height: 36px;
+    margin-right: 5px;
 }
 
 .mobile_catalog{
@@ -409,7 +413,7 @@ header nav{
 }
 
 .catalog_back{
-    color: #8082859e;
+    color: black;
     font-size: 15px;
     display: flex;
     align-items: center;
@@ -420,6 +424,7 @@ header nav{
 .catalog_back>span{
     font-size: 15px;
     margin-left: 8px;
+    color: black;
 }
 
 .account_menu{
