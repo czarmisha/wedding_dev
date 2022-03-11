@@ -10,6 +10,7 @@
     </div>
     <div class="client_body">
         <a href="{% url 'account:update_client_profile' %}" class="edit_profile"> <span><i class="fad fa-edit"></i></span> {% trans "Редактировать" %} <br> {% trans "профиль" %}</a>
+        <a href="{% url 'account:change_password' %}" class="change_password"> <span><i class="fad fa-key-skeleton"></i></span> {% trans "Изменить" %} <br> {% trans "пароль" %}</a>
         <p>{% trans "username" %} <br> <span> {{user.username}} </span></p>
         <p>{% trans "имя" %} <br> {% if not user.first_name %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.first_name}}</span> {% endif %}</p>
         <p>{% trans "фамилия" %} <br> {% if not user.last_name %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.last_name}}</span> {% endif %}</p>

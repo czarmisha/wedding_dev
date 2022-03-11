@@ -49,6 +49,9 @@
                         <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}">Instagram</a></p>
                         <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}">Facebook</a></p>
                     </div>
+                    {% if request.user.is_authenticated and request.user == object.user%}
+                    <a href="{% url 'account:change_password' %}" class="change_password"> <span><i class="fad fa-key-skeleton"></i></span> {% trans "Изменить" %} <br> {% trans "пароль" %}</a>
+                    {% endif %}
                     {%if request.user.type == 'client'%}
                     <div class="favorite">
                         {% if favorite %}

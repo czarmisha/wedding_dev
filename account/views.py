@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from .forms import LoginForm, UserRegistrationForm, ClientEditForm
+from .forms import LoginForm, UserRegistrationForm, ClientEditForm, ChangePasswordForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.hashers import check_password
 from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
@@ -59,6 +60,30 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('home', kwargs={}))
+
+
+def change_password(request):
+    u = User.objects.get(username=request.user)
+    if request.method == 'POST':
+        form = ChangePasswordForm(request.POST)
+        if form.is_valid():
+            old_password = request.POST.get("old_password")
+            new_pass = request.POST.get("new_password")
+            new_pass_rep = request.POST.get("new_password_rep")
+            if check_password(old_password,u.password):
+                if(new_pass==new_pass_rep):
+                    u.set_password(new_pass)
+                    u.save()
+                    return HttpResponseRedirect(reverse('home', kwargs={}))
+                else:
+                    messages.error(request, 'Новый пароль и Повтор пароль не совпадают')
+            else:
+                messages.error(request, 'Вы ввели неверный старый пароль')
+    else:
+            form = ChangePasswordForm()
+
+    return render(request, 'account/change_password.html',
+              {'form': form})
 
 
 @login_required

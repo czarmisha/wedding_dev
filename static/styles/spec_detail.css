@@ -350,6 +350,26 @@ ul.rating_options{
 .positive_rating{ 
     color: #56ad01;
 }
+
+.change_password{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: var(--blue-color);
+    font-family: 'Roboto_medium';
+    font-size: 18px;
+    text-align: right;
+    margin-bottom: 15px;
+}
+.change_password span{
+    margin-right: 6px;
+    font-size: 22px;
+}
+.change_password:hover{
+    color: var(--blue-color);
+}
+
 .portfolio_element{
     width: 100%;
     opacity: .7;
