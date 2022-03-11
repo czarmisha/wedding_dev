@@ -19,6 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from . import views
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 app_name = 'wedding'
 urlpatterns = i18n_patterns(
@@ -35,6 +37,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('search/', include('search.urls', namespace='search')),
     path('__debug__/', include('debug_toolbar.urls')),
+    # path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('/static/images/favicon.ico'))),
     # path('ratings/', include('star_ratings.urls', namespace='ratings')),
 )
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
