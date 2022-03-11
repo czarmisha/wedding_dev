@@ -169,7 +169,7 @@ header nav{
     font-family: 'Roboto_regular';
     font-size: 16px;
     color: var(--dark-color);
-    margin-bottom: 50px;
+    margin-top: 30px;
 }
 
 .header_content__text span {
@@ -359,7 +359,7 @@ header nav{
 }
 
 .mobile-menu .wrapper{
-    padding: 25px 0;
+    padding: 35px 0;
 }
 
 .mobile-menu.active{
@@ -371,6 +371,7 @@ header nav{
     width: 100%;
     padding: 0;
     margin: 0;
+    padding-top: 10px;
 }
 
 .mobile-menu_list li{

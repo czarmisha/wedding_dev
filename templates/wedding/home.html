@@ -65,7 +65,7 @@
                                             {% trans "Нужен" %} <br>
                                             <span class="tender_specialist">{{tender.get_service_display}}</span> <br>
                                             {% trans "на" %} {{tender.on_date}} <br>
-                                            {% trans "Бюджет" %}: <span class="tender_budget">{{tender.budget}} {% trans "сум" %}</span>
+                                            {% trans "Бюджет" %}: <span class="tender_budget">{{tender.budget}} y.e.</span>
                                         </p>
                                     </div>
                                     <p class="tender_customer text-start">{{tender.author}}</p>
@@ -238,6 +238,14 @@
 
                     <h2 class="welcome_subtitle">{% trans "Вы свадебный профессионал или фирма?" %}</h2>
                     <a href="{% url 'promo' %}" class="welcome_spec-register">{% trans "Как вам зарегистрироваться?" %}</a>
+                </div>
+            </section>
+            <section class="about_section" id='About'>
+                <div class="container">
+                    <h2 class="text-center title">{% trans "О нас" %}</h2>
+                    <div class="about">
+
+                    </div>
                 </div>
             </section>
 {% endblock %}

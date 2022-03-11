@@ -42,9 +42,11 @@ h1{
     width: 100%;
     max-width: 500px;
     padding: 40px 25px 40px 25px;
-    border: 2px solid #c99e668f;
+    /* border: 2px solid #c99e668f; */
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+    border-radius: 18px;
     overflow: hidden;
-    background: #f4f3f3;
+    /* background: #f4f3f3; */
 }
 
 .tender_create_form .form-group{
@@ -67,7 +69,8 @@ h1{
     padding: 0 15px;
     color: #808285;
     font-size: 14px;
-    width: calc(100% - 160px)
+    width: calc(100% - 160px);
+    border-radius: 14px;
 }
 
 .tender_create_form .form-group textarea{
@@ -78,6 +81,7 @@ h1{
     font-size: 14px;
     width: calc(100% - 160px);
     resize: none;
+    border-radius: 14px;
 }
 
 .tender_create_form .form-group select{
@@ -88,6 +92,7 @@ h1{
     font-size: 14px;
     width: calc(100% - 160px);
     resize: none;
+    border-radius: 14px;
 }
 
 .tender_create_form button[type=submit]{
@@ -102,12 +107,45 @@ h1{
     border-radius: 5px;
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
+    border-radius: 14px;
 }
 
 .tender_create_form button[type=submit]:hover {
     background: #c99e668f;
 }
 
+input:focus, select:focus, textarea:focus{
+    outline: none;
+}
+
+.text{
+    color: var(--dark-color);
+}
+.bld{
+    color: black;
+    font-family: 'Roboto_medium';
+}
+.steps{
+    list-style: none;
+    color: var(--dark-color);
+}
+
+.text_btm{
+    margin-top: 20px;
+    color: var(--light-grey);
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+.text_btm span{
+    font-size: 15px;
+    font-family: 'Roboto_medium';
+    color: black;
+}
+.text_btm span.gld{
+    font-size: 15px;
+    font-family: 'Roboto_medium';
+    color: var(--gold-color);
+}
 /*-------------------- messages -----------------*/
 .messages {
     list-style: none;

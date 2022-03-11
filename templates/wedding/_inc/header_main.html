@@ -9,7 +9,7 @@
                         </li>
                         <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
                         <li class=""><a href="{% url 'tender:list' %}" class="mobile-menu_link">{% trans "Тендеры" %}</a></li>
-                        <li class=""><a href="" class="mobile-menu_link">{% trans "О нас" %}</a></li>
+                        <li class=""><a href="#About" class="mobile-menu_link">{% trans "О нас" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link">{% trans "Скидки и акции" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link account_btn d-flex align-items-center justify-content-between">{% trans "Аккаунт" %} <span><i class="fad fa-long-arrow-right"></i></span></a></li>
                     </ul>
@@ -109,7 +109,7 @@
                 </ul>
                 <a href="{% url 'home' %}" class="logo"><img src="{% static 'media/images/TOYPOY_logo_png.png' %}" alt=""></a>
                 <ul class="header_navigation right d-none d-lg-flex">
-                    <li class=""><a href="" class="nav_link">{% trans "О нас" %}</a></li>
+                    <li class=""><a href="#About" class="nav_link">{% trans "О нас" %}</a></li>
                     <li class=""><a href="" class="nav_link">{% trans "Скидки и акции" %}</a></li>
                     <li class="">
                         <div class="dropdown">
@@ -134,12 +134,12 @@
             </nav>
             <div class="header_content">
                 <h1 class="header_content__title">{% trans "Организуйте свадьбу не выходя из дома" %}</h1>
-                <p class="header_content__text text-center">
-                    T<span>O</span>YP<span>O</span>Y.uz {% trans "собрал каталог лучших специалистов Ташкента для организации вашей свадьбы мечты" %}.
-                </p>
                 <div class="header_buttons">
                     {% comment %} <a href="" class="header_buttons__gold">Начать подготовку</a> {% endcomment %}
                     <a href="{% url 'catalog' %}" class="header_buttons__gold-reverse">{% trans "Искать специалистов" %}</a>
                 </div>
+                <p class="header_content__text text-center">
+                    T<span>O</span>YP<span>O</span>Y.uz {% trans "собрал каталог лучших специалистов Ташкента для организации вашей свадьбы мечты" %}.
+                </p>
             </div>
         </div>
