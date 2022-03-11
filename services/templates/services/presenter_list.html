@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
 <link href="{% static 'select2/select2.css' %}" rel="stylesheet" />
 {% endblock%}
-
+{% block title %}<title>{% trans "Ведущие" %}</title>{% endblock title %}
 {% block content %}
 <section id="TopPlace" style="background: url({% static 'media/images/presenter.jpg' %})no-repeat center center /cover;">
         <div class="container">

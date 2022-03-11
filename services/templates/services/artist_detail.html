@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/spec_detail.css' %}">
 {% endblock %}
-
+{% block title %}<title>{% trans "Артист и шоу программа" %} {{object.name}}</title>{% endblock title %}
 
 {% block content %}
      <div class="container">
@@ -41,6 +41,9 @@
                             <li class="rating_option positive_rating"><i class="fad fa-smile"></i><span>{{object.user.get_positive_rate_count}}</span></li>
                         </ul>
                     </div>
+                    {% if request.user.is_authenticated and request.user == object.user%}
+                    <a href="{% url 'account:change_password' %}" class="change_password"> <span><i class="fad fa-key-skeleton"></i></span> {% trans "Изменить" %} {% trans "пароль" %}</a>
+                    {% endif %}
                     {%if request.user.type == 'client'%}
                     <div class="favorite">
                         {% if favorite %}

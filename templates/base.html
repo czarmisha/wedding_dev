@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'styles/header_main.css' %}">
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
     <link rel="stylesheet" href="{% static 'styles/footer.css' %}">
-    <title>Home page</title>
+    {% block title %}<title>{% trans "Главная" %} | Toypoy.uz</title>{% endblock title %}
 </head>
 <body>
     <header>

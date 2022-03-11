@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{% static 'slick/slick/slick.css' %}">
 <link rel="stylesheet" href="{% static 'styles/spec_list.css' %}">
 {% endblock%}
-
+{% block title %}<title>{% trans "Фотографы" %}</title>{% endblock title %}
 {% block content %}
     <section id="TopPlace" style="background: url({% static 'media/images/photograph.jpg' %})no-repeat center center /cover;">
         <div class="container">

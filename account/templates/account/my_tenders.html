@@ -5,7 +5,7 @@
 {% block styles %}
     <link rel="stylesheet" href="{% static 'styles/my_tenders.css' %}">
 {% endblock %}
-
+{% block title %}<title>{% trans "Мои тендеры" %}</title>{% endblock title %}
 {% block content %}
 <h2 class="title">{% trans "Мои тендеры" %}</h2>
 <div class="tender_list">

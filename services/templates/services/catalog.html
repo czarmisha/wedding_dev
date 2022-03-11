@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
 <link rel="stylesheet" href="{% static 'styles/catalog.css' %}">
 {% endblock%}
-
+{% block title %}<title>{% trans "Каталог услуг" %}</title>{% endblock title %}
 {% block content %}
 <div class="container">
     <h1>{% trans "Каталог свадебных специалистов" %}</h1>

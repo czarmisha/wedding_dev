@@ -5,7 +5,7 @@
 {% block styles %}
     <link rel="stylesheet" href="{% static 'styles/my_favorites.css' %}">
 {% endblock %}
-
+{% block title %}<title>{% trans "Избранные специалисты" %}</title>{% endblock title %}
 {% block content %}
     <div class="favorite_specialists">
         <h1>{% trans "Избранные специалисты" %}</h1>
