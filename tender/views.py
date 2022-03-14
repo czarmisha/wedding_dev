@@ -17,6 +17,7 @@ class TenderList(FilterView):
     context_object_name = 'tender_list'
     template_name = 'tender/tender_list.html'
     filterset_class = TenderFilter
+    paginate_by = 12
 
 
 class TenderDetail(DetailView):
