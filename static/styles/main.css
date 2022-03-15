@@ -431,6 +431,12 @@ body{
     color: var(--gold-color);
 }
 
+.welcome_text{
+    font-size: 18px;
+    color: var(--dark-grey);
+    margin-bottom: 30px;
+}
+
 .welcome_client-register{
     width: 250px;
     height: 50px;
@@ -449,14 +455,17 @@ body{
 .welcome_subtitle{
     font-family: 'Roboto_medium';
     font-size: 24px;
+    margin-bottom: 15px;
+    margin-top: 25px;
 }
 
 .welcome_spec-register{
-    color: var(--light-grey);
+    color: var(--gold-color);
+    font-size: 20px;
 }
 
 .welcome_spec-register:hover{
-    color: var(--light-grey);
+    color: var(--gold-color);
 }
 /* ------------- planning_section --------------- */
 .planning_section{
@@ -546,6 +555,75 @@ body{
 
 .promo_section .title span {
     color: var(--gold-color);
+}
+.specialist_registry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 25px 40px 25px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    margin: 50px auto 30px;
+}
+
+.specialist_registry input[type='text']{
+    width: 90%;
+    border: 1px solid #d3d3d3a8;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.specialist_registry p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: var(--dark-grey);
+}
+
+.specialist_registry input[type='submit']{
+    display: block;
+    width: 150px;
+    height: 36px;
+    margin: 15px auto 0;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 14px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+/*--- messages ---*/
+.specialist_registry .messages {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.specialist_registry .messages li{
+    font-size: 15px;
+    color: #ff0000ad;
+    text-align: center;
+    font-family: 'Roboto_regular';
+}
+
+input:focus{
+    outline: none;
+}
+
+.register_done{
+    font-size: 17px;
+    color: #56ad01;
+    text-align: center;
+    margin-top: 35px;
 }
 
 .promo_section .subtitle,

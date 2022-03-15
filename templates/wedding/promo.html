@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
-
+{% block title %}<title>{% trans "Регистрация специалистов" %} | Toypoy.uz</title>{% endblock title %}
 {% block main %}
     <section class="promo_section">
         <div class="container">
@@ -11,12 +11,37 @@
             </p>
             <h3 class="register_guide_title">{% trans "Как специалисту зарегистрироваться на сайт" %}</h3>
             <p class="register_guide">
-                 {% trans "Регистрация специалистов совершается администратором сайта" %}. {% trans "Все, что вам нужно сделать - написать или позвонить администратору сайта и предоставить всю необходимою информацию" %}. {% trans "После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно будет изменить). Все это делается для поддержания одног формата для всех специалистов, а так же проверка валидности вашей информации администратором. После получения аккаунта, вы сможете создать свое портфолио у себя на страничке." %}
+                 {% trans "Регистрация специалистов совершается администратором сайта" %}. {% trans "Все, что вам нужно сделать - заполнить форму ниже и предоставить всю необходимою информацию" %}. {% trans "После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно и нужно будет изменить). Все это делается для поддержания одног формата для всех специалистов, а так же проверка валидности вашей информации администратором. После получения аккаунта, вы сможете создать свое портфолио у себя на страничке." %}
             </p>
-            <h3 class="admin_contacts_title">{% trans "Контакты" %}</h3>
+            
+            {% if form %}
+            <form action="{% url 'promo' %}" class="specialist_registry" method='post'>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Имя">
+                <input type="text" name="phone" placeholder="Контактный номер">
+                <p class="warning">
+                    {% trans "Перед отправкой формы, пожалуйста, ознакомтесь с" %} <a href="{% static 'docs/specialist-registry-agreement.docx' %}" class="agreement">{% trans "Соглашение на предоставляемые услуги" %}</a>. <br>
+                    {% trans "Отправляя форму вы автоматичксеи соглашается с условиями соглашения" %}
+                </p>
+                <input type="submit" value="Отправить">
+            </form>
+            {% else %}
+            <p class="register_done">
+                {{ text }}
+           </p>
+            {% endif %}
+                
+            {% comment %} <h3 class="admin_contacts_title">{% trans "Контакты" %}</h3>
             <ul class="admin_contacts">
                 <li><a href="#"><span><i class="fab fa-telegram-plane"></i></span>@sobaka</a></li>
                 <li><a href="tel:4561355"><span><i class="fal fa-mobile"></i></span>+998 95 1234567</a></li>
-            </ul>
+            </ul> {% endcomment %}
         </div>
     </section> {% endblock %}
