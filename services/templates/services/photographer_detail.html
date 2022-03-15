@@ -28,13 +28,6 @@
                         <p class="specialist_price">{% trans "Цена" %}: <span>{{object.user.photographer.price}} {% trans "сум" %}</span></p>
                         <p class="specialist_price">{% trans "Цена в час" %}: <span>{{object.user.photographer.price_per_hour}} {% trans "сум" %}</span></p>
                     </div>
-                    <div class="contacts">
-                        <h3 class="subtitle">Контакты</h3>
-                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
-                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.user.}}">{{object.phone}}</a></p>
-                    </div>
                     <div class="rating">
                         <ul class="rating_options">
                             <li class="rating_option negative_rating"><i class="fad fa-frown"></i><span>{{object.user.get_negative_rate_count}}</span></li>
@@ -42,6 +35,14 @@
                             <li class="rating_option positive_rating"><i class="fad fa-smile"></i><span>{{object.user.get_positive_rate_count}}</span></li>
                         </ul>
                     </div>
+                    <div class="contacts">
+                        <h3 class="subtitle">Контакты</h3>
+                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.user.}}">{{object.phone}}</a></p>
+                    </div>
+                   
                     {% if request.user.is_authenticated and request.user == object.user%}
                     <a href="{% url 'account:change_password' %}" class="change_password"> <span><i class="fad fa-key-skeleton"></i></span> {% trans "Изменить" %} {% trans "пароль" %}</a>
                     {% endif %}
@@ -71,6 +72,38 @@
                             <p class="specialist_about">
                                 {{object.user.photographer.about}}
                             </p>
+                            <div class="spec_more_info">
+                                <h3 class="subtitle">{% trans "Детали" %}</h3>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                        <ul class="more_info">
+                                            <li class="more_info_title"><span>{% trans "Преимущества" %}</span></li>
+                                            {% for benefit in benefits %}
+                                                <li class="more_info_element{% if benefit in object.benefits.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{benefit.name}}</li>
+                                            {% endfor %}
+                                    
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                        <ul class="more_info">
+                                            <li class="more_info_title"><span>{% trans "Доп. услуги" %}</span></li>
+                                            {% for additional_service in additional_services %}
+                                                <li class="more_info_element{% if additional_service in object.additional_services.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{additional_service.name}}</li>
+                                            {% endfor %}
+                                    
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                                        <ul class="more_info">
+                                            <li class="more_info_title"><span>{% trans "Способ оплаты" %}</span></li>
+                                            {% for payment_method in payment_methods %}
+                                                <li class="more_info_element{% if payment_method in object.payment.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{payment_method.name}}</li>
+                                            {% endfor %}
+                                    
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="specialist_portfolio">
                                 <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}

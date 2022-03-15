@@ -143,6 +143,9 @@ class PhotoStudio(models.Model):
     phone = models.CharField('Телефон', max_length=13)
     slug = models.SlugField(max_length=200, unique=True)
     location = models.ForeignKey('account.District', on_delete=models.CASCADE, verbose_name='Местоположение', null=True)
+    additional_services = models.ManyToManyField('PhotostudioAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('PhotostudioBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('PhotostudioPaymentMethod', verbose_name='Способы оплаты')
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
@@ -166,6 +169,39 @@ class PhotoStudio(models.Model):
         verbose_name = 'Фотостудия'
         verbose_name_plural = 'Фотостудии'
         ordering = ['-is_pro', '-created',]
+
+
+class PhotostudioAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотостудии - Услуга за доп плату'
+        verbose_name_plural = 'Фотостудии - Услуги за доп плату'
+
+
+class PhotostudioBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотостудии - Преимущество заведения'
+        verbose_name_plural = 'Фотостудии - Преимущества заведения'
+
+
+class PhotostudioPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотостудии - Способ оплаты'
+        verbose_name_plural = 'Фотостудии - Способы оплаты'
 
 
 class Stylist(models.Model):
@@ -615,6 +651,9 @@ class Presenter(models.Model):
     language = models.ManyToManyField('Language', verbose_name='Языки')
     avatar = models.ImageField(upload_to='avatars/presenters', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
+    additional_services = models.ManyToManyField('PresenterAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('PresenterBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('PresenterPaymentMethod', verbose_name='Способы оплаты')
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
@@ -639,6 +678,39 @@ class Presenter(models.Model):
         verbose_name = 'Ведущий и тамада'
         verbose_name_plural = 'Ведущие и тамада'
         ordering = ['-is_pro', '-created',]
+
+
+class PresenterAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Ведущие - Услуга за доп плату'
+        verbose_name_plural = 'Ведущие - Услуги за доп плату'
+
+
+class PresenterBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Ведущие - Преимущество заведения'
+        verbose_name_plural = 'Ведущие - Преимущества заведения'
+
+
+class PresenterPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Ведущие - Способ оплаты'
+        verbose_name_plural = 'Ведущие - Способы оплаты'
 
 
 class Language(models.Model):
@@ -675,6 +747,9 @@ class Music(models.Model):
     composition = models.CharField('Исполнители', max_length=50, choices=_COMPOSITION_TYPE, null=True)
     vocal = models.CharField('Вокал', max_length=50, choices=_VOCAL_TYPE, null=True)
     language = models.ManyToManyField('Language', verbose_name='Языки исполнения песен')
+    additional_services = models.ManyToManyField('MusicAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('MusicBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('MusicPaymentMethod', verbose_name='Способы оплаты')
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
@@ -700,6 +775,39 @@ class Music(models.Model):
         verbose_name = 'Музыкальная группа и DJ'
         verbose_name_plural = 'Музыкальные группы и DJ'
         ordering = ['-is_pro', '-created',]
+
+
+class MusicAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Музыканты - Услуга за доп плату'
+        verbose_name_plural = 'Музыканты - Услуги за доп плату'
+
+
+class MusicBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Музыканты - Преимущество заведения'
+        verbose_name_plural = 'Музыканты - Преимущества заведения'
+
+
+class MusicPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Музыканты - Способ оплаты'
+        verbose_name_plural = 'Музыканты - Способы оплаты'
 
 
 class Transport(models.Model):
@@ -817,7 +925,6 @@ class ShowType(models.Model):
 
 
 class Restaurant(models.Model):
-    # TODO Kitchen type
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название заведения', max_length=155)
     description = models.TextField('Описание')
@@ -853,7 +960,7 @@ class Restaurant(models.Model):
         super(Restaurant, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Банкетный зал, ретсоран'
+        verbose_name = 'Банкетный зал, ресторан'
         verbose_name_plural = 'Банкетные залы, рестораны'
         ordering = ['-is_pro', '-created',]
 
@@ -865,8 +972,8 @@ class RestaurantAdditionalFeeService(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Услуга за доп плату'
-        verbose_name_plural = 'Услуги за доп плату'
+        verbose_name = 'Ресторан - Услуга за доп плату'
+        verbose_name_plural = 'Ресторан - Услуги за доп плату'
 
 
 class RestaurantBenefits(models.Model):
@@ -876,8 +983,8 @@ class RestaurantBenefits(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Преимущество заведения'
-        verbose_name_plural = 'Преимущества заведения'
+        verbose_name = 'Ресторан - Преимущество заведения'
+        verbose_name_plural = 'Ресторан - Преимущества заведения'
 
 
 class RestaurantPaymentMethod(models.Model):
@@ -887,8 +994,8 @@ class RestaurantPaymentMethod(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Способ оплаты'
-        verbose_name_plural = 'Способы оплаты'
+        verbose_name = 'Ресторан - Способ оплаты'
+        verbose_name_plural = 'Ресторан - Способы оплаты'
 
 
 class RestaurantType(models.Model):
@@ -920,6 +1027,9 @@ class Photographer(models.Model):
     price = models.FloatField('Цена', null=True)
     price_per_hour = models.FloatField('Цена за час', null=True)
     avatar = models.ImageField(upload_to='avatars/photographers', verbose_name='Аватар', blank=True)
+    additional_services = models.ManyToManyField('PhotographerAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('PhotographerBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('PhotographerPaymentMethod', verbose_name='Способы оплаты')
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
@@ -945,6 +1055,39 @@ class Photographer(models.Model):
         ordering = ['-is_pro', '-created',]
 
 
+class PhotographerAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотограф - Услуга за доп плату'
+        verbose_name_plural = 'Фотограф - Услуги за доп плату'
+
+
+class PhotographerBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотограф - Преимущество заведения'
+        verbose_name_plural = 'Фотограф - Преимущества заведения'
+
+
+class PhotographerPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Фотограф - Способ оплаты'
+        verbose_name_plural = 'Фотограф - Способы оплаты'
+
+
 class Videographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Имя и Фамилия', max_length=155)
@@ -952,6 +1095,9 @@ class Videographer(models.Model):
     price = models.FloatField('Цена', null=True)
     price_per_hour = models.FloatField('Цена за час', null=True)
     avatar = models.ImageField(upload_to='avatars/videographers', verbose_name='Аватар', blank=True)
+    additional_services = models.ManyToManyField('VideographerAdditionalFeeService', verbose_name='Услуги за доп плату')
+    benefits = models.ManyToManyField('VideographerBenefits', verbose_name='Преимущества')
+    payment = models.ManyToManyField('VideographerPaymentMethod', verbose_name='Способы оплаты')
     phone = models.CharField('Телефон', max_length=13)
     telegram = models.CharField('Телеграм', max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
@@ -975,3 +1121,36 @@ class Videographer(models.Model):
         verbose_name = 'Видеограф'
         verbose_name_plural = 'Видеографы'
         ordering = ['-is_pro', '-created',]
+
+
+class VideographerAdditionalFeeService(models.Model):
+    name = models.CharField('Название услуги', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Видеограф - Услуга за доп плату'
+        verbose_name_plural = 'Видеограф - Услуги за доп плату'
+
+
+class VideographerBenefits(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Видеограф - Преимущество заведения'
+        verbose_name_plural = 'Видеограф - Преимущества заведения'
+
+
+class VideographerPaymentMethod(models.Model):
+    name = models.CharField('Название', max_length=155)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Видеограф - Способ оплаты'
+        verbose_name_plural = 'Видеограф - Способы оплаты'

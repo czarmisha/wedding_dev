@@ -580,6 +580,9 @@ class PhotoStudioDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = PhotostudioBenefits.objects.all()
+        context['additional_services'] = PhotostudioAdditionalFeeService.objects.all()
+        context['payment_methods'] = PhotostudioPaymentMethod.objects.all()
         return context
 
 
@@ -778,6 +781,9 @@ class PresenterDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = PresenterBenefits.objects.all()
+        context['additional_services'] = PresenterAdditionalFeeService.objects.all()
+        context['payment_methods'] = PresenterPaymentMethod.objects.all()
         return context
 
 
@@ -796,6 +802,9 @@ class MusicDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = MusicBenefits.objects.all()
+        context['additional_services'] = MusicAdditionalFeeService.objects.all()
+        context['payment_methods'] = MusicPaymentMethod.objects.all()
         return context
 
 
@@ -850,6 +859,9 @@ class RestaurantDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = RestaurantBenefits.objects.all()
+        context['additional_services'] = RestaurantAdditionalFeeService.objects.all()
+        context['payment_methods'] = RestaurantPaymentMethod.objects.all()
         return context
 
 
@@ -868,6 +880,9 @@ class PhotographerDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = PhotographerBenefits.objects.all()
+        context['additional_services'] = PhotographerAdditionalFeeService.objects.all()
+        context['payment_methods'] = PhotographerPaymentMethod.objects.all()
         return context
 
 
@@ -886,4 +901,7 @@ class VideographerDetail(DetailView):
             print('anonymous user')
         context['reviews'] = Review.objects.all().filter(
             service_user=self.object.user)
+        context['benefits'] = VideographerBenefits.objects.all()
+        context['additional_services'] = VideographerAdditionalFeeService.objects.all()
+        context['payment_methods'] = VideographerPaymentMethod.objects.all()
         return context

@@ -5,7 +5,7 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
-    --blue-color: rgba(48, 150, 206, 0.62);
+    --blue-color: #4197cb;
 }
 
 *{
@@ -94,7 +94,7 @@ main{
     align-items: center;
     color: #414042;
     margin-bottom: 6px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .specialist_telegram a{
@@ -114,7 +114,7 @@ main{
     align-items: center;
     color: #414042;
     margin-bottom: 6px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .specialist_phone a{
@@ -356,11 +356,12 @@ ul.rating_options{
     width: 100%;
     justify-content: center;
     align-items: center;
-    color: var(--blue-color);
+    color: #56ad01;
     font-family: 'Roboto_medium';
-    font-size: 18px;
+    font-size: 20px;
     text-align: right;
     margin-bottom: 15px;
+    margin-top: 25px;
 }
 .change_password span{
     margin-right: 6px;
@@ -403,7 +404,7 @@ ul.rating_options{
     list-style: none;
     margin-bottom: 15px;
     padding: 20px;
-    color: #808285;
+    color: #6c6c6c;
     font-size: 15px;
     line-height: 1.4em;
 }
@@ -413,11 +414,25 @@ ul.rating_options{
     padding: 5px;
 }
 
+
 .spec_more_info .more_info li span{
     margin-right: 10px;
-    color: var(--blue-color);
 }
-
+.spec_more_info .more_info li span{
+    color: #cd2b2b;
+}
+.spec_more_info .more_info li.active span{
+    color: #56ad01;
+}
+.spec_more_info .more_info li{
+    opacity: .6;
+}
+.spec_more_info .more_info li.active{
+    opacity: 1;
+}
+.spec_more_info .more_info .more_info_title span{
+    color: #4197cb;
+}
 /* ----------------------------------------- media ---------------------------- */
 
 @media (max-width: 767px){
