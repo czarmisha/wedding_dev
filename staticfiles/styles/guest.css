@@ -5,7 +5,7 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
-    --blue-color: #3096ce8c;
+    --blue-color: #4197cb;
 }
 
 *{
@@ -24,10 +24,12 @@ main{
     width: 100%;
     max-width: 600px;
     padding: 40px 25px 40px 25px;
-    border: 2px solid #c99e668f;
+    /* border: 2px solid #c99e668f; */
     overflow: hidden;
-    background: #f4f3f3;
+    /* background: #f4f3f3; */
     margin: 0 auto;
+    box-shadow: 0px 4px 10px rgb(0 0 0 / 20%);
+    border-radius: 16px;
 }
 
 #Guest-list h3{
@@ -42,12 +44,14 @@ main{
 
 .guest_list{
     margin-bottom: 15px;
-    list-style: none;
+    list-style: decimal;
+    padding: 0 25px;
 }
 
 .guest_list li{
     font-size: 16px;
     color: #939598;
+    padding: 4px 0;
 }
 
 .guest_list .del_guest{

@@ -5,7 +5,7 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
-    --blue-color: #3096ce8c;
+    --blue-color: #4197cb;
     --blue: #4197cb;
 }
 
@@ -57,7 +57,7 @@ main{
     /* box-shadow: 0 0 0 2px #c99e666e;*/
 }
 
-.left{
+.spec_box .left{
     background-color: #adadad;
     color: #f9f9f9;
     border-color: #adadad;
@@ -68,13 +68,12 @@ main{
     height: 100%;
 }
 
-.left img{
+.spec_box .left img{
     margin-bottom: 15px;
     display: block;
     width: 100%;
-    max-width: 200px;
-    min-height: 160px;
-    max-height: 200px;
+    max-width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 
@@ -88,7 +87,8 @@ main{
 }
 
 .spec_reviews>span{
-    color: var(--gold-color);
+    color: white;
+    font-family: 'Roboto_medium';
 }
 
 .info{
@@ -424,15 +424,17 @@ select:focus{
     display: none;
 }
 .top10_link{
-    font-size: 16px;
-    color: white;
+    font-size: 20px;
+    color: var(--gold-color);
     position: absolute;
     top: -33px;
+    right: 10px;
     text-decoration: none;
     font-family: 'Roboto_medium';
+    text-decoration: underline;
 }
 .top10_link:hover{
-    color: white;
+    color: var(--gold-color);
 }
 .filters_desktop.open{
     transform: translateX(0px);
@@ -463,8 +465,9 @@ select:focus{
         display: inline-block;
     }
     .top10_link{
-        color: #4197cb;
+        color: black;
         top: auto;
+        right: auto;
         bottom: 50px;
     }
     .top10_link:hover{

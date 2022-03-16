@@ -5,6 +5,7 @@
     --dark-grey: #414042;
     --light-grey: #808285;
     --gold-color: #c99e66;
+    --blue-color: #4197cb;
 }
 
 *{
@@ -77,10 +78,31 @@ ul{
 .edit_profile:hover{
     color: var(--blue-color);
 }
+.change_password{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    color: var(--blue-color);
+    font-family: 'Roboto_medium';
+    font-size: 14px;
+    text-align: right;
+}
+.change_password span{
+    margin-right: 6px;
+    font-size: 28px;
+}
+.change_password:hover{
+    color: var(--blue-color);
+}
+
 .wedding_map{
     padding: 10px;
-    background: #f3f3f3;
+    /* background: #f3f3f3; */
     margin: 0 0 30px;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 14%);
+    border-radius: 16px;
 }
 .wedding_map__title{
     font-size: 20px;
