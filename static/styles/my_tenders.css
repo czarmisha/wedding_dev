@@ -35,12 +35,14 @@ main{
 }
 .tender_box{
     text-decoration: none;
-    box-shadow: 0 0 2px 2px #d7d7d7;
     border-radius: 4px;
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
     margin: 0 0 20px;
     padding-bottom: 1px;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 14%);
+    border-radius: 16px;
+    min-height: 210px;
 }
 
 .tender_header{

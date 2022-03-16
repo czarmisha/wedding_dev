@@ -72,9 +72,8 @@ main{
     margin-bottom: 15px;
     display: block;
     width: 100%;
-    max-width: 200px;
-    min-height: 160px;
-    max-height: 200px;
+    max-width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 
@@ -88,7 +87,8 @@ main{
 }
 
 .spec_reviews>span{
-    color: var(--gold-color);
+    color: white;
+    font-family: 'Roboto_medium';
 }
 
 .info{
