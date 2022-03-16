@@ -18,7 +18,7 @@
                     {%if object.avatar%}
                     <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
                     {% else %}
-                    <img class="avatar w-100" src="{% static 'media/images/default_avatar.png' %}" alt="">
+                    <img class="avatar w-100" src="{% static 'media/images/logo_v2.png' %}" alt="">
                     {%endif%}
                     <div class="info">
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
@@ -112,7 +112,7 @@
                                         {% if review.client_user.clientprofile.avatar %}
                                         <img src="{{review.client_user.clientprofile.avatar.url}}" alt="" width="50" height="50">
                                         {% else %}
-                                        <img src="{% static 'media/images/default_avatar.png' %}" alt="" width="50" height="50">
+                                        <img src="{% static 'media/images/logo_v2.png' %}" alt="" width="50" height="50">
                                         {% endif %}
                                         <span>{{review.client_user}}</span>
                                         <p>{{review.text}}</p>

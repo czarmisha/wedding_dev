@@ -39,7 +39,7 @@
                         {% if tender.author.clientprofile.avatar %}
                         <img src="{{ tender.author.clientprofile.avatar.url }}" alt="">
                         {% else %}
-                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                        <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                         {% endif %}
     
                     </div>
@@ -63,7 +63,7 @@
                                     {% if response.from_user.check_avatar %}
                                     <img src="{{ response.from_user.check_avatar.url }}" alt="">
                                     {% else %}
-                                    <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                                    <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                                     {% endif %}
                                     <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
                                 </div>

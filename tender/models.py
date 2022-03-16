@@ -21,7 +21,7 @@ class Tender(models.Model):
         ('bouquet', _('Букет')),
         ('decor', _('Декор, оформление')),
         ('costume', _('Костюм')),
-        ('accessories', _('Аксуссуары')),
+        ('accessories', _('Аксессуары')),
         ('stylist', _('Стилист, Визажист')),
         ('photostudio', _('Фотостудия')),
         ('dance', _('Танец')),

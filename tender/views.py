@@ -7,17 +7,36 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
 from .filtres import TenderFilter
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 from django_filters.views import FilterView
 
 User = get_user_model()
 
 
-class TenderList(FilterView):
-    model = Tender
-    context_object_name = 'tender_list'
-    template_name = 'tender/tender_list.html'
-    filterset_class = TenderFilter
-    paginate_by = 12
+def tender_list(request):
+    f = TenderFilter(request.GET, queryset=Tender.objects.select_related('author', 'executor'))
+    paginator = Paginator(f.qs, 12)
+    page = request.GET.get('page', 1)
+    try:
+        objs = paginator.page(page)
+    except PageNotAnInteger:
+        objs = paginator.page(1)
+    except EmptyPage:
+        objs = paginator.page(paginator.num_pages)
+
+    return render(request, 'tender/tender_list.html', {
+        'paginator': paginator,
+        'filter': f,
+        'objs': objs,
+    })
+
+# class TenderList(FilterView):
+#     model = Tender
+#     context_object_name = 'tender_list'
+#     template_name = 'tender/tender_list.html'
+#     filterset_class = TenderFilter
+#     paginate_by = 1
 
 
 class TenderDetail(DetailView):

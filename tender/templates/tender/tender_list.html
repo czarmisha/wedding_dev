@@ -47,7 +47,7 @@
                       <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>{% trans "Букет" %}</option>
                       <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>{% trans "Декор, оформление" %}</option>
                       <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>{% trans "Костюм" %}</option>
-                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>{% trans "Аксуссуары" %}</option>
+                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>{% trans "Аксессуары" %}</option>
                       <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>{% trans "Стилист, Визажист" %}</option>
                       <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
                       <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
@@ -80,7 +80,7 @@
 <div class="container">
     <div class="tender_list">
         <div class="row">
-            {% for obj in filter.qs %}
+            {% for obj in objs %}
             <div class="col-12 col-md-6">
                 <a class="tender_box d-block" href="{% url 'tender:detail' obj.slug %}">
                     <div class="tender_header d-flex align-items-center justify-content-between">
@@ -95,7 +95,7 @@
                             {% if obj.author.clientprofile.avatar %}
                             <img src="{{obj.author.clientprofile.avatar.url}}" alt="">
                             {% else %}
-                            <img src="{% static 'media/images/TOYPOY_logo_png.png' %}" alt="">
+                            <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                             {% endif %}
                         </div>
                         <div class="tender_preview">
@@ -113,23 +113,28 @@
         </div>
     </div>
 </div>
-<div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% if objs.has_other_pages %}
+            <ul class="pagination justify-content-center mt-5">
+            {% if objs.has_previous %}
+                <li><a href="?page={{ objs.previous_page_number }}"><i class="fad fa-angle-double-left"></i></a></li>
+            {% else %}
+                <li class="disabled"><span><i class="fad fa-angle-double-left"></i></span></li>
         {% endif %}
-
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% for i in objs.paginator.page_range %}
+            {% if objs.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)
+                </span></span></li>
+            {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if objs.has_next %}
+                <li><a href="?page={{ objs.next_page_number }}"><i class="fad fa-angle-double-right"></i></a></li>
+            {% else %}
+                <li class="disabled"><span><i class="fad fa-angle-double-right"></i></span></li>
+            {% endif %}
+        </ul>
         {% endif %}
-    </span>
-</div>
 {% endblock %}
 {%block script%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

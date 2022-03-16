@@ -79,7 +79,7 @@
                             {%if object.avatar%}
                             <img src="{{object.avatar.url}}" alt="">
                             {% else %}
-                            <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                            <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                             {%endif%}
                             <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
                             <p class="spec_reviews">Отзывы (<span>{{object.user.service_reviews.count}}</span>)</p>

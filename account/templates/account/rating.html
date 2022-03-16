@@ -49,7 +49,7 @@
                             <option value="bouquet" {% if service == "bouquet" %}selected{% endif %}>{% trans "Букет" %}</option>
                             <option value="decor" {% if service == "decor" %}selected{% endif %}>{% trans "Декор, оформление" %}</option>
                             <option value="costume" {% if service == "costume" %}selected{% endif %}>{% trans "Костюм" %}</option>
-                            <option value="accessories" {% if service == "accessories" %}selected{% endif %}>{% trans "Аксуссуары" %}</option>
+                            <option value="accessories" {% if service == "accessories" %}selected{% endif %}>{% trans "Аксессуары" %}</option>
                             <option value="stylist" {% if service == "stylist" %}selected{% endif %}>{% trans "Стилист, Визажист" %}</option>
                             <option value="photostudio" {% if service == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
                             <option value="dance" {% if service == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
@@ -75,7 +75,7 @@
                         {% if user.check_avatar %}
                         <img src="{{ user.check_avatar.url }}" alt="">
                         {% else %}
-                        <img src="{% static 'media/images/default_avatar.png' %}" alt="">
+                        <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                         {% endif %}
                         <p class="name">
                             {{ user.get_name }}

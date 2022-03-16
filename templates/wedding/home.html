@@ -59,7 +59,7 @@
                                         {% if tender.author.clientprofile.avatar %} <!--Если есть аватар у пользователя  -->
                                         <img src="{{ tender.author.clientprofile.avatar.url }}" alt="" class="">
                                         {% else %} <!--Дефолтный аватар  -->
-                                        <img src="{% static 'media/images/TOYPOY_logo_png.png'%}" alt="" class="">
+                                        <img src="{% static 'media/images/logo_v2.png'%}" alt="" class="">
                                         {% endif %}
                                         <p class="tender_info-text">
                                             {% trans "Нужен" %} <br>
@@ -69,7 +69,7 @@
                                         </p>
                                     </div>
                                     <p class="tender_customer text-start">{{tender.author}}</p>
-                                    <p class="tender_description">{{tender.comment|truncatechars:50}}</p>
+                                    <p class="tender_description">{{tender.comment|truncatechars:75}}</p>
                                     <p class="tender_responses">{% trans "Отклики" %}: {{tender.responses.count}}</p>
                                 </div>
                                </a>
