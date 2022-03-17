@@ -31,7 +31,7 @@
             </p>
 
             <div class="forgot_pass">
-                <a href="">{% trans "Забыли пароль?" %}</a>
+                <a href="{% url 'account:password_reset' %}">{% trans "Забыли пароль?" %}</a>
             </div>
             <input type="submit" value="{% trans 'Войти' %}">
             <span class="reg">

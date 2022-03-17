@@ -24,6 +24,13 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'toypoy.uz@gmail.com'
+EMAIL_HOST_PASSWORD = 'pass12pass'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -109,26 +116,26 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 # }
 
 # POSTGRESQL ubuntu
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'postgres',
-#         'USER': 'czar',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#     }
-# }
-
-# windows databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '0809',
+        'USER': 'czar',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
     }
 }
+
+# windows databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': '0809',
+#         'HOST': 'localhost',
+#     }
+# }
 
 
 # Password validation

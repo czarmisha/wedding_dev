@@ -21,6 +21,7 @@ from . import views
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.auth import views as auth_views
 
 app_name = 'wedding'
 urlpatterns = i18n_patterns(
@@ -36,6 +37,12 @@ urlpatterns = i18n_patterns(
     path('favorite/', include('favorite.urls', namespace='favorite')),
     path('admin/', admin.site.urls),
     path('search/', include('search.urls', namespace='search')),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
+        template_name='account/password/password_reset_done.html'), name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+        template_name="account/password/password_reset_confirm.html"), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
+        template_name='account/password/password_reset_complete.html'), name='password_reset_complete'),
     path('__debug__/', include('debug_toolbar.urls')),
     # path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('/static/images/favicon.ico'))),
     # path('ratings/', include('star_ratings.urls', namespace='ratings')),
