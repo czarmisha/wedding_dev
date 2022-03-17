@@ -35,7 +35,7 @@ def password_reset_request(request):
 					email_template_name = "account/password/password_reset.txt"
 					c = {
 					"email":user.email,
-					'domain':'127.0.0.1:8000', #toypoy.uz
+					'domain':'https://toypoy.uz', #toypoy.uz
 					'site_name': 'Toypoy', #
 					"uid": urlsafe_base64_encode(force_bytes(user.pk)),
 					"user": user,
@@ -44,7 +44,7 @@ def password_reset_request(request):
 					}
 					email = render_to_string(email_template_name, c)
 					try:
-						send_mail(subject, email, 'toypoy.uz@gmail.com', [user.email], fail_silently=False)
+						send_mail(subject, email, 'toypoy.uz@gmail.com', [user.email])
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
 					return redirect ("/password_reset/done/")
