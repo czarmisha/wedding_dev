@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-10 11:05+0500\n"
+"POT-Creation-Date: 2022-03-18 09:43+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,71 +28,174 @@ msgid "профиль"
 msgstr "profil"
 
 #: account/templates/account/_inc/client_cabinet.html:13
+#: services/templates/services/accessories_detail.html:53
+#: services/templates/services/agency_detail.html:46
+#: services/templates/services/artist_detail.html:45
+#: services/templates/services/bouquet_detail.html:47
+#: services/templates/services/cake_detail.html:47
+#: services/templates/services/costume_detail.html:48
+#: services/templates/services/dance_detail.html:47
+#: services/templates/services/decor_detail.html:46
+#: services/templates/services/dress_detail.html:48
+#: services/templates/services/invitation_detail.html:46
+#: services/templates/services/music_detail.html:50
+#: services/templates/services/photographer_detail.html:47
+#: services/templates/services/photostudio_detail.html:47
+#: services/templates/services/presenter_detail.html:50
+#: services/templates/services/registryoffice_detail.html:46
+#: services/templates/services/restaurant_detail.html:54
+#: services/templates/services/ring_detail.html:46
+#: services/templates/services/stylist_detail.html:54
+#: services/templates/services/transport_detail.html:58
+#: services/templates/services/videographer_detail.html:47
+#, fuzzy
+#| msgid "Применить"
+msgid "Изменить"
+msgstr "Murojaat qiling"
+
+#: account/templates/account/_inc/client_cabinet.html:13
+#: services/templates/services/accessories_detail.html:53
+#: services/templates/services/agency_detail.html:46
+#: services/templates/services/artist_detail.html:45
+#: services/templates/services/bouquet_detail.html:47
+#: services/templates/services/cake_detail.html:47
+#: services/templates/services/costume_detail.html:48
+#: services/templates/services/dance_detail.html:47
+#: services/templates/services/decor_detail.html:46
+#: services/templates/services/dress_detail.html:48
+#: services/templates/services/invitation_detail.html:46
+#: services/templates/services/music_detail.html:50
+#: services/templates/services/photographer_detail.html:47
+#: services/templates/services/photostudio_detail.html:47
+#: services/templates/services/presenter_detail.html:50
+#: services/templates/services/registryoffice_detail.html:46
+#: services/templates/services/restaurant_detail.html:54
+#: services/templates/services/ring_detail.html:46
+#: services/templates/services/stylist_detail.html:54
+#: services/templates/services/transport_detail.html:58
+#: services/templates/services/videographer_detail.html:47
+#, fuzzy
+#| msgid "Пароль"
+msgid "пароль"
+msgstr "Parol"
+
+#: account/templates/account/_inc/client_cabinet.html:14
 msgid "username"
 msgstr "foydalanuvchi nomi"
 
-#: account/templates/account/_inc/client_cabinet.html:14
+#: account/templates/account/_inc/client_cabinet.html:15
 msgid "имя"
 msgstr "nomi"
 
-#: account/templates/account/_inc/client_cabinet.html:14
 #: account/templates/account/_inc/client_cabinet.html:15
 #: account/templates/account/_inc/client_cabinet.html:16
 #: account/templates/account/_inc/client_cabinet.html:17
 #: account/templates/account/_inc/client_cabinet.html:18
+#: account/templates/account/_inc/client_cabinet.html:19
 msgid "неизвестно (отредактируйте профиль)"
 msgstr "noma'lum (profilni tahrirlang)"
 
-#: account/templates/account/_inc/client_cabinet.html:15
+#: account/templates/account/_inc/client_cabinet.html:16
 msgid "фамилия"
 msgstr "familiya"
 
-#: account/templates/account/_inc/client_cabinet.html:16
+#: account/templates/account/_inc/client_cabinet.html:17
 msgid "телефон"
 msgstr "telefon"
 
-#: account/templates/account/_inc/client_cabinet.html:23
+#: account/templates/account/_inc/client_cabinet.html:24
 msgid "Моя подготовка к свадьбе"
 msgstr "To'yga ko'riladigan tayyorgarliklar"
 
-#: account/templates/account/_inc/client_cabinet.html:26
+#: account/templates/account/_inc/client_cabinet.html:27
 msgid "Затраты/бюджет"
 msgstr "Xarajatlar/byudjet"
 
-#: account/templates/account/_inc/client_cabinet.html:27
-#: templates/wedding/home.html:21
+#: account/templates/account/_inc/client_cabinet.html:28
+#: templates/wedding/home.html:35
 msgid "Сохраненные специалисты"
 msgstr "Saqlangan mutaxassislar"
 
-#: account/templates/account/_inc/client_cabinet.html:28
+#: account/templates/account/_inc/client_cabinet.html:29
+#: account/templates/account/my_tenders.html:8
 #: account/templates/account/my_tenders.html:10 templates/wedding/home.html:28
 msgid "Мои тендеры"
 msgstr "Mening tenderlarim"
 
-#: account/templates/account/_inc/client_cabinet.html:29
+#: account/templates/account/_inc/client_cabinet.html:30
+#: guest_list/templates/guest_list/guest_list.html:11
 msgid "Список гостей"
 msgstr "Mehmonlar ro'yxati"
 
-#: account/templates/account/_inc/client_cabinet.html:30
-#: templates/wedding/home.html:35
+#: account/templates/account/_inc/client_cabinet.html:31
+#: plan/templates/plan/plan_list.html:11 templates/wedding/home.html:21
 msgid "План свадебного дня"
 msgstr "To'y kuni rejasi"
 
-#: account/templates/account/_inc/client_cabinet.html:33
+#: account/templates/account/_inc/client_cabinet.html:34
 #: account/templates/account/my_tenders.html:45 templates/wedding/home.html:82
 #: tender/templates/tender/tender_create.html:15
 msgid "Создать тендер"
 msgstr "Tender yaratish"
 
-#: account/templates/account/clientprofile_update_form.html:10
-msgid "Редактировать профиль"
-msgstr "Profilni tahrirlash"
+#: account/templates/account/cabinet.html:8
+#: templates/wedding/_inc/header.html:68 templates/wedding/_inc/header.html:124
+#: templates/wedding/_inc/header_cabinet.html:68
+#: templates/wedding/_inc/header_cabinet.html:124
+#: templates/wedding/_inc/header_main.html:64
+#: templates/wedding/_inc/header_main.html:122
+msgid "Кабинет"
+msgstr "Kabinet"
 
-#: account/templates/account/clientprofile_update_form.html:36
+#: account/templates/account/change_password.html:10
+#, fuzzy
+#| msgid "Повторите пароль"
+msgid "Изменить пароль"
+msgstr "Parolni qayta kiriting"
+
+#: account/templates/account/change_password.html:13
+#, fuzzy
+#| msgid "Забыли пароль?"
+msgid "Смена пароля"
+msgstr "Parolni unutdingizmi?"
+
+#: account/templates/account/change_password.html:24
+#, fuzzy
+#| msgid "Повторите пароль"
+msgid "Старый пароль"
+msgstr "Parolni qayta kiriting"
+
+#: account/templates/account/change_password.html:28
+#: account/templates/account/password/password_reset_confirm.html:13
+#: account/templates/account/password/password_reset_confirm.html:27
+#, fuzzy
+#| msgid "Забыли пароль?"
+msgid "Новый пароль"
+msgstr "Parolni unutdingizmi?"
+
+#: account/templates/account/change_password.html:32
+#, fuzzy
+#| msgid "Повторите пароль"
+msgid "Повторный пароль"
+msgstr "Parolni qayta kiriting"
+
+#: account/templates/account/change_password.html:35
+#: account/templates/account/clientprofile_update_form.html:37
 #: tender/templates/tender/tender_update_form.html:32
 msgid "Сохранить"
 msgstr "Saqlash"
 
+#: account/templates/account/clientprofile_update_form.html:8
+#, fuzzy
+#| msgid "Редактировать профиль"
+msgid "Редактирование профиля"
+msgstr "Profilni tahrirlash"
+
+#: account/templates/account/clientprofile_update_form.html:11
+msgid "Редактировать профиль"
+msgstr "Profilni tahrirlash"
+
+#: account/templates/account/favorites.html:8
 #: account/templates/account/favorites.html:11
 msgid "Избранные специалисты"
 msgstr "Saralangan mutaxassislar"
@@ -103,6 +206,7 @@ msgstr "Saralangan"
 
 #: account/templates/account/favorites.html:24
 #: services/templates/services/catalog.html:18
+#: services/templates/services/photographer_list.html:10
 #: services/templates/services/photographer_list.html:16
 #: templates/wedding/_inc/header.html:44 templates/wedding/_inc/header.html:86
 #: templates/wedding/_inc/header_cabinet.html:44
@@ -123,6 +227,8 @@ msgstr "Banket zallari va restoranlar"
 #: account/templates/account/favorites.html:84
 #: account/templates/account/favorites.html:535
 #: account/templates/account/rating.html:58
+#: services/templates/services/registryoffice_detail.html:11
+#: services/templates/services/registryoffice_list.html:11
 #: services/templates/services/registryoffice_list.html:17
 #: templates/wedding/_inc/header.html:51 templates/wedding/_inc/header.html:93
 #: templates/wedding/_inc/header_cabinet.html:51
@@ -134,6 +240,7 @@ msgstr "Nikoh saroylari va ro'yxatga olish idoralari"
 
 #: account/templates/account/favorites.html:114
 #: services/templates/services/catalog.html:24
+#: services/templates/services/videographer_list.html:10
 #: services/templates/services/videographer_list.html:16
 #: templates/wedding/_inc/header.html:45 templates/wedding/_inc/header.html:87
 #: templates/wedding/_inc/header_cabinet.html:45
@@ -159,12 +266,15 @@ msgstr "Rassomlar va shou dasturlari"
 #: account/templates/account/favorites.html:174
 #: account/templates/account/rating.html:42
 #: services/templates/services/catalog.html:42
+#: services/templates/services/transport_detail.html:12
+#: services/templates/services/transport_list.html:11
 #: templates/wedding/_inc/header.html:48 templates/wedding/_inc/header.html:90
 #: templates/wedding/_inc/header_cabinet.html:48
 #: templates/wedding/_inc/header_cabinet.html:90
 #: templates/wedding/_inc/header_main.html:44
 #: templates/wedding/_inc/header_main.html:88 templates/wedding/home.html:185
-#: templates/wedding/home.html:188 tender/templates/tender/tender_list.html:40
+#: templates/wedding/home.html:188 tender/models.py:14
+#: tender/templates/tender/tender_list.html:40
 msgid "Транспорт"
 msgstr "Transport"
 
@@ -180,19 +290,23 @@ msgstr "Dastur boshlovchilari"
 #: account/templates/account/favorites.html:264
 #: account/templates/account/rating.html:45
 #: services/templates/services/catalog.html:66
+#: services/templates/services/invitation_detail.html:11
 #: services/templates/services/invitation_detail.html:27
+#: services/templates/services/invitation_list.html:11
 #: services/templates/services/invitation_list.html:17
 #: templates/wedding/_inc/header.html:52 templates/wedding/_inc/header.html:94
 #: templates/wedding/_inc/header_cabinet.html:52
 #: templates/wedding/_inc/header_cabinet.html:94
 #: templates/wedding/_inc/header_main.html:48
 #: templates/wedding/_inc/header_main.html:92 templates/wedding/home.html:150
-#: templates/wedding/home.html:153 tender/templates/tender/tender_list.html:43
+#: templates/wedding/home.html:153 tender/models.py:17
+#: tender/templates/tender/tender_list.html:43
 msgid "Пригласительные"
 msgstr "Taklifnomalar"
 
 #: account/templates/account/favorites.html:294
 #: services/templates/services/cake_detail.html:27
+#: services/templates/services/cake_list.html:11
 #: templates/wedding/_inc/header.html:53 templates/wedding/_inc/header.html:95
 #: templates/wedding/_inc/header_cabinet.html:53
 #: templates/wedding/_inc/header_cabinet.html:95
@@ -203,6 +317,7 @@ msgstr "To'y tortlari"
 
 #: account/templates/account/favorites.html:324
 #: services/templates/services/dress_detail.html:27
+#: services/templates/services/dress_list.html:11
 #: services/templates/services/dress_list.html:17
 #: templates/wedding/_inc/header.html:54 templates/wedding/_inc/header.html:96
 #: templates/wedding/_inc/header_cabinet.html:54
@@ -213,12 +328,16 @@ msgid "Свадебные платья"
 msgstr "To'y liboslari"
 
 #: account/templates/account/favorites.html:354
+#: services/templates/services/ring_detail.html:10
 #: services/templates/services/ring_detail.html:26
+#: services/templates/services/ring_list.html:11
 msgid "Свадебные кольца"
 msgstr "Nikoh uzuklari"
 
 #: account/templates/account/favorites.html:384
+#: services/templates/services/bouquet_detail.html:11
 #: services/templates/services/bouquet_detail.html:27
+#: services/templates/services/bouquet_list.html:11
 #: templates/wedding/_inc/header.html:56 templates/wedding/_inc/header.html:98
 #: templates/wedding/_inc/header_cabinet.html:56
 #: templates/wedding/_inc/header_cabinet.html:98
@@ -233,11 +352,14 @@ msgstr "Dekor va bezak"
 
 #: account/templates/account/favorites.html:444
 #: services/templates/services/costume_detail.html:27
+#: services/templates/services/costume_list.html:11
 msgid "Свадебные костюмы"
 msgstr "To'y kostyumlari"
 
 #: account/templates/account/favorites.html:474
+#: services/templates/services/accessories_detail.html:11
 #: services/templates/services/accessories_detail.html:27
+#: services/templates/services/accessories_list.html:11
 #: services/templates/services/accessories_list.html:17
 #: templates/wedding/_inc/header.html:59 templates/wedding/_inc/header.html:101
 #: templates/wedding/_inc/header_cabinet.html:59
@@ -249,6 +371,8 @@ msgstr "To'y aksessuarlari"
 
 #: account/templates/account/favorites.html:504
 #: services/templates/services/catalog.html:114
+#: services/templates/services/stylist_detail.html:12
+#: services/templates/services/stylist_list.html:11
 #: services/templates/services/stylist_list.html:17
 #: templates/wedding/_inc/header.html:60 templates/wedding/_inc/header.html:102
 #: templates/wedding/_inc/header_cabinet.html:60
@@ -264,6 +388,7 @@ msgid "Свадебный танец"
 msgstr "To'y raqsi"
 
 #: account/templates/account/favorites.html:595
+#: services/templates/services/agency_list.html:11
 #: services/templates/services/agency_list.html:17
 #: services/templates/services/catalog.html:132
 #: templates/wedding/_inc/header.html:63 templates/wedding/_inc/header.html:105
@@ -273,6 +398,12 @@ msgstr "To'y raqsi"
 #: templates/wedding/_inc/header_main.html:103
 msgid "Свадебные агенства"
 msgstr "To'y agentliklari"
+
+#: account/templates/account/login.html:10
+#, fuzzy
+#| msgid "Еще нет аккаунта?"
+msgid "Вход в аккаунт"
+msgstr "Hali akkauntingiz yo'qmi?"
 
 #: account/templates/account/login.html:13
 #: templates/wedding/_inc/header.html:71 templates/wedding/_inc/header.html:127
@@ -284,18 +415,24 @@ msgid "Вход"
 msgstr "Kirish"
 
 #: account/templates/account/login.html:24
-#: account/templates/account/registration.html:16
+#: account/templates/account/registration.html:17
 msgid "Имя пользователя"
 msgstr "Foydalanuvchi nomi"
 
 #: account/templates/account/login.html:29
-#: account/templates/account/registration.html:22
+#: account/templates/account/registration.html:23
 msgid "Пароль"
 msgstr "Parol"
 
 #: account/templates/account/login.html:34
 msgid "Забыли пароль?"
 msgstr "Parolni unutdingizmi?"
+
+#: account/templates/account/login.html:36
+#: account/templates/account/password/password_reset_complete.html:12
+#: account/templates/account/registration.html:30
+msgid "Войти"
+msgstr "Kirish"
 
 #: account/templates/account/login.html:38
 msgid "Еще нет аккаунта?"
@@ -470,7 +607,7 @@ msgstr "Byudjet"
 #: services/templates/services/videographer_list.html:48
 #: services/templates/services/videographer_list.html:49
 #: services/templates/services/videographer_list.html:85
-#: templates/wedding/home.html:68 tender/templates/tender/tender_detail.html:33
+#: tender/templates/tender/tender_detail.html:33
 #: tender/templates/tender/tender_list.html:90
 msgid "сум"
 msgstr "so'm"
@@ -486,6 +623,98 @@ msgstr "Tender tuzilgan"
 #: tender/templates/tender/tender_list.html:108
 msgid "Отклики"
 msgstr "Javoblar"
+
+#: account/templates/account/password/password_reset.html:10
+#: account/templates/account/password/password_reset.html:13
+#: account/templates/account/password/password_reset_complete.html:10
+#: account/templates/account/password/password_reset_confirm.html:10
+#: account/templates/account/password/password_reset_done.html:10
+#, fuzzy
+#| msgid "Забыли пароль?"
+msgid "Сброс пароля"
+msgstr "Parolni unutdingizmi?"
+
+#: account/templates/account/password/password_reset.html:24
+msgid ""
+"Забыли пароль? Введите email, указанный в вашем аккаунте и мы вышлем вам "
+"письмо с инструкцией по сбросу пароля"
+msgstr ""
+
+#: account/templates/account/password/password_reset.html:27
+msgid "Ваш Email"
+msgstr ""
+
+#: account/templates/account/password/password_reset.html:32
+#: account/templates/account/password/password_reset_confirm.html:34
+msgid "Дальше"
+msgstr ""
+
+#: account/templates/account/password/password_reset.txt:3
+msgid "Здравствуйте"
+msgstr ""
+
+#: account/templates/account/password/password_reset.txt:5
+msgid ""
+"Мы получили запрос на сброс пароля вашего аккаунта по этому email. Чтобы "
+"начать сброс пароля для вашего аккаунта, перейдите по ссылке ниже."
+msgstr ""
+
+#: account/templates/account/password/password_reset.txt:9
+msgid ""
+"Эта ссылка работает 1 раз. Если вам снова нужно сбросить пароль, пожалуйтса "
+"пройдите процедуру заного."
+msgstr ""
+
+#: account/templates/account/password/password_reset.txt:11
+msgid ""
+"Если вы не делали это запроса, вы можете просто проигнорировать данное "
+"сообщение."
+msgstr ""
+
+#: account/templates/account/password/password_reset.txt:13
+#, fuzzy
+#| msgid "Выступление"
+msgid "С уважением"
+msgstr "Sahnaga chiqish"
+
+#: account/templates/account/password/password_reset.txt:14
+msgid "Команда TOYPOY"
+msgstr ""
+
+#: account/templates/account/password/password_reset_complete.html:12
+msgid "Новый пароль установлен."
+msgstr ""
+
+#: account/templates/account/password/password_reset_confirm.html:24
+#, fuzzy
+#| msgid "Повторите пароль"
+msgid "Введите ваш новый пароль"
+msgstr "Parolni qayta kiriting"
+
+#: account/templates/account/password/password_reset_confirm.html:31
+#, fuzzy
+#| msgid "Повторите пароль"
+msgid "Подтверждение пароля"
+msgstr "Parolni qayta kiriting"
+
+#: account/templates/account/password/password_reset_done.html:12
+msgid ""
+"Мы отправили письмо с инструкцией на почту, если такая почта указана в вашем "
+"аккаунте."
+msgstr ""
+
+#: account/templates/account/password/password_reset_done.html:13
+msgid ""
+"Если вы не получили письмо, пожалуйста, убедитесь, что этот тот enail, с "
+"которым вы регистрировались. Так же не забудь проверить папку 'Спам' в "
+"почтовом яшике."
+msgstr ""
+
+#: account/templates/account/rating.html:12
+#, fuzzy
+#| msgid "Искать специалистов"
+msgid "Рейтинг специалистов"
+msgstr "Mutaxassislarni qidirish"
 
 #: account/templates/account/rating.html:18
 #, fuzzy
@@ -529,8 +758,9 @@ msgid "Показать фильтры"
 msgstr "Filtrlarni ko'rsatish"
 
 #: account/templates/account/rating.html:39
+#: services/templates/services/photographer_detail.html:11
 #: services/templates/services/photographer_detail.html:27
-#: services/templates/services/videographer_detail.html:27
+#: services/templates/services/videographer_detail.html:27 tender/models.py:12
 #: tender/templates/tender/tender_list.html:37
 #, fuzzy
 #| msgid "Фотографы"
@@ -538,80 +768,85 @@ msgid "Фотограф"
 msgstr "Fotosuratchi"
 
 #: account/templates/account/rating.html:40
+#: services/templates/services/videographer_detail.html:11 tender/models.py:29
 #: tender/templates/tender/tender_list.html:38
 #, fuzzy
 #| msgid "Фотографы"
 msgid "Видеограф"
 msgstr "Videograflar"
 
-#: account/templates/account/rating.html:41
+#: account/templates/account/rating.html:41 tender/models.py:13
 #: tender/templates/tender/tender_list.html:39
 msgid "Артист, Шоу программа"
 msgstr "Rassom, shou dasturi"
 
-#: account/templates/account/rating.html:43
+#: account/templates/account/rating.html:43 tender/models.py:15
 #: tender/templates/tender/tender_list.html:41
 msgid "Музыканты, Dj"
 msgstr "Musiqachilar, DJ"
 
 #: account/templates/account/rating.html:44
+#: services/templates/services/presenter_detail.html:12 tender/models.py:16
 #: tender/templates/tender/tender_list.html:42
 msgid "Ведущий"
 msgstr "Boshlovchi"
 
-#: account/templates/account/rating.html:46
+#: account/templates/account/rating.html:46 tender/models.py:18
 #: tender/templates/tender/tender_list.html:44
 msgid "Торт"
 msgstr "Tort"
 
-#: account/templates/account/rating.html:47
+#: account/templates/account/rating.html:47 tender/models.py:19
 #: tender/templates/tender/tender_list.html:45
 msgid "Платье"
 msgstr "Ko'ylak"
 
 #: account/templates/account/rating.html:48
-#: services/templates/services/catalog.html:84
+#: services/templates/services/catalog.html:84 tender/models.py:20
 #: tender/templates/tender/tender_list.html:46
 msgid "Кольца"
 msgstr "Uzuklar"
 
-#: account/templates/account/rating.html:49
+#: account/templates/account/rating.html:49 tender/models.py:21
 #: tender/templates/tender/tender_list.html:47
 msgid "Букет"
 msgstr "Guldasta"
 
-#: account/templates/account/rating.html:50
+#: account/templates/account/rating.html:50 tender/models.py:22
 #: tender/templates/tender/tender_list.html:48
 msgid "Декор, оформление"
 msgstr "Dekoratsiya, bezaklar"
 
-#: account/templates/account/rating.html:51
+#: account/templates/account/rating.html:51 tender/models.py:23
 #: tender/templates/tender/tender_list.html:49
 msgid "Костюм"
 msgstr "Kostyum"
 
 #: account/templates/account/rating.html:52
+#: services/templates/services/catalog.html:108 templates/wedding/home.html:218
+#: templates/wedding/home.html:221 tender/models.py:24
 #: tender/templates/tender/tender_list.html:50
-msgid "Аксуссуары"
+msgid "Аксессуары"
 msgstr "Aksessuarlar"
 
-#: account/templates/account/rating.html:53
+#: account/templates/account/rating.html:53 tender/models.py:25
 #: tender/templates/tender/tender_list.html:51
 msgid "Стилист, Визажист"
 msgstr "Stilist, vizajist"
 
 #: account/templates/account/rating.html:54
-#: services/templates/services/photostudio_detail.html:27
+#: services/templates/services/photostudio_detail.html:11
+#: services/templates/services/photostudio_detail.html:27 tender/models.py:26
 #: tender/templates/tender/tender_list.html:52
 msgid "Фотостудия"
 msgstr "Fotostudiya"
 
-#: account/templates/account/rating.html:55
+#: account/templates/account/rating.html:55 tender/models.py:27
 #: tender/templates/tender/tender_list.html:53
 msgid "Танец"
 msgstr "Raqs"
 
-#: account/templates/account/rating.html:56
+#: account/templates/account/rating.html:56 tender/models.py:28
 #: tender/templates/tender/tender_list.html:54
 msgid "Агенство"
 msgstr "Agentlik"
@@ -641,34 +876,46 @@ msgstr "Agentlik"
 msgid "Применить"
 msgstr "Murojaat qiling"
 
-#: account/templates/account/registration.html:12
+#: account/templates/account/registration.html:10
+#: account/templates/account/registration.html:13
 #: templates/wedding/_inc/header.html:72 templates/wedding/_inc/header.html:128
 #: templates/wedding/_inc/header_cabinet.html:72
 #: templates/wedding/_inc/header_cabinet.html:128
 #: templates/wedding/_inc/header_main.html:68
-#: templates/wedding/_inc/header_main.html:126
+#: templates/wedding/_inc/header_main.html:126 templates/wedding/home.html:245
 msgid "Регистрация"
 msgstr "Ro'yxatga olish"
 
-#: account/templates/account/registration.html:19
+#: account/templates/account/registration.html:20
 msgid "Email"
 msgstr "Email"
 
-#: account/templates/account/registration.html:25
+#: account/templates/account/registration.html:26
 msgid "Повторите пароль"
 msgstr "Parolni qayta kiriting"
 
-#: account/templates/account/registration.html:27
+#: account/templates/account/registration.html:28
 msgid "Зарегистрироваться"
 msgstr "Roʻyxatdan oʻtish"
 
-#: account/templates/account/registration.html:29
+#: account/templates/account/registration.html:30
 msgid "У Вас уже есть аккаунт?"
 msgstr "Sizda kkaunt bormi?"
 
-#: account/templates/account/registration.html:29
-msgid "Войти"
-msgstr "Kirish"
+#: account/templates/account_base.html:17 templates/wedding/_inc/header.html:15
+#: templates/wedding/_inc/header.html:119
+#: templates/wedding/_inc/header_cabinet.html:15
+#: templates/wedding/_inc/header_cabinet.html:119
+#: templates/wedding/_inc/header_main.html:14
+#: templates/wedding/_inc/header_main.html:117
+msgid "Аккаунт"
+msgstr "Hisob qaydnomasi"
+
+#: budget/templates/budget/budget.html:11
+#, fuzzy
+#| msgid "Свадебные букеты"
+msgid "Свадебный бюджет"
+msgstr "To'y guldastalari"
 
 #: guest_list/templates/guest_list/guest_list.html:14
 msgid "Гости невесты<"
@@ -704,6 +951,10 @@ msgstr "Harakat"
 #: plan/templates/plan/plan_list.html:34
 msgid "Добавить"
 msgstr "Qo'shish"
+
+#: search/templates/search/search_result.html:9
+msgid "Результаты поиска"
+msgstr ""
 
 #: services/templates/services/_inc/review_form.html:2
 msgid "Написать отзыв"
@@ -795,191 +1046,190 @@ msgstr "Narx"
 #: services/templates/services/dance_detail.html:33
 #: services/templates/services/decor_detail.html:32
 #: services/templates/services/invitation_detail.html:32
-#: services/templates/services/photostudio_detail.html:32
-#: services/templates/services/presenter_detail.html:35
+#: services/templates/services/photostudio_detail.html:39
+#: services/templates/services/presenter_detail.html:42
 #: services/templates/services/registryoffice_detail.html:32
-#: services/templates/services/restaurant_detail.html:39
+#: services/templates/services/restaurant_detail.html:46
 #: services/templates/services/ring_detail.html:32
 #: services/templates/services/stylist_detail.html:40
-#: services/templates/services/videographer_detail.html:32
-#: templates/wedding/promo.html:21
+#: services/templates/services/videographer_detail.html:39
 msgid "Контакты"
 msgstr "Kontaktlar"
 
-#: services/templates/services/accessories_detail.html:67
-#: services/templates/services/agency_detail.html:60
-#: services/templates/services/artist_detail.html:59
-#: services/templates/services/bouquet_detail.html:61
-#: services/templates/services/cake_detail.html:61
-#: services/templates/services/costume_detail.html:62
-#: services/templates/services/dance_detail.html:61
-#: services/templates/services/decor_detail.html:60
-#: services/templates/services/dress_detail.html:62
-#: services/templates/services/invitation_detail.html:60
-#: services/templates/services/music_detail.html:63
-#: services/templates/services/presenter_detail.html:63
-#: services/templates/services/registryoffice_detail.html:60
-#: services/templates/services/restaurant_detail.html:67
-#: services/templates/services/ring_detail.html:60
-#: services/templates/services/stylist_detail.html:68
-#: services/templates/services/transport_detail.html:72
-#: services/templates/services/videographer_detail.html:60
+#: services/templates/services/accessories_detail.html:70
+#: services/templates/services/agency_detail.html:63
+#: services/templates/services/artist_detail.html:62
+#: services/templates/services/bouquet_detail.html:64
+#: services/templates/services/cake_detail.html:64
+#: services/templates/services/costume_detail.html:65
+#: services/templates/services/dance_detail.html:64
+#: services/templates/services/decor_detail.html:63
+#: services/templates/services/dress_detail.html:65
+#: services/templates/services/invitation_detail.html:63
+#: services/templates/services/music_detail.html:67
+#: services/templates/services/presenter_detail.html:67
+#: services/templates/services/registryoffice_detail.html:63
+#: services/templates/services/restaurant_detail.html:71
+#: services/templates/services/ring_detail.html:63
+#: services/templates/services/stylist_detail.html:71
+#: services/templates/services/transport_detail.html:75
+#: services/templates/services/videographer_detail.html:64
 msgid "Профиль"
 msgstr "Profil"
 
-#: services/templates/services/accessories_detail.html:70
+#: services/templates/services/accessories_detail.html:73
 #: services/templates/services/accessories_list.html:84
-#: services/templates/services/agency_detail.html:63
+#: services/templates/services/agency_detail.html:66
 #: services/templates/services/agency_list.html:67
-#: services/templates/services/artist_detail.html:62
+#: services/templates/services/artist_detail.html:65
 #: services/templates/services/artist_list.html:82
-#: services/templates/services/bouquet_detail.html:64
+#: services/templates/services/bouquet_detail.html:67
 #: services/templates/services/bouquet_list.html:84
-#: services/templates/services/cake_detail.html:64
+#: services/templates/services/cake_detail.html:67
 #: services/templates/services/cake_list.html:83
-#: services/templates/services/costume_detail.html:65
+#: services/templates/services/costume_detail.html:68
 #: services/templates/services/costume_list.html:88
-#: services/templates/services/dance_detail.html:64
+#: services/templates/services/dance_detail.html:67
 #: services/templates/services/dance_list.html:83
-#: services/templates/services/decor_detail.html:63
+#: services/templates/services/decor_detail.html:66
 #: services/templates/services/decor_list.html:84
-#: services/templates/services/dress_detail.html:65
+#: services/templates/services/dress_detail.html:68
 #: services/templates/services/dress_list.html:88
-#: services/templates/services/invitation_detail.html:63
+#: services/templates/services/invitation_detail.html:66
 #: services/templates/services/invitation_list.html:67
-#: services/templates/services/music_detail.html:66
+#: services/templates/services/music_detail.html:70
 #: services/templates/services/photographer_list.html:76
 #: services/templates/services/photostudio_list.html:83
-#: services/templates/services/presenter_detail.html:66
+#: services/templates/services/presenter_detail.html:70
 #: services/templates/services/presenter_list.html:86
-#: services/templates/services/registryoffice_detail.html:63
+#: services/templates/services/registryoffice_detail.html:66
 #: services/templates/services/registryoffice_list.html:71
-#: services/templates/services/restaurant_detail.html:70
+#: services/templates/services/restaurant_detail.html:74
 #: services/templates/services/restaurant_list.html:98
-#: services/templates/services/ring_detail.html:63
+#: services/templates/services/ring_detail.html:66
 #: services/templates/services/ring_list.html:84
-#: services/templates/services/stylist_detail.html:71
+#: services/templates/services/stylist_detail.html:74
 #: services/templates/services/stylist_list.html:84
-#: services/templates/services/transport_detail.html:75
+#: services/templates/services/transport_detail.html:78
 #: services/templates/services/transport_list.html:93
-#: services/templates/services/videographer_detail.html:63
+#: services/templates/services/videographer_detail.html:67
 #: services/templates/services/videographer_list.html:77
 msgid "Отзывы"
 msgstr "Izohlar"
 
-#: services/templates/services/accessories_detail.html:79
-#: services/templates/services/agency_detail.html:72
-#: services/templates/services/artist_detail.html:71
-#: services/templates/services/bouquet_detail.html:73
-#: services/templates/services/cake_detail.html:73
-#: services/templates/services/costume_detail.html:74
-#: services/templates/services/dance_detail.html:73
-#: services/templates/services/decor_detail.html:72
-#: services/templates/services/dress_detail.html:74
-#: services/templates/services/invitation_detail.html:72
-#: services/templates/services/music_detail.html:75
-#: services/templates/services/photographer_detail.html:72
-#: services/templates/services/photostudio_detail.html:72
-#: services/templates/services/presenter_detail.html:75
-#: services/templates/services/registryoffice_detail.html:72
-#: services/templates/services/restaurant_detail.html:111
-#: services/templates/services/ring_detail.html:72
-#: services/templates/services/stylist_detail.html:80
-#: services/templates/services/transport_detail.html:116
-#: services/templates/services/videographer_detail.html:72
+#: services/templates/services/accessories_detail.html:82
+#: services/templates/services/agency_detail.html:75
+#: services/templates/services/artist_detail.html:74
+#: services/templates/services/bouquet_detail.html:76
+#: services/templates/services/cake_detail.html:76
+#: services/templates/services/costume_detail.html:77
+#: services/templates/services/dance_detail.html:76
+#: services/templates/services/decor_detail.html:75
+#: services/templates/services/dress_detail.html:77
+#: services/templates/services/invitation_detail.html:75
+#: services/templates/services/music_detail.html:111
+#: services/templates/services/photographer_detail.html:108
+#: services/templates/services/photostudio_detail.html:108
+#: services/templates/services/presenter_detail.html:111
+#: services/templates/services/registryoffice_detail.html:75
+#: services/templates/services/restaurant_detail.html:115
+#: services/templates/services/ring_detail.html:75
+#: services/templates/services/stylist_detail.html:83
+#: services/templates/services/transport_detail.html:119
+#: services/templates/services/videographer_detail.html:108
 msgid "Портфолио"
 msgstr "Bajarilgan ishlar"
 
-#: services/templates/services/accessories_detail.html:89
-#: services/templates/services/agency_detail.html:82
-#: services/templates/services/artist_detail.html:81
-#: services/templates/services/bouquet_detail.html:83
-#: services/templates/services/cake_detail.html:83
-#: services/templates/services/costume_detail.html:84
-#: services/templates/services/dance_detail.html:83
-#: services/templates/services/decor_detail.html:82
-#: services/templates/services/dress_detail.html:84
-#: services/templates/services/invitation_detail.html:82
-#: services/templates/services/music_detail.html:85
-#: services/templates/services/photographer_detail.html:82
-#: services/templates/services/photostudio_detail.html:82
-#: services/templates/services/presenter_detail.html:85
-#: services/templates/services/registryoffice_detail.html:82
-#: services/templates/services/restaurant_detail.html:121
-#: services/templates/services/ring_detail.html:82
-#: services/templates/services/stylist_detail.html:90
-#: services/templates/services/transport_detail.html:126
-#: services/templates/services/videographer_detail.html:82
+#: services/templates/services/accessories_detail.html:92
+#: services/templates/services/agency_detail.html:85
+#: services/templates/services/artist_detail.html:84
+#: services/templates/services/bouquet_detail.html:86
+#: services/templates/services/cake_detail.html:86
+#: services/templates/services/costume_detail.html:87
+#: services/templates/services/dance_detail.html:86
+#: services/templates/services/decor_detail.html:85
+#: services/templates/services/dress_detail.html:87
+#: services/templates/services/invitation_detail.html:85
+#: services/templates/services/music_detail.html:121
+#: services/templates/services/photographer_detail.html:118
+#: services/templates/services/photostudio_detail.html:118
+#: services/templates/services/presenter_detail.html:121
+#: services/templates/services/registryoffice_detail.html:85
+#: services/templates/services/restaurant_detail.html:125
+#: services/templates/services/ring_detail.html:85
+#: services/templates/services/stylist_detail.html:93
+#: services/templates/services/transport_detail.html:129
+#: services/templates/services/videographer_detail.html:118
 msgid "Увеличить портфолио"
 msgstr "Bajarilgan ishlarni kengaytirish"
 
-#: services/templates/services/accessories_detail.html:90
-#: services/templates/services/agency_detail.html:83
-#: services/templates/services/artist_detail.html:82
-#: services/templates/services/bouquet_detail.html:84
-#: services/templates/services/cake_detail.html:84
-#: services/templates/services/costume_detail.html:85
-#: services/templates/services/dance_detail.html:84
-#: services/templates/services/decor_detail.html:83
-#: services/templates/services/dress_detail.html:85
-#: services/templates/services/invitation_detail.html:83
-#: services/templates/services/music_detail.html:86
-#: services/templates/services/photographer_detail.html:83
-#: services/templates/services/photostudio_detail.html:83
-#: services/templates/services/presenter_detail.html:86
-#: services/templates/services/registryoffice_detail.html:83
-#: services/templates/services/restaurant_detail.html:122
-#: services/templates/services/ring_detail.html:83
-#: services/templates/services/stylist_detail.html:91
-#: services/templates/services/transport_detail.html:127
-#: services/templates/services/videographer_detail.html:83
+#: services/templates/services/accessories_detail.html:93
+#: services/templates/services/agency_detail.html:86
+#: services/templates/services/artist_detail.html:85
+#: services/templates/services/bouquet_detail.html:87
+#: services/templates/services/cake_detail.html:87
+#: services/templates/services/costume_detail.html:88
+#: services/templates/services/dance_detail.html:87
+#: services/templates/services/decor_detail.html:86
+#: services/templates/services/dress_detail.html:88
+#: services/templates/services/invitation_detail.html:86
+#: services/templates/services/music_detail.html:122
+#: services/templates/services/photographer_detail.html:119
+#: services/templates/services/photostudio_detail.html:119
+#: services/templates/services/presenter_detail.html:122
+#: services/templates/services/registryoffice_detail.html:86
+#: services/templates/services/restaurant_detail.html:126
+#: services/templates/services/ring_detail.html:86
+#: services/templates/services/stylist_detail.html:94
+#: services/templates/services/transport_detail.html:130
+#: services/templates/services/videographer_detail.html:119
 msgid "Удалить портфолио"
 msgstr "Bajarilgan ishlarni oʻchirish"
 
-#: services/templates/services/accessories_detail.html:97
-#: services/templates/services/agency_detail.html:90
-#: services/templates/services/artist_detail.html:89
-#: services/templates/services/bouquet_detail.html:91
-#: services/templates/services/cake_detail.html:91
-#: services/templates/services/costume_detail.html:92
-#: services/templates/services/dance_detail.html:91
-#: services/templates/services/decor_detail.html:90
-#: services/templates/services/dress_detail.html:92
-#: services/templates/services/invitation_detail.html:90
-#: services/templates/services/music_detail.html:93
-#: services/templates/services/photographer_detail.html:90
-#: services/templates/services/photostudio_detail.html:90
-#: services/templates/services/presenter_detail.html:93
-#: services/templates/services/registryoffice_detail.html:90
-#: services/templates/services/restaurant_detail.html:129
-#: services/templates/services/ring_detail.html:90
-#: services/templates/services/stylist_detail.html:98
-#: services/templates/services/transport_detail.html:134
-#: services/templates/services/videographer_detail.html:90
+#: services/templates/services/accessories_detail.html:100
+#: services/templates/services/agency_detail.html:93
+#: services/templates/services/artist_detail.html:92
+#: services/templates/services/bouquet_detail.html:94
+#: services/templates/services/cake_detail.html:94
+#: services/templates/services/costume_detail.html:95
+#: services/templates/services/dance_detail.html:94
+#: services/templates/services/decor_detail.html:93
+#: services/templates/services/dress_detail.html:95
+#: services/templates/services/invitation_detail.html:93
+#: services/templates/services/music_detail.html:129
+#: services/templates/services/photographer_detail.html:126
+#: services/templates/services/photostudio_detail.html:126
+#: services/templates/services/presenter_detail.html:129
+#: services/templates/services/registryoffice_detail.html:93
+#: services/templates/services/restaurant_detail.html:133
+#: services/templates/services/ring_detail.html:93
+#: services/templates/services/stylist_detail.html:101
+#: services/templates/services/transport_detail.html:137
+#: services/templates/services/videographer_detail.html:126
 #: services/views.py:441 services/views.py:467
 msgid "Создать портфолио"
 msgstr "Bajarilgan ishlarni yaratmoq"
 
-#: services/templates/services/accessories_detail.html:128
-#: services/templates/services/agency_detail.html:121
-#: services/templates/services/artist_detail.html:120
-#: services/templates/services/bouquet_detail.html:122
-#: services/templates/services/cake_detail.html:122
-#: services/templates/services/costume_detail.html:123
-#: services/templates/services/dance_detail.html:122
-#: services/templates/services/decor_detail.html:121
-#: services/templates/services/dress_detail.html:123
-#: services/templates/services/invitation_detail.html:121
-#: services/templates/services/music_detail.html:124
-#: services/templates/services/photographer_detail.html:121
-#: services/templates/services/photostudio_detail.html:121
-#: services/templates/services/presenter_detail.html:124
-#: services/templates/services/registryoffice_detail.html:121
-#: services/templates/services/restaurant_detail.html:160
-#: services/templates/services/ring_detail.html:121
-#: services/templates/services/stylist_detail.html:129
-#: services/templates/services/transport_detail.html:165
-#: services/templates/services/videographer_detail.html:121
+#: services/templates/services/accessories_detail.html:131
+#: services/templates/services/agency_detail.html:124
+#: services/templates/services/artist_detail.html:123
+#: services/templates/services/bouquet_detail.html:125
+#: services/templates/services/cake_detail.html:125
+#: services/templates/services/costume_detail.html:126
+#: services/templates/services/dance_detail.html:125
+#: services/templates/services/decor_detail.html:124
+#: services/templates/services/dress_detail.html:126
+#: services/templates/services/invitation_detail.html:124
+#: services/templates/services/music_detail.html:160
+#: services/templates/services/photographer_detail.html:157
+#: services/templates/services/photostudio_detail.html:157
+#: services/templates/services/presenter_detail.html:160
+#: services/templates/services/registryoffice_detail.html:124
+#: services/templates/services/restaurant_detail.html:164
+#: services/templates/services/ring_detail.html:124
+#: services/templates/services/stylist_detail.html:132
+#: services/templates/services/transport_detail.html:168
+#: services/templates/services/videographer_detail.html:157
 msgid "Вы уже писали отзыв"
 msgstr "Siz izoh koldirganmisiz"
 
@@ -1051,10 +1301,22 @@ msgstr "yuqorida"
 msgid "Район"
 msgstr "Hudud"
 
+#: services/templates/services/add_portfolio.html:10
+#, fuzzy
+#| msgid "Удалить портфолио"
+msgid "Добавление портфолио"
+msgstr "Bajarilgan ishlarni oʻchirish"
+
 #: services/templates/services/add_portfolio.html:17
-#: tender/templates/tender/tender_create.html:39
+#: tender/templates/tender/tender_create.html:55
 msgid "Создать"
 msgstr "Yaratmoq"
+
+#: services/templates/services/agency_detail.html:11
+#, fuzzy
+#| msgid "Свадебное агенство"
+msgid "Сведебное агентсво"
+msgstr "To'y agentligi"
 
 #: services/templates/services/agency_detail.html:27
 #, fuzzy
@@ -1068,9 +1330,21 @@ msgid ""
 msgstr ""
 "Bayramni o'tkazish uchun o'z sohasidagi haqiqiy professionallarga ishoning"
 
+#: services/templates/services/artist_detail.html:11
+#, fuzzy
+#| msgid "Артист/шоу программа"
+msgid "Артист и шоу программа"
+msgstr "Rassom/shou dasturi"
+
 #: services/templates/services/artist_detail.html:27
 msgid "Артист/шоу программа"
 msgstr "Rassom/shou dasturi"
+
+#: services/templates/services/artist_list.html:10
+#, fuzzy
+#| msgid "Артисты и шоу программы"
+msgid "Артисты и шоу программа"
+msgstr "Rassomlar va shou dasturlari"
 
 #: services/templates/services/artist_list.html:16
 msgid "Шоу программа и артисты"
@@ -1115,6 +1389,12 @@ msgstr "Muhim elementlar bilan kelinning to'y tasvirini ta'kidlang"
 msgid "Стоимость букета"
 msgstr "Buket narxi"
 
+#: services/templates/services/cake_detail.html:12
+#, fuzzy
+#| msgid "Свадебные торты"
+msgid "Свадебный торт"
+msgstr "To'y tortlari"
+
 #: services/templates/services/cake_detail.html:29
 msgid "За кг"
 msgstr "kg uchun"
@@ -1135,6 +1415,10 @@ msgstr "Bir kilogramm narxi"
 msgid "сум/кг"
 msgstr "so'm/kg"
 
+#: services/templates/services/catalog.html:9 templates/wedding/home.html:88
+msgid "Каталог услуг"
+msgstr "Xizmatlar katalogi"
+
 #: services/templates/services/catalog.html:12
 msgid "Каталог свадебных специалистов"
 msgstr "To'y mutaxassislari ma'lumotnomasi"
@@ -1145,10 +1429,13 @@ msgid "Рестораны"
 msgstr "Restoranlar"
 
 #: services/templates/services/catalog.html:48
+#: services/templates/services/music_detail.html:11
+#: services/templates/services/music_list.html:11
 msgid "Музыканты и DJ"
 msgstr "Musiqachilar va DJ"
 
 #: services/templates/services/catalog.html:54
+#: services/templates/services/presenter_list.html:11
 #: templates/wedding/_inc/header.html:50 templates/wedding/_inc/header.html:92
 #: templates/wedding/_inc/header_cabinet.html:50
 #: templates/wedding/_inc/header_cabinet.html:92
@@ -1176,7 +1463,9 @@ msgid "Букеты"
 msgstr "Guldastalar"
 
 #: services/templates/services/catalog.html:96
+#: services/templates/services/decor_detail.html:12
 #: services/templates/services/decor_detail.html:27
+#: services/templates/services/decor_list.html:11
 #: services/templates/services/decor_list.html:17
 #: templates/wedding/_inc/header.html:57 templates/wedding/_inc/header.html:99
 #: templates/wedding/_inc/header_cabinet.html:57
@@ -1190,12 +1479,8 @@ msgstr "Bezatish va dekoratsiyalar"
 msgid "Костюмы"
 msgstr "Kostyumlar"
 
-#: services/templates/services/catalog.html:108 templates/wedding/home.html:218
-#: templates/wedding/home.html:221
-msgid "Аксессуары"
-msgstr "Aksessuarlar"
-
 #: services/templates/services/catalog.html:120
+#: services/templates/services/photostudio_list.html:11
 #: templates/wedding/_inc/header.html:61 templates/wedding/_inc/header.html:103
 #: templates/wedding/_inc/header_cabinet.html:61
 #: templates/wedding/_inc/header_cabinet.html:103
@@ -1205,6 +1490,7 @@ msgid "Фотостудии"
 msgstr "Fotostudiyalar"
 
 #: services/templates/services/catalog.html:126
+#: services/templates/services/dance_list.html:11
 #: templates/wedding/_inc/header.html:62 templates/wedding/_inc/header.html:104
 #: templates/wedding/_inc/header_cabinet.html:62
 #: templates/wedding/_inc/header_cabinet.html:104
@@ -1212,6 +1498,15 @@ msgstr "Fotostudiyalar"
 #: templates/wedding/_inc/header_main.html:102
 msgid "Танцевальные коллективы"
 msgstr "Raqs guruhlari"
+
+#: services/templates/services/costume_detail.html:11
+#: templates/wedding/_inc/header.html:58 templates/wedding/_inc/header.html:100
+#: templates/wedding/_inc/header_cabinet.html:58
+#: templates/wedding/_inc/header_cabinet.html:100
+#: templates/wedding/_inc/header_main.html:54
+#: templates/wedding/_inc/header_main.html:98
+msgid "Свадебный костюм"
+msgstr "To'y kostyumi"
 
 #: services/templates/services/costume_detail.html:30
 #: services/templates/services/dress_detail.html:29
@@ -1232,6 +1527,7 @@ msgstr "Oqshomning eng zamonaviy va jasur qiroliga aylaning"
 msgid "Стоимость"
 msgstr "Narxi"
 
+#: services/templates/services/dance_detail.html:11
 #: services/templates/services/dance_detail.html:27
 msgid "Танцевальный коллектив"
 msgstr "Raqs guruhi"
@@ -1262,6 +1558,12 @@ msgstr "Bayramingiz uchun ajoyib dizayn va unutilmas muhit yarating"
 #: services/templates/services/decor_list.html:47
 msgid "Стоимость оформления зала"
 msgstr "Zalni bezash narxi"
+
+#: services/templates/services/dress_detail.html:11
+#, fuzzy
+#| msgid "Свадебные платья"
+msgid "Свадебное платье"
+msgstr "To'y liboslari"
 
 #: services/templates/services/dress_detail.html:30
 msgid "Тип платья"
@@ -1300,6 +1602,43 @@ msgstr "Sahnaga chiqish"
 #: services/templates/services/music_list.html:95
 msgid "За вечер"
 msgstr "Kecha davomida"
+
+#: services/templates/services/music_detail.html:79
+#: services/templates/services/photographer_detail.html:76
+#: services/templates/services/photostudio_detail.html:76
+#: services/templates/services/presenter_detail.html:79
+#: services/templates/services/restaurant_detail.html:83
+#: services/templates/services/transport_detail.html:87
+#: services/templates/services/videographer_detail.html:76
+msgid "Детали"
+msgstr "Tafsilotlar"
+
+#: services/templates/services/music_detail.html:83
+#: services/templates/services/photographer_detail.html:80
+#: services/templates/services/photostudio_detail.html:80
+#: services/templates/services/presenter_detail.html:83
+#: services/templates/services/restaurant_detail.html:87
+#: services/templates/services/videographer_detail.html:80
+msgid "Преимущества"
+msgstr "Afzalliklar"
+
+#: services/templates/services/music_detail.html:92
+#: services/templates/services/photographer_detail.html:89
+#: services/templates/services/photostudio_detail.html:89
+#: services/templates/services/presenter_detail.html:92
+#: services/templates/services/restaurant_detail.html:96
+#: services/templates/services/videographer_detail.html:89
+msgid "Доп. услуги"
+msgstr "Qo'shimcha xizmatlar"
+
+#: services/templates/services/music_detail.html:101
+#: services/templates/services/photographer_detail.html:98
+#: services/templates/services/photostudio_detail.html:98
+#: services/templates/services/presenter_detail.html:101
+#: services/templates/services/restaurant_detail.html:105
+#: services/templates/services/videographer_detail.html:98
+msgid "Способ оплаты"
+msgstr "To'lov usuli"
 
 #: services/templates/services/music_list.html:17
 msgid "Музыкальные группы и DJ"
@@ -1405,6 +1744,16 @@ msgstr "Shahringizdagi nafis Nikoh saroyida tantanali marosimni o'tkazing"
 msgid "чел"
 msgstr "odamlar"
 
+#: services/templates/services/restaurant_detail.html:11
+#: services/templates/services/restaurant_list.html:11
+#: templates/wedding/_inc/header.html:46 templates/wedding/_inc/header.html:88
+#: templates/wedding/_inc/header_cabinet.html:46
+#: templates/wedding/_inc/header_cabinet.html:88
+#: templates/wedding/_inc/header_main.html:42
+#: templates/wedding/_inc/header_main.html:86
+msgid "Рестораны и банкетные залы"
+msgstr "Restoranlar va banket zallari"
+
 #: services/templates/services/restaurant_detail.html:30
 msgid "Кухни"
 msgstr "Oshxonalar"
@@ -1416,23 +1765,6 @@ msgstr "O'rtacha narx"
 #: services/templates/services/restaurant_detail.html:36
 msgid "Кол-во мест"
 msgstr "Joylar soni"
-
-#: services/templates/services/restaurant_detail.html:79
-#: services/templates/services/transport_detail.html:84
-msgid "Детали"
-msgstr "Tafsilotlar"
-
-#: services/templates/services/restaurant_detail.html:83
-msgid "Преимущества"
-msgstr "Afzalliklar"
-
-#: services/templates/services/restaurant_detail.html:92
-msgid "Доп. услуги"
-msgstr "Qo'shimcha xizmatlar"
-
-#: services/templates/services/restaurant_detail.html:101
-msgid "Способ оплаты"
-msgstr "To'lov usuli"
 
 #: services/templates/services/restaurant_list.html:20
 msgid ""
@@ -1510,11 +1842,24 @@ msgstr "Avtomobil markasi"
 msgid "Сохраните и пересматривайте Вашу свадьбу спустя время снова и снова"
 msgstr "Bir muncha vaqt o'tgach, to'yingizni qayta-qayta ko'rib chiqing"
 
+#: services/templates/services_base.html:15
+#: templates/wedding/_inc/header.html:9 templates/wedding/_inc/header.html:82
+#: templates/wedding/_inc/header_cabinet.html:9
+#: templates/wedding/_inc/header_cabinet.html:82
+#: templates/wedding/_inc/header_main.html:8
+#: templates/wedding/_inc/header_main.html:80
+msgid "Услуги"
+msgstr "Xizmatlar"
+
 #: services/views.py:476 services/views.py:488
 #, fuzzy
 #| msgid "Удалить портфолио"
 msgid "Расширить портфолио"
 msgstr "Bajarilgan ishlarni oʻchirish"
+
+#: templates/base.html:14
+msgid "Главная"
+msgstr ""
 
 #: templates/star_ratings/widget.html:41
 msgid "Log in to rate"
@@ -1552,14 +1897,6 @@ msgstr ""
 "Sayt materiallaridan foydalanish uchun havolasini ko'rsatsangiz shart tovar "
 "belgisini ko'rsatgan holda material ko'chirilgan sayt sahifasi"
 
-#: templates/wedding/_inc/header.html:9 templates/wedding/_inc/header.html:82
-#: templates/wedding/_inc/header_cabinet.html:9
-#: templates/wedding/_inc/header_cabinet.html:82
-#: templates/wedding/_inc/header_main.html:8
-#: templates/wedding/_inc/header_main.html:80
-msgid "Услуги"
-msgstr "Xizmatlar"
-
 #: templates/wedding/_inc/header.html:11 templates/wedding/_inc/header.html:109
 #: templates/wedding/_inc/header_cabinet.html:11
 #: templates/wedding/_inc/header_cabinet.html:109
@@ -1574,6 +1911,7 @@ msgstr "Reyting"
 #: templates/wedding/_inc/header_main.html:11
 #: templates/wedding/_inc/header_main.html:108
 #: tender/templates/tender/tender_list.html:17
+#: tender/templates/tender_base.html:14
 msgid "Тендеры"
 msgstr "Tenderlar"
 
@@ -1581,7 +1919,7 @@ msgstr "Tenderlar"
 #: templates/wedding/_inc/header_cabinet.html:13
 #: templates/wedding/_inc/header_cabinet.html:114
 #: templates/wedding/_inc/header_main.html:12
-#: templates/wedding/_inc/header_main.html:112
+#: templates/wedding/_inc/header_main.html:112 templates/wedding/home.html:253
 msgid "О нас"
 msgstr "Biz haqimizda"
 
@@ -1593,14 +1931,6 @@ msgstr "Biz haqimizda"
 msgid "Скидки и акции"
 msgstr ""
 
-#: templates/wedding/_inc/header.html:15 templates/wedding/_inc/header.html:119
-#: templates/wedding/_inc/header_cabinet.html:15
-#: templates/wedding/_inc/header_cabinet.html:119
-#: templates/wedding/_inc/header_main.html:14
-#: templates/wedding/_inc/header_main.html:117
-msgid "Аккаунт"
-msgstr "Hisob qaydnomasi"
-
 #: templates/wedding/_inc/header.html:43 templates/wedding/_inc/header.html:66
 #: templates/wedding/_inc/header_cabinet.html:43
 #: templates/wedding/_inc/header_cabinet.html:66
@@ -1609,14 +1939,6 @@ msgstr "Hisob qaydnomasi"
 msgid "Назад"
 msgstr "Orqaga"
 
-#: templates/wedding/_inc/header.html:46 templates/wedding/_inc/header.html:88
-#: templates/wedding/_inc/header_cabinet.html:46
-#: templates/wedding/_inc/header_cabinet.html:88
-#: templates/wedding/_inc/header_main.html:42
-#: templates/wedding/_inc/header_main.html:86
-msgid "Рестораны и банкетные залы"
-msgstr "Restoranlar va banket zallari"
-
 #: templates/wedding/_inc/header.html:49 templates/wedding/_inc/header.html:91
 #: templates/wedding/_inc/header_cabinet.html:49
 #: templates/wedding/_inc/header_cabinet.html:91
@@ -1624,22 +1946,6 @@ msgstr "Restoranlar va banket zallari"
 #: templates/wedding/_inc/header_main.html:89
 msgid "Музыканты и Dj"
 msgstr "Musiqachilar va DJ"
-
-#: templates/wedding/_inc/header.html:58 templates/wedding/_inc/header.html:100
-#: templates/wedding/_inc/header_cabinet.html:58
-#: templates/wedding/_inc/header_cabinet.html:100
-#: templates/wedding/_inc/header_main.html:54
-#: templates/wedding/_inc/header_main.html:98
-msgid "Свадебный костюм"
-msgstr "To'y kostyumi"
-
-#: templates/wedding/_inc/header.html:68 templates/wedding/_inc/header.html:124
-#: templates/wedding/_inc/header_cabinet.html:68
-#: templates/wedding/_inc/header_cabinet.html:124
-#: templates/wedding/_inc/header_main.html:64
-#: templates/wedding/_inc/header_main.html:122
-msgid "Кабинет"
-msgstr "Kabinet"
 
 #: templates/wedding/_inc/header.html:69 templates/wedding/_inc/header.html:125
 #: templates/wedding/_inc/header_cabinet.html:69
@@ -1653,7 +1959,11 @@ msgstr "Chiqish"
 msgid "Организуйте свадьбу не выходя из дома"
 msgstr "Uyingizdan chiqmasdan to'yingizni tashkil qiling"
 
-#: templates/wedding/_inc/header_main.html:138
+#: templates/wedding/_inc/header_main.html:140
+msgid "Искать специалистов"
+msgstr "Mutaxassislarni qidirish"
+
+#: templates/wedding/_inc/header_main.html:143
 msgid ""
 "собрал каталог лучших специалистов Ташкента для организации вашей свадьбы "
 "мечты"
@@ -1661,17 +1971,35 @@ msgstr ""
 "to'yingizni tashkil qilish uchun Toshkentdagi eng yaxshi mutaxassislar "
 "katalogini to'pladi orzular"
 
-#: templates/wedding/_inc/header_main.html:143
-msgid "Искать специалистов"
-msgstr "Mutaxassislarni qidirish"
-
 #: templates/wedding/home.html:8
-msgid "Простой и удобный свадебный планировщик"
-msgstr "Oddiy va qulay to'y rejalashtiruvchisi"
+#, fuzzy
+#| msgid "Моя подготовка к свадьбе"
+msgid "Подготовка к свадьбе шаг за шагом"
+msgstr "To'yga ko'riladigan tayyorgarliklar"
 
 #: templates/wedding/home.html:14
 msgid "Онлайн калькулятор расходов"
 msgstr "Onlayn xarajatlar kalkulyatori"
+
+#: templates/wedding/home.html:15
+msgid "Все расходы по полочкам"
+msgstr ""
+
+#: templates/wedding/home.html:22
+msgid "Детали и маршрут передвижения"
+msgstr ""
+
+#: templates/wedding/home.html:29
+#, fuzzy
+#| msgid "Регистрация молодоженов"
+msgid "Свадебные объявления от молодожёнов"
+msgstr "Yangi turmush qurganlarni ro'yxatga olish"
+
+#: templates/wedding/home.html:36
+#, fuzzy
+#| msgid "Каталог свадебных специалистов"
+msgid "Утверждённая команда ваших специалистов"
+msgstr "To'y mutaxassislari ma'lumotnomasi"
 
 #: templates/wedding/home.html:45
 msgid "Здесь молодожены ищут специалистов. Создано"
@@ -1702,10 +2030,6 @@ msgstr "Tenderlar qidiruvga ko'p vaqtni tejashga yordam beradi"
 msgid "Смотреть тендеры"
 msgstr "Tenderlarni ko'rish"
 
-#: templates/wedding/home.html:88
-msgid "Каталог услуг"
-msgstr "Xizmatlar katalogi"
-
 #: templates/wedding/home.html:103 templates/wedding/home.html:120
 #: templates/wedding/home.html:136 templates/wedding/home.html:154
 #: templates/wedding/home.html:172 templates/wedding/home.html:206
@@ -1721,17 +2045,58 @@ msgstr "To'liq katalogni ko'rish"
 msgid "Добро пожаловать в мир"
 msgstr "Dunyoga xush kelibsiz"
 
-#: templates/wedding/home.html:237
-msgid "Регистрация молодоженов"
+#: templates/wedding/home.html:238
+msgid ""
+"Мечтаешь о шикарной свадьбе? Хочешь, чтобы этот торжественный праздник стал "
+"для тебя самым незабываемым? Регистрируйся на сайте в поисках подбора лучших "
+"специалистов с живыми рейтингами и отзывами."
+msgstr ""
+
+#: templates/wedding/home.html:241
+#, fuzzy
+#| msgid "Регистрация молодоженов"
+msgid "Регистрация молодожёнов"
 msgstr "Yangi turmush qurganlarni ro'yxatga olish"
 
-#: templates/wedding/home.html:239
+#: templates/wedding/home.html:243
+msgid ""
+"Вы свадебный профессионал, фирма или просто мастер своего дела? Тогда Вам "
+"точно к нам. Отправьте запрос для регистрации на сайте, регистрируйтесь, "
+"размещайте и предлагайте свои услуги совершенно бесплатно. Зарабатывайте, "
+"участвуйте в тендерах, развивайтесь и повышайте свой профессионализм."
+msgstr ""
+
+#: templates/wedding/home.html:247
 msgid "Вы свадебный профессионал или фирма?"
 msgstr "Siz to'yda professionalmisiz yoki firmami?"
 
-#: templates/wedding/home.html:240
+#: templates/wedding/home.html:248
 msgid "Как вам зарегистрироваться?"
 msgstr "Qanday qilib ro'yxatdan o'tishni bilmoqchimisiz?"
+
+#: templates/wedding/home.html:256
+msgid ""
+"TOYPOY.uz – это информационный свадебный портал, который содержит в себе "
+"множество сервисов для самостоятельной подготовки к одному из главных "
+"торжеств в вашей жизни – свадебной церемонии. Наш портал предоставляет для "
+"молодожён и специалистов свадебных услуг огромное свадебное пространство в "
+"организации своего праздника и поиска заказов не выходя из дома! Свадебный "
+"онлайн-планировщик, Планирование бюджета, поиск специалистов из Каталога "
+"услуг, Тендеры, Рейтинги и многое другое сделают подготовку к свадьбе "
+"максимально простой и понятной. "
+msgstr ""
+
+#: templates/wedding/home.html:259
+msgid ""
+"TOYPOY.uz желает, чтобы каждая Ваша свадьба прошла сказочно и незабываемо. "
+"Регистрируйтесь и будьте с нами."
+msgstr ""
+
+#: templates/wedding/promo.html:4
+#, fuzzy
+#| msgid "Искать специалистов"
+msgid "Регистрация специалистов"
+msgstr "Mutaxassislarni qidirish"
 
 #: templates/wedding/promo.html:8
 msgid "Что может дать"
@@ -1741,9 +2106,83 @@ msgstr "Nima berishi mumkin"
 msgid "свадебным специалистам"
 msgstr "to'y mutaxassislariga"
 
-#: templates/wedding/promo.html:13
+#: templates/wedding/promo.html:10
+msgid ""
+"Toypoy.uz дает специалистам практичные инструменты для поиска заказчиков"
+msgstr ""
+
+#: templates/wedding/promo.html:10
+msgid ""
+"Вы можете находить заказчиков по тендерам, откликаясь на них или продвигать "
+"свой профиль в поиске"
+msgstr ""
+
+#: templates/wedding/promo.html:12
 msgid "Как специалисту зарегистрироваться на сайт"
 msgstr "Saytda mutaxassis sifatida qanday ro'yxatdan o'tish mumkun"
+
+#: templates/wedding/promo.html:14
+#, fuzzy
+#| msgid ""
+#| "собрал каталог лучших специалистов Ташкента для организации вашей свадьбы "
+#| "мечты"
+msgid "Регистрация специалистов совершается администратором сайта"
+msgstr ""
+"to'yingizni tashkil qilish uchun Toshkentdagi eng yaxshi mutaxassislar "
+"katalogini to'pladi orzular"
+
+#: templates/wedding/promo.html:14
+msgid ""
+"Все, что вам нужно сделать - заполнить форму ниже и предоставить всю "
+"необходимою информацию"
+msgstr ""
+
+#: templates/wedding/promo.html:14
+msgid ""
+"После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно и "
+"нужно будет изменить). Все это делается для поддержания одног формата для "
+"всех специалистов, а так же проверка валидности вашей информации "
+"администратором. После получения аккаунта, вы сможете создать свое портфолио "
+"у себя на страничке."
+msgstr ""
+
+#: templates/wedding/promo.html:30
+msgid "Перед отправкой формы, пожалуйста, ознакомтесь с"
+msgstr ""
+
+#: templates/wedding/promo.html:30
+msgid "Соглашение на предоставляемые услуги"
+msgstr ""
+
+#: templates/wedding/promo.html:31
+msgid "Отправляя форму вы автоматичксеи соглашается с условиями соглашения"
+msgstr ""
+
+#: tender/models.py:34 tender/templates/tender/tender_list.html:34
+msgid "Услуга"
+msgstr "Xizmat"
+
+#: tender/models.py:35
+#, fuzzy
+#| msgid "Создать тендер"
+msgid "Дата создания тендера"
+msgstr "Tender yaratish"
+
+#: tender/models.py:36
+#, fuzzy
+#| msgid "Дата события "
+msgid "Дата события"
+msgstr "Tadbir sanasi"
+
+#: tender/models.py:37
+#, fuzzy
+#| msgid "Бюджет"
+msgid "Бюджет (y.e.)"
+msgstr "Byudjet"
+
+#: tender/models.py:38
+msgid "Комментарий"
+msgstr ""
 
 #: tender/templates/tender/tender_confirm_delete.html:15
 msgid "Удалить тендер"
@@ -1760,6 +2199,103 @@ msgstr "Tasdiqlash"
 #: tender/templates/tender/tender_confirm_delete.html:19
 msgid "Отменить"
 msgstr "Bekor qilish"
+
+#: tender/templates/tender/tender_create.html:11
+#, fuzzy
+#| msgid "Создать тендер"
+msgid "Созадание тендера"
+msgstr "Tender yaratish"
+
+#: tender/templates/tender/tender_create.html:16
+#, fuzzy
+#| msgid "Создавай объявления"
+msgid "Тендеры (свадебные объявления)"
+msgstr "E'lonlar yarating"
+
+#: tender/templates/tender/tender_create.html:16
+#, fuzzy
+#| msgid "Здесь молодожены ищут специалистов. Создано"
+msgid "раздел для поиска молодоженами специалистов на свадьбу"
+msgstr ""
+"Bu erda yangi turmush qurganlar mutaxassislarni qidiradilar. Yaratilgan"
+
+#: tender/templates/tender/tender_create.html:17
+msgid ""
+"Преимущество создания тендеров молодожёнами заключается в том, что вы "
+"сокращаете время на поиски требуемых специалистов. Ваш тендер (свадебное "
+"объявление) увидят все заинтересованные специалисты, которые согласятся "
+"принять участие в тендере на условия ваших требований. Специалисты "
+"самостоятельно свяжутся с Вами и предложат весь спектр своих услуг. Вам же, "
+"среди участников тендера, остаётся лишь выбрать лучшего специалиста. Тендеры "
+"сайта помогают мгновенно связать молодожён как с индивидуальными "
+"профессионалами, там и с крупными фирмами или компаниями"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:19
+#, fuzzy
+#| msgid "имя"
+msgid "Для"
+msgstr "nomi"
+
+#: tender/templates/tender/tender_create.html:19
+msgid "грамотного"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:19
+msgid "заполнения тендера Вам стоит проделать всего несколько этапов"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:23
+msgid "Выберите специалиста или организацию из Каталога услуг"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:25
+msgid "Укажите достоверную дату события"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:25
+msgid ""
+"обычно дата торжества указывается за две и более недели до начала его "
+"проведения"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:26
+msgid "Укажите Ваш бюджет для данной услуги"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:26
+msgid ""
+"При участии в тендере специалисты могут предложить Вам свою цену, она может "
+"оказаться ниже указанной Вами. Но помните, что чем выше бюджет, тем более "
+"квалифицированные услуги вам смогут предложить. Бюджет по умолчанию указан в "
+"у.е."
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:27
+msgid ""
+"Укажите в графе «Комментарии» как можно больше информации о требуемых услугах"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:27
+msgid ""
+"Подробные детали оказания услуг, место проведения мероприятия, время "
+"проведения, часы работы специалиста и так далее"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:30
+msgid "Создавайте тендеры (свадебные объявления) на сайте"
+msgstr ""
+
+#: tender/templates/tender/tender_create.html:30
+msgid ""
+"и забудьте о головной боли в бесконечных поисках специалистов по всему городу"
+msgstr ""
+
+#: tender/templates/tender/tender_detail.html:23
+#, fuzzy
+#| msgid "Тендеры"
+msgid "Тендер"
+msgstr "Tenderlar"
 
 #: tender/templates/tender/tender_detail.html:58
 msgid "Специалисты, которые откликнулись на этот тендер"
@@ -1785,10 +2321,6 @@ msgstr "Tenderga javob berish"
 msgid "Молодожены ищут специалистов"
 msgstr "Yangi turmush qurganlar mutaxassislarni qidirmoqda"
 
-#: tender/templates/tender/tender_list.html:34
-msgid "Услуга"
-msgstr "Xizmat"
-
 #: tender/templates/tender/tender_list.html:59
 #, fuzzy
 #| msgid "Бюджет "
@@ -1801,21 +2333,38 @@ msgstr "Byudjet"
 msgid "Дата события 'от-до'"
 msgstr "Tadbir sanasi"
 
+#: tender/templates/tender/tender_update_form.html:11
+#, fuzzy
+#| msgid "Удалить тендер"
+msgid "Изменение тендера"
+msgstr "Tenderni o'chirish"
+
 #: tender/templates/tender/tender_update_form.html:15
 msgid "Редактировать тендер"
 msgstr "Tenderni tahrirlash"
 
-#: tender/templates/tender_base.html:14
+#: tender/templates/tender_base.html:15
 msgid "Список тендеров"
 msgstr "Tenderlar ro'yxati"
 
-#: wedding/settings.py:159
+#: wedding/settings.py:168
 msgid "Russian"
 msgstr "rus"
 
-#: wedding/settings.py:160
+#: wedding/settings.py:169
 msgid "Uzbek"
 msgstr "o'zbek"
+
+#: wedding/views.py:31
+msgid ""
+"Форма отправлена, спасибо! Администратор свяжется с Вами в ближайшее время"
+msgstr ""
+
+#~ msgid "Аксуссуары"
+#~ msgstr "Aksessuarlar"
+
+#~ msgid "Простой и удобный свадебный планировщик"
+#~ msgstr "Oddiy va qulay to'y rejalashtiruvchisi"
 
 #~ msgid "Language"
 #~ msgstr "Til"

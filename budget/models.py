@@ -12,3 +12,7 @@ class Budget(models.Model):
 
     class Meta:
         verbose_name = 'Свадебный Бюджет'
+    
+    def __str__(self):
+        return f'Бюджет {self.client}'
+

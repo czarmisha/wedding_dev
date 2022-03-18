@@ -44,7 +44,7 @@ urlpatterns = i18n_patterns(
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(
         template_name='account/password/password_reset_complete.html'), name='password_reset_complete'),
     path('__debug__/', include('debug_toolbar.urls')),
-    # path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('/static/images/favicon.ico'))),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('/static/images/favico/favicon.ico'))),
     # path('ratings/', include('star_ratings.urls', namespace='ratings')),
 )
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

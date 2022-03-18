@@ -175,6 +175,9 @@ class ArtistAdmin(admin.ModelAdmin):
 
 @admin.register(Restaurant)
 class RestaurantAdmin(admin.ModelAdmin):
+    list_display = ['name', 'user', 'created', 'capacity', 'average_check']
+    list_filter = ('type', 'kitchen', 'is_pro')
+    search_fields = ['name', 'capacity', 'average_check', 'user', 'user__email']
     def save_model(self, request, obj, form, change):
         username = obj.user.username
         obj.slug = slugify(username)
