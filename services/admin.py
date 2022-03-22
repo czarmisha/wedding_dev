@@ -33,6 +33,21 @@ class PhotoStudioAdmin(admin.ModelAdmin):
         obj.save()
 
 
+@admin.register(PhotostudioAdditionalFeeService)
+class PhotostudioAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PhotostudioBenefits)
+class PhotostudioBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PhotostudioPaymentMethod)
+class PhotostudioPaymentMethodAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(Stylist)
 class StylistAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
@@ -273,5 +288,65 @@ class CarTypeAdmin(admin.ModelAdmin):
 
 @admin.register(CarBrand)
 class CarBrandAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PresenterAdditionalFeeService)
+class PresenterAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PresenterBenefits)
+class PresenterBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PresenterPaymentMethod)
+class PresenterPaymentMethodAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(MusicAdditionalFeeService)
+class MusicAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(MusicBenefits)
+class MusicBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(MusicPaymentMethod)
+class MusicPaymentMethodAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PhotographerAdditionalFeeService)
+class PhotographerAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PhotographerBenefits)
+class PhotographerBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PhotographerPaymentMethod)
+class PhotographerPaymentMethodAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(VideographerAdditionalFeeService)
+class VideographerAdditionalFeeServiceAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(VideographerBenefits)
+class VideographerBenefitsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(VideographerPaymentMethod)
+class VideographerPaymentMethodAdmin(admin.ModelAdmin):
     pass
 

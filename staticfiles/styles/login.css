@@ -109,6 +109,16 @@ h1{
     margin-top: 25px;
 }
 
+.simple_text{
+    display: block;
+    font-size: 17px;
+    max-width: 900px;
+    width: 100%;
+    color: var(--dark-color);
+    font-family: 'Roboto_regular';
+    margin: 35px auto 0;
+    text-align: center;
+}
 
 /*-------------------- messages -----------------*/
 .messages {
