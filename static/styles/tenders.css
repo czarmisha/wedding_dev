@@ -233,7 +233,7 @@ main{
     padding-bottom: 1px;
     box-shadow: 0px 4px 8px rgb(0 0 0 / 14%);
     border-radius: 16px;
-    min-height: 210px;
+    min-height: 225px;
 }
 
 .tender_header{
@@ -246,10 +246,11 @@ main{
     font-size: 16px;
     color: #808285;
     font-family: 'Roboto_regular';
+    margin-bottom: 0;
 }
 
 .tender_need>span{
-    font-size: 18px;
+    font-size: 17px;
     color: var(--gold-color);
     font-family: 'Roboto_medium';
 }
@@ -257,14 +258,14 @@ main{
 .tender_on_date{
     padding: 0 8px;
     border-right: 1px solid #d0d0d0;
-    font-size: 16px;
+    font-size: 15px;
     color: #808285;
     font-family: 'Roboto_medium';
 }
 
 .tender_budget{
     padding: 0 8px;
-    font-size: 16px;
+    font-size: 15px;
     color: #808285;
     font-family: 'Roboto_medium';
 }
@@ -284,7 +285,9 @@ main{
 }
 
 .tender_img>img{
-    width: 100%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 
 .tender_author{

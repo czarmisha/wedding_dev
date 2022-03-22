@@ -11,8 +11,8 @@ class User(AbstractUser):
         'Тип пользователя', max_length=155, default='client')
     rating = models.FloatField('Рейтинг пользователя', default=0)
 
-    def __str__(self):
-        return self.username
+    # def __str__(self):
+    #     return self.username
 
     def get_calculated_rate(self):
         return int(self.get_positive_rate_count())*1 + int(self.get_neutral_rate_count())*.5 - int(self.get_negative_rate_count())*1
@@ -29,9 +29,9 @@ class User(AbstractUser):
     def get_positive_rate_count(self):
         return self.service_reviews.filter(value=3).count()
 
-    def get_name(self):
+    def __str__(self):
         if self.type == 'client':
-            return self.first_name + self.last_name
+            return self.first_name + " " + self.last_name
         elif self.type == 'photographer':
             return self.photographer.name
         elif self.type == 'restaurant':

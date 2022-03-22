@@ -10,7 +10,7 @@
                         </li>
                         <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
                         <li class=""><a href="{% url 'tender:list'%}" class="mobile-menu_link">{% trans "Тендеры" %}</a></li>
-                        <li class=""><a href="" class="mobile-menu_link">{% trans "О нас" %}</a></li>
+                        <li class=""><a href="{% url 'home' %}#About" class="mobile-menu_link">{% trans "О нас" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link">{% trans "Скидки и акции" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link account_btn d-flex align-items-center justify-content-between">{% trans "Аккаунт" %} <span><i class="fad fa-long-arrow-right"></i></span></a></li>
                     </ul>
@@ -111,7 +111,7 @@
                 </ul>
                 <a href="{% url 'home' %}" class="logo"><img src="{% static 'media/images/TOYPOY_logo_png.png' %}" alt=""></a>
                 <ul class="header_navigation right d-none d-lg-flex">
-                    <li class=""><a href="" class="nav_link">{% trans "О нас" %}</a></li>
+                    <li class=""><a href="{% url 'home' %}#About" class="nav_link">{% trans "О нас" %}</a></li>
                     <li class=""><a href="" class="nav_link">{% trans "Скидки и акции" %}</a></li>
                     <li class="">
                         <div class="dropdown">
