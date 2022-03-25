@@ -45,11 +45,11 @@
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
                             <option value="-1">{% trans 'Средний чек' %}</option>
-                            <option init='1' value="1">0-200.000 {% trans 'сум' %}</option>
+                            <option init='1' value="1">{% trans "до" %} 200.000 {% trans 'сум' %}</option>
                             <option init='2' value="2">200.000-300.000 {% trans 'сум' %}</option>
                             <option init='3' value="3">300.000-400.000 {% trans 'сум' %}</option>
                             <option init='4' value="4">400.000-500.000 {% trans 'сум' %}</option>
-                            <option init='5' value="5">{% trans 'выше' %} 500.000 {% trans 'сум' %}</option>
+                            <option init='5' value="5">{% trans 'свыше' %} 500.000 {% trans 'сум' %}</option>
                         </select>
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
@@ -57,12 +57,12 @@
                     <p class="filter_wrapper">
                         <select name="" id="select_capacity_range">
                             <option value="-1">{% trans 'Вместимость' %}</option>
-                            <option init='1' value="1">0-100 {% trans 'чел' %}.</option>
+                            <option init='1' value="1">{% trans "до" %} 100 {% trans 'человек' %}.</option>
                             <option init='2' value="2">100-200 {% trans 'чел' %}.</option>
                             <option init='3' value="3">200-300 {% trans 'чел' %}.</option>
                             <option init='4' value="4">300-400 {% trans 'чел' %}.</option>
                             <option init='5' value="5">400-500 {% trans 'чел' %}.</option>
-                            <option init='6' value="6">{% trans 'выше' %} 500 {% trans 'чел' %}.</option>
+                            <option init='6' value="6">{% trans 'свыше' %} 500 {% trans 'человек' %}.</option>
                         </select>
                         <input type="hidden" name="capacity_min" id="id_capacity_0">
                         <input type="hidden" name="capacity_max" id="id_capacity_1">
@@ -94,8 +94,8 @@
                             {% else %}
                             <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
-                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.user.service_reviews.count}}</span>)</p>
+                            <p class="spec_rating"><span>{{object.user.get_calculated_rate}}</span> <br> {% trans "Рейтинг" %}</p>
+                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.review_count}}</span>)</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-10">

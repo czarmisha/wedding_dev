@@ -63,8 +63,8 @@
                             {% else %}
                             <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
-                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.user.service_reviews.count}}</span>)</p>
+                            <p class="spec_rating"><span>{{object.user.get_calculated_rate}}</span> <br> {% trans "Рейтинг" %}</p>
+                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.review_count}}</span>)</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-10">

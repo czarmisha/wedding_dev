@@ -16,24 +16,17 @@
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="detail_left d-flex flex-column">
                     {%if object.avatar%}
-                    <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
+                    <img class="avatar" src="{{object.avatar.url}}" alt="">
                     {% else %}
-                    <img class="avatar w-100" src="{% static 'media/images/logo_v2.png' %}" alt="">
+                    <img class="avatar" src="{% static 'media/images/logo_v2.png' %}" alt="">
                     {%endif%}
                     <div class="info">
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.user.photographer.name %}
                             {{object.user.photographer.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{% if object.user.type == 'photographer'%} {% trans "Фотограф" %} {% endif %}</p>
-                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.user.photographer.price}} {% trans "сум" %}</span></p>
-                        <p class="specialist_price">{% trans "Цена в час" %}: <span>{{object.user.photographer.price_per_hour}} {% trans "сум" %}</span></p>
-                    </div>
-                    <div class="rating">
-                        <ul class="rating_options">
-                            <li class="rating_option negative_rating"><i class="fad fa-frown"></i><span>{{object.user.get_negative_rate_count}}</span></li>
-                            <li class="rating_option neutral_rating"><i class="fad fa-meh"></i><span>{{object.user.get_neutral_rate_count}}</span></li>
-                            <li class="rating_option positive_rating"><i class="fad fa-smile"></i><span>{{object.user.get_positive_rate_count}}</span></li>
-                        </ul>
+                        <p class="specialist_price">{% trans "Стоимость съёмки от " %}: <span>{{object.user.photographer.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Цена за час " %}: <span>{{object.user.photographer.price_per_hour}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
@@ -42,7 +35,14 @@
                         <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.user.}}">{{object.phone}}</a></p>
                     </div>
-                   
+                    <div class="rating">
+                        <ul class="rating_options">
+                            <li class="rating_option negative_rating"><i class="fad fa-frown"></i><span>{{object.user.get_negative_rate_count}}</span></li>
+                            <li class="rating_option neutral_rating"><i class="fad fa-meh"></i><span>{{object.user.get_neutral_rate_count}}</span></li>
+                            <li class="rating_option positive_rating"><i class="fad fa-smile"></i><span>{{object.user.get_positive_rate_count}}</span></li>
+                        </ul>
+                    </div>
+                    
                     {% if request.user.is_authenticated and request.user == object.user%}
                     <a href="{% url 'account:change_password' %}" class="change_password"> <span><i class="fad fa-key-skeleton"></i></span> {% trans "Изменить" %} {% trans "пароль" %}</a>
                     {% endif %}

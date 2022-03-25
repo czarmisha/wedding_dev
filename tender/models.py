@@ -34,7 +34,7 @@ class Tender(models.Model):
     service = models.CharField(_('Услуга'), max_length=15, choices=_SERVICES, default=None)
     create_date = models.DateTimeField(_('Дата создания тендера'), auto_now_add=True)
     on_date = models.DateField(_('Дата события'))
-    budget = models.FloatField(_('Бюджет (y.e.)'))
+    budget = models.IntegerField(_('Бюджет (y.e.)'))
     comment = models.TextField(_('Комментарий'), blank=True)
     slug = models.SlugField(max_length=200, unique=True, default='sometender', blank=True)
 

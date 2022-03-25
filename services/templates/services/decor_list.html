@@ -45,12 +45,12 @@
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
                             <option value="-1">{% trans "Стоимость оформления зала" %}</option>
-                            <option init='1' value="1">0-1.000.000 {% trans "сум" %}</option>
+                            <option init='1' value="1">{% trans "до" %} 1.000.000 {% trans "сум" %}</option>
                             <option init='2' value="2">1.000.000-2.000.000 {% trans "сум" %}</option>
                             <option init='3' value="3">2.000.000-3.000.000 {% trans "сум" %}</option>
                             <option init='4' value="4">3.000.000-4.000.000 {% trans "сум" %}</option>
                             <option init='5' value="5">4.000.000-5.000.000 {% trans "сум" %}</option>
-                            <option init='6' value="6">{% trans "выше" %} 5.000.000 {% trans "сум" %}</option>
+                            <option init='6' value="6">{% trans "свыше" %} 5.000.000 {% trans "сум" %}</option>
                         </select>
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
@@ -80,8 +80,8 @@
                             {% else %}
                             <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                             {%endif%}
-                            <p class="spec_rating">{{object.user.get_calculated_rate}}</p>
-                            <p class="spec_reviews">{% trans "Отзывы" %} (<span>{{object.user.service_reviews.count}}</span>)</p>
+                            <p class="spec_rating"><span>{{object.user.get_calculated_rate}}</span> <br> {% trans "Рейтинг" %}</p>
+                            <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.review_count}}</span>)</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-10">
