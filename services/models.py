@@ -726,8 +726,8 @@ class Language(models.Model):
 
 class Music(models.Model):
     _COMPOSITION_TYPE = [
-        ('duet', 'Дуэт'),
         ('solo', 'Соло'),
+        ('duet', 'Дуэт'),
         ('group', 'Группа'),
         ('dj', 'Dj'),
     ]
@@ -746,7 +746,7 @@ class Music(models.Model):
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
     composition = models.CharField('Исполнители', max_length=50, choices=_COMPOSITION_TYPE, null=True)
     vocal = models.CharField('Вокал', max_length=50, choices=_VOCAL_TYPE, null=True)
-    language = models.ManyToManyField('Language', verbose_name='Языки исполнения песен')
+    language = models.ManyToManyField('Language', verbose_name='Язык исполнения песен')
     additional_services = models.ManyToManyField('MusicAdditionalFeeService', verbose_name='Услуги за доп плату')
     benefits = models.ManyToManyField('MusicBenefits', verbose_name='Преимущества')
     payment = models.ManyToManyField('MusicPaymentMethod', verbose_name='Способы оплаты')

@@ -1,3 +1,4 @@
+from cProfile import label
 from queue import Empty
 import django_filters
 from django import forms
@@ -123,7 +124,9 @@ class MusicFilter(django_filters.FilterSet):
         field_name='composition', choices=models.Music._COMPOSITION_TYPE, empty_label='Исполнители')
     language = django_filters.ModelMultipleChoiceFilter(
         queryset=models.Language.objects.all(),
-        widget=forms.SelectMultiple
+        widget=forms.SelectMultiple,
+        label='Язык исполнения песен',
+        # empty_label="Язык исполнения песен"
         )
 
     class Meta:
