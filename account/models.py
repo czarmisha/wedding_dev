@@ -31,7 +31,7 @@ class User(AbstractUser):
 
     def __str__(self):
         if self.type == 'client':
-            return self.first_name + " " + self.last_name
+            return self.first_name + " " + self.last_name if (self.first_name and self.last_name) else self.username
         elif self.type == 'photographer':
             return self.photographer.name
         elif self.type == 'restaurant':

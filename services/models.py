@@ -166,8 +166,8 @@ class PhotoStudio(models.Model):
         super(PhotoStudio, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Фотостудия'
-        verbose_name_plural = 'Фотостудии'
+        verbose_name = 'Площадка для фотосессий'
+        verbose_name_plural = 'Площадки для фотосессий'
         ordering = ['-is_pro', '-created',]
 
 
@@ -626,7 +626,7 @@ class RegistryOffice(models.Model):
 
     class Meta:
         verbose_name = 'Дворец бракосочетания, ЗАГС'
-        verbose_name_plural = 'Дворцы бракосочтания, ЗАГСы'
+        verbose_name_plural = 'Дворцы бракосочетания, ЗАГСы'
         ordering = ['-is_pro', '-created',]
 
 

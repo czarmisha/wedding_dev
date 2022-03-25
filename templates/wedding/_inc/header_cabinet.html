@@ -8,8 +8,8 @@
                         <li class="">
                             <a class="mobile-menu_link catalog_btn d-flex align-items-center justify-content-between" href="#">{% trans "Услуги" %} <span><i class="fad fa-long-arrow-right"></i></span></a>
                         </li>
-                        <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
                         <li class=""><a href="{% url 'tender:list'%}" class="mobile-menu_link">{% trans "Тендеры" %}</a></li>
+                        <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
                         <li class=""><a href="{% url 'home' %}#About" class="mobile-menu_link">{% trans "О нас" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link">{% trans "Скидки и акции" %}</a></li>
                         <li class=""><a href="" class="mobile-menu_link account_btn d-flex align-items-center justify-content-between">{% trans "Аккаунт" %} <span><i class="fad fa-long-arrow-right"></i></span></a></li>
@@ -41,25 +41,25 @@
                     </ul>
                     <ul class="mobile_catalog position-absolute">
                         <li class="catalog_back"><i class="fad fa-long-arrow-left"></i><span>{% trans "Назад" %}</span></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:restaurant_list' %}"><img src="{% static 'media/images/3.jpg' %}" alt=""> {% trans "Банкетные залы и рестораны" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:registryoffice_list' %}"><img src="{% static 'media/images/8.jpg' %}" alt=""> {% trans "Дворцы бракосочетания и ЗАГСы" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photostudio_list' %}"><img src="{% static 'media/images/18.jpg' %}" alt=""> {% trans "Плоащдки для фотосессий" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:decor_list' %}"><img src="{% static 'media/images/14.jpg' %}" alt=""> {% trans "Оформление и декор" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:transport_list' %}"><img src="{% static 'media/images/5.jpg' %}" alt=""> {% trans "Транспортные услуги" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> {% trans "Фотографы" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> {% trans "Видеографы" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:restaurant_list' %}"><img src="{% static 'media/images/3.jpg' %}" alt=""> {% trans "Рестораны и банкетные залы" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Артисты и шоу программы" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:transport_list' %}"><img src="{% static 'media/images/5.jpg' %}" alt=""> {% trans "Транспорт" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие и тамада" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыканты и Dj" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:registryoffice_list' %}"><img src="{% static 'media/images/8.jpg' %}" alt=""> {% trans "Дворцы бракосочетания и ЗАГСы" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:invitation_list' %}"><img src="{% static 'media/images/9.jpg' %}" alt=""> {% trans "Пригласительные" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Шоу программы и артисты" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:cake_list' %}"><img src="{% static 'media/images/10.jpg' %}" alt=""> {% trans "Свадебные торты" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:dress_list' %}"><img src="{% static 'media/images/11.jpg' %}" alt=""> {% trans "Свадебные платья" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:costume_list' %}"><img src="{% static 'media/images/15.jpg' %}" alt=""> {% trans "Свадебные костюмы" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:ring_list' %}"><img src="{% static 'media/images/12.jpg' %}" alt=""> {% trans "Обручальные кольца" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:bouquet_list' %}"><img src="{% static 'media/images/13.jpg' %}" alt=""> {% trans "Свадебные букеты" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:decor_list' %}"><img src="{% static 'media/images/14.jpg' %}" alt=""> {% trans "Оформление и декор" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:costume_list' %}"><img src="{% static 'media/images/15.jpg' %}" alt=""> {% trans "Свадебный костюм" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:accessories_list' %}"><img src="{% static 'media/images/16.jpg' %}" alt=""> {% trans "Свадебные аксессуары" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:bouquet_list' %}"><img src="{% static 'media/images/13.jpg' %}" alt=""> {% trans "Букет невесты" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:stylist_list' %}"><img src="{% static 'media/images/17.jpg' %}" alt=""> {% trans "Стилисты и визажисты" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:photostudio_list' %}"><img src="{% static 'media/images/18.jpg' %}" alt=""> {% trans "Фотостудии" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:dance_list' %}"><img src="{% static 'media/images/19.jpg' %}" alt=""> {% trans "Танцевальные коллективы" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:accessories_list' %}"><img src="{% static 'media/images/16.jpg' %}" alt=""> {% trans "Свадебные аксессуары" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:dance_list' %}"><img src="{% static 'media/images/19.jpg' %}" alt=""> {% trans "Свадебный танец" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:invitation_list' %}"><img src="{% static 'media/images/9.jpg' %}" alt=""> {% trans "Пригласительные" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:agency_list' %}"><img src="{% static 'media/images/20.jpg' %}" alt=""> {% trans "Свадебные агенства" %}</a></li>
                     </ul>
                     <ul class="account_menu position-absolute">
@@ -83,25 +83,25 @@
                             </a>
 
                             <ul class="column_menu dropdown-menu" aria-labelledby="dropdownLink">
-                              <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> {% trans "Фотографы" %}</a></li>
-                              <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> {% trans "Видеографы" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:restaurant_list' %}"><img src="{% static 'media/images/3.jpg' %}" alt=""> {% trans "Рестораны и банкетные залы" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Артисты и шоу программы" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:transport_list' %}"><img src="{% static 'media/images/5.jpg' %}" alt=""> {% trans "Транспорт" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыканты и Dj" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:restaurant_list' %}"><img src="{% static 'media/images/3.jpg' %}" alt=""> {% trans "Банкетные залы и рестораны" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:registryoffice_list' %}"><img src="{% static 'media/images/8.jpg' %}" alt=""> {% trans "Дворцы бракосочетания и ЗАГСы" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:invitation_list' %}"><img src="{% static 'media/images/9.jpg' %}" alt=""> {% trans "Пригласительные" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photostudio_list' %}"><img src="{% static 'media/images/18.jpg' %}" alt=""> {% trans "Плоащдки для фотосессий" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:decor_list' %}"><img src="{% static 'media/images/14.jpg' %}" alt=""> {% trans "Оформление и декор" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:transport_list' %}"><img src="{% static 'media/images/5.jpg' %}" alt=""> {% trans "Транспортные услуги" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> {% trans "Фотографы" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> {% trans "Видеографы" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие и тамада" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыканты и Dj" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Шоу программы и артисты" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:cake_list' %}"><img src="{% static 'media/images/10.jpg' %}" alt=""> {% trans "Свадебные торты" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dress_list' %}"><img src="{% static 'media/images/11.jpg' %}" alt=""> {% trans "Свадебные платья" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:costume_list' %}"><img src="{% static 'media/images/15.jpg' %}" alt=""> {% trans "Свадебные костюмы" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:ring_list' %}"><img src="{% static 'media/images/12.jpg' %}" alt=""> {% trans "Обручальные кольца" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:bouquet_list' %}"><img src="{% static 'media/images/13.jpg' %}" alt=""> {% trans "Свадебные букеты" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:decor_list' %}"><img src="{% static 'media/images/14.jpg' %}" alt=""> {% trans "Оформление и декор" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:costume_list' %}"><img src="{% static 'media/images/15.jpg' %}" alt=""> {% trans "Свадебный костюм" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:accessories_list' %}"><img src="{% static 'media/images/16.jpg' %}" alt=""> {% trans "Свадебные аксессуары" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:bouquet_list' %}"><img src="{% static 'media/images/13.jpg' %}" alt=""> {% trans "Букет невесты" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:stylist_list' %}"><img src="{% static 'media/images/17.jpg' %}" alt=""> {% trans "Стилисты и визажисты" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photostudio_list' %}"><img src="{% static 'media/images/18.jpg' %}" alt=""> {% trans "Фотостудии" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dance_list' %}"><img src="{% static 'media/images/19.jpg' %}" alt=""> {% trans "Танцевальные коллективы" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:accessories_list' %}"><img src="{% static 'media/images/16.jpg' %}" alt=""> {% trans "Свадебные аксессуары" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dance_list' %}"><img src="{% static 'media/images/19.jpg' %}" alt=""> {% trans "Свадебный танец" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:invitation_list' %}"><img src="{% static 'media/images/9.jpg' %}" alt=""> {% trans "Пригласительные" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:agency_list' %}"><img src="{% static 'media/images/20.jpg' %}" alt=""> {% trans "Свадебные агенства" %}</a></li>
                             </ul>
                         </div>

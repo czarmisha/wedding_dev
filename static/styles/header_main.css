@@ -170,7 +170,7 @@ header nav{
     font-family: 'Roboto_regular';
     font-size: 16px;
     color: var(--dark-color);
-    margin-top: 30px;
+    margin-top: 80px;
 }
 
 .header_content__text span {
@@ -189,10 +189,11 @@ header nav{
 .my_dropdown .column_menu{
     column-count: 4;
     column-gap: 20px;
-    inset: 0px auto auto -58px!important;
+    inset: 0px auto auto -98px!important;
     padding: 20px;
     z-index: 999999;
     transform: translate3d(-222px, 26px, 0px)!important;
+    border-radius: 25px;
 }
 
 .my_dropdown .column_menu a{
@@ -227,8 +228,8 @@ header nav{
 }
 
 .column_menu a img{
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     margin-right: 5px;
 }
 
@@ -551,7 +552,7 @@ header nav{
         text-align: center;
         padding: 8px 12px 8px;
         font-size: 28px;
-        margin: 0 0 30px;
+        margin: 25px 0 45px;
     }
     
     .header_buttons__gold{

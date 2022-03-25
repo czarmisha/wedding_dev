@@ -130,10 +130,11 @@ header nav{
 .my_dropdown .column_menu{
     column-count: 4;
     column-gap: 20px;
-    inset: 0px auto auto -58px!important;
+    inset: 0px auto auto -98px!important;
     padding: 20px;
     z-index: 999999;
     transform: translate3d(-222px, 26px, 0px)!important;
+    border-radius: 25px;
 }
 
 .my_dropdown .column_menu a{
@@ -169,8 +170,8 @@ header nav{
 }
 
 .column_menu a img{
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     margin-right: 5px;
 }
 

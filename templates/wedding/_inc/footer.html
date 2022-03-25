@@ -5,8 +5,9 @@
     <div class="footer">
        <div class="footer_bg">
             <a href="{% url 'home' %}" class="logo"><img src="{% static 'media/images/TOYPOY_logo_png.webp' %}" alt=""></a>
-            <a href="phone:123" class="footer_call-us">
-                <span><i class="fal fa-mobile"></i></span> {% trans "Позвоните нам" %}
+            <a href="https://t.me/ilyassio" class="footer_call-us">
+                {% comment %} <span><i class="fal fa-mobile"></i></span>  {% endcomment %}
+                {% trans "Напишите нам" %}
             </a>
             <div class="footer_socials">
                 <a href=""><i class="fab fa-facebook-f"></i></a>

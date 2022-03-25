@@ -53,16 +53,17 @@ footer{
 
 .footer_bg .logo{
     display: block;
-    margin-top: -30px;
+    /* margin-top: -30px; */
     position: relative;
+    margin-bottom: 20px;
 }
 
 .footer_call-us{
     position: relative;
-    border: 2px solid #c99e668f;
+    border: 2px solid var(--gold-color);
     border-radius: 20px;
     font-size: 16px;
-    color: var(--dark-grey);
+    color: black;
     font-weight: 500;
     text-decoration: none;
     box-sizing: border-box;
@@ -78,7 +79,7 @@ footer{
 }
 
 .footer_call-us:hover{
-    color: var(--dark-grey);
+    color: black;
     border-color: var(--blue-color);
     position: relative;
 }
@@ -115,7 +116,7 @@ footer{
     position: relative;
     padding: 0 15px;
     text-align: center;
-    font-size: 16px;
-    color: var(--dark-grey);
+    font-size: 13px;
+    color: black;
     font-family: 'Roboto_regular';
 }
