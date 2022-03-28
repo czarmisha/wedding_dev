@@ -473,7 +473,7 @@ def add_portfolio(request):
 def extend_portfolio(request):
     if request.method == 'GET':
         form = PortfolioForm()
-        return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Расширить портфолио')})
+        return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Добавить фото/видео')})
     elif request.method == 'POST':
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
@@ -485,7 +485,7 @@ def extend_portfolio(request):
                 image.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
-            return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Расширить портфолио')})
+            return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Добавить фото/видео')})
     else:
         return HttpResponseRedirect(request.user.get_cabinet_url())
 
