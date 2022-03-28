@@ -90,15 +90,15 @@
                                             </div>
                                         {%endfor%}
                                         {% if request.user.is_authenticated and request.user == object.user%}
-                                         <a href="{%url 'services:extend_portfolio'%}">{% trans "Увеличить портфолио" %}</a>
-                                         <a href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a>
+                                         <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
+                                         <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a>
                                         {% endif %}
     
                                     </div>
     
                                 {%else%}
                                     {% if request.user.is_authenticated and request.user == object.user%}
-                                        <a href="{%url 'services:create_portfolio'%}">{% trans "Создать портфолио" %}</a>
+                                        <a class="create_portfolio" href="{%url 'services:create_portfolio'%}">{% trans "Создать портфолио" %}</a>
                                     {% endif %}
     
                                 {%endif%}

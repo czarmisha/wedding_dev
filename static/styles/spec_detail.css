@@ -440,6 +440,52 @@ ul.rating_options{
 .detail_right ul>li.review_box{
     width: 100%!important;
 }
+.create_portfolio{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 220px;
+    height: 42px;
+    line-height: 42px;
+    border: 2px solid var(--blue-color);
+    border-radius: 23px;
+    display: inline-block;
+    text-transform: none;
+    background: var(--blue-color);
+    transition: all .2s ease;
+    font-size: 16px;
+    margin: 0 10px 15px;
+}
+
+.create_portfolio:hover{
+    color: black;
+    background-color: white;
+}
+.delete_portfolio{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 220px;
+    height: 42px;
+    line-height: 42px;
+    border: 2px solid #cd2b2b;
+    border-radius: 23px;
+    display: inline-block;
+    text-transform: none;
+    background: #cd2b2b;
+    transition: all .2s ease;
+    font-size: 16px;
+    margin: 0 10px 15px;
+}
+
+.delete_portfolio:hover{
+    color: black;
+    background-color: white;
+}
 /* -------- restaurant --------- spec_more_info------- */
 
 .spec_more_info .more_info{
