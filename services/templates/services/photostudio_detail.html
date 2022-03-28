@@ -116,15 +116,38 @@
                                             </div>
                                         {%endfor%}
                                         {% if request.user.is_authenticated and request.user == object.user%}
-                                         <a href="{%url 'services:extend_portfolio'%}">{% trans "Увеличить портфолио" %}</a>
-                                         <a href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a>
+                                         <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
+                                         {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
+                                         <!-- Button trigger modal -->
+                                            <button type="button" class="delete_portfolio" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                {% trans "Удалить портфолио" %}
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{% trans "Удалить портфолио?" %}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="specialist_about">{% trans "После удалиния, всё порфолио будет стерто и без возможности на восстановление. Вы уверены?" %}</p>
+                                                </div>
+                                                <div class="modal-footer flex-nowrap">
+                                                    <button type="button" class="create_portfolio" data-bs-dismiss="modal">{% trans "Отмена" %}</button>
+                                                    <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            </div>
                                         {% endif %}
     
                                     </div>
     
                                 {%else%}
                                     {% if request.user.is_authenticated and request.user == object.user%}
-                                        <a href="{%url 'services:create_portfolio'%}">{% trans "Создать портфолио" %}</a>
+                                        <a class="create_portfolio" href="{%url 'services:create_portfolio'%}">{% trans "Создать портфолио" %}</a>
                                     {% endif %}
     
                                 {%endif%}
