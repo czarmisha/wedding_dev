@@ -137,6 +137,9 @@ main{
 
 .specialist_about{
     padding: 20px;
+    color: #808285;
+    font-size: 15px;
+    line-height: 1.4em;
 }
 .specialist_about>p{
     color: #808285;
