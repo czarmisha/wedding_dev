@@ -104,10 +104,10 @@ class TransportFilter(django_filters.FilterSet):
 
 class PresenterFilter(django_filters.FilterSet):
     price = django_filters.RangeFilter(field_name='price_per_evening')
-    composition = django_filters.ChoiceFilter(
-        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE, empty_label='Состав')
     gender = django_filters.ChoiceFilter(
         field_name='gender', choices=models.Presenter._GENDER, empty_label='Пол')
+    composition = django_filters.ChoiceFilter(
+        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE, empty_label='Состав')
     language = django_filters.ModelMultipleChoiceFilter(
         queryset=models.Language.objects.all(),
         widget=forms.SelectMultiple
@@ -115,7 +115,7 @@ class PresenterFilter(django_filters.FilterSet):
 
     class Meta:
         model = models.Presenter
-        fields = ['price', 'composition', 'gender', 'language']
+        fields = ['price', 'gender', 'composition', 'language']
 
 
 class MusicFilter(django_filters.FilterSet):

@@ -11,7 +11,7 @@
                     <li class="planning_box">
                         <a href="{%if request.user.type == 'client' %}{% url 'budget:budget_view' %}{% else %} {% url 'account:registration' %}{% endif %}">
                             <span class="planning_icon"><i class="fad fa-calculator-alt"></i></span>
-                            <p class="planning_title">{% trans "Онлайн калькулятор расходов" %}</p>
+                            <p class="planning_title">{% trans "Затраты и бюджет" %}</p>
                             <p class="planning_descr">{% trans "Все расходы по полочкам" %}</p>
                         </a>
                     </li>
@@ -32,7 +32,7 @@
                     <li class="planning_box">
                         <a href="{%if request.user.type == 'client' %}{% url 'favorite:my_favorites' %}{% else %} {% url 'account:registration' %}{% endif %}">
                             <span class="planning_icon"><i class="fad fa-users"></i></span>
-                            <p class="planning_title">{% trans "Сохраненные специалисты" %}</p>
+                            <p class="planning_title">{% trans "Избранные специалисты" %}</p>
                             <p class="planning_descr">{% trans "Утверждённая команда ваших специалистов" %}</p>
                         </a>
                     </li>

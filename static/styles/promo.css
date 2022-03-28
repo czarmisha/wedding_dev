@@ -1,0 +1,128 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #4197cb;
+    font-family: 'Roboto_regular';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+body{
+    scroll-behavior: smooth;
+}
+/* ----------- lang ----------------- */
+.languages_mobile{
+    text-transform: uppercase;
+    margin-top: 30px;
+    position: absolute;
+    top: -16px;
+    right: 11px;
+}
+
+.languages{
+    z-index: 6;
+    position: absolute;
+    right: 20px;
+    top: 22px;
+    text-transform: uppercase;
+}
+.languages a,
+.languages_mobile a{
+    color: var(--gold-color);
+    text-decoration: none;
+    font-family: 'Roboto_medium';
+}
+.languages_mobile a{
+    color: black;
+}
+.languages .dropdown-menu,
+.languages_mobile .dropdown-menu{
+    min-width: auto;
+    padding: 0;
+    box-shadow: 0px 13px 32px rgb(204 208 221 / 30%);
+    border-radius: 7px;
+}
+.languages li,
+.languages_mobile li{
+    padding: 5px 10px;
+}
+.languages li:hover,
+.languages_mobile li:hover{
+    background-color: #e9e9e9;
+}
+
+
+
+
+/* ------------- promo_section ---------------- */
+
+.promo_section{
+    padding: 50px 0;
+}
+
+.promo_section .title{
+    font-family: 'Roboto_medium';
+    color: var(--dark-color);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.promo_section .title span {
+    color: var(--gold-color);
+}
+.specialist_registry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 25px 40px 25px;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    margin: 50px auto 30px;
+}
+
+.specialist_registry input[type='text']{
+    width: 90%;
+    border: 1px solid #d3d3d3a8;
+    height: 36px;
+    padding: 0 15px;
+    color: #808285;
+    font-size: 14px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.specialist_registry p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: var(--dark-grey);
+}
+
+.specialist_registry input[type='submit']{
+    display: block;
+    width: 150px;
+    height: 36px;
+    margin: 15px auto 0;
+    background: var(--gold-color);
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 14px;
+    -webkit-transition: background .2s ease;
+    transition: background .2s ease;
+}

@@ -1,8 +1,15 @@
-{% extends "base.html" %}
+{% extends "tender_base.html" %}
 {% load i18n %}
 {% load static %}
 {% block title %}<title>{% trans "Регистрация специалистов" %} | Toypoy.uz</title>{% endblock title %}
-{% block main %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'styles/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/footer.css' %}">
+<link rel="stylesheet" href="{% static 'styles/promo.css' %}">
+{% endblock %}
+{% block content %}
     <section class="promo_section">
         <div class="container">
             <h2 class="text-center title">{% trans "Что может дать" %} T<span>O</span>YP<span>O</span>Y {% trans "свадебным специалистам" %}</h2>

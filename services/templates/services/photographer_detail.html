@@ -69,9 +69,10 @@
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p class="specialist_about">
-                                {{object.user.photographer.about}}
-                            </p>
+                            <div class="specialist_about hidden">
+                                {{object.about|safe}}
+                            </div>
+                            <a href="" class="toggle_about_text hidden">{% trans "Читать больше" %} <span class="arrow"></span></a>
                             <div class="spec_more_info">
                                 <h3 class="subtitle">{% trans "Детали" %}</h3>
                                 <div class="row">
@@ -170,6 +171,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
+        $('.toggle_about_text').click(function(e){
+            e.preventDefault();
+            $('.specialist_about').toggleClass('hidden');
+            $(this).toggleClass('hidden');
+        });
+
         $('.review_form .rate_option').click(function(){
             $('.review_form .rate_option').each(function(){
                 $(this).removeClass('selected')

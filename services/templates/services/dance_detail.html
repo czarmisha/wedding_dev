@@ -69,9 +69,10 @@
                       </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <p class="specialist_about">
-                                {{object.user.photographer.about}}
-                            </p>
+                            <div class="specialist_about hidden">
+                                {{object.description|safe}}
+                            </div>
+                            <a href="" class="toggle_about_text hidden">{% trans "Читать больше" %} <span class="arrow"></span></a>
                             <div class="specialist_portfolio">
                                 <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}

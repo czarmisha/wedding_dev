@@ -3,6 +3,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 
 User = get_user_model()
 
@@ -56,7 +58,7 @@ class Review(models.Model):
 class Agency(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/agencies', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -90,12 +92,12 @@ class Agency(models.Model):
 
 class Dance(models.Model):
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена ', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dances', verbose_name='Аватар', blank=True)
@@ -130,12 +132,12 @@ class Dance(models.Model):
 
 class PhotoStudio(models.Model):
     _TYPE = [
-        ('1', 'Фотостудии'),
-        ('2', 'Локации для фотосессий')
+        ('1', _('Фотостудии')),
+        ('2', _('Локации для фотосессий'))
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price_per_hour = models.IntegerField('Цена за час', null=True)
     address = models.CharField('Адрес', max_length=500)
     type = models.CharField(max_length=50, choices=_TYPE, null=True)  
@@ -206,17 +208,17 @@ class PhotostudioPaymentMethod(models.Model):
 
 class Stylist(models.Model):
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
     _SERVICE_TYPE = [
-        ('1', 'Свадебная причёска'),
-        ('2', 'Свадебный маникюр'),
-        ('3', 'Свадебный макияж')
+        ('1', _('Свадебная причёска')),
+        ('2', _('Свадебный маникюр')),
+        ('3', _('Свадебный макияж'))
     ]
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена ', null=True)
     on_departure = models.BooleanField('На выезд', default=False)
     address = models.CharField('Адрес', max_length=500)
@@ -254,7 +256,7 @@ class Stylist(models.Model):
 class Accessories(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     rent = models.BooleanField('На прокат', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/accessories', verbose_name='Аватар', blank=True)
@@ -301,17 +303,17 @@ class AccessoriesType(models.Model):
 
 class Costume(models.Model):
     _CONDITION_TYPES = [
-        ('sale', 'Продажа'),
-        ('rent', 'Аренд')
+        ('sale', _('Продажа')),
+        ('rent', _('Арендa'))
     ]
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPE, null=True)    
     condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
     price = models.IntegerField('Начальная цена', null=True)
@@ -349,7 +351,7 @@ class Costume(models.Model):
 class Decor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Минимальная цена украшения зала', null=True)
     avatar = models.ImageField(upload_to='avatars/decors', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -382,13 +384,13 @@ class Decor(models.Model):
 
 class Bouquet(models.Model):
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена', null=True)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/bouquets', verbose_name='Аватар', blank=True)
@@ -423,13 +425,13 @@ class Bouquet(models.Model):
 
 class Ring(models.Model):
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Ювелирный магазин')),
+        ('private', _('Индивидуальные услуги'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/rings', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -468,17 +470,17 @@ class Dress(models.Model):
         ('straight', 'Прямое')
     ]
     _CONDITION_TYPES = [
-        ('sale', 'Продажа'),
-        ('rent', 'Аренд')
+        ('sale', _('Продажа')),
+        ('rent', _('Арендa'))
     ]
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPE, null=True)
     dress_type = models.CharField(max_length=50, choices=_DRESS_TYPES, null=True, verbose_name='Тип платье')
     condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
@@ -515,13 +517,13 @@ class Dress(models.Model):
 
 class Cake(models.Model):
     _TYPES = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPES, null=True)
     price_per_kg = models.IntegerField('Цена за кг', null=True)
     price = models.IntegerField('Начальная цена', null=True)
@@ -558,7 +560,7 @@ class Cake(models.Model):
 class Invitation(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/invitations', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -592,13 +594,13 @@ class Invitation(models.Model):
 
 class RegistryOffice(models.Model):
     _REGISTRY_TYPE = [
-        ('visiting', 'Выездная'),
-        ('not_visiting', 'Не выездная')
+        ('visiting', _('Выездная')),
+        ('not_visiting', _('Невыездная'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/registryOffices', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -632,18 +634,18 @@ class RegistryOffice(models.Model):
 
 class Presenter(models.Model):
     _COMPOSITION_TYPE = [
-        ('duet', 'Дуэт'),
-        ('solo', 'Соло'),
+        ('solo', _('Соло')),
+        ('duet', _('Дуэт')),
     ]
     _GENDER = [
-        ('men', 'Мужчина'),
-        ('women', 'Женщина'),
-        ('mixed', 'Смешанный'),
+        ('men', _('Мужчина')),
+        ('women', _('Женщина')),
+        ('mixed', _('Смешанный')),
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена', null=True)
     price_per_hour = models.IntegerField('Цена за час', null=True)
     composition = models.CharField('Состав', max_length=50, choices=_COMPOSITION_TYPE, null=True)
@@ -726,21 +728,21 @@ class Language(models.Model):
 
 class Music(models.Model):
     _COMPOSITION_TYPE = [
-        ('solo', 'Соло'),
-        ('duet', 'Дуэт'),
-        ('group', 'Группа'),
-        ('dj', 'Dj'),
+        ('solo', _('Соло')),
+        ('duet', _('Дуэт')),
+        ('group', _('Группа')),
+        ('dj', _('Dj')),
     ]
 
     _VOCAL_TYPE = [
-        ('men', 'Мужской'),
-        ('women', 'Женский'),
-        ('mixed', 'Смешанный'),
+        ('men', _('Мужской')),
+        ('women', _('Женский')),
+        ('mixed', _('Смешанный')),
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена за выступление', null=True)
     price_per_evening = models.IntegerField('Цена за вечер', null=True)
     avatar = models.ImageField(upload_to='avatars/musician', verbose_name='Аватар', blank=True)
@@ -812,17 +814,17 @@ class MusicPaymentMethod(models.Model):
 
 class Transport(models.Model):
     _TYPE = [
-        ('business', 'Компания'),
-        ('private', 'Индивидуальные услуги')
+        ('business', _('Компания')),
+        ('private', _('Индивидуальные услуги'))
     ]
     _WITH_DRIVER_TYPE = [
-        ('1', 'С водителем'),
-        ('2', 'Без водителя')
+        ('1', _('С водителем')),
+        ('2', _('Без водителя'))
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPE, null=True)
     price = models.IntegerField('Цена', null=True)
     with_driver = models.CharField(max_length=50, choices=_WITH_DRIVER_TYPE, null=True)
@@ -882,7 +884,7 @@ class CarBrand(models.Model):
 class Artist(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     price = models.IntegerField('Цена', null=True)
     avatar = models.ImageField(upload_to='avatars/artists', verbose_name='Аватар', blank=True)
     type = models.ManyToManyField('ShowType', verbose_name='Тип шоупрограммы')
@@ -927,7 +929,7 @@ class ShowType(models.Model):
 class Restaurant(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название заведения', max_length=155)
-    description = models.TextField('Описание')
+    description = RichTextField('Описание')
     average_check = models.IntegerField('Средний чек')
     capacity = models.IntegerField('Вместимость')
     address = models.CharField('Адрес', max_length=500)
@@ -1023,7 +1025,7 @@ class KitchenType(models.Model):
 class Photographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Имя и Фамилия', max_length=155)
-    about = models.TextField('О себе')
+    about = RichTextField('О себе')
     price = models.IntegerField('Цена', null=True)
     price_per_hour = models.IntegerField('Цена за час', null=True)
     avatar = models.ImageField(upload_to='avatars/photographers', verbose_name='Аватар', blank=True)
@@ -1091,7 +1093,7 @@ class PhotographerPaymentMethod(models.Model):
 class Videographer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Имя и Фамилия', max_length=155)
-    about = models.TextField('О себе')
+    about = RichTextField('О себе')
     price = models.IntegerField('Цена', null=True)
     price_per_hour = models.IntegerField('Цена за час', null=True)
     avatar = models.ImageField(upload_to='avatars/videographers', verbose_name='Аватар', blank=True)

@@ -196,7 +196,8 @@ body{
 }
 
 .btn__white:hover{
-    color: var(--dark-color);
+    color: white;
+    background-color: var(--gold-color);
 }
 
 .btn__gold{
@@ -206,8 +207,9 @@ body{
     text-decoration: none;
     font-family: 'Roboto_regular';
     width: 220px;
-    height: 46px;
-    line-height: 46px;
+    height: 42px;
+    line-height: 42px;
+    border: 2px solid var(--gold-color);
     border-radius: 23px;
     display: inline-block;
     text-transform: none;
@@ -216,11 +218,25 @@ body{
 }
 
 .btn__gold:hover{
-    color: white;
+    color: black;
+    background-color: white;
 }
 
-
-
+.toypoy_text{
+    font-family: 'Roboto_medium';
+    color: black;
+    font-size: 19px;
+}
+.toypoy_text span{
+    color: var(--gold-color);
+}
+.welcome_text_extra{
+    margin-top: 60px;
+    font-size: 17px;
+    font-style: italic;
+    font-family: 'Roboto_regular';
+    margin-bottom: 28px;
+}
 .text{
     margin-top: 20px;
     font-family: 'Roboto_medium';
@@ -425,7 +441,7 @@ body{
 
 .welcome_title{
     font-size: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
 }
 
 .welcome_title span{
@@ -437,13 +453,17 @@ body{
     color: var(--dark-grey);
     margin-bottom: 30px;
 }
-
+.freepay{
+    font-family: 'Roboto_medium';
+    color: var(--gold-color);
+    font-size: 18px;
+}
 .welcome_client-register{
     width: 250px;
-    height: 50px;
-    line-height: 50px;
+    height: 44px;
+    line-height: 44px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     background-color: white;
     border: 2px solid #4197cb;
     transition: all .3s;

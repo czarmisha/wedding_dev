@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'plan',
     'favorite',
     'django_filters',
+    'ckeditor',
     # 'mapbox_location_field',
     # 'star_ratings',
 ]

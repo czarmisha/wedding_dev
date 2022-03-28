@@ -43,6 +43,9 @@
                         {{filter.form.type}}
                     </p>
                     <p class="filter_wrapper">
+                        {{filter.form.condition}}
+                    </p>
+                    <p class="filter_wrapper">
                         <select name="" id="select_price_range">
                             <option value="-1">{% trans 'Стоимость' %}</option>
                             <option init='1' value="1">{% trans 'до' %} 2.000.000 {% trans 'сум' %}</option>
@@ -56,9 +59,6 @@
                         </select>
                         <input type="hidden" name="price_min" id="id_price_0">
                         <input type="hidden" name="price_max" id="id_price_1">
-                    </p>
-                    <p class="filter_wrapper">
-                        {{filter.form.condition}}
                     </p>
                     <p class="filter_wrapper">
                         {{filter.form.location}}
