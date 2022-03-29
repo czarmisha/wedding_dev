@@ -6,6 +6,7 @@
     <section class="planning_section">
         <div class="container">
             <h2 class="text-center title">{% trans "Подготовка к свадьбе шаг за шагом" %}</h2>
+            <p class="text">{% trans "С помощью онлайн-планировщика TOYPOY распланируйте мероприятие в несколько кликов" %}</p>
             <div class="planning">
                 <ul class="planning_list">
                     <li class="planning_box">
@@ -48,11 +49,11 @@
                         {% trans "Создано " %} <span>{{tender_count}}</span> {% trans "тендеров" %}</h2>
                     {% endif %}
                     <ul class="d-flex text-center justify-content-center mt-3">
-                        <li><span>1.</span> {% trans "Создавай объявления" %}</li>
-                        <li><span>2.</span> {% trans "Получай предложения от специалистов" %}</li>
-                        <li><span>3.</span> {% trans "Выбирай лучших" %}</li>
+                        <li><span>1.</span> {% trans "Создавайте объявления" %}</li>
+                        <li><span>2.</span> {% trans "Получайте предложения от специалистов" %}</li>
+                        <li><span>3.</span> {% trans "Выбирайте лучших в своём деле" %}</li>
                     </ul>
-                    <p class="text">{% trans "Тендеры помогают съкономить массу времени на поиски" %}</p>
+                    <p class="text">{% trans "Тендеры помогут сэкономить ваше драгоценное время" %}</p>
 
                     <div class="tender_list row align-items-center justify-content-center">
                         {% for tender in tenders %}
@@ -133,7 +134,7 @@
                                                 <span style="background: url({%static 'media/images/catalog_3.jpg'%})no-repeat center center /cover;" class="d-block w-100 h-100"></span>
                                             </div>
                                             <div class="catalog_descr">
-                                                <h3>{% trans "Банкетные залы и рестораны>" %}</h3>
+                                                <h3>{% trans "Банкетные залы и рестораны" %}</h3>
                                             </div>
                                             <a href="{% url 'services:restaurant_list' %}" class="catalog_hover">
                                                 <h3>{% trans "Банкетные залы и рестораны>" %}</h3>

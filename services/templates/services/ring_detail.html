@@ -15,9 +15,9 @@
             <div class="col-12 col-md-4 col-lg-3">
                 <div class="detail_left d-flex flex-column">
                     {%if object.avatar%}
-                    <img class="avatar w-100" src="{{object.avatar.url}}" alt="">
+                    <img class="avatar" src="{{object.avatar.url}}" alt="">
                     {% else %}
-                    <img class="avatar w-100" src="{% static 'media/images/logo_v2.png' %}" alt="">
+                    <img class="avatar" src="{% static 'media/images/logo_v2.png' %}" alt="">
                     {%endif%}
                     <div class="info">
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
@@ -161,6 +161,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
+        $('.toggle_about_text').click(function(e){
+            e.preventDefault();
+            $('.specialist_about').toggleClass('hidden');
+            $(this).toggleClass('hidden');
+        });
+        
         $('.review_form .rate_option').click(function(){
             $('.review_form .rate_option').each(function(){
                 $(this).removeClass('selected')

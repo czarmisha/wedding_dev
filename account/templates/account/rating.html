@@ -33,7 +33,7 @@
                 <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
                 <form id='Filter' method='GET' action="{% url 'services:top' %}" class="w-100">
                     <div>
-                        <span>Категория</span>
+                        <span>Каталог услуг</span>
                         <select name="service" id="id_service">
                             <option value="" {% if not service %}selected{% endif %}>---------</option>
                             <option value="photographer" {% if service == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>

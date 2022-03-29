@@ -5,7 +5,7 @@
                 <div class="wrapper d-flex flex-column align-items-center justify-content-between w-100 h-100 position-relative">
                     <ul class="mobile-menu_list">
                         <li class="">
-                            <a class="mobile-menu_link catalog_btn d-flex align-items-center justify-content-between" href="#">{% trans "Услуги" %} <span><i class="fad fa-long-arrow-right"></i></span></a>
+                            <a class="mobile-menu_link catalog_btn d-flex align-items-center justify-content-between" href="#">{% trans "Каталог услуг" %} <span><i class="fad fa-long-arrow-right"></i></span></a>
                         </li>
                         <li class=""><a href="{% url 'tender:list' %}" class="mobile-menu_link">{% trans "Тендеры" %}</a></li>
                         <li class=""><a href="{% url 'services:top' %}" class="mobile-menu_link">{% trans "Рейтинг" %}</a></li>
@@ -45,7 +45,7 @@
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> {% trans "Фотографы" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> {% trans "Видеографы" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие и тамада" %}</a></li>
-                        <li class=""><a class="mobile-menu_link" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыканты и Dj" %}</a></li>
+                        <li class=""><a class="mobile-menu_link" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыкальные группы и Dj" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Шоу программы и артисты" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:cake_list' %}"><img src="{% static 'media/images/10.jpg' %}" alt=""> {% trans "Свадебные торты" %}</a></li>
                         <li class=""><a class="mobile-menu_link" href="{% url 'services:dress_list' %}"><img src="{% static 'media/images/11.jpg' %}" alt=""> {% trans "Свадебные платья" %}</a></li>
@@ -77,7 +77,7 @@
                     <li class="my_dropdown">
                         <div class="dropdown">
                             <a class="nav_link dropdown-toggle" href="#" role="button" id="dropdownLink" data-bs-toggle="dropdown" aria-expanded="false">
-                              {% trans "Услуги" %}
+                              {% trans "Каталог услуг" %}
                             </a>
 
                             <ul class="column_menu dropdown-menu" aria-labelledby="dropdownLink">
@@ -89,7 +89,7 @@
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:photographer_list' %}"><img src="{% static 'media/images/1.jpg' %}" alt=""> {% trans "Фотографы" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:videographer_list' %}"><img src="{% static 'media/images/2.jpg' %}" alt=""> {% trans "Видеографы" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:presenter_list' %}"><img src="{% static 'media/images/7.jpg' %}" alt=""> {% trans "Ведущие и тамада" %}</a></li>
-                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыканты и Dj" %}</a></li>
+                                <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:music_list' %}"><img src="{% static 'media/images/6.jpg' %}" alt=""> {% trans "Музыкальные группы и Dj" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:artist_list' %}"><img src="{% static 'media/images/4.jpg' %}" alt=""> {% trans "Шоу программы и артисты" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:cake_list' %}"><img src="{% static 'media/images/10.jpg' %}" alt=""> {% trans "Свадебные торты" %}</a></li>
                                 <li class="dropdown_bg"><a class="dropdown-item" href="{% url 'services:dress_list' %}"><img src="{% static 'media/images/11.jpg' %}" alt=""> {% trans "Свадебные платья" %}</a></li>

@@ -74,7 +74,7 @@ main{
     width: 100%;
     max-width: 140px;
     height: 140px;
-    /* border-radius: 50%; */
+    border-radius: 50%;
 }
 .spec_rating{
     color: black;

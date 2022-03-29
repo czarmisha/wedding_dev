@@ -31,7 +31,7 @@
             <a href="" class="filter_close_btn"><i class="fal fa-times"></i></a>
             <form id="Filter" method="get">
                 <p class="filter_wrapper">
-                    <span>{% trans "Услуга" %} </span>
+                    <span>{% trans "Каталог услуг" %} </span>
                     <select name="service" id="id_service">
                       <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
                       <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>
@@ -87,7 +87,7 @@
                         <h3 class="tender_need">{% trans "Нужен" %}: <span>{{obj.get_service_display}}</span></h3>
                         <div class="tender_info">
                             <span class="tender_on_date">{% trans "на" %} {{obj.on_date}}</span>
-                            <span class="tender_budget">{% trans "Бюджет" %} <span>{{obj.budget}} {% trans "сум" %}</span></span>
+                            <span class="tender_budget">{% trans "Бюджет" %} <span>{{obj.budget}} {% trans "y.e." %}</span></span>
                         </div>
                     </div>
                     <div class="tender_body d-flex align-items-start">
