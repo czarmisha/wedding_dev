@@ -103,9 +103,9 @@
                             <div class="info d-flex align-items-center justify-content-between">
                                 <h3 class="spec_fullname">{{object.name}}</h3>
                                 <div class="info_right d-flex align-items-center">
-                                    <p class="spec_price">{{object.average_check}} {% trans 'сум' %}</p>
+                                    <p class="spec_price">{% trans "Средний чек" %} {{object.average_check}} {% trans 'сум' %}</p>
                                     <span> | </span>
-                                    <p class="spec_price">{{object.capacity}} {% trans 'чел' %}.</p>
+                                    <p class="spec_price">{% trans "Вместимость" %} {{object.capacity}} {% trans 'чел' %}.</p>
                                 </div>
                             </div>
                             <div class="spec_portfolio">
