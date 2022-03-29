@@ -486,6 +486,14 @@ ul.rating_options{
     color: black;
     background-color: white;
 }
+.portfolio_img{
+    width: 100%;
+    display: block;
+    height: 100%;
+    min-height: 230px;
+    max-height: 300px
+}
+
 /* -------- restaurant --------- spec_more_info------- */
 
 .spec_more_info .more_info{
@@ -522,7 +530,11 @@ ul.rating_options{
     color: #4197cb;
 }
 /* ----------------------------------------- media ---------------------------- */
-
+@media (max-width: 1200px){
+    .portfolio_img{
+        min-height: 188px;
+    }
+}
 @media (max-width: 767px){
     .detail_left{
         margin-bottom: 40px;
@@ -552,6 +564,11 @@ ul.rating_options{
     }
     .review_box p{
         text-align: center;
+    }
+}
+@media (max-width: 480px){
+    .portfolio_img{
+        min-height: 160px;
     }
 }
 @media (max-width: 400px){

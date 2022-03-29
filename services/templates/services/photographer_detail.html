@@ -110,8 +110,8 @@
                                 {%if object.user.portfolio%}
                                     <div class="row">
                                         {% for image in object.user.portfolio.images.all %}
-                                            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                                <a href="{{image.image.url}}" style="width: 100%; background: url('{{image.image.url}}')no-repeat center center; background-size: cover; width: 100%; display: block; height: 100%; min-height: 250px; max-height: 300px">
+                                            <div class="col-6 col-lg-4 mb-4">
+                                                <a class="portfolio_img" href="{{image.image.url}}" style="background: url('{{image.image.url}}')no-repeat center center;background-size: cover;">
                                                 </a>
                                             </div>
                                         {%endfor%}
