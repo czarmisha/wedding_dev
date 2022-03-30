@@ -112,7 +112,8 @@ h1{
 }
 
 .errorlist li{
-    font-size: 15px;
+    list-style: none;
+    font-size: 12px;
     color: #ff0000ad;
     font-family: 'Roboto_regular';
 }
