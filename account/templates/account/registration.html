@@ -12,11 +12,9 @@
 <div class="registration">
     <h1>{% trans "Регистрация" %}</h1>
     {% if user_form.errors %}
-    <ul class="errorlist">
-        {% for key,value in user_form.errors.items %} 
-        <li>{{ value|escape }}</li>
-        {% endfor %}
-    </ul>
+    {% for key,value in user_form.errors.items %} 
+        {{ value|escape }}
+    {% endfor %}
     {% endif %}
     <form action="" method="post" class="register_form">
         {% if messages %}
