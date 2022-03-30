@@ -93,6 +93,29 @@ h1{
     margin-top: 25px;
 }
 
+/*-------------------- messages -----------------*/
+.messages {
+    list-style: none;
+}
+
+.messages li{
+    font-size: 15px;
+    color: #ff0000ad;
+    text-align: center;
+    font-family: 'Roboto_regular';
+}
+
+/* -------------- form errors -------------- */
+.errorlist {
+    max-width: 500px;
+    width: 100%;
+}
+
+.errorlist li{
+    font-size: 15px;
+    color: #ff0000ad;
+    font-family: 'Roboto_regular';
+}
 /* --------------------- media ---------------------*/
 
 @media (max-width: 570px){

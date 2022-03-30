@@ -34,25 +34,26 @@
                     <span>{% trans "Каталог услуг" %} </span>
                     <select name="service" id="id_service">
                       <option value="" {% if not filter.form.service.value %}selected{% endif %}>---------</option>
-                      <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>{% trans "Фотограф" %}</option>
-                      <option value="videographer" {% if filter.form.service.value == "videographer" %}selected{% endif %}>{% trans "Видеограф" %}</option>
-                      <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>{% trans "Артист, Шоу программа" %}</option>
-                      <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>{% trans "Транспорт" %}</option>
-                      <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>{% trans "Музыканты, Dj" %}</option>
-                      <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>{% trans "Ведущий" %}</option>
+                      <option value="restaurant" {% if filter.form.service.value == "restaurant" %}selected{% endif %}>{% trans "Банкетные залы и рестораны" %}</option>
+                      <option value="registryoffice" {% if filter.form.service.value == "registryoffice" %}selected{% endif %}>{% trans "Дворцы бракосочетания и ЗАГСы" %}</option>
+                      <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>{% trans "Площадки для фотосессий" %}</option>
+                      <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>{% trans "Оформление и декор" %}</option>
+                      <option value="transport" {% if filter.form.service.value == "transport" %}selected{% endif %}>{% trans "Транспортные услуги" %}</option>
+                      <option value="photographer" {% if filter.form.service.value == "photographer" %}selected{% endif %}>{% trans "Фотографы" %}</option>
+                      <option value="videographer" {% if filter.form.service.value == "videographer" %}selected{% endif %}>{% trans "Видеографы" %}</option>
+                      <option value="presenter" {% if filter.form.service.value == "presenter" %}selected{% endif %}>{% trans "Ведущие и тамада" %}</option>
+                      <option value="music" {% if filter.form.service.value == "music" %}selected{% endif %}>{% trans "Музыкальные группы и Dj" %}</option>
+                      <option value="artist" {% if filter.form.service.value == "artist" %}selected{% endif %}>{% trans "Артист, Шоу-программа и артысты" %}</option>
+                      <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>{% trans "Свадебный торты" %}</option>
+                      <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>{% trans "Свадебные платья" %}</option>
+                      <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>{% trans "Свадебные костюмы" %}</option>
+                      <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>{% trans "Обручальные кольца" %}</option>
+                      <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>{% trans "Букет невесты" %}</option>
+                      <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>{% trans "Стилисты и визажисты" %}</option>
+                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>{% trans "Свадебные аксессуары" %}</option>
+                      <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>{% trans "Свадебный танец" %}</option>
                       <option value="invitation" {% if filter.form.service.value == "invitation" %}selected{% endif %}>{% trans "Пригласительные" %}</option>
-                      <option value="cake" {% if filter.form.service.value == "cake" %}selected{% endif %}>{% trans "Торт" %}</option>
-                      <option value="dress" {% if filter.form.service.value == "dress" %}selected{% endif %}>{% trans "Платье" %}</option>
-                      <option value="ring" {% if filter.form.service.value == "ring" %}selected{% endif %}>{% trans "Кольца" %}</option>
-                      <option value="bouquet" {% if filter.form.service.value == "bouquet" %}selected{% endif %}>{% trans "Букет" %}</option>
-                      <option value="decor" {% if filter.form.service.value == "decor" %}selected{% endif %}>{% trans "Декор, оформление" %}</option>
-                      <option value="costume" {% if filter.form.service.value == "costume" %}selected{% endif %}>{% trans "Костюм" %}</option>
-                      <option value="accessories" {% if filter.form.service.value == "accessories" %}selected{% endif %}>{% trans "Аксессуары" %}</option>
-                      <option value="stylist" {% if filter.form.service.value == "stylist" %}selected{% endif %}>{% trans "Стилист, Визажист" %}</option>
-                      <option value="photostudio" {% if filter.form.service.value == "photostudio" %}selected{% endif %}>{% trans "Фотостудия" %}</option>
-                      <option value="dance" {% if filter.form.service.value == "dance" %}selected{% endif %}>{% trans "Танец" %}</option>
-                      <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>{% trans "Агенство" %}</option>
-                      <option value="restaurant" {% if service == "restaurant" %}selected{% endif %}>{% trans "Банкетные залы и рестораны" %}</option>
+                      <option value="agency" {% if filter.form.service.value == "agency" %}selected{% endif %}>{% trans "Свадебные агенства" %}</option>
                     </select>
                 </p>
                 <div class="filter_wrapper">

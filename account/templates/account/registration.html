@@ -11,7 +11,16 @@
 {%block content%}
 <div class="registration">
     <h1>{% trans "Регистрация" %}</h1>
+    {{ user_form.non_field_errors }}
+    {{ user_form.errors }}
     <form action="" method="post" class="register_form">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %} 
         {% csrf_token %}
         <p>
             <input type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="{% trans 'Имя пользователя' %}">
