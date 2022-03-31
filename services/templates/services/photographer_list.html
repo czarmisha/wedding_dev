@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="spec_portfolio_slider">
-                                 {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                 {% for file in object.user.portfolio.files.all|slice:'4'%}
                                          <div class="slide">
                                             <img class="slide_img" src="{{file.file.url}}" alt="">
                                         </div>
