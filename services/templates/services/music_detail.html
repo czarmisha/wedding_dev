@@ -29,7 +29,6 @@
                         <p class="specialist_type">{% trans "Вокал" %}: {{object.get_vocal_display}}</p>
                         <p class="specialist_type">{% trans "Языки исполнения" %}: {% for lang in object.language.all %}{{lang}}, {% endfor %}</p>
                         <p class="specialist_price">{% trans "Выступление" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
-                        <p class="specialist_price">{% trans "За вечер" %}: <span>{{object.price_per_evening}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
