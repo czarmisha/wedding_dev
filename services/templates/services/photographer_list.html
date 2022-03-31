@@ -88,9 +88,9 @@
                             </div>
                             <div class="spec_portfolio">
                                 <div class="row">
-                                    {% for image in object.user.portfolio.images.all|slice:'4'%}
+                                    {% for file in object.user.portfolio.files.all|slice:'4'%}
                                          <div class="col-3 mt-4">
-                                            <img class="" src="{{image.image.url}}" alt="">
+                                            <img class="" src="{{file.file.url}}" alt="">
                                         </div>
                                     {%endfor%}
     
@@ -99,7 +99,7 @@
                             <div class="spec_portfolio_slider">
                                  {% for image in object.user.portfolio.images.all|slice:'4'%}
                                          <div class="slide">
-                                            <img class="slide_img" src="{{image.image.url}}" alt="">
+                                            <img class="slide_img" src="{{file.file.url}}" alt="">
                                         </div>
                                 {%endfor%}
                             </div>
