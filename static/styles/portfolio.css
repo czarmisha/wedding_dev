@@ -39,16 +39,18 @@ main{
 .carousel-control-next, .carousel-control-prev{
     position: relative;
     width: auto;
-    margin: 0 10px;
-}
-.carousel-control-next-icon,
-.carousel-control-prev-icon{
-    border-radius: 50%;
-    background-color: var(--blue-color);
-    background-position: 3px;
+    margin: 0 12px;
 }
 .carousel-control-prev-icon{
     background-position: -3px;
+}
+.btn_prev,
+.btn_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: var(--blue-color);
 }
 .specialist_fullname{
     color: var(--dark-color);
