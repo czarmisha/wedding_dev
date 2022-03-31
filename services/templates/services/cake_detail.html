@@ -25,9 +25,9 @@
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{% trans "Свадебные торты" %}</p>
+                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
                         <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                         <p class="specialist_price">{% trans "За кг" %}: <span>{{object.price_per_kg}} {% trans "сум" %}</span></p>
-                        <p class="specialist_price">{% trans "Адрес" %}: <span>{{object.address}}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans "Контакты" %}</h3>
@@ -86,6 +86,7 @@
                                                 {% endif %}                                            
                                             </div>
                                         {%endfor%}
+                                    </div>
                                         {% if request.user.is_authenticated and request.user == object.user%}
                                          <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
                                          {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
@@ -128,7 +129,7 @@
                                 {%endif%}
     
     
-                            </div>
+                            
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <ul class="review_list w-100">

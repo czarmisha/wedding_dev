@@ -25,14 +25,14 @@
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{{object.type}}</p>
-                        <p class="specialist_price">{% trans "Район" %}: <span>{{object.location}}</span></p>
-                        <p class="specialist_price">{% trans "Адрес" %}: <span>{{object.address}}</span></p>
-                        <p class="specialist_price">{% trans "Кухни" %}: <span>
+                        <p class="specialist_type">{% trans "Район" %}: {{object.location}}</p>
+                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                        <p class="specialist_type">{% trans "Кухни" %}: 
                         {% for kitchen in object.kitchen.all %}
                             {{kitchen.name}}, 
                         {% endfor %}
-                            </span></p>
-                        <p class="specialist_price">{% trans "Сердний чек" %}: <span>{{object.average_check}} {% trans "сум" %}</span></p>
+                            </p>
+                        <p class="specialist_price">{% trans "Средний чек" %}: <span>{{object.average_check}} {% trans "сум" %}</span></p>
                         <p class="specialist_price">{% trans "Кол-во мест" %}: <span>{{object.capacity}} {% trans "чел" %}</span></p>
                     </div>
                     <div class="contacts">
@@ -125,6 +125,7 @@
                                                 {% endif %}                                            
                                             </div>
                                         {%endfor%}
+                                    </div>
                                         {% if request.user.is_authenticated and request.user == object.user%}
                                          <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
                                          {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
@@ -167,7 +168,7 @@
                                 {%endif%}
     
     
-                            </div>
+                            
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <ul class="review_list w-100">

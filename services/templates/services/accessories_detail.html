@@ -92,6 +92,7 @@
                                                 {% endif %}                                            
                                             </div>
                                         {%endfor%}
+                                    </div>
                                         {% if request.user.is_authenticated and request.user == object.user%}
                                          <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
                                          {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
@@ -124,7 +125,7 @@
                                             <a class="create_portfolio" href="{% url 'services:view_portfolio' object.user.pk %}">{% trans "Смотреть больше" %}</a>
                                         {% endif %}
                                             
-                                    </div>
+                                    
     
                                 {%else%}
                                     {% if request.user.is_authenticated and request.user == object.user%}

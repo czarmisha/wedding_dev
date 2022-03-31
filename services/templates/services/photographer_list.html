@@ -90,18 +90,22 @@
                                 <div class="row">
                                     {% for file in object.user.portfolio.files.all|slice:'4'%}
                                          <div class="col-3 mt-4">
-                                            <img class="" src="{{file.file.url}}" alt="">
+                                             {% if file.content_type == 'image' %}
+                                             <img class="" src="{{file.file.url}}" alt="">
+                                            {% endif %}   
                                         </div>
                                     {%endfor%}
     
                                 </div>
                             </div>
                             <div class="spec_portfolio_slider">
-                                 {% for file in object.user.portfolio.files.all|slice:'4'%}
-                                         <div class="slide">
-                                            <img class="slide_img" src="{{file.file.url}}" alt="">
-                                        </div>
-                                {%endfor%}
+                                {% for file in object.user.portfolio.files.all|slice:'4'%}
+                                 <div class="slide">
+                                    {% if file.content_type == 'image' %}
+                                        <img class="slide_img" src="{{file.file.url}}" alt="">
+                                   {% endif %}   
+                                 </div>
+                                 {%endfor%}
                             </div>
                         </div>
                     </div>

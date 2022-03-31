@@ -25,20 +25,19 @@
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{{object.get_type_display}}</p>
-                        <p class="specialist_price">{% trans "Район" %}: <span>{{object.location}}</span></p>
-                        <p class="specialist_price"><span> {{object.get_with_driver_display}}</span></p>
-                        <p class="specialist_price">{% trans "Типы авто" %}: <span>
+                        <p class="specialist_type">{% trans "Район" %}: {{object.location}}</p>
+                        <p class="specialist_type">{{object.get_with_driver_display}}</p>
+                        <p class="specialist_type">{% trans "Типы авто" %}: 
                         {% for type in object.car_type.all %}
                             {{type.name}}, 
                         {% endfor %}
-                            </span></p>
-                        <p class="specialist_price">{% trans "Марки авто" %}: <span>
+                            </p>
+                        <p class="specialist_type">{% trans "Марки авто" %}: <span>
                         {% for brand in object.car_brand.all %}
                             {{brand.name}}, 
                         {% endfor %}
                             </span></p>
-                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} $</span></p>
-                        <p class="specialist_price">{% trans "Местоположение" %}: <span>{{object.location}} р-н</span></p>
+                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
@@ -129,6 +128,7 @@
                                                 {% endif %}                                            
                                             </div>
                                         {%endfor%}
+                                    </div>
                                         {% if request.user.is_authenticated and request.user == object.user%}
                                          <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
                                          {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
@@ -171,7 +171,7 @@
                                 {%endif%}
     
     
-                            </div>
+                            
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <ul class="review_list w-100">
