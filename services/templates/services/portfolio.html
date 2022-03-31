@@ -1,5 +1,57 @@
+{% extends 'services_base.html' %}
+{% load i18n %}
+{% load static %}
 
-{% for image in images %}
-    <img src="{{image.image.url}}" alt="">
-{% endfor %}
-    
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/portfolio.css' %}">
+{% endblock %}
+{% block title %}<title>{% trans "Портфолио" %}</title>{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <a href="{{ user.get_cabinet_url }}" class="back_to_profile"><span><i class="fad fa-long-arrow-left"></i></span> {% trans "к профилю" %}</a>
+        <p class="specialist_fullname">{% if user %}
+            {{user}} {% else %} {{user}} {% endif %}</p>
+        <p class="specialist_type">{% if user.type == 'photographer'%} {% trans "Фотограф" %} {% endif %}</p>
+        <div class="portfolio_detail">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
+                <div class="carousel-inner">
+                {% for file in files %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        {% if file.content_type == 'image' %}
+                            <img src="{{ file.file.url }}" alt="" class="w-100 d-block">
+                        {% else %}
+                            <video src="{{ file.file.url }}" controls class="w-100 d-block"></video>
+                        {% endif %} 
+                    </div>                                           
+                {%endfor%}
+                </div>
+                <div class="carousel_btns">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                </div>
+              </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+{% for file in files %}
+<div class="col-6 col-lg-4 mb-4">
+    {% if file.content_type == 'image' %}
+        <img src="{{ file.file.url }}" alt="">
+    {% else %}
+        <video src="{{ file.file.url }}" controls></video>
+    {% endif %}                                            
+</div>
+{%endfor%}

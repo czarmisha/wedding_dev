@@ -435,8 +435,8 @@ def view_portfolio(request, pk):
     if request.method == 'GET':
         portfolio = Portfolio.objects.get(user=user)
         if portfolio:
-            images = portfolio.images.all()
-        return render(request, 'services/portfolio.html', {'images': images,})
+            files = portfolio.files.all()
+        return render(request, 'services/portfolio.html', {'files': files, 'user': user})
     else:
         return HttpResponseRedirect(request.user.get_cabinet_url())
     

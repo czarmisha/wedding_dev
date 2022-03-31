@@ -116,12 +116,15 @@
                                 <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}
                                 <div class="row">
-                                    {% for image in object.user.portfolio.images.all %}
-                                        <div class="col-6 col-lg-4 mb-4">
-                                                <a class="portfolio_img" href="{{image.image.url}}" style="background: url('{{image.image.url}}')no-repeat center center;background-size: cover;">
-                                                </a>
+                                    {% for file in object.user.portfolio.files.all %}
+                                            <div class="col-6 col-lg-4 mb-4">
+                                                {% if file.content_type == 'image' %}
+                                                    <a class="portfolio_img" href="{{file.file.url}}" style="background: url('{{file.file.url}}')no-repeat center center;background-size: cover;"></a>
+                                                {% else %}
+                                                    <video src="{{ file.file.url }}" controls></video>
+                                                {% endif %}                                            
                                             </div>
-                                    {%endfor%}
+                                        {%endfor%}
                                     {% if request.user.is_authenticated and request.user == object.user%}
                                      <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
                                      {% comment %} <a class="delete_portfolio" href="{%url 'services:delete_portfolio'%}">{% trans "Удалить портфолио" %}</a> {% endcomment %}
