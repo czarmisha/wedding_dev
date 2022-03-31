@@ -486,7 +486,7 @@ ul.rating_options{
     color: black;
     background-color: white;
 }
-.portfolio_img{
+.portfolio_img, video{
     width: 100%;
     display: block;
     height: 100%;

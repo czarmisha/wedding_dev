@@ -233,7 +233,7 @@ class PortfolioAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Image)
+@admin.register(File)
 class ImageAdmin(admin.ModelAdmin):
     pass
 

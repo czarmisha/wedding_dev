@@ -2,7 +2,7 @@ from django import forms
 
 
 class PortfolioForm(forms.Form):
-    images = forms.ImageField(label='Фотографии', widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    files = forms.FileField(label='Фото/Видео', widget=forms.ClearableFileInput(attrs={'multiple': True}))
 
 
 class VideoForm(forms.Form):

@@ -430,38 +430,44 @@ def videographer_list(request):
     })
 
 
+def view_portfolio(request, pk):
+    user = User.objects.get(pk=pk)
+    if request.method == 'GET':
+        portfolio = Portfolio.objects.get(user=user)
+        if portfolio:
+            images = portfolio.images.all()
+        return render(request, 'services/portfolio.html', {'images': images,})
+    else:
+        return HttpResponseRedirect(request.user.get_cabinet_url())
+    
+
 @login_required
 def add_portfolio(request):
     if request.method == 'GET':
 
-        if request.user.type == 'transport':
+        if request.user.type == 'videographer':
             form = VideoForm()
         else:
             form = PortfolioForm()
         return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Создать портфолио')})
 
     elif request.method == 'POST':
-
-        if request.user.type == 'transport':
-            form = VideoForm(request.POST, request.FILES)
-        else:
-            form = PortfolioForm(request.POST, request.FILES)
+        form = PortfolioForm(request.POST, request.FILES)
 
         if form.is_valid():
             portfolio = Portfolio(user=request.user)
             portfolio.save()
-            if request.user.type == 'transport':
-                for f in request.FILES.getlist('videos'):
-                    data = f.read()
-                    video = Video(portfolio=portfolio)
-                    video.videofile.save(f.name, ContentFile(data))
-                    video.save()
-            else:
-                for f in request.FILES.getlist('images'):
-                    data = f.read()
-                    image = Image(portfolio=portfolio)
-                    image.image.save(f.name, ContentFile(data))
-                    image.save()
+            for f in request.FILES.getlist('files'):
+                data = f.read()
+                file = File(portfolio=portfolio)
+                file.file.save(f.name, ContentFile(data))
+                if f.content_type.split('/')[0] == 'image':
+                    file.content_type = 'image'
+                elif f.content_type.split('/')[0] == 'video':
+                    file.content_type = 'video'
+                else:
+                    file.content_type = 'none'
+                file.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
             return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Создать портфолио')})
@@ -478,11 +484,17 @@ def extend_portfolio(request):
         form = PortfolioForm(request.POST, request.FILES)
         if form.is_valid():
             portfolio = Portfolio.objects.get(user=request.user)
-            for f in request.FILES.getlist('images'):
+            for f in request.FILES.getlist('files'):
                 data = f.read()
-                image = Image(portfolio=portfolio)
-                image.image.save(f.name, ContentFile(data))
-                image.save()
+                file = File(portfolio=portfolio)
+                file.file.save(f.name, ContentFile(data))
+                if f.content_type.split('/')[0] == 'image':
+                    file.content_type = 'image'
+                elif f.content_type.split('/')[0] == 'video':
+                    file.content_type = 'video'
+                else:
+                    file.content_type = 'none'
+                file.save()
             return HttpResponseRedirect(request.user.get_cabinet_url())
         else:
             return render(request, 'services/add_portfolio.html', {'form': form, 'title': _('Добавить фото/видео')})

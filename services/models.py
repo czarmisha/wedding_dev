@@ -20,13 +20,18 @@ class Portfolio(models.Model):
         verbose_name_plural = 'Портфолио'
 
 
-class Image(models.Model):
-    image = models.ImageField(upload_to='portfolio/images')
-    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='images')
+def user_directory_path(instance, filename):
+    return f'portfolio/{instance.portfolio.user.username}/{filename}'
+
+
+class File(models.Model):
+    file = models.FileField(upload_to=user_directory_path, default='portfolio/images')
+    content_type = models.CharField(max_length=155)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name='files')
 
     class Meta:
-        verbose_name = 'Фото'
-        verbose_name_plural = 'Фото'
+        verbose_name = 'Фото/видео'
+        verbose_name_plural = 'Фото/видео'
 
 
 class Video(models.Model):
