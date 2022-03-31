@@ -100,7 +100,7 @@ def user_logout(request):
 
 
 def change_password(request):
-    u = User.objects.get(username=request.user)
+    u = User.objects.get(username=request.user.username)
     if request.method == 'POST':
         form = ChangePasswordForm(request.POST)
         if form.is_valid():
