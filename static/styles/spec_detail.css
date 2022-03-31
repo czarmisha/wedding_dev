@@ -531,8 +531,9 @@ ul.rating_options{
 }
 /* ----------------------------------------- media ---------------------------- */
 @media (max-width: 1200px){
-    .portfolio_img{
-        min-height: 188px;
+    .portfolio_img, video{
+        height: 150px;
+        min-height: 150px;
     }
 }
 @media (max-width: 767px){
