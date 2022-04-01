@@ -26,18 +26,18 @@
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{{object.get_type_display}}</p>
                         <p class="specialist_type">{% trans "Район" %}: {{object.location}}</p>
-                        <p class="specialist_type">{{object.get_with_driver_display}}</p>
+                        <p class="specialist_type">{% trans "Услуга" %}: {{object.get_with_driver_display}}</p>
                         <p class="specialist_type">{% trans "Типы авто" %}: 
                         {% for type in object.car_type.all %}
-                            {{type.name}}, 
+                            {{type.name}}
                         {% endfor %}
                             </p>
                         <p class="specialist_type">{% trans "Марки авто" %}: <span>
                         {% for brand in object.car_brand.all %}
-                            {{brand.name}}, 
+                            {{brand.name}}  
                         {% endfor %}
                             </span></p>
-                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость дня аренды" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>

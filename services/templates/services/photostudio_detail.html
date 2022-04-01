@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/spec_detail.css' %}">
 {% endblock %}
-{% block title %}<title>{% trans "Площадака для фотосессий" %} {{object.name}}</title>{% endblock title %}
+{% block title %}<title>{% trans "Площадаки для фотосессий" %} {{object.name}}</title>{% endblock title %}
 
 {% block content %}
      <div class="container">
@@ -24,10 +24,10 @@
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">{% trans "Площадака для фотосессий" %}</p>
+                        <p class="specialist_type">{% trans "Площадаки для фотосессий" %}</p>
                         {% comment %} <p class="specialist_type">{% trans "Район" %}: {{ object.location }}</p> {% endcomment %}
                         <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
-                        <p class="specialist_price">{% trans "Цена за час" %}: <span>{{object.price_per_hour}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость часа аренды от" %}: <span>{{object.price_per_hour}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans "Контакты" %}</h3>

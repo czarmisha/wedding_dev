@@ -26,9 +26,9 @@
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{% trans "Свадебные платья" %}</p>
                         <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
-                        <p class="specialist_type">{% trans "Вид сделки" %}: {{object.codition}}</p>
-                        <p class="specialist_type">{% trans "Тип платья" %}: {{object.dress_type}}</p>
-                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_type">{% trans "Вид сделки" %}: {{object.get_condition_display}}</p>
+                        <p class="specialist_type">{% trans "Тип платья" %}: {{object.get_dress_type_display}}</p>
+                        <p class="specialist_price">{% trans "Стоимость платья от" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>

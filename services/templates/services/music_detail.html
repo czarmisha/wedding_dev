@@ -24,11 +24,11 @@
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">{% trans "Музыкальная группа/DJ" %}</p>
+                        <p class="specialist_type">{% trans "Музыкальные группы и DJ" %}</p>
                         <p class="specialist_type">{% trans "Состав" %}: {{object.get_composition_display}}</p>
                         <p class="specialist_type">{% trans "Вокал" %}: {{object.get_vocal_display}}</p>
                         <p class="specialist_type">{% trans "Языки исполнения" %}: {% for lang in object.language.all %}{{lang}}, {% endfor %}</p>
-                        <p class="specialist_price">{% trans "Выступление" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость выступления от" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>

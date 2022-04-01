@@ -67,7 +67,6 @@ class Agency(models.Model):
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/agencies', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
-    price = models.IntegerField('Начальная цена', null=True)
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)
@@ -430,7 +429,7 @@ class Bouquet(models.Model):
 
 class Ring(models.Model):
     _TYPE = [
-        ('business', _('Ювелирный магазин')),
+        ('business', _('Компании')),
         ('private', _('Индивидуальные услуги'))
     ]
 
@@ -486,8 +485,8 @@ class Dress(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
     name = models.CharField('Название ', max_length=155)
     description = RichTextField('Описание')
-    type = models.CharField(max_length=50, choices=_TYPE, null=True)
-    dress_type = models.CharField(max_length=50, choices=_DRESS_TYPES, null=True, verbose_name='Тип платье')
+    type = models.CharField(max_length=50, choices=_TYPE, null=True, verbose_name='Тип услуги')
+    dress_type = models.CharField(max_length=50, choices=_DRESS_TYPES, null=True, verbose_name='Тип платья')
     condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dresses', verbose_name='Аватар', blank=True)
@@ -568,7 +567,6 @@ class Invitation(models.Model):
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/invitations', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
-    price = models.IntegerField('Начальная цена', null=True)
     telegram = models.CharField(max_length=155, blank=True)
     instagram = models.CharField(max_length=155, blank=True)
     facebook = models.CharField(max_length=155, blank=True)

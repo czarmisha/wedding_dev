@@ -44,7 +44,7 @@
                     </p>
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
-                            <option value="-1">{% trans 'Средний чек' %}</option>
+                            <option value="-1">{% trans 'Средний чек от' %}</option>
                             <option init='1' value="1">{% trans "до" %} 200.000 {% trans 'сум' %}</option>
                             <option init='2' value="2">200.000-300.000 {% trans 'сум' %}</option>
                             <option init='3' value="3">300.000-400.000 {% trans 'сум' %}</option>
@@ -103,7 +103,7 @@
                             <div class="info d-flex align-items-center justify-content-between">
                                 <h3 class="spec_fullname">{{object.name}}</h3>
                                 <div class="info_right d-flex align-items-center">
-                                    <p class="spec_price">{% trans "Средний чек" %} {{object.average_check}} {% trans 'сум' %}</p>
+                                    <p class="spec_price">{% trans "Средний чек от" %} {{object.average_check}} {% trans 'сум' %}</p>
                                     <span> | </span>
                                     <p class="spec_price">{% trans "Вместимость" %} {{object.capacity}} {% trans 'чел' %}.</p>
                                 </div>

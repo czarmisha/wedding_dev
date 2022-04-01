@@ -24,12 +24,12 @@
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">{% trans "Ведущий/тамада" %}</p>
+                        <p class="specialist_type">{% trans "Ведущие и тамада" %}</p>
                         <p class="specialist_type">{% trans "Состав" %}: {{object.get_composition_display}}</p>
                         <p class="specialist_type">{% trans "Пол" %}: {{object.get_gender_display}}</p>
                         <p class="specialist_type">{% trans "Языки" %}: {% for lang in object.language.all %}{{lang}}, {% endfor %}</p>
-                        <p class="specialist_price">{% trans "Цена" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
-                        <p class="specialist_price">{% trans "За час" %}: <span>{{object.price_per_hour}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость ведения от" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Цена за час" %}: <span>{{object.price_per_hour}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans "Контакты" %}</h3>

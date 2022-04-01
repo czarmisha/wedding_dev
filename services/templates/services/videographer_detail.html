@@ -24,9 +24,9 @@
                         <h3 class="subtitle">{% trans 'Информация' %}</h3>
                         <p class="specialist_fullname">{% if object.user.photographer.name %}
                             {{object.user.photographer.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">{% if object.user.type == 'photographer'%} {% trans 'Фотограф' %} {% endif %}</p>
-                        <p class="specialist_price">{% trans 'Цена' %}: <span>{{object.user.photographer.price}} {% trans 'сум' %}</span></p>
-                        <p class="specialist_price">{% trans 'Цена в час' %}: <span>{{object.user.photographer.price_per_hour}} {% trans 'сум' %}</span></p>
+                        <p class="specialist_type">{% if object.user.type == 'videographer'%} {% trans 'Видеографы' %} {% endif %}</p>
+                        <p class="specialist_price">{% trans 'Стоимость видеосъёмки от' %}: <span>{{object.price}} {% trans 'сум' %}</span></p>
+                        <p class="specialist_price">{% trans 'Цена за час' %}: <span>{{object.price_per_hour}} {% trans 'сум' %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans 'Контакты' %}</h3>

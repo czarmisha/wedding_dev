@@ -44,7 +44,7 @@
                     </p>
                     <p class="filter_wrapper">
                         <select name="" id="select_price_range">
-                            <option value="-1">{% trans 'Цена торта за кг' %}</option>
+                            <option value="-1">{% trans 'Цена торта за кг от' %}</option>
                             <option init='1' value="1">{% trans "до" %} 200.000 {% trans 'сум' %}</option>
                             <option init='2' value="2">200.000-300.000 {% trans 'сум' %}</option>
                             <option init='3' value="3">300.000-400.000 {% trans 'сум' %}</option>
@@ -88,7 +88,7 @@
                             <div class="info d-flex align-items-center justify-content-between">
                                 <h3 class="spec_fullname">{{object.name}}</h3>
                                 <div class="info_right d-flex align-items-center">
-                                    <p class="spec_price">{% trans "Стоимость торта за кг" %} {{object.price}} {% trans 'сум' %}</p>
+                                    <p class="spec_price">{% trans "Стоимость торта за кг" %} {{object.price_per_kg}} {% trans 'сум' %}</p>
                                 </div>
                             </div>
                             <div class="spec_portfolio">
