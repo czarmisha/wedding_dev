@@ -65,7 +65,7 @@
                                     {% else %}
                                     <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                                     {% endif %}
-                                    <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.photographer.get_absolute_url}}">{{response.from_user}}</a></p>
+                                    <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.get_cabinet_url}}">{{response.from_user}}</a></p>
                                 </div>
                             </div>
                         {%endfor%}
@@ -86,7 +86,7 @@
                     {%if responded%}
                         <span>{% trans "Вы откликнулись" %}</span>
                     {%elif tender.service == request.user.type%}
-                        <a class="tender_edit createResponse" href="{%url 'tender:delete' tender.slug%}">{% trans "Откликнуться на тендер" %}</a>
+                        <a class="tender_edit createResponse" href="">{% trans "Откликнуться на тендер" %}</a>
                     {%endif%}
                 {%endif%}
             </div>
