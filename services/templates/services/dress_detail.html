@@ -28,7 +28,7 @@
                         <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
                         <p class="specialist_type">{% trans "Вид сделки" %}: {{object.get_condition_display}}</p>
                         <p class="specialist_type">{% trans "Тип платья" %}: {{object.get_dress_type_display}}</p>
-                        <p class="specialist_price">{% trans "Стоимость платья от" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость платья от" %}: <br><span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
@@ -36,6 +36,12 @@
                         <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
                         <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
+                        {% if object.phone2 %}
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone2}}</a></p>
+                        {% endif %}
+                        {% if object.phone3 %}
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone3}}</a></p>
+                        {% endif %}
                     </div>
                     <div class="rating">
                         <ul class="rating_options">

@@ -77,7 +77,7 @@
     </section>
     <div class="container">
         <div class="spec_list">
-            {% for object in filter.qs %}
+            {% for object in objs %}
             <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
                 {% if object.is_pro %}
                 <span class="is_pro_badge">PRO</span>
