@@ -24,7 +24,7 @@
                         <h3 class="subtitle">{% trans "Информация" %}</h3>
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
-                        <p class="specialist_type">{% trans "Пригласительные" %}</p>
+                        <p class="specialist_type">{{object.get_type_display}}</p>
                         <p class="specialist_type">{% trans "Местоположение" %}: {{object.location}} {% trans "р-н" %}</p>
                     </div>
                     <div class="contacts">

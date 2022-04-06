@@ -61,9 +61,9 @@
                             <div class="row">
                                 <div class="col-12 col-md-6 d-flex align-items-center mb-4">
                                     {% if response.from_user.check_avatar %}
-                                    <img src="{{ response.from_user.check_avatar.url }}" alt="">
+                                    <img class="response_img" src="{{ response.from_user.check_avatar.url }}" alt="">
                                     {% else %}
-                                    <img src="{% static 'media/images/logo_v2.png' %}" alt="">
+                                    <img class="response_img" src="{% static 'media/images/logo_v2.png' %}" alt="">
                                     {% endif %}
                                     <p class="specialist">{{response.from_user.get_type_display}} <a href="{{response.from_user.get_cabinet_url}}">{{response.from_user}}</a></p>
                                 </div>

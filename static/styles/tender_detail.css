@@ -143,6 +143,9 @@ main{
     height: 100px;
     margin-right: 20px;
 }
+.response_img{
+    border-radius: 50%;
+}
 .tender_func{
     width: 100%;
     display: flex;
