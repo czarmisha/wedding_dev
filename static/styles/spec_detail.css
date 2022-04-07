@@ -571,6 +571,18 @@ ul.rating_options{
     .portfolio_img{
         min-height: 160px;
     }
+    .create_portfolio.to_center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .create_portfolio,
+    .delete_portfolio{
+        width: 170px;
+        height: 38px;
+        line-height: 37px;
+        font-size: 15px;
+    }
 }
 @media (max-width: 400px){
     .spec_more_info .more_info{
