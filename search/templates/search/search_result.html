@@ -19,7 +19,10 @@
         <p>{{queryset}}</p>
     {% else %}
         {% for object in queryset %}
-        <a class="spec_box {% if object.is_pro %}is_pro{% endif %} d-block" href="{{object.get_absolute_url}}">
+        <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
+            {% if object.is_pro %}
+            <span class="is_pro_badge">PRO</span>
+            {% endif %}
             <div class="row">
                 <div class="col-12 col-md-2">
                     <div class="left d-flex flex-column align-items-center">
@@ -28,8 +31,8 @@
                         {% else %}
                         <img src="{% static 'media/images/logo_v2.png' %}" alt="">
                         {%endif%}
-                        <p class="spec_rating">5</p>
-                        <p class="spec_reviews">Отзывы (<span>{{object.review_count}}</span>)</p>
+                        <p class="spec_rating"><span>{{object.user.get_calculated_rate}}</span> <br> {% trans "Рейтинг" %}</p>
+                        <p class="spec_reviews">{% trans 'Отзывы' %} (<span>{{object.review_count}}</span>)</p>
                     </div>
                 </div>
                 <div class="col-12 col-md-10">
@@ -37,27 +40,75 @@
                         <div class="info d-flex align-items-center justify-content-between">
                             <h3 class="spec_fullname">{{object.name}}</h3>
                             <div class="info_right d-flex align-items-center">
-                                <p class="spec_price">{{object.price}} сум</p>
+                                {% if object.user.type == 'accessories' %}
+                                <p class="spec_price">{% trans "Стоимость" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'agency' %}
+                                
+                                {% elif object.user.type == 'artist' %}
+                                <p class="spec_price">{% trans "Стоимость шоу-программы" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'bouquet' %}
+                                <p class="spec_price">{% trans "Стоимость букета от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'cake' %}
+                                <p class="spec_price">{% trans "Стоимость торта за кг" %} {{object.price_per_kg}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'costume' %}
+                                <p class="spec_price">{% trans "Стоимость костюма от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'dance' %}
+                                <p class="spec_price">{% trans "Стоимость занятия" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'decor' %}
+                                <p class="spec_price">{% trans "Стоимость оформления зала от" %} {{object.price}} {% trans "сум" %}</p>
+                                {% elif object.user.type == 'dress' %}
+                                <p class="spec_price">{% trans "Стоимость платья от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'invitation' %}
+                                
+                                {% elif object.user.type == 'music' %}
+                                <p class="spec_price">{% trans 'Стоимость выступления за вечер' %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'photographer' %}
+                                <p class="spec_price">{% trans "Стоимость съёмки от" %} {{object.price}} {% trans 'сум' %}</p>
                                 <span> | </span>
-                                <p class="spec_price">{{object.price_per_hour}} сум/час</p>
+                                <p class="spec_price">{{object.price_per_hour}} {% trans 'сум/час' %}</p>
+                                {% elif object.user.type == 'photostudio' %}
+                                <p class="spec_price">{% trans "Стоимость часа аренды от" %} {{object.price_per_hour}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'presenter' %}
+                                <p class="spec_price">{% trans "Стоимость ведения свадьбы от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'registryoffice' %}
+                                
+                                {% elif object.user.type == 'restaurant' %}
+                                <p class="spec_price">{% trans "Средний чек от" %} {{object.average_check}} {% trans 'сум' %}</p>
+                                <span> | </span>
+                                <p class="spec_price">{% trans "Вместимость" %} {{object.capacity}} {% trans 'чел' %}.</p>
+                                {% elif object.user.type == 'ring' %}
+                                <p class="spec_price">{% trans "Стоимость кольца от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'stylist' %}
+                                <p class="spec_price">{% trans "Стоимость услуги от" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'transport' %}
+                                <p class="spec_price">{% trans "Стоимость дня аренды" %} {{object.price}} {% trans 'сум' %}</p>
+                                {% elif object.user.type == 'videographer' %}
+                                <p class="spec_price">{% trans "Стоимость видеосъёмки от" %} {{object.price}} {% trans "сум" %}</p>
+                                <span> | </span>
+                                <p class="spec_price">{{object.price_per_hour}} {% trans "сум/час" %}</p>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="spec_portfolio">
                             <div class="row">
-                                {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                        <div class="col-3 mt-4">
-                                        <img class="" src="{{image.image.url}}" alt="">
+                                {% for file in object.user.portfolio.files.all|slice:'4'%}
+                                     <div class="col-3 mt-4">
+                                         {% if file.content_type == 'image' %}
+                                         <img class="" src="{{file.file.url}}" alt="">
+                                        {% endif %}   
                                     </div>
                                 {%endfor%}
 
                             </div>
                         </div>
                         <div class="spec_portfolio_slider">
-                                {% for image in object.user.portfolio.images.all|slice:'4'%}
-                                        <div class="slide">
-                                        <img class="slide_img" src="{{image.image.url}}" alt="">
-                                    </div>
-                            {%endfor%}
+                            {% for file in object.user.portfolio.files.all|slice:'4'%}
+                             <div class="slide">
+                                {% if file.content_type == 'image' %}
+                                    <img class="slide_img" src="{{file.file.url}}" alt="">
+                               {% endif %}   
+                             </div>
+                             {%endfor%}
                         </div>
                     </div>
                 </div>

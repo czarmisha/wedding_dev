@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.db.models import Q
+from django.db.models import Q, Count
 from services.models import *
 
 
@@ -14,45 +14,85 @@ def search_service(request):
                 'error': 'Произошла какая-то ошибка. Проверьте вводимые данные перед отправкой'
                 })
         if service == 'photographer':
-            queryset = Photographer.objects.filter(Q(name__icontains=name))
+            queryset = Photographer.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'videographer':
-            queryset = Videographer.objects.filter(Q(name__icontains=name))
+            queryset = Videographer.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'restaurant':
-            queryset = Restaurant.objects.filter(Q(name__icontains=name))
+            queryset = Restaurant.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'artist':
-            queryset = Artist.objects.filter(Q(name__icontains=name))
+            queryset = Artist.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'transport':
-            queryset = Transport.objects.filter(Q(name__icontains=name))
+            queryset = Transport.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'music':
-            queryset = Music.objects.filter(Q(name__icontains=name))
+            queryset = Music.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'presenter':
-            queryset = Presenter.objects.filter(Q(name__icontains=name))
+            queryset = Presenter.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'registryoffice':
-            queryset = RegistryOffice.objects.filter(Q(name__icontains=name))
+            queryset = RegistryOffice.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'invitation':
-            queryset = Invitation.objects.filter(Q(name__icontains=name))
+            queryset = Invitation.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'cake':
-            queryset = Cake.objects.filter(Q(name__icontains=name))
+            queryset = Cake.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'dress':
-            queryset = Dress.objects.filter(Q(name__icontains=name))
+            queryset = Dress.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'ring':
-            queryset = Ring.objects.filter(Q(name__icontains=name))
+            queryset = Ring.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'bouquet':
-            queryset = Bouquet.objects.filter(Q(name__icontains=name))
+            queryset = Bouquet.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'decor':
-            queryset = Decor.objects.filter(Q(name__icontains=name))
+            queryset = Decor.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'costume':
-            queryset = Costume.objects.filter(Q(name__icontains=name))
+            queryset = Costume.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'accessories':
-            queryset = Accessories.objects.filter(Q(name__icontains=name))
+            queryset = Accessories.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'stylist':
-            queryset = Stylist.objects.filter(Q(name__icontains=name))
+            queryset = Stylist.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'photostudio':
-            queryset = PhotoStudio.objects.filter(Q(name__icontains=name))
+            queryset = PhotoStudio.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'dance':
-            queryset = Dance.objects.filter(Q(name__icontains=name))
+            queryset = Dance.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
         elif service == 'agency':
-            queryset = Agency.objects.filter(Q(name__icontains=name))
+            queryset = Agency.objects.filter(Q(name__icontains=name)).filter(
+            user__portfolio__isnull=False).select_related('user', 'user__portfolio').annotate(
+            review_count=Count("user__service_reviews")).order_by('-is_pro', '-created')
 
         queryset = 'Поиск не дал никаких результатов' if not queryset else queryset
         print(queryset, 'asd')
