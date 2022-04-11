@@ -136,13 +136,46 @@ main{
 }
 
 .specialist_about{
-    margin-bottom: 15px;
     padding: 20px;
     color: #808285;
     font-size: 15px;
     line-height: 1.4em;
 }
-
+.specialist_about>p{
+    color: #808285;
+    font-size: 15px;
+    line-height: 1.4em;
+    margin-bottom: 2px;
+}
+.specialist_about.hidden{
+    overflow: hidden;
+    overscroll-behavior-y: none;
+    height: 65px;
+}
+.toggle_about_text{
+    color: var(--blue-color);
+    font-size: 14px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+    display: block;
+    translate: all .3s;
+}
+.toggle_about_text:hover{
+    color: var(--blue-color);
+}
+.toggle_about_text.hidden .arrow{
+    transform: rotate(135deg) translateY(3px);
+}
+.toggle_about_text .arrow{
+    translate: all .3s;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-top: 2px solid var(--blue-color);
+    border-right: 2px solid var(--blue-color);
+    margin-left: 7px;
+    transform: rotate(-45deg) translateY(6px);
+}
 .detail_right .subtitle{
     text-align: center;
     margin-bottom: 30px;
@@ -407,6 +440,59 @@ ul.rating_options{
 .detail_right ul>li.review_box{
     width: 100%!important;
 }
+.create_portfolio{
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 220px;
+    height: 42px;
+    line-height: 42px;
+    border: 2px solid var(--blue-color);
+    border-radius: 23px;
+    text-transform: none;
+    background: var(--blue-color);
+    transition: all .2s ease;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+.create_portfolio:hover{
+    color: black;
+    background-color: white;
+}
+.delete_portfolio{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 220px;
+    height: 42px;
+    line-height: 42px;
+    border: 2px solid #cd2b2b;
+    border-radius: 23px;
+    display: inline-block;
+    text-transform: none;
+    background: #cd2b2b;
+    transition: all .2s ease;
+    font-size: 16px;
+    margin: 0 10px 15px;
+}
+
+.delete_portfolio:hover{
+    color: black;
+    background-color: white;
+}
+.portfolio_img, video{
+    width: 100%;
+    display: block;
+    height: 100%;
+    min-height: 230px;
+    max-height: 300px
+}
+
 /* -------- restaurant --------- spec_more_info------- */
 
 .spec_more_info .more_info{
@@ -443,7 +529,12 @@ ul.rating_options{
     color: #4197cb;
 }
 /* ----------------------------------------- media ---------------------------- */
-
+@media (max-width: 1200px){
+    .portfolio_img, video{
+        height: 150px;
+        min-height: 150px;
+    }
+}
 @media (max-width: 767px){
     .detail_left{
         margin-bottom: 40px;
@@ -473,6 +564,23 @@ ul.rating_options{
     }
     .review_box p{
         text-align: center;
+    }
+}
+@media (max-width: 480px){
+    .portfolio_img{
+        min-height: 160px;
+    }
+    .create_portfolio.to_center{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .create_portfolio,
+    .delete_portfolio{
+        width: 170px;
+        height: 38px;
+        line-height: 37px;
+        font-size: 15px;
     }
 }
 @media (max-width: 400px){

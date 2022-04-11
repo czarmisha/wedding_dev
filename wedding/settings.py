@@ -119,26 +119,26 @@ WSGI_APPLICATION = 'wedding.wsgi.application'
 # }
 
 # POSTGRESQL ubuntu
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'czar',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-    }
-}
-
-# windows databases
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': '0809',
+#         'USER': 'czar',
+#         'PASSWORD': 'password',
 #         'HOST': 'localhost',
 #     }
 # }
+
+# windows databases
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': '0809',
+        'HOST': 'localhost',
+    }
+}
 
 
 # Password validation

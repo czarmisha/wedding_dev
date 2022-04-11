@@ -185,6 +185,9 @@ h1{
     margin-bottom: 35px;
     text-transform: uppercase;
 }
+.search_h1{
+    margin-top: 40px;
+}
 
 h2{
     font-size: 18px;

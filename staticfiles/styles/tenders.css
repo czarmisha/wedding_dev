@@ -89,7 +89,8 @@ select:focus{
 }
 .filters_desktop .filter_wrapper span{
     margin-bottom: 1px;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: 'Roboto_medium';
 }
 .filters_desktop .filter_wrapper input[type='date']{
     max-width: 160px;
@@ -396,12 +397,20 @@ main{
     #id_on_date_end{
         margin-bottom: 5px;
     }
+    .custom_margin{
+        margin-right: 7px;
+    }
     #id_budget_gt,
     #id_budget_lt{
         width: 100%;
         max-width: 160px;
     }
 
+}
+@media (max-width: 992px){
+    .custom_margin{
+        margin-right: 0;
+    }
 }
 /* @media (max-width: 550px){
     .filter_wrapper{

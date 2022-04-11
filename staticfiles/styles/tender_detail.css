@@ -143,6 +143,9 @@ main{
     height: 100px;
     margin-right: 20px;
 }
+.response_img{
+    border-radius: 50%;
+}
 .tender_func{
     width: 100%;
     display: flex;
@@ -167,6 +170,10 @@ main{
     margin-left: 20px;
     margin-bottom: 15px;
     display: inline-block;
+}
+.specialist a{
+    text-decoration: none;
+    color: var(--blue-color);
 }
 
 /* ----------------------- media -------------- */

@@ -88,7 +88,7 @@
                             </div>
                             <a href="" class="toggle_about_text hidden">{% trans "Читать больше" %} <span class="arrow"></span></a>
                             <div class="spec_more_info">
-                                <h3 class="subtitle">{% trans "Детали" %}</h3>
+                                <h3 class="subtitle">{% trans "Особенности и детали" %}</h3>
                                 <div class="row">
                                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                                         <ul class="more_info">
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                                         <ul class="more_info">
-                                            <li class="more_info_title"><span>{% trans "Доп. услуги" %}</span></li>
+                                            <li class="more_info_title"><span>{% trans "Услуги за доп. плату" %}</span></li>
                                             {% for additional_service in additional_services %}
                                                 <li class="more_info_element{% if additional_service in object.additional_services.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{additional_service.name}}</li>
                                             {% endfor %}

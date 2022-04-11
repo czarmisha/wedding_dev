@@ -162,7 +162,7 @@ main{
 }
 
 .title{
-    background: url(../media/images/Handsha.svg)no-repeat center left;
+    background: url(../media/images/Handsha.svg) no-repeat center left;
     background-size: 50px 50px;
     padding: 18px 10px 18px 60px;
     font-family: 'Roboto_medium';
@@ -329,7 +329,9 @@ main{
     font-family: 'Roboto_regular';
 }
 
-
+#id_on_date_end{
+    margin-right: 5px;
+}
 
 
 /* ----------------------------------------- media ---------------------------- */
@@ -397,6 +399,9 @@ main{
     #id_on_date_end{
         margin-bottom: 5px;
     }
+    #id_on_date_end{
+        margin-right: 0px;
+    }
     #id_budget_gt,
     #id_budget_lt{
         width: 100%;
@@ -404,6 +409,7 @@ main{
     }
 
 }
+
 /* @media (max-width: 550px){
     .filter_wrapper{
         font-size: 14px;

@@ -171,6 +171,10 @@ main{
     margin-bottom: 15px;
     display: inline-block;
 }
+.specialist a{
+    text-decoration: none;
+    color: var(--blue-color);
+}
 
 /* ----------------------- media -------------- */
 

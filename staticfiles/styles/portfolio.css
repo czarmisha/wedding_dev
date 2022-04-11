@@ -1,0 +1,104 @@
+@import "fonts.css";
+
+:root{
+    --dark-color: #1e1f1c;
+    --dark-grey: #414042;
+    --light-grey: #808285;
+    --gold-color: #c99e66;
+    --blue-color: #4197cb;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto_regular';
+}
+
+
+/* --------------------- main ------------------ */
+main{
+    padding: 50px 0 100px;
+}
+.portfolio_detail{
+    max-width: 550px;
+    width: 100%;
+    height: 450px;
+    margin: 40px auto;
+}
+.carousel,
+.carousel-inner,
+.carousel-item{
+    height: 100%;
+}
+.carousel_btns{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-control-next, .carousel-control-prev{
+    position: relative;
+    width: auto;
+    margin: 0 12px;
+}
+.carousel-control-prev-icon{
+    background-position: -3px;
+}
+.btn_prev,
+.btn_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: var(--blue-color);
+}
+.specialist_fullname{
+    color: var(--dark-color);
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-family: 'Roboto_medium';
+}
+.specialist_type{
+    color: #939598;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+.portfolio_detail img,
+.portfolio_detail video{
+    width: 100%;
+    display: block;
+    height: 100%;
+    min-height: 300px;
+    max-height: 450px
+}
+
+.back_to_profile{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Roboto_regular';
+    width: 130px;
+    height: 32px;
+    line-height: 28px;
+    border: 2px solid var(--blue-color);
+    border-radius: 23px;
+    display: inline-block;
+    text-transform: none;
+    background: var(--blue-color);
+    transition: all .2s ease;
+    font-size: 15px;
+    margin: 0 0 15px 0;
+}
+
+.back_to_profile:hover{
+    color: black;
+    background-color: white;
+}
+/* --------------- media -------------- */
+@media (max-width: 768px){
+    .portfolio_detail{
+        height: 300px;
+    }
+}
