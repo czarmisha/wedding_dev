@@ -115,7 +115,7 @@
                                 <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}
                                     <div class="row">
-                                        {% for file in object.user.portfolio.files.all %}
+                                        {% for file in object.user.portfolio.files.all[:9] %}
                                             <div class="col-6 col-lg-4 mb-4">
                                                 {% if file.content_type == 'image' %}
                                                     <a class="portfolio_img" href="{% url 'services:view_portfolio' object.user.pk %}" style="background: url('{{file.file.url}}')no-repeat center center;background-size: cover;"></a>

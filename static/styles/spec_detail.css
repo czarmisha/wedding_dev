@@ -463,7 +463,6 @@ ul.rating_options{
     background-color: white;
 }
 .delete_portfolio{
-    display: inline-block;
     color: white;
     text-align: center;
     text-decoration: none;
@@ -473,12 +472,12 @@ ul.rating_options{
     line-height: 42px;
     border: 2px solid #cd2b2b;
     border-radius: 23px;
-    display: inline-block;
+    display: block;
     text-transform: none;
     background: #cd2b2b;
     transition: all .2s ease;
     font-size: 16px;
-    margin: 0 10px 15px;
+    margin: 20px auto;
 }
 
 .delete_portfolio:hover{

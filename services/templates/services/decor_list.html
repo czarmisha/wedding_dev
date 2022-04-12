@@ -96,9 +96,11 @@
                                 <div class="row">
                                     {% for file in object.user.portfolio.files.all|slice:'4'%}
                                          <div class="col-3 mt-4">
-                                             {% if file.content_type == 'image' %}
-                                             <img class="" src="{{file.file.url}}" alt="">
-                                            {% endif %}   
+                                            {% if file.content_type == 'image' %}
+                                            <img class="" src="{{file.file.url}}" alt="">
+                                            {% else %}
+                                               <video class="" src="{{ file.file.url }}" controls></video>
+                                            {% endif %}    
                                         </div>
                                     {%endfor%}
     
@@ -108,8 +110,10 @@
                                 {% for file in object.user.portfolio.files.all|slice:'4'%}
                                  <div class="slide">
                                     {% if file.content_type == 'image' %}
-                                        <img class="slide_img" src="{{file.file.url}}" alt="">
-                                   {% endif %}   
+                                     <img class="slide_img" src="{{file.file.url}}" alt="">
+                                     {% else %}
+                                        <video class="slide_img" src="{{ file.file.url }}" controls></video>
+                                     {% endif %}  
                                  </div>
                                  {%endfor%}
                             </div>
