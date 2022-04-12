@@ -98,7 +98,9 @@
                                          <div class="col-3 mt-4">
                                              {% if file.content_type == 'image' %}
                                              <img class="" src="{{file.file.url}}" alt="">
-                                            {% endif %}   
+                                             {% else %}
+                                                <video src="{{ file.file.url }}" controls></video>
+                                             {% endif %} 
                                         </div>
                                     {%endfor%}
     
