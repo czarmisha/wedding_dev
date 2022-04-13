@@ -44,9 +44,11 @@ h1{
     width: 100%;
     max-width: 500px;
     padding: 40px 25px 40px 25px;
-    border: 2px solid #c99e668f;
+    /* border: 2px solid #c99e668f; */
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 12%);
+    border-radius: 18px;
     overflow: hidden;
-    background: #f4f3f3;
+    /* background: #f4f3f3; */
 }
 
 .tender_update_form .form-group{
@@ -69,7 +71,8 @@ h1{
     padding: 0 15px;
     color: #808285;
     font-size: 14px;
-    width: calc(100% - 160px)
+    width: calc(100% - 160px);
+    border-radius: 14px;
 }
 
 .tender_update_form .form-group textarea{
@@ -80,6 +83,7 @@ h1{
     font-size: 14px;
     width: calc(100% - 160px);
     resize: none;
+    border-radius: 14px;
 }
 
 .tender_update_form .form-group select{
@@ -90,6 +94,7 @@ h1{
     font-size: 14px;
     width: calc(100% - 160px);
     resize: none;
+    border-radius: 14px;
 }
 
 .tender_update_form button[type=submit]{
@@ -104,10 +109,14 @@ h1{
     border-radius: 5px;
     -webkit-transition: background .2s ease;
     transition: background .2s ease;
+    border-radius: 14px;
 }
 
 .tender_update_form button[type=submit]:hover {
     background: #c99e668f;
+}
+input:focus, select:focus, textarea:focus{
+    outline: none;
 }
 /*--------------------media-------------------*/
 @media (max-width: 470px){

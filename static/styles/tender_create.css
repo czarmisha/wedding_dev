@@ -147,6 +147,17 @@ input:focus, select:focus, textarea:focus{
     font-family: 'Roboto_medium';
     color: var(--gold-color);
 }
+#id_on_date_day{
+    width: 68px;
+    margin-right: 6px;
+}
+#id_on_date_month{
+    width: 115px;
+    margin-right: 6px;
+}
+#id_on_date_year{
+    width: 86px;
+}
 /*-------------------- messages -----------------*/
 .messages {
     list-style: none;
@@ -182,5 +193,18 @@ input:focus, select:focus, textarea:focus{
 
     .tender_create_form .form-group select{
         width: 90%;
+    }
+    #id_on_date_day{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 4px;
+    }
+    #id_on_date_month{
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 4px;
+    }
+    #id_on_date_year{
+        width: 100%;
     }
 }
