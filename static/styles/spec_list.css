@@ -226,7 +226,7 @@ select[multiple]{
 #id_kitchen,
 #id_language,
 #id_car_brand{
-    width: 300px;
+    width: 270px;
 }
 .selection{
     font-size: 10px;
@@ -460,7 +460,7 @@ select:focus{
 .custom_width,
 .custom_width select,
 .custom_width input{
-    width: 70px;
+    width: 112px;
 }
 
 /* ----------------------- media -------------- */
