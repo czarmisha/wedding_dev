@@ -132,6 +132,7 @@ main{
 }
 .slide_img{
     height: 100px;
+    width: 100%;
 }
 .spec_portfolio_slider{
     display: none;

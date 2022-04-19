@@ -331,7 +331,7 @@ class Costume(models.Model):
     type = models.CharField(max_length=50, choices=_TYPE, null=True)    
     condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
     price = models.IntegerField('Начальная цена', null=True)
-    rent = models.BooleanField('На прокат', default=False)
+    # rent = models.BooleanField('На прокат', default=False)
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/costumes', verbose_name='Аватар', blank=True)
     phone = models.CharField('Телефон', max_length=13)
@@ -487,10 +487,6 @@ class Ring(models.Model):
 
 
 class Dress(models.Model):
-    _DRESS_TYPES = [
-        ('bouffant', 'Пышное'),
-        ('straight', 'Прямое')
-    ]
     _CONDITION_TYPES = [
         ('sale', _('Продажа')),
         ('rent', _('Арендa'))
@@ -504,7 +500,6 @@ class Dress(models.Model):
     name = models.CharField('Название ', max_length=155)
     description = RichTextField('Описание')
     type = models.CharField(max_length=50, choices=_TYPE, null=True, verbose_name='Тип услуги')
-    dress_type = models.CharField(max_length=50, choices=_DRESS_TYPES, null=True, verbose_name='Тип платья')
     condition = models.CharField(max_length=50, choices=_CONDITION_TYPES, null=True, verbose_name='Вид сделки')
     address = models.CharField('Адрес', max_length=500)
     avatar = models.ImageField(upload_to='avatars/dresses', verbose_name='Аватар', blank=True)

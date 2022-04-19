@@ -56,7 +56,7 @@ select:focus{
     outline: none;
 }
 #FiltersSection{
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 .filters_desktop{
     background-color: #fff;
@@ -333,6 +333,30 @@ main{
     margin-right: 5px;
 }
 
+.tender_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_tender{
+    font-family: 'Roboto_regular';
+    display: inline-block;
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    padding: 0 20px;
+    background: var(--gold-color);
+    border-radius: 20px;
+    margin: 0 auto 20px;
+    text-decoration: none;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+.create_tender:hover{
+    color: white;
+}
 
 /* ----------------------------------------- media ---------------------------- */
 

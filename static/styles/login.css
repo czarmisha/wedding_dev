@@ -119,7 +119,15 @@ h1{
     margin: 35px auto 0;
     text-align: center;
 }
-
+.login_form p.form_info{
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: var(--light-grey);
+    font-family: 'Roboto_regular';
+    margin-top: 25px;
+}
 /*-------------------- messages -----------------*/
 .messages {
     list-style: none;

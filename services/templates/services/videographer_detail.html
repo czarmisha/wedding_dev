@@ -25,8 +25,8 @@
                         <p class="specialist_fullname">{% if object.user.photographer.name %}
                             {{object.user.photographer.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{% if object.user.type == 'videographer'%} {% trans 'Видеографы' %} {% endif %}</p>
-                        <p class="specialist_price">{% trans 'Стоимость видеосъёмки от' %}: <span>{{object.price}} {% trans 'сум' %}</span></p>
-                        <p class="specialist_price">{% trans 'Цена за час' %}: <span>{{object.price_per_hour}} {% trans 'сум' %}</span></p>
+                        <p class="specialist_price">{% trans 'Стоимость видеосъёмки от' %}: <br><span>{{object.price}} {% trans 'сум' %}</span></p>
+                        <p class="specialist_price">{% trans 'Цена за час' %}: <br><span>{{object.price_per_hour}} {% trans 'сум' %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans 'Контакты' %}</h3>
@@ -154,7 +154,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p class="specialist_about">{% trans "После удалиния, всё порфолио будет стерто и без возможности на восстановление. Вы уверены?" %}</p>
+                                                    <p class="specialist_about">{% trans "Вы действительно уверены, что хотите удалить весь портфолио без возможности на восстановление?" %}</p>
                                                 </div>
                                                 <div class="modal-footer flex-nowrap">
                                                     <button type="button" class="create_portfolio" data-bs-dismiss="modal">{% trans "Отмена" %}</button>

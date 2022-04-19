@@ -25,18 +25,18 @@
                         <p class="specialist_fullname">{% if object.name %}
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{{object.get_type_display}}</p>
-                        <p class="specialist_type">{% trans "Район" %}: {{object.location}}</p>
                         <p class="specialist_type">{% trans "Услуга" %}: {{object.get_with_driver_display}}</p>
                         <p class="specialist_type">{% trans "Типы авто" %}: 
-                        {% for type in object.car_type.all %}
+                            {% for type in object.car_type.all %}
                             {{type.name}}
-                        {% endfor %}
-                            </p>
+                            {% endfor %}
+                        </p>
                         <p class="specialist_type">{% trans "Марки авто" %}: <span>
-                        {% for brand in object.car_brand.all %}
+                            {% for brand in object.car_brand.all %}
                             {{brand.name}}  
-                        {% endfor %}
-                            </span></p>
+                            {% endfor %}
+                        </span></p>
+                        <p class="specialist_price">{% trans "Район" %}: <span>{{object.location}}</span></p>
                         <p class="specialist_price">{% trans "Стоимость дня аренды" %}: <br><span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
@@ -133,7 +133,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p class="specialist_about">{% trans "После удалиния, всё порфолио будет стерто и без возможности на восстановление. Вы уверены?" %}</p>
+                                                    <p class="specialist_about">{% trans "Вы действительно уверены, что хотите удалить весь портфолио без возможности на восстановление?" %}</p>
                                                 </div>
                                                 <div class="modal-footer flex-nowrap">
                                                     <button type="button" class="create_portfolio" data-bs-dismiss="modal">{% trans "Отмена" %}</button>

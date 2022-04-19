@@ -497,7 +497,7 @@ ul.rating_options{
 .spec_more_info .more_info{
     list-style: none;
     margin-bottom: 15px;
-    padding: 20px;
+    padding: 0 20px 20px;
     color: #6c6c6c;
     font-size: 15px;
     line-height: 1.4em;

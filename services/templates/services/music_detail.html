@@ -28,7 +28,7 @@
                         <p class="specialist_type">{% trans "Состав" %}: {{object.get_composition_display}}</p>
                         <p class="specialist_type">{% trans "Вокал" %}: {{object.get_vocal_display}}</p>
                         <p class="specialist_type">{% trans "Языки исполнения" %}: {% for lang in object.language.all %}{{lang}}, {% endfor %}</p>
-                        <p class="specialist_price">{% trans "Стоимость выступления от" %}: <span>{{object.price}} {% trans "сум" %}</span></p>
+                        <p class="specialist_price">{% trans "Стоимость выступления от" %}: <br><span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">Контакты</h3>
@@ -156,7 +156,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p class="specialist_about">{% trans "После удалиния, всё порфолио будет стерто и без возможности на восстановление. Вы уверены?" %}</p>
+                                                    <p class="specialist_about">{% trans "Вы действительно уверены, что хотите удалить весь портфолио без возможности на восстановление?" %}</p>
                                                 </div>
                                                 <div class="modal-footer flex-nowrap">
                                                     <button type="button" class="create_portfolio" data-bs-dismiss="modal">{% trans "Отмена" %}</button>
