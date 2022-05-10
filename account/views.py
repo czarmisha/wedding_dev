@@ -52,12 +52,19 @@ def password_reset_request(request):
 	return render(request=request, template_name="account/password/password_reset.html", context={"password_reset_form":password_reset_form})
 
 
+def hascyr(s):
+    lower = set('абвгдеёжзийклмнопрстуфхцчшщъыьэюя')
+    return lower.intersection(s.lower()) != set()
+
+
 def user_register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
+            if hascyr(new_user.name):
+                messages.error(request, 'Имя пользователя должно быть на латинице')
             # Set the chosen password
             new_user.set_password(user_form.cleaned_data['password1'])
             new_user.save()
