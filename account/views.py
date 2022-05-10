@@ -65,6 +65,7 @@ def user_register(request):
             new_user = user_form.save(commit=False)
             if hascyr(new_user.username):
                 messages.error(request, 'Имя пользователя должно быть на латинице')
+                return render(request, 'account/registration.html', {'user_form': user_form})
             # Set the chosen password
             new_user.set_password(user_form.cleaned_data['password1'])
             new_user.save()
