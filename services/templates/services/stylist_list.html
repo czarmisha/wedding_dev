@@ -66,6 +66,7 @@
         <div class='filters_mobile'></div>
     </div>
 </section>
+<div class="container">
     <div class="spec_list">
         {% for object in objs %}
         <a class="spec_box {% if object.is_pro %}is_pro position-relative{% endif %} d-block" href="{{object.get_absolute_url}}">
@@ -123,6 +124,7 @@
         </a>
         {% endfor %}
     </div>
+</div>
 {%endblock content%}
 {%block script%}
 <script src="{% static 'select2/select2.js' %}"></script>
