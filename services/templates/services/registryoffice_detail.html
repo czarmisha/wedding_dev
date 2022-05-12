@@ -30,9 +30,9 @@
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans "Контакты" %}</h3>
-                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="">{{object.telegram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="">{{object.instagram}}</a></p>
-                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="">{{object.facebook}}</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="{{object.telegram}}">Telegram</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}">Instagram</a></p>
+                        <p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}">Facebook</a></p>
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
                         {% if object.phone2 %}
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone2}}</a></p>
