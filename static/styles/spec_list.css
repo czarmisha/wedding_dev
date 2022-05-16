@@ -125,10 +125,12 @@ main{
 .spec_portfolio img{
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 .spec_portfolio video{
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 .slide_img{
     height: 100px;
