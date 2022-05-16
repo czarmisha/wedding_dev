@@ -17,7 +17,8 @@
 
 /* --------------------------- main -------------------------------- */
 #Budget{
-    width: 996px;
+    max-width: 996px;
+    width: 100px;
     margin: 20px auto 0 auto;
 }
 #Budget table tr{
@@ -288,5 +289,8 @@ h1{
 @media (max-width:600px) {
     #Budget table tr span.del{
         left: 2px;
+    }
+    #Budget{
+        overflow: scroll;
     }
 }

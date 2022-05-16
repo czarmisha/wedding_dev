@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-20 12:49+0500\n"
+"POT-Creation-Date: 2022-05-16 12:36+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -848,7 +848,7 @@ msgstr "Qidiruv natijalari"
 #: services/templates/services/registryoffice_list.html:70
 #: services/templates/services/restaurant_list.html:97
 #: services/templates/services/ring_list.html:83
-#: services/templates/services/stylist_list.html:83
+#: services/templates/services/stylist_list.html:84
 #: services/templates/services/transport_list.html:93
 #: services/templates/services/videographer_list.html:76
 #: templates/wedding/_inc/footer.html:36 templates/wedding/_inc/header.html:12
@@ -894,7 +894,7 @@ msgstr "Reyting"
 #: services/templates/services/ring_detail.html:71
 #: services/templates/services/ring_list.html:84
 #: services/templates/services/stylist_detail.html:82
-#: services/templates/services/stylist_list.html:84
+#: services/templates/services/stylist_list.html:85
 #: services/templates/services/transport_detail.html:83
 #: services/templates/services/transport_list.html:94
 #: services/templates/services/videographer_detail.html:73
@@ -1048,7 +1048,7 @@ msgstr "Narxi"
 #: services/templates/services/stylist_list.html:53
 #: services/templates/services/stylist_list.html:54
 #: services/templates/services/stylist_list.html:55
-#: services/templates/services/stylist_list.html:92
+#: services/templates/services/stylist_list.html:93
 #: services/templates/services/transport_detail.html:40
 #: services/templates/services/transport_list.html:48
 #: services/templates/services/transport_list.html:49
@@ -1179,7 +1179,7 @@ msgstr "Uzuk narxi"
 #: search/templates/search/search_result.html:82
 #: services/templates/services/stylist_detail.html:39
 #: services/templates/services/stylist_list.html:50
-#: services/templates/services/stylist_list.html:92
+#: services/templates/services/stylist_list.html:93
 msgid "Стоимость услуги от"
 msgstr "Rasmga tushirish narxi"
 
@@ -1323,23 +1323,9 @@ msgstr "Yuborish"
 msgid "Информация"
 msgstr "Ma`lumot"
 
-#: services/templates/services/accessories_detail.html:30
-msgid "Прокат"
-msgstr "Ijara"
-
-#: services/templates/services/accessories_detail.html:32
-#: services/templates/services/stylist_detail.html:33
-msgid "да"
-msgstr "ha"
-
-#: services/templates/services/accessories_detail.html:34
-#: services/templates/services/stylist_detail.html:35
-msgid "нет"
-msgstr "yo'q"
-
-#: services/templates/services/accessories_detail.html:37
+#: services/templates/services/accessories_detail.html:28
 #: services/templates/services/agency_detail.html:28
-#: services/templates/services/bouquet_detail.html:30
+#: services/templates/services/bouquet_detail.html:28
 #: services/templates/services/cake_detail.html:28
 #: services/templates/services/costume_detail.html:32
 #: services/templates/services/dance_detail.html:28
@@ -1352,6 +1338,20 @@ msgstr "yo'q"
 #: services/templates/services/stylist_detail.html:38
 msgid "Адрес"
 msgstr "Manzil"
+
+#: services/templates/services/accessories_detail.html:29
+msgid "Прокат"
+msgstr "Ijara"
+
+#: services/templates/services/accessories_detail.html:31
+#: services/templates/services/stylist_detail.html:33
+msgid "да"
+msgstr "ha"
+
+#: services/templates/services/accessories_detail.html:33
+#: services/templates/services/stylist_detail.html:35
+msgid "нет"
+msgstr "yo'q"
 
 #: services/templates/services/accessories_detail.html:41
 #: services/templates/services/agency_detail.html:31
@@ -1731,7 +1731,7 @@ msgstr "yuqorida"
 #: services/templates/services/registryoffice_list.html:156
 #: services/templates/services/restaurant_list.html:310
 #: services/templates/services/ring_list.html:235
-#: services/templates/services/stylist_list.html:225
+#: services/templates/services/stylist_list.html:227
 #: services/templates/services/transport_detail.html:39
 #: services/templates/services/transport_list.html:245
 msgid "Район"
@@ -1906,6 +1906,7 @@ msgstr "Afzalliklar"
 #: services/templates/services/music_detail.html:98
 #: services/templates/services/photographer_detail.html:96
 #: services/templates/services/photostudio_detail.html:98
+#: services/templates/services/presenter_detail.html:99
 #: services/templates/services/restaurant_detail.html:106
 #: services/templates/services/videographer_detail.html:96
 msgid "Услуги за доп. плату"
@@ -1925,9 +1926,10 @@ msgid "Пускайтесь в пляс под знакомые мелодии �
 msgstr "Tanish ohanglar va kompozitsiyalarga raqsga tushishni boshlang"
 
 #: services/templates/services/music_list.html:254
-#: services/templates/services/presenter_list.html:237
-msgid "Язык"
-msgstr "Til"
+#, fuzzy
+#| msgid "Языки исполнения"
+msgid "Язык исполнения"
+msgstr "Ijro tillari"
 
 #: services/templates/services/photographer_detail.html:11
 #: services/templates/services/portfolio.html:18 tender/models.py:17
@@ -1998,10 +2000,6 @@ msgstr "Rasmga tushirish narxi"
 msgid "Цена за час"
 msgstr "Bir soatlik narx"
 
-#: services/templates/services/presenter_detail.html:99
-msgid "Доп. услуги"
-msgstr "Qo'shimcha xizmatlar"
-
 #: services/templates/services/presenter_list.html:11
 msgid "Ведущие"
 msgstr "Boshlovchilar"
@@ -2010,6 +2008,10 @@ msgstr "Boshlovchilar"
 msgid ""
 "Зарядите позитивом и хорошим настроением гостей на протяжении всего вечера"
 msgstr "Kecha davomida mehmonlaringizni yaxshi kayfiyat bilan qoniqtiring"
+
+#: services/templates/services/presenter_list.html:237
+msgid "Язык"
+msgstr "Til"
 
 #: services/templates/services/registryoffice_list.html:20
 msgid ""
@@ -2380,9 +2382,16 @@ msgstr ""
 "kerakli ma'lumotni koldiring"
 
 #: templates/wedding/promo.html:21
+#, fuzzy
+#| msgid ""
+#| "После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно "
+#| "и нужно будет изменить). Все это делается для поддержания одног формата "
+#| "для всех специалистов, а так же проверка валидности вашей информации "
+#| "администратором. После получения аккаунта, вы сможете создать свое "
+#| "портфолио у себя на страничке."
 msgid ""
 "После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно и "
-"нужно будет изменить). Все это делается для поддержания одног формата для "
+"нужно будет изменить). Все это делается для поддержания одного формата для "
 "всех специалистов, а так же проверка валидности вашей информации "
 "администратором. После получения аккаунта, вы сможете создать свое портфолио "
 "у себя на страничке."
@@ -2644,6 +2653,9 @@ msgstr "o'zbek"
 msgid ""
 "Форма отправлена, спасибо! Администратор свяжется с Вами в ближайшее время"
 msgstr "Forma yuborildi, rahmat! Ma'mur yaqinda siz bilan bog'lanadi."
+
+#~ msgid "Доп. услуги"
+#~ msgstr "Qo'shimcha xizmatlar"
 
 #~ msgid "Музыкальный группы и DJ"
 #~ msgstr "Musiqa guruhi va DJ"
