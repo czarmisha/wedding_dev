@@ -63,6 +63,9 @@ def user_register(request):
         if user_form.is_valid():
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
+            if(User.objects.filter(email=new_user.email).exists()):
+                messages.error(request, 'Пользователь с такой почтой уже зарегистрирован')
+                return render(request, 'account/registration.html', {'user_form': user_form})
             if hascyr(new_user.username):
                 messages.error(request, 'Имя пользователя должно быть на латинице')
                 return render(request, 'account/registration.html', {'user_form': user_form})

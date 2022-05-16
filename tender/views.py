@@ -1,21 +1,22 @@
+import datetime
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, UpdateView, CreateView, DeleteView
-from .models import Tender, Response
-from .forms import TenderCreateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from .filtres import TenderFilter
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django_filters.views import FilterView
+from .models import Tender, Response
+from .forms import TenderCreateForm
+from .filtres import TenderFilter
 
 User = get_user_model()
 
 
 def tender_list(request):
-    f = TenderFilter(request.GET, queryset=Tender.objects.select_related('author', 'executor'))
+    f = TenderFilter(request.GET, queryset=Tender.objects.filter(on_date__gt=datetime.date.today()).select_related('author', 'executor'))
     paginator = Paginator(f.qs, 12)
     page = request.GET.get('page', 1)
     try:
