@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/portfolio.css' %}">
@@ -20,7 +20,7 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
                 <div class="carousel-inner">
                 {% for file in files %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <div class="carousel-item" position='{{forloop.counter}}'>
                         {% if file.content_type == 'image' %}
                             <img src="{{ file.file.url }}" alt="" class="w-100 d-block">
                         {% else %}

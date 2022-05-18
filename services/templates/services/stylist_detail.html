@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/spec_detail.css' %}">
@@ -277,7 +277,7 @@
         });
     });
 </script>
-<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+{% comment %} <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script> {% endcomment %}
 {%endblock%}
 
 

@@ -490,7 +490,7 @@ ul.rating_options{
     width: 100%;
     display: block;
     height: 100%;
-    min-height: 230px;
+    min-height: 200px;
     max-height: 300px
 }
 
@@ -528,6 +528,60 @@ ul.rating_options{
 }
 .spec_more_info .more_info .more_info_title span{
     color: #4197cb;
+}
+
+/* -------------------------------------- slider ---------------------------------- */
+.zoom_slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    /* bottom: 0; */
+    background: #1e1f1ce3;
+    z-index: 9999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .55s opacity, .55s visibility;
+}
+.zoom_slider.active{
+    opacity: 1;
+    visibility: visible;
+}
+.carousel_btns{
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-control-next, .carousel-control-prev{
+    position: relative;
+    width: auto;
+    margin: 0 14px;
+    opacity: 1;
+}
+.carousel-control-prev-icon{
+    background-position: -3px;
+}
+.btn_prev,
+.btn_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: white;
+}
+.slider_close_btn{
+    font-size: 35px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
 }
 /* ----------------------------------------- media ---------------------------- */
 @media (max-width: 1200px){
@@ -587,6 +641,13 @@ ul.rating_options{
         height: 38px;
         line-height: 37px;
         font-size: 15px;
+    }
+    .btn_prev,
+    .btn_next{
+        font-size: 25px;
+    }
+    .slider_close_btn{
+        font-size: 25px;
     }
 }
 @media (max-width: 400px){
