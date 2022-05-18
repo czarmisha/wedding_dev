@@ -151,6 +151,7 @@
                             </div>
 
                             <div class="specialist_portfolio">
+                                <div class="portfolio_box hidden">
                                 <h3 class="subtitle">{% trans "Портфолио" %}</h3>
                                 {%if object.user.portfolio%}
                                     <div class="row">
@@ -168,6 +169,7 @@
                                             </div>
                                         {%endfor%}                    
                                     </div>
+                                </div>
 
                                         {% if request.user.is_authenticated and request.user == object.user%}
                                          <a class="create_portfolio" href="{%url 'services:extend_portfolio'%}">{% trans "Добавить фото/видео" %}</a>
@@ -197,9 +199,9 @@
                                             </div>
                                         {% endif %}
                                         
-                                        {% if request.user != object.user %}
-                                            <a class="create_portfolio to_center" href="{% url 'services:view_portfolio' object.user.pk %}">{% trans "Смотреть больше" %}</a>
-                                        {% endif %}
+                                        {% comment %} {% if request.user != object.user %} {% endcomment %}
+                                            <a class="show_more_btn create_portfolio to_center" href="">{% trans "Смотреть больше" %}</a>
+                                        {% comment %} {% endif %} {% endcomment %}
                                             
                                     </div>
     
@@ -255,6 +257,10 @@
             e.preventDefault();
             $('.specialist_about').toggleClass('hidden');
             $(this).toggleClass('hidden');
+        });
+        $('.show_more_btn').click(function(e){
+            e.preventDefault();
+            $('.portfolio_box').toggleClass('hidden');
         });
         
         $('.review_form .rate_option').click(function(){

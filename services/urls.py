@@ -48,5 +48,5 @@ urlpatterns = [
     path('extend-portfolio/', views.extend_portfolio, name='extend_portfolio'),
     path('delete-portfolio/', views.delete_portfolio, name='delete_portfolio'),
     path('top/', views.top_rating, name='top'),
-    path('portfolio/<int:pk>', views.view_portfolio, name='view_portfolio'),
+    # path('portfolio/<int:pk>', views.view_portfolio, name='view_portfolio'),
 ]
