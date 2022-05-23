@@ -82,7 +82,7 @@
                         </p>
                     </div>
                     <div class="rating_right">
-                        <p>Рейтинг <span>{{ user.rating }}</span></p>
+                        <p>Рейтинг <span>{{ user.get_calculated_rate }}</span></p>
                     </div>
                 </a>
             {% endfor %}
