@@ -103,7 +103,7 @@ class TransportFilter(django_filters.FilterSet):
 
 
 class PresenterFilter(django_filters.FilterSet):
-    price = django_filters.RangeFilter(field_name='price_per_evening')
+    price = django_filters.RangeFilter(field_name='price')
     gender = django_filters.ChoiceFilter(
         field_name='gender', choices=models.Presenter._GENDER, empty_label='Пол')
     composition = django_filters.ChoiceFilter(
