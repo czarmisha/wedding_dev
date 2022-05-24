@@ -20,7 +20,7 @@
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
                 <div class="carousel-inner">
                 {% for file in files %}
-                    <div class="carousel-item" position='{{forloop.counter}}'>
+                    <div class="carousel-item {%if forloop.first%} active {%endif%} ">
                         {% if file.content_type == 'image' %}
                             <img src="{{ file.file.url }}" alt="" class="w-100 d-block">
                         {% else %}

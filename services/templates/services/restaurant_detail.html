@@ -281,10 +281,12 @@
             var from_top = window.pageYOffset ? window.pageYOffset : document.body.scrollTop;
             $('.zoom_slider').css("top", from_top + 'px');
             $('.zoom_slider').addClass('active');
+            $('body').css('overflow', 'hidden');
         });
 
         $('.slider_close_btn').click(function() {
             $('.zoom_slider').removeClass('active');
+            $('body').css('overflow', 'auto');
         });
 
       $('.form_confirm').click(function(e) {

@@ -9,7 +9,34 @@
     <link rel="stylesheet" href="{% static 'styles/spec_detail.css' %}">
 {% endblock %}
 {% block title %}<title>{% trans "Артист и шоу программа" %} {{object.name}}</title>{% endblock title %}
-
+{% block slider %}
+<div class="zoom_slider">
+    <div class="portfolio_detail">
+        <span class="slider_close_btn"><i class="fas fa-times"></i></span>
+        <div id="zoomSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-touch="true">
+            <div class="carousel-inner">
+                {% for file in object.user.portfolio.files.all %}
+                <div class="carousel-item" position={{forloop.counter}}>
+                    {% if file.content_type == 'image' %}
+                        <img src="{{ file.file.url }}" alt="" class="w-100 d-block">
+                    {% else %}
+                        <video src="{{ file.file.url }}" controls class="w-100 d-block"></video>
+                    {% endif %} 
+                </div>                                           
+                {%endfor%}
+            </div>
+            <div class="carousel_btns">
+                <button class="carousel-control-prev" type="button" data-bs-target="#zoomSlider" data-bs-slide="prev">
+                    <span class="btn_prev"><i class="fad fa-long-arrow-left"></i></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#zoomSlider" data-bs-slide="next">
+                    <span class="btn_next"><i class="fad fa-long-arrow-right"></i></span>
+                  </button>
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock slider %}
 {% block content %}
      <div class="container">
         <div class="row">
@@ -131,9 +158,9 @@
                                             </div>
                                         {% endif %}
                                         
-                                        {% if request.user != object.user %}
-                                            <a class="create_portfolio to_center" href="{% url 'services:view_portfolio' object.user.pk %}">{% trans "Смотреть больше" %}</a>
-                                        {% endif %}
+                                        {% comment %} {% if request.user != object.user %} {% endcomment %}
+                                        <a class="show_more_btn create_portfolio to_center" href="">{% trans "Смотреть больше" %}</a>
+                                        {% comment %} {% endif %} {% endcomment %}
                                             
                                     </div>
     
@@ -191,6 +218,10 @@
             $('.specialist_about').toggleClass('hidden');
             $(this).toggleClass('hidden');
         });
+        $('.show_more_btn').click(function(e){
+            e.preventDefault();
+            $('.portfolio_box').toggleClass('hidden');
+        });
         
         $('.review_form .rate_option').click(function(){
             $('.review_form .rate_option').each(function(){
@@ -199,6 +230,24 @@
             $(this).addClass('selected')
         });
 
+
+        $('.portfolio_img').click(function(e) {
+            e.preventDefault();
+            position = $(this).attr('position');
+            $('.carousel-item').each(function() {
+                $(this).removeClass('active');
+            })
+            $(".carousel-item[position='" + position + "']").addClass('active');
+            var from_top = window.pageYOffset ? window.pageYOffset : document.body.scrollTop;
+            $('.zoom_slider').css("top", from_top + 'px');
+            $('.zoom_slider').addClass('active');
+            $('body').css('overflow', 'hidden');
+        });
+
+        $('.slider_close_btn').click(function() {
+            $('.zoom_slider').removeClass('active');
+            $('body').css('overflow', 'auto');
+        });
 
       $('.form_confirm').click(function(e) {
         e.preventDefault();
