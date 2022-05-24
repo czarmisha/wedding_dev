@@ -211,6 +211,8 @@ class ClientProfile(models.Model):
         'Дата создания профиля', auto_now_add=True)
     slug = models.SlugField(max_length=200, unique=True,
                             default='defaultclient')
+    # uuid = models.CharField('User unique ID', max_length=120, unique=True, null=True, blank=True)
+    is_active = models.BooleanField('Is active', default=False)
 
     def __str__(self):
         return self.user.username

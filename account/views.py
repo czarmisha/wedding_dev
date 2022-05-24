@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, UserRegistrationForm, ClientEditForm, ChangePasswordForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
@@ -8,7 +7,6 @@ from django.contrib.auth.hashers import check_password
 from django.views.generic import DetailView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import get_user_model
-from .models import ClientProfile
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
 from tender.models import Tender
@@ -18,6 +16,8 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from .models import ClientProfile
+from .forms import LoginForm, UserRegistrationForm, ClientEditForm, ChangePasswordForm
 
 User = get_user_model()
 
@@ -79,11 +79,34 @@ def user_register(request):
             # Save the User object
             new_user.save()
             login(request, new_user)
+            subject = "Запрос на сброс пароля"
+            email_template_name = "account/verify_email.txt"
+            c = {
+            "email":new_user.email,
+            'domain':'https://toypoy.uz', #toypoy.uz
+            'site_name': 'Toypoy', #
+            "user": new_user,
+            'token': default_token_generator.make_token(new_user),
+            'protocol': 'http', #https
+            }
+            email = render_to_string(email_template_name, c)
+            try:
+                send_mail(subject, email, 'toypoy.uz@gmail.com', [new_user.email])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
             return HttpResponseRedirect(reverse('home', kwargs={}))
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/registration.html', {'user_form': user_form})
 
+def verify_email_confirm(request, *args, **kwargs):
+    user = User.objects.get(pk=kwargs.get('pk'))
+    if default_token_generator.check_token(user, kwargs.get('token')):
+        user.clientprofile.is_active=True
+        user.clientprofile.save()
+        user.save()
+    return HttpResponseRedirect(user.get_cabinet_url())
 
 def user_login(request):
     if request.method == 'POST':

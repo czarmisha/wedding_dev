@@ -1,0 +1,14 @@
+{% load i18n %}
+{% autoescape off %}
+{% trans "Здравствуйте" %},
+
+{% trans "Подтвердите вашу почту и активируйте аккаунт перейдя по ссылке ниже." %}
+
+{{ protocol }}://{{ domain }}{% url 'account:verify_email_confirm' pk=user.pk token=token %}
+
+{% trans "Если вы не регистрировались на сайте, вы можете просто проигнорировать данное сообщение." %}
+
+{% trans "С уважением" %},
+{% trans "Команда TOYPOY" %}
+
+{% endautoescape %}

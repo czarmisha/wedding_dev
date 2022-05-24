@@ -12,5 +12,6 @@ urlpatterns = [
     path('change-password/', views.change_password, name='change_password'),
     # path('cabinet/<slug:slug>/edit', views.ClientProfileUpdateView.as_view(), name='update_client_profile'),
     path('cabinet/edit', views.client_edit, name='update_client_profile'),
-    path("password_reset", views.password_reset_request, name="password_reset")
+    path("password_reset", views.password_reset_request, name="password_reset"),
+    path('user-verify/<int:pk>/<str:token>', views.verify_email_confirm, name='verify_email_confirm'),
 ]

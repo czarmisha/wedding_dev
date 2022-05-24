@@ -551,9 +551,9 @@ ul.rating_options{
     height: 100%;
 }
 .carousel-item img{
-    /* width: 100%; */
-    object-fit: cover;
-    /* height: 100%; */
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
 }
 .zoom_slider{
     position: absolute;

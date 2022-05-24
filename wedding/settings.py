@@ -201,12 +201,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Star Rating
-STAR_RATINGS_RERATE = False
-# STAR_RATINGS_RANGE = 5
-STAR_RATINGS_STAR_HEIGHT = 16
-STAR_RATINGS_STAR_WIDTH = 16
-
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
