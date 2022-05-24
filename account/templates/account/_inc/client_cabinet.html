@@ -16,7 +16,7 @@
         <p>{% trans "фамилия" %} <br> {% if not user.last_name %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.last_name}}</span> {% endif %}</p>
         <p>{% trans "телефон" %} <br> {% if not user.clientprofile.phone %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.clientprofile.phone}}</span> {% endif %}</p>
         <p>телеграм <br> {% if not user.clientprofile.telegram %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.clientprofile.telegram}}</span> {% endif %}</p>
-        <p>email <br> {% if not user.email %} <span class="unknown">{% trans "неизвестно (отредактируйте профиль)" %} </span> {% else %} <span> {{user.email}}</span> {% endif %}</p>
+        <p>email <br> {% if not user.clientprofile.is_active %} <span class="unknown">{% trans "подтвердите свой email (письмо с подтверждением было отправлено на ваше почту)" %} </span> {% else %} <span> {{user.email}}</span> {% endif %}</p>
     </div>
 </div>
 <div class="wedding_map">

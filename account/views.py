@@ -95,7 +95,7 @@ def user_register(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
-            return HttpResponseRedirect(reverse('home', kwargs={}))
+            return HttpResponseRedirect(new_user.get_cabinet_url())
     else:
         user_form = UserRegistrationForm()
     return render(request, 'account/registration.html', {'user_form': user_form})
@@ -117,7 +117,7 @@ def user_login(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponseRedirect(reverse('home', kwargs={}))
+                    return HttpResponseRedirect(user.get_cabinet_url())
                 else:
                     messages.error(request, 'Вы пытаетесь зайти в отключенный аккаунт')
             else:
