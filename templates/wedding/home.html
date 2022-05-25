@@ -84,7 +84,7 @@
                     </div>
                     <div class="tender_btns">
                         <a href="{% url 'tender:list' %}" class="btn__white">{% trans "Смотреть тендеры" %}</a>
-                        <a href="{% url 'tender:create' %}" class="btn__gold">{% trans "Создать тендер" %}</a>
+                        <a href="{% url 'tender:create' %}" class="btn__gold {% if request.user.type == 'client' and not request.user.clientprofile.is_active %}no_active_user{% endif %}">{% trans "Создать тендер" %}</a>
                     </div>
                 </div>
             </section>

@@ -106,6 +106,14 @@
             e.preventDefault();
             account_menu.classList.toggle('active');
         })
+
+        let notActiveUsers = document.querySelectorAll('.no_active_user');
+        for(user of notActiveUsers){
+            user.addEventListener('click', (e)=>{
+                e.preventDefault();
+                alert("Это действие требует подтвержденной почты аккаунта");
+            });
+        }
     </script>
     {% block script %}
 

@@ -80,7 +80,7 @@
 
 <div class="container">
     <div class="tender_list">
-        <a href="{% url 'tender:create' %}" class="create_tender">{% trans "Создать тендер" %}</a>
+        <a href="{% url 'tender:create' %}" class="create_tender {% if request.user.type == 'client' and not request.user.clientprofile.is_active %}no_active_user{% endif %}">{% trans "Создать тендер" %}</a>
         <div class="row">
             {% for obj in objs %}
             <div class="col-12 col-md-6">

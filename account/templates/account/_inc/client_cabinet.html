@@ -31,4 +31,4 @@
         <li><a href="{% url 'plan:plan_list' %}" class="wedding_map__link"><span><i class="fad fa-clipboard-list-check"></i> </span> {% trans "План свадебного дня" %}</a></li>
     </ul>
 </div>
-<a href="{% url 'tender:create' %}" class="create_tender">{% trans "Создать тендер" %}</a>
+<a href="{% url 'tender:create' %}" class="create_tender {% if request.user.type == 'client' and not request.user.clientprofile.is_active %}no_active_user{% endif %}">{% trans "Создать тендер" %}</a>

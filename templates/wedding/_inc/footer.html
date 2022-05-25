@@ -31,7 +31,7 @@
                     <div class="footer_menu_wrapper">
                         <ul class="footer_menu_list">
                             <li><a href="{% url 'tender:list'%}" class="footer_menu_link">{% trans "Смотреть тендеры" %}</a></li>
-                            <li><a href="{% url 'tender:create' %}" class="footer_menu_link">{% trans "Создать тендер" %}</a></li>
+                            <li><a href="{% url 'tender:create' %}" class="footer_menu_link {% if request.user.type == 'client' and not request.user.clientprofile.is_active %}no_active_user{% endif %}">{% trans "Создать тендер" %}</a></li>
                             <li><a href="" class="footer_menu_link_custom">{% trans "Скидки и акции" %}</a></li>
                             <li><a href="{% url 'services:top' %}" class="footer_menu_link_custom">{% trans "Рейтинг" %}</a></li>
                         </ul>
