@@ -16,7 +16,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-from .models import ClientProfile
+from .models import ClientProfile, BlockList
 from .forms import LoginForm, UserRegistrationForm, ClientEditForm, ChangePasswordForm
 
 User = get_user_model()
@@ -65,6 +65,9 @@ def user_register(request):
             new_user = user_form.save(commit=False)
             if(User.objects.filter(email=new_user.email).exists()):
                 messages.error(request, 'Пользователь с такой почтой уже зарегистрирован')
+                return render(request, 'account/registration.html', {'user_form': user_form})
+            if(BlockList.objects.filter(email=new_user.email).exists()):
+                messages.error(request, 'Эта почта заблокирована')
                 return render(request, 'account/registration.html', {'user_form': user_form})
             if hascyr(new_user.username):
                 messages.error(request, 'Имя пользователя должно быть на латинице')

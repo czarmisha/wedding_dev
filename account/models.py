@@ -1,3 +1,4 @@
+from statistics import mode
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
@@ -228,6 +229,9 @@ class ClientProfile(models.Model):
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
+
+class BlockList(models.Model):
+    email = models.EmailField('email')
 
 # class SpecialistProfile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)

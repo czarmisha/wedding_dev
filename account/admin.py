@@ -1,4 +1,4 @@
-from .models import ClientProfile, Category, City, District
+from .models import ClientProfile, Category, City, District, BlockList
 from django.contrib import admin
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model, admin as auth_admin
@@ -29,3 +29,4 @@ admin.site.register(ClientProfile)
 # admin.site.register(Category)
 admin.site.register(City)
 admin.site.register(District)
+admin.site.register(BlockList)
