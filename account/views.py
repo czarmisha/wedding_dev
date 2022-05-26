@@ -82,15 +82,15 @@ def user_register(request):
             # Save the User object
             new_user.save()
             login(request, new_user)
-            subject = "Запрос на сброс пароля"
+            subject = "Верификация почты"
             email_template_name = "account/verify_email.txt"
             c = {
             "email":new_user.email,
-            'domain':'https://toypoy.uz', #toypoy.uz
+            'domain':'toypoy.uz', #toypoy.uz
             'site_name': 'Toypoy', #
             "user": new_user,
             'token': default_token_generator.make_token(new_user),
-            'protocol': 'http', #https
+            'protocol': 'https',
             }
             email = render_to_string(email_template_name, c)
             try:
