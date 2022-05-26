@@ -72,16 +72,6 @@ def user_register(request):
             if hascyr(new_user.username):
                 messages.error(request, 'Имя пользователя должно быть на латинице')
                 return render(request, 'account/registration.html', {'user_form': user_form})
-            # Set the chosen password
-            new_user.set_password(user_form.cleaned_data['password1'])
-            new_user.save()
-            # Create profile for user
-            new_client = ClientProfile(user=new_user, phone=123)
-            new_client.save()
-            new_user.clientprofile = new_client
-            # Save the User object
-            new_user.save()
-            login(request, new_user)
             subject = "Верификация почты"
             email_template_name = "account/verify_email.txt"
             c = {
@@ -97,6 +87,16 @@ def user_register(request):
                 send_mail(subject, email, 'toypoy.uz@gmail.com', [new_user.email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
+            # Set the chosen password
+            new_user.set_password(user_form.cleaned_data['password1'])
+            new_user.save()
+            # Create profile for user
+            new_client = ClientProfile(user=new_user, phone=123)
+            new_client.save()
+            new_user.clientprofile = new_client
+            # Save the User object
+            new_user.save()
+            login(request, new_user)
 
             return HttpResponseRedirect(new_user.get_cabinet_url())
     else:
