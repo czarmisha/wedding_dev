@@ -117,7 +117,11 @@
                                         <ul class="more_info">
                                             <li class="more_info_title"><span>{% trans "Преимущества" %}</span></li>
                                             {% for benefit in benefits %}
+                                                {% if CURRENT_LANGUAGE == 'ru' %}
                                                 <li class="more_info_element{% if benefit in object.benefits.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{benefit.name}}</li>
+                                                {% else %}
+                                                <li class="more_info_element{% if benefit in object.benefits.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{benefit.name_uz}}</li>
+                                                {% endif %}
                                             {% endfor %}
                                     
                                         </ul>
@@ -126,7 +130,11 @@
                                         <ul class="more_info">
                                             <li class="more_info_title"><span>{% trans "Услуги за доп. плату" %}</span></li>
                                             {% for additional_service in additional_services %}
+                                                {% if CURRENT_LANGUAGE == 'ru' %}
                                                 <li class="more_info_element{% if additional_service in object.additional_services.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{additional_service.name}}</li>
+                                                {% else %}
+                                                <li class="more_info_element{% if additional_service in object.additional_services.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{additional_service.name_uz}}</li>
+                                                {% endif %}
                                             {% endfor %}
                                     
                                         </ul>
@@ -135,7 +143,11 @@
                                         <ul class="more_info">
                                             <li class="more_info_title"><span>{% trans "Способ оплаты" %}</span></li>
                                             {% for payment_method in payment_methods %}
+                                                {% if CURRENT_LANGUAGE == 'ru' %}
                                                 <li class="more_info_element{% if payment_method in object.payment.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{payment_method.name}}</li>
+                                                {% else %}
+                                                <li class="more_info_element{% if payment_method in object.payment.all %} active{% endif %}"><span><i class="fad fa-badge-check"></i></span>{{payment_method.name_uz}}</li>
+                                                {% endif %}
                                             {% endfor %}
                                     
                                         </ul>

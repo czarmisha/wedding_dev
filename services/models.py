@@ -185,6 +185,7 @@ class PhotoStudio(models.Model):
 
 class PhotostudioAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -196,6 +197,7 @@ class PhotostudioAdditionalFeeService(models.Model):
 
 class PhotostudioBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -207,6 +209,7 @@ class PhotostudioBenefits(models.Model):
 
 class PhotostudioPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -709,6 +712,7 @@ class Presenter(models.Model):
 
 class PresenterAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -720,6 +724,7 @@ class PresenterAdditionalFeeService(models.Model):
 
 class PresenterBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -731,6 +736,7 @@ class PresenterBenefits(models.Model):
 
 class PresenterPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -807,6 +813,7 @@ class Music(models.Model):
 
 class MusicAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -818,6 +825,7 @@ class MusicAdditionalFeeService(models.Model):
 
 class MusicBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -829,6 +837,7 @@ class MusicBenefits(models.Model):
 
 class MusicPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1001,6 +1010,7 @@ class Restaurant(models.Model):
 
 class RestaurantAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1012,6 +1022,7 @@ class RestaurantAdditionalFeeService(models.Model):
 
 class RestaurantBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1023,6 +1034,7 @@ class RestaurantBenefits(models.Model):
 
 class RestaurantPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1095,6 +1107,7 @@ class Photographer(models.Model):
 
 class PhotographerAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1106,6 +1119,7 @@ class PhotographerAdditionalFeeService(models.Model):
 
 class PhotographerBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1117,6 +1131,7 @@ class PhotographerBenefits(models.Model):
 
 class PhotographerPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1167,6 +1182,7 @@ class Videographer(models.Model):
 
 class VideographerAdditionalFeeService(models.Model):
     name = models.CharField('Название услуги', max_length=155)
+    name_uz = models.CharField('Название услуги UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1178,6 +1194,7 @@ class VideographerAdditionalFeeService(models.Model):
 
 class VideographerBenefits(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1189,6 +1206,7 @@ class VideographerBenefits(models.Model):
 
 class VideographerPaymentMethod(models.Model):
     name = models.CharField('Название', max_length=155)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
