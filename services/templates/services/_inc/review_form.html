@@ -9,5 +9,11 @@
             <li class="rate_option positive_rate" value='3'><i class="fad fa-smile"></i></li>
         </ul>
     </div>
-    <button type="submit" class="form_confirm">{% trans "Отправить" %}</button>
+    {% if request.user.type == 'client' and not request.user.clientprofile.is_active %}
+    <p class="write_review err">{% trans "Писать отзывы могут только пользователи с подтвержденной почтой" %}</p>
+    {% else %}
+    <button type="submit" class="form_confirm">
+        {% trans "Отправить" %}
+    </button>
+    {% endif %}
 </form>

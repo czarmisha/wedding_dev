@@ -271,6 +271,11 @@ main{
     font-family: 'Roboto_medium';
 }
 
+.write_review.err{
+    margin-left: 0;
+    color: #cd2b2b;
+}
+
 .review_form{
     margin-left: 20px;
     display: flex;
