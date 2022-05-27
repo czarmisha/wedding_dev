@@ -119,14 +119,15 @@ class PresenterFilter(django_filters.FilterSet):
 
 
 class MusicFilter(django_filters.FilterSet):
-    price = django_filters.RangeFilter(field_name='price_per_evening')
+    price = django_filters.RangeFilter(field_name='price')
     composition = django_filters.ChoiceFilter(
         field_name='composition', choices=models.Music._COMPOSITION_TYPE, empty_label='Исполнители')
+    vocal = django_filters.ChoiceFilter(
+        field_name='vocal', choices=models.Music._VOCAL_TYPE, empty_label='Вокал')
     language = django_filters.ModelMultipleChoiceFilter(
         queryset=models.Language.objects.all(),
         widget=forms.SelectMultiple,
         label='Язык исполнения песен',
-        # empty_label="Язык исполнения песен"
         )
 
     class Meta:
@@ -146,7 +147,7 @@ class ArtistFilter(django_filters.FilterSet):
 
 class CakeFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Cake._TYPES, empty_label='Тип услуг')
+        field_name='type', choices=models.Cake._TYPES, empty_label='Тип услуги')
     price = django_filters.RangeFilter(field_name='price_per_kg')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -192,7 +193,7 @@ class CostumeFilter(django_filters.FilterSet):
 
 class RingFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Ring._TYPE, empty_label='Тип услуг')
+        field_name='type', choices=models.Ring._TYPE, empty_label='Тип услуги')
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
