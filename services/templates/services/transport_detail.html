@@ -56,7 +56,11 @@
                         <p class="specialist_type">{% trans "Услуга" %}: {{object.get_with_driver_display}}</p>
                         <p class="specialist_type">{% trans "Типы авто" %}: 
                             {% for type in object.car_type.all %}
-                            {{type.name}}
+                                {% if CURRENT_LANGUAGE == 'ru' %}
+                                    {{ type.name }}
+                                    {% else %}
+                                    {{ type.name_uz }}
+                                {% endif %}
                             {% endfor %}
                         </p>
                         <p class="specialist_type">{% trans "Марки авто" %}: <span>

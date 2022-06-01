@@ -58,7 +58,11 @@
                         
                         <p class="specialist_type">{% trans "Кухни" %}: 
                         {% for kitchen in object.kitchen.all %}
-                            {{kitchen.name}}   
+                        {% if CURRENT_LANGUAGE == 'ru' %}
+                            {{ kitchen.name }}
+                            {% else %}
+                            {{ kitchen.name_uz }}
+                        {% endif %} 
                         {% endfor %}
                             </p>
                         <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
@@ -77,7 +81,7 @@
                         {% if object.phone3 %}
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone3}}</a></p>
                         {% endif %}
-                        <p class="specialist_type">Пожалуйста, сообщите, что нашли информацию на <a href="https://toypoy.uz">TOYPOY.uz</a></p>
+                        <p class="specialist_type">{% trans "Пожалуйста, сообщите, что нашли информацию на" %} <a href="https://toypoy.uz">TOYPOY.uz</a></p>
                     </div>
                     <div class="rating">
                         <ul class="rating_options">

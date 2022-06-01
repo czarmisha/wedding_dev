@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, get_language
 from ckeditor.fields import RichTextField
 
 User = get_user_model()
@@ -751,7 +751,7 @@ class Language(models.Model):
     name_uz = models.CharField('Язык UZ', max_length=155, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
     class Meta:
         verbose_name = 'Язык'
@@ -902,7 +902,7 @@ class CarType(models.Model):
     name_uz = models.CharField('Тип авто UZ', max_length=155, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
     class Meta:
         verbose_name = 'Тип автомобиля'
@@ -961,7 +961,7 @@ class ShowType(models.Model):
     name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
     class Meta:
         verbose_name = 'Тип шоупрограммы'
@@ -1052,7 +1052,7 @@ class RestaurantType(models.Model):
     name_uz = models.CharField('Тип заведения UZ', max_length=155, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
     class Meta:
         verbose_name = 'Тип заведения'
@@ -1064,7 +1064,7 @@ class KitchenType(models.Model):
     name_uz = models.CharField('Название кухни UZ', max_length=155, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
     class Meta:
         verbose_name = 'Кухня'

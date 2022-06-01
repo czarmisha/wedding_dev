@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from django.utils.text import slugify
+from django.utils.translation import get_language
 from django.contrib.contenttypes.fields import GenericRelation
 # from tender.models import Tender
 
@@ -200,7 +201,7 @@ class District(models.Model):
         verbose_name_plural = 'Районы'
 
     def __str__(self):
-        return self.name
+        return self.name if get_language() == 'ru' else self.name_uz
 
 
 class ClientProfile(models.Model):
