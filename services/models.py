@@ -748,6 +748,7 @@ class PresenterPaymentMethod(models.Model):
 
 class Language(models.Model):
     name = models.CharField(("Язык"), max_length=50)
+    name_uz = models.CharField('Язык UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -897,7 +898,8 @@ class Transport(models.Model):
     
 
 class CarType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField('Тип авто', max_length=100)
+    name_uz = models.CharField('Тип авто UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -955,7 +957,8 @@ class Artist(models.Model):
 
 
 class ShowType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField('Название', max_length=100)
+    name_uz = models.CharField('Название UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1046,6 +1049,7 @@ class RestaurantPaymentMethod(models.Model):
 
 class RestaurantType(models.Model):
     name = models.CharField('Тип заведения', max_length=155)
+    name_uz = models.CharField('Тип заведения UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name
@@ -1057,6 +1061,7 @@ class RestaurantType(models.Model):
 
 class KitchenType(models.Model):
     name = models.CharField('Название кухни', max_length=155)
+    name_uz = models.CharField('Название кухни UZ', max_length=155, blank=True)
 
     def __str__(self):
         return self.name

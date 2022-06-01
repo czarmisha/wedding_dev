@@ -191,6 +191,7 @@ class City(models.Model):
 
 class District(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название района')
+    name_uz = models.CharField('Название района UZ', max_length=155, blank=True)
     city = models.ForeignKey(
         'City', on_delete=models.CASCADE, verbose_name='Город района')
 
