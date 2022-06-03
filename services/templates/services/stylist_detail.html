@@ -62,7 +62,11 @@
                             {% trans "нет" %}
                         {% endif %}
                             </p>
-                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                            {% if CURRENT_LANGUAGE == 'ru' %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                            {% else %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address_uz}}</p>
+                            {% endif %}
                         <p class="specialist_price">{% trans "Стоимость услуги от" %}: <br><span>{{object.price}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">

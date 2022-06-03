@@ -53,7 +53,11 @@
                             {{object.name}} {% else %} {{object.user}} {% endif %}</p>
                         <p class="specialist_type">{{object.get_type_display}}</p>
                         {% comment %} <p class="specialist_type">{% trans "Район" %}: {{ object.location }}</p> {% endcomment %}
-                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                        {% if CURRENT_LANGUAGE == 'ru' %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                            {% else %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address_uz}}</p>
+                            {% endif %}
                         <p class="specialist_price">{% trans "Стоимость часа аренды от" %}: <br><span>{{object.price_per_hour}} {% trans "сум" %}</span></p>
                     </div>
                     <div class="contacts">

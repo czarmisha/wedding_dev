@@ -65,7 +65,11 @@
                         {% endif %} 
                         {% endfor %}
                             </p>
-                        <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                            {% if CURRENT_LANGUAGE == 'ru' %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address}}</p>
+                            {% else %}
+                                <p class="specialist_type">{% trans "Адрес" %}: {{object.address_uz}}</p>
+                            {% endif %}
                         <p class="specialist_price">{% trans "Средний чек от" %}: <br><span>{{object.average_check}} {% trans "сум" %}</span></p>
                         <p class="specialist_price">{% trans "Вместимость" %}: <span>{{object.capacity}} {% trans "чел" %}</span></p>
                     </div>
