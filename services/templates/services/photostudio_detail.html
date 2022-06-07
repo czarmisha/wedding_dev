@@ -115,6 +115,7 @@
                             <div class="spec_more_info">
                                 <h3 class="subtitle">{% trans "Особенности и детали" %}</h3>
                                 <div class="row">
+                                    {% if not object.type == '2' %}
                                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                                         <ul class="more_info">
                                             <li class="more_info_title"><span>{% trans "Преимущества" %}</span></li>
@@ -141,6 +142,7 @@
                                     
                                         </ul>
                                     </div>
+                                    {% endif %}
                                     <div class="col-12 col-md-6 col-lg-4 mb-4">
                                         <ul class="more_info">
                                             <li class="more_info_title"><span>{% trans "Способ оплаты" %}</span></li>
