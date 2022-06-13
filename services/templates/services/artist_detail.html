@@ -59,12 +59,12 @@
                         {% if object.telegram %}<p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="{{object.telegram}}">Telegram</a></p>{% endif %}
                         {% if object.instagram %}<p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}">Instagram</a></p>{% endif %}
                         {% if object.facebook %}<p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}">Facebook</a></p>{% endif %}
-                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone}}</a></p>
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="tel:{{object.phone}}">{{object.phone}}</a></p>
                         {% if object.phone2 %}
-                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone2}}</a></p>
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="tel:{{object.phone2}}">{{object.phone2}}</a></p>
                         {% endif %}
                         {% if object.phone3 %}
-                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="phone:{{object.phone}}">{{object.phone3}}</a></p>
+                        <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="tel:{{object.phone3}}">{{object.phone3}}</a></p>
                         {% endif %}
                         <p class="specialist_type">{% trans "Пожалуйста, сообщите, что нашли информацию на TOYPOY.uz" %}</p>
                     </div>
