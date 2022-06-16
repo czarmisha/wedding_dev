@@ -24,14 +24,27 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
+# EMAIL sending
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# mail.ru smtp
+# EMAIL_HOST = 'smtp.mail.ru'
+# EMAIL_PORT = 2525
+# EMAIL_HOST_USER = "toypoyuz@list.ru"
+# # EMAIL_HOST_PASSWORD = "toypoy_admin2022"
+# EMAIL_HOST_PASSWORD = 'pt95gSGbFBLCZcrGLyRg'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+# gmail smtp
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = True
 EMAIL_PORT = 587
 # EMAIL_PORT = 465
 EMAIL_HOST_USER = 'toypoy.uz@gmail.com'
-EMAIL_HOST_PASSWORD = 'pass12pass'
+# EMAIL_HOST_PASSWORD = 'pass12pass'
+EMAIL_HOST_PASSWORD = 'clzdamwqlxvjldyw'
 
 
 # Quick-start development settings - unsuitable for production
