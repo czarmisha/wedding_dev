@@ -16,6 +16,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.utils.translation import gettext_lazy as _
 from .models import ClientProfile, BlockList
 from .forms import LoginForm, UserRegistrationForm, ClientEditForm, ChangePasswordForm
 
@@ -31,7 +32,7 @@ def password_reset_request(request):
 			associated_users = User.objects.filter(Q(email=data))
 			if associated_users.exists():
 				for user in associated_users:
-					subject = "Запрос на сброс пароля"
+					subject = _("Запрос на сброс пароля")
 					email_template_name = "account/password/password_reset.txt"
 					c = {
 					"email":user.email,
@@ -61,20 +62,21 @@ def user_register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
-            # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
             if(User.objects.filter(email=new_user.email).exists()):
-                messages.error(request, 'Пользователь с такой почтой уже зарегистрирован')
+                messages.error(request, _('Пользователь с такой почтой уже зарегистрирован'))
                 return render(request, 'account/registration.html', {'user_form': user_form})
             if(BlockList.objects.filter(email=new_user.email).exists()):
-                messages.error(request, 'Эта почта заблокирована')
+                messages.error(request, _('Эта почта заблокирована'))
                 return render(request, 'account/registration.html', {'user_form': user_form})
             if hascyr(new_user.username):
-                messages.error(request, 'Имя пользователя должно быть на латинице')
+                messages.error(request, _('Имя пользователя должно быть на латинице'))
                 return render(request, 'account/registration.html', {'user_form': user_form})
-             # Set the chosen password
+
             new_user.set_password(user_form.cleaned_data['password1'])
             new_user.save()
+            verify_token = default_token_generator.make_token(new_user)
+            print('СОЗДАЛ ТОКЕН', verify_token)
             subject = "Верификация почты"
             email_template_name = "account/verify_email.txt"
             c = {
@@ -82,7 +84,7 @@ def user_register(request):
             'domain':'toypoy.uz', #toypoy.uz
             'site_name': 'Toypoy', #
             "user": new_user,
-            'token': default_token_generator.make_token(new_user),
+            'token': verify_token,
             'protocol': 'https',
             }
             email = render_to_string(email_template_name, c)
@@ -91,6 +93,7 @@ def user_register(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             # Create profile for user
+            new_user.token = verify_token
             new_client = ClientProfile(user=new_user, phone=123)
             new_client.save()
             new_user.clientprofile = new_client
@@ -105,7 +108,10 @@ def user_register(request):
 
 def verify_email_confirm(request, *args, **kwargs):
     user = User.objects.get(pk=kwargs.get('pk'))
-    if default_token_generator.check_token(user, kwargs.get('token')):
+    print('USER', user)
+    print('ТОКЕН', kwargs.get('token'))
+    # if default_token_generator.check_token(user, kwargs.get('token').strip()):
+    if user and user.token == kwargs.get('token'):
         user.clientprofile.is_active=True
         user.clientprofile.save()
         user.save()

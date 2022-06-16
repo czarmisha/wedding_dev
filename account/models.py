@@ -12,6 +12,7 @@ class User(AbstractUser):
     type = models.CharField(
         'Тип пользователя', max_length=155, default='client')
     rating = models.FloatField('Рейтинг пользователя', default=0)
+    token = models.CharField('Email Token', max_length=155, null=True, blank=True)
 
     # def __str__(self):
     #     return self.username
