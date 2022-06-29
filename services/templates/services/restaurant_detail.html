@@ -75,9 +75,9 @@
                     </div>
                     <div class="contacts">
                         <h3 class="subtitle">{% trans "Контакты" %}</h3>
-                        {% if object.telegram %}<p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="{{object.telegram}}">Telegram</a></p>{% endif %}
-                        {% if object.instagram %}<p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}">Instagram</a></p>{% endif %}
-                        {% if object.facebook %}<p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}">Facebook</a></p>{% endif %}
+                        {% if object.telegram %}<p class="specialist_telegram"><span><i class="fab fa-telegram-plane"></i></span><a href="{{object.telegram}}" target="_blank">Telegram</a></p>{% endif %}
+                        {% if object.instagram %}<p class="specialist_telegram"><span><i class="fab fa-instagram"></i></span><a href="{{object.instagram}}" target="_blank">Instagram</a></p>{% endif %}
+                        {% if object.facebook %}<p class="specialist_telegram"><span><i class="fab fa-facebook-f"></i></span><a href="{{object.facebook}}" target="_blank">Facebook</a></p>{% endif %}
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="tel:{{object.phone}}">{{object.phone}}</a></p>
                         {% if object.phone2 %}
                         <p class="specialist_phone"><span><i class="fad fa-phone-alt"></i></span><a href="tel:{{object.phone2}}">{{object.phone2}}</a></p>
