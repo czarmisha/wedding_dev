@@ -47,6 +47,8 @@ urlpatterns = i18n_patterns(
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('/static/images/favico/favicon.ico'))),
     # path('ratings/', include('star_ratings.urls', namespace='ratings')),
 )
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "wedding.views.page_not_found_view"
