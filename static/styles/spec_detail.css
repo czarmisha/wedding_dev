@@ -37,7 +37,7 @@ main{
     font-size: 35px;
 }
 .add_favorite{
-    color: white;
+    color: var(--gold-color);
 }
 .add_favorite:hover{
     color: var(--gold-color);
