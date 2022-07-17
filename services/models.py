@@ -92,8 +92,8 @@ class Agency(models.Model):
         super(Agency, self).save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Свадебное агенство'
-        verbose_name_plural = 'Свадебные агенства'
+        verbose_name = 'Свадебное агентство'
+        verbose_name_plural = 'Свадебные агентства'
         ordering = ['-is_pro', '-created',]
 
 
