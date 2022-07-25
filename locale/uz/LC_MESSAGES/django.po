@@ -1896,10 +1896,8 @@ msgid "Каталог услуг"
 msgstr "Xizmatlar katalogi"
 
 #: services/templates/services/catalog.html:12
-#, fuzzy
-#| msgid "Каталог свадебных специалистов"
 msgid "Каталог свадебных услуг"
-msgstr "To'y mutaxassislari ma'lumotnomasi"
+msgstr "To'y xizmatlari katalogi"
 
 #: services/templates/services/catalog.html:42
 msgid "Транспортные улсуги"
