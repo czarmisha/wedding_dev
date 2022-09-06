@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-17 16:36+0500\n"
+"POT-Creation-Date: 2022-09-06 11:12+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -793,7 +792,6 @@ msgid "Подтвердите вашу почту и активируйте ак
 msgstr ""
 
 #: account/templates/account/verify_email.txt:9
-#, fuzzy
 #| msgid ""
 #| "Если вы не делали это запроса, вы можете просто проигнорировать данное "
 #| "сообщение."
@@ -814,7 +812,6 @@ msgid "Аккаунт"
 msgstr "Hisob qaydnomasi"
 
 #: account/views.py:35
-#, fuzzy
 #| msgid "Сброс пароля"
 msgid "Запрос на сброс пароля"
 msgstr "Parolni unutdingizmi?"
@@ -1239,6 +1236,68 @@ msgstr "Bir kunlik ijara narxi"
 #: services/templates/services/videographer_list.html:85
 msgid "Стоимость видеосъёмки от"
 msgstr "Rasmga tushirish narxi"
+
+#: services/filters.py:30
+#| msgid "Языки исполнения"
+msgid "Тип заведения"
+msgstr "Ijro tillari"
+
+#: services/filters.py:51
+#| msgid "Подробности регистрации"
+msgid "Виды регистрации"
+msgstr "Ro'yxatdan o'tish tamoyillari "
+
+#: services/filters.py:64 services/filters.py:151 services/filters.py:165
+#: services/filters.py:181 services/filters.py:197 services/filters.py:211
+#: services/filters.py:225 services/filters.py:241 services/filters.py:255
+#| msgid "Услуги"
+msgid "Тип услуги"
+msgstr "Xizmatlar"
+
+#: services/filters.py:86
+msgid "Тип"
+msgstr ""
+
+#: services/filters.py:92
+#| msgid "Типы авто"
+msgid "Тип авто"
+msgstr "Avto turlari"
+
+#: services/filters.py:99
+#| msgid "Без водителя"
+msgid "Водитель"
+msgstr "Haydovchisiz"
+
+#: services/filters.py:109 services/templates/services/presenter_detail.html:58
+msgid "Пол"
+msgstr "Jins"
+
+#: services/filters.py:111 services/templates/services/music_detail.html:56
+#: services/templates/services/presenter_detail.html:57
+msgid "Состав"
+msgstr "Tarkibi"
+
+#: services/filters.py:125
+#| msgid "С водителем"
+msgid "Исполнители"
+msgstr "Haydovchi bilan"
+
+#: services/filters.py:127 services/templates/services/music_detail.html:57
+msgid "Вокал"
+msgstr "Vokal"
+
+#: services/filters.py:142
+msgid "Тип шоу"
+msgstr ""
+
+#: services/filters.py:172 services/filters.py:188
+msgid "Вид сделки"
+msgstr ""
+
+#: services/filters.py:227
+#| msgid "Услуги"
+msgid "Вид услуги"
+msgstr "Xizmatlar"
 
 #: services/models.py:102 services/models.py:227 services/models.py:332
 #: services/models.py:414 services/models.py:506 services/models.py:551
@@ -1952,15 +2011,6 @@ msgstr "To'yingiz haqidagi birinchi taassurotga ustunlik bering"
 msgid "Музыканты и DJ"
 msgstr "Musiqachilar va DJ"
 
-#: services/templates/services/music_detail.html:56
-#: services/templates/services/presenter_detail.html:57
-msgid "Состав"
-msgstr "Tarkibi"
-
-#: services/templates/services/music_detail.html:57
-msgid "Вокал"
-msgstr "Vokal"
-
 #: services/templates/services/music_detail.html:58
 msgid "Языки исполнения"
 msgstr "Ijro tillari"
@@ -2010,7 +2060,6 @@ msgid "Пускайтесь в пляс под знакомые мелодии �
 msgstr "Tanish ohanglar va kompozitsiyalarga raqsga tushishni boshlang"
 
 #: services/templates/services/music_list.html:257
-#, fuzzy
 #| msgid "Языки исполнения"
 msgid "Язык исполнения"
 msgstr "Ijro tillari"
@@ -2058,10 +2107,6 @@ msgstr "profil"
 #: services/templates/services/presenter_detail.html:13
 msgid "Ведущий"
 msgstr "Boshlovchi"
-
-#: services/templates/services/presenter_detail.html:58
-msgid "Пол"
-msgstr "Jins"
 
 #: services/templates/services/presenter_detail.html:59
 msgid "Языки"
@@ -2387,10 +2432,14 @@ msgid "Регистрация молодожёнов"
 msgstr "Ro'yxatga olish"
 
 #: templates/wedding/home.html:253
+#| msgid ""
+#| "Вы свадебный профессионал, фирма или просто мастер своего дела? Тогда Вам "
+#| "точно к нам. Отправьте запрос для регистрации на сайте, регистрируйтесь, "
+#| "размещайте и предлагайте свои услуги совершенно"
 msgid ""
 "Вы свадебный профессионал, фирма или просто мастер своего дела? Тогда Вам "
-"точно к нам. Отправьте запрос для регистрации на сайте, регистрируйтесь, "
-"размещайте и предлагайте свои услуги совершенно"
+"точно к нам. Отправьте запрос для регистрации на сайте и размещайте свои "
+"услуги совершенно "
 msgstr ""
 "Siz nikoh professionali, firma yoki o'z ishingiz ustamisiz? Unda siz Aniq "
 "biz bilan bo'lishigiz kerak. Saytda ro'yxatdan o'tish uchun so'rov yuboring, "
@@ -2402,9 +2451,12 @@ msgid "бесплатно."
 msgstr "tekin"
 
 #: templates/wedding/home.html:255
+#| msgid ""
+#| " Зарабатывайте, участвуйте в тендерах, развивайтесь и повышайте свой "
+#| "профессионализм."
 msgid ""
-" Зарабатывайте, участвуйте в тендерах, развивайтесь и повышайте свой "
-"профессионализм."
+" Предлагайте свои услуги, зарабатывайте, участвуйте в тендерах, развивайтесь "
+"и повышайте профессионализм."
 msgstr ""
 "Pul Ishlab toping, tenderlarda ishtirok eting, o'z professionalligingizni "
 "oshiring."
@@ -2456,7 +2508,6 @@ msgstr ""
 "kerakli ma'lumotni koldiring"
 
 #: templates/wedding/promo.html:21
-#, fuzzy
 #| msgid ""
 #| "После, Вам будет создан аккаунт и выдан ваш логин и пароль (пароль можно "
 #| "и нужно будет изменить). Все это делается для поддержания одног формата "

@@ -2,6 +2,7 @@ from cProfile import label
 from queue import Empty
 import django_filters
 from django import forms
+from django.utils.translation import gettext_lazy as _
 from . import models
 from account.models import District
 
@@ -26,7 +27,7 @@ class RestaurantFilter(django_filters.FilterSet):
     price = django_filters.RangeFilter(field_name='average_check')
     capacity = django_filters.RangeFilter()
     type = django_filters.ModelChoiceFilter(
-        queryset=models.RestaurantType.objects.all(), empty_label='Тип заведения')
+        queryset=models.RestaurantType.objects.all(), empty_label=_('Тип заведения'))
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
@@ -47,7 +48,7 @@ class RegistryOfficeFilter(django_filters.FilterSet):
         widget=forms.SelectMultiple,
     )
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.RegistryOffice._REGISTRY_TYPE, empty_label='Виды регистрации')
+        field_name='type', choices=models.RegistryOffice._REGISTRY_TYPE, empty_label=_('Виды регистрации'))
 
     class Meta:
         model = models.RegistryOffice
@@ -60,7 +61,7 @@ class PhotoStudioFilter(django_filters.FilterSet):
         widget=forms.SelectMultiple,
     )
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.PhotoStudio._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.PhotoStudio._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter(field_name='price_per_hour')
 
     class Meta:
@@ -82,20 +83,20 @@ class DecorFilter(django_filters.FilterSet):
 
 class TransportFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Transport._TYPE, empty_label='Тип')
+        field_name='type', choices=models.Transport._TYPE, empty_label=_('Тип'))
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
     car_type = django_filters.ModelChoiceFilter(
-        queryset=models.CarType.objects.all(), empty_label='Тип авто')
+        queryset=models.CarType.objects.all(), empty_label=_('Тип авто'))
     car_brand = django_filters.ModelMultipleChoiceFilter(
         queryset=models.CarBrand.objects.all(),
         widget=forms.SelectMultiple,
     )
     price = django_filters.RangeFilter()
     with_driver = django_filters.ChoiceFilter(
-        field_name='with_driver', choices=models.Transport._WITH_DRIVER_TYPE, empty_label='Водитель')
+        field_name='with_driver', choices=models.Transport._WITH_DRIVER_TYPE, empty_label=_('Водитель'))
 
     class Meta:
         model = models.Transport
@@ -105,9 +106,9 @@ class TransportFilter(django_filters.FilterSet):
 class PresenterFilter(django_filters.FilterSet):
     price = django_filters.RangeFilter(field_name='price')
     gender = django_filters.ChoiceFilter(
-        field_name='gender', choices=models.Presenter._GENDER, empty_label='Пол')
+        field_name='gender', choices=models.Presenter._GENDER, empty_label=_('Пол'))
     composition = django_filters.ChoiceFilter(
-        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE, empty_label='Состав')
+        field_name='composition', choices=models.Presenter._COMPOSITION_TYPE, empty_label=_('Состав'))
     language = django_filters.ModelMultipleChoiceFilter(
         queryset=models.Language.objects.all(),
         widget=forms.SelectMultiple
@@ -121,9 +122,9 @@ class PresenterFilter(django_filters.FilterSet):
 class MusicFilter(django_filters.FilterSet):
     price = django_filters.RangeFilter(field_name='price')
     composition = django_filters.ChoiceFilter(
-        field_name='composition', choices=models.Music._COMPOSITION_TYPE, empty_label='Исполнители')
+        field_name='composition', choices=models.Music._COMPOSITION_TYPE, empty_label=_('Исполнители'))
     vocal = django_filters.ChoiceFilter(
-        field_name='vocal', choices=models.Music._VOCAL_TYPE, empty_label='Вокал')
+        field_name='vocal', choices=models.Music._VOCAL_TYPE, empty_label=_('Вокал'))
     language = django_filters.ModelMultipleChoiceFilter(
         queryset=models.Language.objects.all(),
         widget=forms.SelectMultiple,
@@ -138,7 +139,7 @@ class MusicFilter(django_filters.FilterSet):
 class ArtistFilter(django_filters.FilterSet):
     price = django_filters.RangeFilter()
     type = django_filters.ModelChoiceFilter(
-        queryset=models.ShowType.objects.all(), empty_label='Тип шоу')
+        queryset=models.ShowType.objects.all(), empty_label=_('Тип шоу'))
 
     class Meta:
         model = models.Artist
@@ -147,7 +148,7 @@ class ArtistFilter(django_filters.FilterSet):
 
 class CakeFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Cake._TYPES, empty_label='Тип услуги')
+        field_name='type', choices=models.Cake._TYPES, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter(field_name='price_per_kg')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -161,14 +162,14 @@ class CakeFilter(django_filters.FilterSet):
 
 class DressFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Dress._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Dress._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter(field_name='price')
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
     condition = django_filters.ChoiceFilter(
-        field_name='condition', choices=models.Dress._CONDITION_TYPES, empty_label='Вид сделки')
+        field_name='condition', choices=models.Dress._CONDITION_TYPES, empty_label=_('Вид сделки'))
 
     class Meta:
         model = models.Dress
@@ -177,14 +178,14 @@ class DressFilter(django_filters.FilterSet):
 
 class CostumeFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Costume._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Costume._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
         widget=forms.SelectMultiple,
     )
     condition = django_filters.ChoiceFilter(
-        field_name='condition', choices=models.Costume._CONDITION_TYPES, empty_label='Вид сделки')
+        field_name='condition', choices=models.Costume._CONDITION_TYPES, empty_label=_('Вид сделки'))
 
     class Meta:
         model = models.Costume
@@ -193,7 +194,7 @@ class CostumeFilter(django_filters.FilterSet):
 
 class RingFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Ring._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Ring._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -207,7 +208,7 @@ class RingFilter(django_filters.FilterSet):
 
 class BouquetFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Bouquet._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Bouquet._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -221,9 +222,9 @@ class BouquetFilter(django_filters.FilterSet):
 
 class StylistFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Stylist._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Stylist._TYPE, empty_label=_('Тип услуги'))
     service_type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Stylist._SERVICE_TYPE, empty_label='Вид услуги')
+        field_name='type', choices=models.Stylist._SERVICE_TYPE, empty_label=_('Вид услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -237,7 +238,7 @@ class StylistFilter(django_filters.FilterSet):
 
 class DanceFilter(django_filters.FilterSet):
     type = django_filters.ChoiceFilter(
-        field_name='type', choices=models.Dance._TYPE, empty_label='Тип услуги')
+        field_name='type', choices=models.Dance._TYPE, empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
@@ -251,7 +252,7 @@ class DanceFilter(django_filters.FilterSet):
 
 class AccessoriesFilter(django_filters.FilterSet):
     accessories_type = django_filters.ModelChoiceFilter(
-        queryset=models.AccessoriesType.objects.all(), empty_label='Тип услуги')
+        queryset=models.AccessoriesType.objects.all(), empty_label=_('Тип услуги'))
     price = django_filters.RangeFilter()
     location = django_filters.ModelMultipleChoiceFilter(
         queryset=District.objects.all(),
