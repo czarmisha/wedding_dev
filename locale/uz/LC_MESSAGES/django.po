@@ -99,9 +99,9 @@ msgstr "telefon"
 
 #: account/templates/account/_inc/client_cabinet.html:19
 msgid ""
-"подтвердите свой email (письмо с подтверждением было отправлено на ваше "
+"подтвердите свой email (письмо с подтверждением было отправлено на вашу "
 "почту)"
-msgstr ""
+msgstr "elektron pochtangizni tasdiqlang (elektron pochtangizga tasdiqlovchi xat yuborildi)"
 
 #: account/templates/account/_inc/client_cabinet.html:24
 msgid "Моя подготовка к свадьбе"
@@ -155,29 +155,29 @@ msgstr "Kabinet"
 
 #: account/templates/account/change_password.html:10
 msgid "Изменить пароль"
-msgstr "Parolni qayta kiriting"
+msgstr "Parolni o'zgartirish"
 
 #: account/templates/account/change_password.html:13
 msgid "Смена пароля"
-msgstr "Parolni unutdingizmi?"
+msgstr "Parolni o'zgartirish"
 
 #: account/templates/account/change_password.html:24
 msgid "Текущий пароль"
-msgstr "Parolni unutdingizmi?"
+msgstr "Joriy parol"
 
 #: account/templates/account/change_password.html:28
 #: account/templates/account/password/password_reset_confirm.html:13
 #: account/templates/account/password/password_reset_confirm.html:27
 msgid "Новый пароль"
-msgstr "Parolni unutdingizmi?"
+msgstr "Yangi parol"
 
 #: account/templates/account/change_password.html:32
 msgid "Повторить новый пароль"
-msgstr "Parolni qayta kiriting"
+msgstr "Yangi parolni qayta kiriting"
 
 #: account/templates/account/change_password.html:36
 msgid "Введённые пароли должны совпадать"
-msgstr "Parolni qayta kiriting"
+msgstr "Kiritilgan parollar mos kelishi kerak"
 
 #: account/templates/account/change_password.html:38
 #: account/templates/account/clientprofile_update_form.html:37
@@ -191,7 +191,7 @@ msgstr "Profilni tahrirlash"
 
 #: account/templates/account/clientprofile_update_form.html:11
 msgid "Редактировать профиль"
-msgstr "Profilni tahrirlash"
+msgstr "Profilni tahrirlang"
 
 #: account/templates/account/favorites.html:8
 #: account/templates/account/favorites.html:11 templates/wedding/home.html:36
@@ -441,7 +441,7 @@ msgstr "To'y agentliklari"
 
 #: account/templates/account/login.html:10
 msgid "Вход в аккаунт"
-msgstr "Hali akkauntingiz yo'qmi?"
+msgstr "Akkauntingizga kirish"
 
 #: account/templates/account/login.html:13
 #: templates/wedding/_inc/header.html:71 templates/wedding/_inc/header.html:127
@@ -520,7 +520,7 @@ msgstr "Javoblar"
 #: account/templates/account/password/password_reset_confirm.html:10
 #: account/templates/account/password/password_reset_done.html:10
 msgid "Сброс пароля"
-msgstr "Parolni unutdingizmi?"
+msgstr "Parolni tiklash"
 
 #: account/templates/account/password/password_reset.html:24
 msgid ""
@@ -528,7 +528,7 @@ msgid ""
 "письмо с инструкцией по сбросу пароля"
 msgstr ""
 "Parolni unutdingizmi? Hisob qaydnomangizda ko'rsatilgan elektron "
-"pochtangizni kiriting va biz sizga Parolni tiklash bo'yicha xat yuboramiz"
+"pochtangizni kiriting va biz sizga parolni tiklash bo'yicha xat yuboramiz"
 
 #: account/templates/account/password/password_reset.html:27
 msgid "Ваш Email"
@@ -571,7 +571,7 @@ msgstr ""
 #: account/templates/account/password/password_reset.txt:13
 #: account/templates/account/verify_email.txt:11
 msgid "С уважением"
-msgstr "Sahnaga chiqish"
+msgstr "Hurmat bilan"
 
 #: account/templates/account/password/password_reset.txt:14
 #: account/templates/account/verify_email.txt:12
@@ -588,7 +588,7 @@ msgstr "Parolni qayta kiriting"
 
 #: account/templates/account/password/password_reset_confirm.html:31
 msgid "Подтверждение пароля"
-msgstr "Parolni qayta kiriting"
+msgstr "Parolni tasdiqlang"
 
 #: account/templates/account/password/password_reset_done.html:12
 msgid ""
@@ -610,17 +610,16 @@ msgstr ""
 
 #: account/templates/account/rating.html:12
 msgid "Рейтинг специалистов"
-msgstr "Mutaxassislarni qidirish"
+msgstr "Mutaxassislarni reytingi"
 
 #: account/templates/account/rating.html:18
 msgid "Топ 10 специалистов"
-msgstr "Mutaxassislarni qidirish"
+msgstr "Top 10 mutaxassislar"
 
 #: account/templates/account/rating.html:21
 msgid "Рейтинг лучших специалистов с проверенными оценками и отзывами"
-msgstr ""
-"to'yingizni tashkil qilish uchun Toshkentdagi eng yaxshi mutaxassislar "
-"katalogini to'pladi orzular"
+msgstr "Tasdiqlangan baholar va sharhlar bilan eng yaxshi mutaxassislarning reytingi"
+
 
 #: account/templates/account/rating.html:24
 #: services/templates/services/accessories_list.html:23
@@ -785,11 +784,11 @@ msgstr "Roʻyxatdan oʻtish"
 
 #: account/templates/account/registration.html:42
 msgid "У Вас уже есть аккаунт?"
-msgstr "Sizda kkaunt bormi?"
+msgstr "Sizda akkaunt bormi?"
 
 #: account/templates/account/verify_email.txt:5
 msgid "Подтвердите вашу почту и активируйте аккаунт перейдя по ссылке ниже."
-msgstr ""
+msgstr "Quyidagi havolani bosish orqali elektron pochtangizni tasdiqlang va hisobingizni faollashtiring."
 
 #: account/templates/account/verify_email.txt:9
 #| msgid ""
@@ -814,23 +813,23 @@ msgstr "Hisob qaydnomasi"
 #: account/views.py:35
 #| msgid "Сброс пароля"
 msgid "Запрос на сброс пароля"
-msgstr "Parolni unutdingizmi?"
+msgstr "Parolni tiklash so'rovi"
 
 #: account/views.py:67
 msgid "Пользователь с такой почтой уже зарегистрирован"
-msgstr ""
+msgstr "Ushbu elektron pochta manziliga ega foydalanuvchi allaqachon ro'yxatdan o'tgan"
 
 #: account/views.py:70
 msgid "Эта почта заблокирована"
-msgstr ""
+msgstr "Bu elektron pochta bloklangan"
 
 #: account/views.py:73
 msgid "Имя пользователя должно быть на латинице"
-msgstr ""
+msgstr "Foydalanuvchi nomi lotin tilida bo'lishi kerak"
 
 #: budget/templates/budget/budget.html:11
 msgid "Свадебный бюджет"
-msgstr "To'y guldastalari"
+msgstr "To'y byudjeti"
 
 #: guest_list/templates/guest_list/guest_list.html:14
 msgid "Гости невесты<"
@@ -1126,14 +1125,14 @@ msgstr "Buket narxi"
 #: search/templates/search/search_result.html:52
 #: services/templates/services/cake_list.html:91
 msgid "Стоимость торта за кг"
-msgstr "Zalni bezash narxi"
+msgstr "Bir kilogramm tort narxi"
 
 #: search/templates/search/search_result.html:54
 #: services/templates/services/costume_detail.html:65
 #: services/templates/services/costume_list.html:50
 #: services/templates/services/costume_list.html:96
 msgid "Стоимость костюма от"
-msgstr "Rasmga tushirish narxi"
+msgstr "Kostyum narxi"
 
 #: search/templates/search/search_result.html:56
 #: services/templates/services/dance_detail.html:63
@@ -1154,13 +1153,13 @@ msgstr "Zalni bezash narxi"
 #: services/templates/services/dress_list.html:50
 #: services/templates/services/dress_list.html:96
 msgid "Стоимость платья от"
-msgstr "Dars narxi"
+msgstr "Libos narxi"
 
 #: search/templates/search/search_result.html:64
 #: services/templates/services/music_list.html:50
 #: services/templates/services/music_list.html:96
 msgid "Стоимость выступления за вечер"
-msgstr "Zalni bezash narxi"
+msgstr "Bir kechada ishlash narxi"
 
 #: search/templates/search/search_result.html:66
 #: services/templates/services/photographer_list.html:84
@@ -1184,7 +1183,7 @@ msgstr "Soatlik ijara narxi"
 #: services/templates/services/presenter_list.html:50
 #: services/templates/services/presenter_list.html:94
 msgid "Стоимость ведения свадьбы от"
-msgstr "Rasmga tushirish narxi"
+msgstr "To'yni o'tkazish narxi"
 
 #: search/templates/search/search_result.html:76
 #: services/templates/services/restaurant_detail.html:75
@@ -1222,7 +1221,7 @@ msgstr "Uzuk narxi"
 #: services/templates/services/stylist_list.html:50
 #: services/templates/services/stylist_list.html:93
 msgid "Стоимость услуги от"
-msgstr "Rasmga tushirish narxi"
+msgstr "Xizmat narxi"
 
 #: search/templates/search/search_result.html:84
 #: services/templates/services/transport_detail.html:73
@@ -1235,28 +1234,28 @@ msgstr "Bir kunlik ijara narxi"
 #: services/templates/services/videographer_detail.html:56
 #: services/templates/services/videographer_list.html:85
 msgid "Стоимость видеосъёмки от"
-msgstr "Rasmga tushirish narxi"
+msgstr "Video suratga tushirish narxi"
 
 #: services/filters.py:30
 #| msgid "Языки исполнения"
 msgid "Тип заведения"
-msgstr "Ijro tillari"
+msgstr "Tashkilot turi"
 
 #: services/filters.py:51
 #| msgid "Подробности регистрации"
 msgid "Виды регистрации"
-msgstr "Ro'yxatdan o'tish tamoyillari "
+msgstr "Ro'yxatga olish turlari"
 
 #: services/filters.py:64 services/filters.py:151 services/filters.py:165
 #: services/filters.py:181 services/filters.py:197 services/filters.py:211
 #: services/filters.py:225 services/filters.py:241 services/filters.py:255
 #| msgid "Услуги"
 msgid "Тип услуги"
-msgstr "Xizmatlar"
+msgstr "Xizmat turi"
 
 #: services/filters.py:86
 msgid "Тип"
-msgstr ""
+msgstr "Turi"
 
 #: services/filters.py:92
 #| msgid "Типы авто"
@@ -1266,7 +1265,7 @@ msgstr "Avto turlari"
 #: services/filters.py:99
 #| msgid "Без водителя"
 msgid "Водитель"
-msgstr "Haydovchisiz"
+msgstr "Haydovchi"
 
 #: services/filters.py:109 services/templates/services/presenter_detail.html:58
 msgid "Пол"
@@ -1280,7 +1279,7 @@ msgstr "Tarkibi"
 #: services/filters.py:125
 #| msgid "С водителем"
 msgid "Исполнители"
-msgstr "Haydovchi bilan"
+msgstr "Ijrochilar"
 
 #: services/filters.py:127 services/templates/services/music_detail.html:57
 msgid "Вокал"
@@ -1288,16 +1287,16 @@ msgstr "Vokal"
 
 #: services/filters.py:142
 msgid "Тип шоу"
-msgstr ""
+msgstr "Shou turlari"
 
 #: services/filters.py:172 services/filters.py:188
 msgid "Вид сделки"
-msgstr ""
+msgstr "Tranzaksiya turlari"
 
 #: services/filters.py:227
 #| msgid "Услуги"
 msgid "Вид услуги"
-msgstr "Xizmatlar"
+msgstr "Xizmat turlari"
 
 #: services/models.py:102 services/models.py:227 services/models.py:332
 #: services/models.py:414 services/models.py:506 services/models.py:551
@@ -1309,7 +1308,7 @@ msgstr "Kompaniya"
 #: services/models.py:415 services/models.py:459 services/models.py:507
 #: services/models.py:552 services/models.py:866
 msgid "Индивидуальные услуги"
-msgstr "Transport xizmatlari"
+msgstr "Individual xizmatlar"
 
 #: services/models.py:145
 msgid "Фотостудии"
@@ -1321,15 +1320,15 @@ msgstr "Fotosessiya uchun joylar"
 
 #: services/models.py:231
 msgid "Свадебная причёска"
-msgstr "To'y liboslari"
+msgstr "To'y soch turmagi"
 
 #: services/models.py:232
 msgid "Свадебный маникюр"
-msgstr "To'y raqsi"
+msgstr "To'y manikyurasi"
 
 #: services/models.py:233
 msgid "Свадебный макияж"
-msgstr "To'y raqsi"
+msgstr "To'y makiyaji"
 
 #: services/models.py:328 services/models.py:502
 msgid "Продажа"
@@ -1381,7 +1380,7 @@ msgstr "Dj"
 
 #: services/models.py:782
 msgid "Мужской"
-msgstr "Erkaklar kostyumlari"
+msgstr "Erkak"
 
 #: services/models.py:783
 msgid "Женский"
@@ -1401,7 +1400,7 @@ msgstr "Izoh yozing"
 
 #: services/templates/services/_inc/review_form.html:13
 msgid "Писать отзывы могут только пользователи с подтвержденной почтой"
-msgstr ""
+msgstr "Faqat tasdiqlangan elektron pochtaga ega foydalanuvchilar sharh yozishlari mumkin"
 
 #: services/templates/services/_inc/review_form.html:16
 msgid "Отправить"
@@ -1557,7 +1556,7 @@ msgstr "Profil"
 #: services/templates/services/transport_detail.html:125
 #: services/templates/services/videographer_detail.html:110
 msgid "Читать больше"
-msgstr "Izoh yozing"
+msgstr "Ko'proq o'qish"
 
 #: services/templates/services/accessories_detail.html:125
 #: services/templates/services/agency_detail.html:115
@@ -1605,7 +1604,7 @@ msgstr "Bajarilgan ishlar"
 #: services/templates/services/videographer_detail.html:180
 #: services/views.py:482 services/views.py:500
 msgid "Добавить фото/видео"
-msgstr "Mehmon qo'shish"
+msgstr "Foto/video qo'shish"
 
 #: services/templates/services/accessories_detail.html:152
 #: services/templates/services/accessories_detail.html:168
@@ -1671,7 +1670,7 @@ msgstr "Bajarilgan ishlarni oʻchirish"
 #: services/templates/services/transport_detail.html:164
 #: services/templates/services/videographer_detail.html:193
 msgid "Удалить портфолио?"
-msgstr "Bajarilgan ishlarni oʻchirish"
+msgstr "Bajarilgan ishlarni oʻchirasmi?"
 
 #: services/templates/services/accessories_detail.html:164
 #: services/templates/services/agency_detail.html:154
@@ -1744,7 +1743,7 @@ msgstr "Bekor qilish"
 #: services/templates/services/transport_detail.html:181
 #: services/templates/services/videographer_detail.html:210
 msgid "Смотреть больше"
-msgstr "Izoh yozing"
+msgstr "Batafsil"
 
 #: services/templates/services/accessories_detail.html:185
 #: services/templates/services/agency_detail.html:175
@@ -1791,7 +1790,7 @@ msgstr "Bajarilgan ishlarni yaratmoq"
 #: services/templates/services/transport_detail.html:220
 #: services/templates/services/videographer_detail.html:249
 msgid "Вы уже писали отзыв"
-msgstr "Siz izoh koldirganmisiz"
+msgstr "Siz izoh koldirgansiz"
 
 #: services/templates/services/accessories_list.html:20
 msgid ""
@@ -1882,7 +1881,7 @@ msgstr "Hudud"
 
 #: services/templates/services/add_portfolio.html:10
 msgid "Добавление портфолио"
-msgstr "Bajarilgan ishlarni oʻchirish"
+msgstr "Bajarilgan ishlarni qoshish"
 
 #: services/templates/services/add_portfolio.html:17
 #: tender/templates/tender/tender_create.html:55
@@ -2017,7 +2016,7 @@ msgstr "Ijro tillari"
 
 #: services/templates/services/music_detail.html:59
 msgid "Стоимость выступления от"
-msgstr "Zalni bezash narxi"
+msgstr "Sahnaga chiqish narxi"
 
 #: services/templates/services/music_detail.html:114
 #: services/templates/services/photographer_detail.html:112
@@ -2026,7 +2025,7 @@ msgstr "Zalni bezash narxi"
 #: services/templates/services/restaurant_detail.html:131
 #: services/templates/services/videographer_detail.html:112
 msgid "Особенности и детали"
-msgstr "Ro'yxatdan o'tish tamoyillari "
+msgstr "Xususiyatlari va tafsilotlari"
 
 #: services/templates/services/music_detail.html:118
 #: services/templates/services/photographer_detail.html:116
@@ -2102,7 +2101,7 @@ msgstr "Soatlik ijara narxi"
 
 #: services/templates/services/portfolio.html:16
 msgid "к профилю"
-msgstr "profil"
+msgstr "profilga"
 
 #: services/templates/services/presenter_detail.html:13
 msgid "Ведущий"
@@ -2114,7 +2113,7 @@ msgstr "Tillar"
 
 #: services/templates/services/presenter_detail.html:60
 msgid "Стоимость ведения от"
-msgstr "Rasmga tushirish narxi"
+msgstr "Xizmat narxi"
 
 #: services/templates/services/presenter_detail.html:61
 #: services/templates/services/videographer_detail.html:57
@@ -2138,7 +2137,7 @@ msgstr "Til"
 msgid ""
 "Проведите торжественную церемонию в элегантном Дворце бракосочетания Вашего "
 "города"
-msgstr "Shahringizdagi nafis Nikoh saroyida tantanali marosimni o'tkazing"
+msgstr "Shahringizdagi nafis nikoh saroyida tantanali marosimni o'tkazing"
 
 #: services/templates/services/restaurant_detail.html:12
 #: services/templates/services/restaurant_list.html:11
@@ -2225,7 +2224,7 @@ msgstr "Baholash uchun tizimga kiring"
 
 #: templates/star_ratings/widget.html:68
 msgid "Средняя оценка: "
-msgstr "O'rtacha baholash:"
+msgstr "O'rtacha baho:"
 
 #: templates/star_ratings/widget.html:71
 msgid "Количество оценок: "
@@ -2350,7 +2349,7 @@ msgstr "Yangi turmush qurganlarning e'lonlari"
 
 #: templates/wedding/home.html:37
 msgid "Утверждённая команда ваших специалистов"
-msgstr "To'y mutaxassislari ma'lumotnomasi"
+msgstr "To'y mutaxassislaringizning tasdiqlangan jamoasi"
 
 #: templates/wedding/home.html:46
 msgid "Здесь молодожены ищут специалистов."
@@ -2429,7 +2428,7 @@ msgstr ""
 
 #: templates/wedding/home.html:250
 msgid "Регистрация молодожёнов"
-msgstr "Ro'yxatga olish"
+msgstr "Yangi turmush qurganlarni ro'yxatga olish"
 
 #: templates/wedding/home.html:253
 #| msgid ""
@@ -2458,7 +2457,7 @@ msgid ""
 " Предлагайте свои услуги, зарабатывайте, участвуйте в тендерах, развивайтесь "
 "и повышайте профессионализм."
 msgstr ""
-"Pul Ishlab toping, tenderlarda ishtirok eting, o'z professionalligingizni "
+"Tenderlarda ishtirok eting, pul ishlab toping, o'z professionalligingizni "
 "oshiring."
 
 #: templates/wedding/home.html:257
@@ -2467,7 +2466,7 @@ msgstr "Ro'yxatdan o'tish tamoyillari "
 
 #: templates/wedding/promo.html:4
 msgid "Регистрация специалистов"
-msgstr "Mutaxassislarni qidirish"
+msgstr "Mutaxassislarni ro'yxatdan o'tkazish"
 
 #: templates/wedding/promo.html:15
 msgid "Что может дать"
@@ -2582,7 +2581,7 @@ msgstr "To'y agentligi"
 
 #: tender/models.py:37
 msgid "Дата создания тендера"
-msgstr "Tender yaratish"
+msgstr "Tender tuzilgan sana"
 
 #: tender/models.py:39
 msgid "Бюджет (y.e.)"
@@ -2614,11 +2613,11 @@ msgstr "Tender yaratish"
 
 #: tender/templates/tender/tender_create.html:16
 msgid "Тендеры (свадебные объявления)"
-msgstr "E'lonlar yarating"
+msgstr "Tenderlar (to'y e'lonlari)"
 
 #: tender/templates/tender/tender_create.html:16
 msgid "раздел для поиска молодоженами специалистов на свадьбу"
-msgstr "Bu erda yangi turmush qurganlar mutaxassislarni qidiradilar"
+msgstr "yangi turmush qurganlar uchun to'y uchun mutaxassislarni qidirish bo'limi"
 
 #: tender/templates/tender/tender_create.html:17
 msgid ""
@@ -2631,7 +2630,7 @@ msgid ""
 "сайта помогают мгновенно связать молодожён как с индивидуальными "
 "профессионалами, там и с крупными фирмами или компаниями"
 msgstr ""
-"Yangi turmush qurganlar tenderlar yaratishi afzalligi shundaki, sizKerakli "
+"Yangi turmush qurganlar tenderlar yaratishi afzalligi shundaki, siz kerakli "
 "mutaxassislarni qidirish uchun vaqtni kamaytirasiz. Sizning tenderingiz "
 "(to'yingiz e'lonini barcha manfaatdor mutaxassislar ko'radi va Sizning "
 "talablaringiz va shartlaringiz asosida tenderda ishtirok etishni qabul "
@@ -2643,7 +2642,7 @@ msgstr ""
 
 #: tender/templates/tender/tender_create.html:19
 msgid "Для"
-msgstr "nomi"
+msgstr "Uchun"
 
 #: tender/templates/tender/tender_create.html:19
 msgid "грамотного"
@@ -2683,7 +2682,7 @@ msgstr ""
 "Tenderda ishtirok etish bilan mutaxassislar sizga ularning narxini taklif "
 "qilishlari mumkin, Bu siz ko'rsatganingizdan past bo'lishi mumkin. Ammo, "
 "byudjet qanchalik yuqori bo'lsa, sizga shunchalik malakali xizmatlar taqdim "
-"etilishi mumkin. Byudjet оdatiy ko'rsatiladigan U.E."
+"etilishi mumkin. Byudjet оdatiy $ ko'rsatiladi"
 
 #: tender/templates/tender/tender_create.html:27
 msgid ""
@@ -2706,7 +2705,7 @@ msgstr "Saytda tenderlar (to'y e'lonlari) yarating"
 msgid ""
 "и забудьте о головной боли в бесконечных поисках специалистов по всему городу"
 msgstr ""
-"Va shahar bo'ylab mutaxassislarni cheksiz qidirishda bosh og'rig'ini unuting "
+"va shahar bo'ylab mutaxassislarni cheksiz qidirishda bosh og'rig'ini unuting "
 
 #: tender/templates/tender/tender_detail.html:23
 msgid "Тендер"
@@ -2755,7 +2754,7 @@ msgstr "Tadbir sanasi"
 
 #: tender/templates/tender/tender_update_form.html:11
 msgid "Изменение тендера"
-msgstr "Tenderni o'chirish"
+msgstr "Tenderni o'zgartirish"
 
 #: tender/templates/tender/tender_update_form.html:15
 msgid "Редактировать тендер"
@@ -2767,11 +2766,11 @@ msgstr "Tenderlar ro'yxati"
 
 #: wedding/settings.py:190
 msgid "Russian"
-msgstr "rus"
+msgstr "Rus"
 
 #: wedding/settings.py:191
 msgid "Uzbek"
-msgstr "o'zbek"
+msgstr "O'zbek"
 
 #: wedding/views.py:31
 msgid ""
